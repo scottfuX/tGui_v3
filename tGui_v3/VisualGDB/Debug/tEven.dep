@@ -1,0 +1,10 @@
+VisualGDB/Debug/tEven.o: tGui/tEven.cpp tGui/tEven.h tGui/tGlobal.h \
+ tGui/tPoint.h tGui/tSize.h
+
+tGui/tEven.h:
+
+tGui/tGlobal.h:
+
+tGui/tPoint.h:
+
+tGui/tSize.h:

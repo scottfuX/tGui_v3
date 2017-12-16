@@ -1,0 +1,9 @@
+VisualGDB/Debug/ffunicode.o: periph_conf/fatfs/ffunicode.c \
+ periph_conf/fatfs/ff.h periph_conf/fatfs/integer.h \
+ periph_conf/fatfs/ffconf.h
+
+periph_conf/fatfs/ff.h:
+
+periph_conf/fatfs/integer.h:
+
+periph_conf/fatfs/ffconf.h:

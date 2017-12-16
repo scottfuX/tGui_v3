@@ -1,0 +1,5 @@
+VisualGDB/Debug/tPoint.o: tGui/tPoint.cpp tGui/tPoint.h tGui/tGlobal.h
+
+tGui/tPoint.h:
+
+tGui/tGlobal.h:

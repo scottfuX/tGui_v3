@@ -1,0 +1,131 @@
+VisualGDB/Debug/tString.o: tGui/tContainter/tString.cpp \
+ tGui/tContainter/tString.h tGui/tGlobal.h tGui/tContainter/tArray.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\string.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\_ansi.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\newlib.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\config.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\ieeefp.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\features.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\_newlib_version.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\reent.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\_ansi.h \
+ c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\7.2.0\include\stddef.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_types.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\_types.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\_default_types.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\lock.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\cdefs.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_locale.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\string.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdio.h \
+ c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\7.2.0\include\stdarg.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\types.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_stdint.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\endian.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\_endian.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\select.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_sigset.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_timeval.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\timespec.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_timespec.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_pthreadtypes.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\types.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\stdio.h \
+ c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\stdlib.h \
+ c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\cstdlib \
+ c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\c++config.h \
+ c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\os_defines.h \
+ c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\cpu_defines.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdlib.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\stdlib.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\alloca.h \
+ c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\bits\std_abs.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\ctype.h
+
+tGui/tContainter/tString.h:
+
+tGui/tGlobal.h:
+
+tGui/tContainter/tArray.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\string.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\_ansi.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\newlib.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\config.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\ieeefp.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\features.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\_newlib_version.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\reent.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\_ansi.h:
+
+c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\7.2.0\include\stddef.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_types.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\_types.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\_default_types.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\lock.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\cdefs.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_locale.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\string.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdio.h:
+
+c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\7.2.0\include\stdarg.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\types.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_stdint.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\endian.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\_endian.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\select.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_sigset.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_timeval.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\timespec.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_timespec.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_pthreadtypes.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\types.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\stdio.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\stdlib.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\cstdlib:
+
+c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\c++config.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\os_defines.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\cpu_defines.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdlib.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\stdlib.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\alloca.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\bits\std_abs.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\ctype.h:
