@@ -112,6 +112,27 @@
     <Filter Include="Header files\tGui\tObject">
       <UniqueIdentifier>{3f6648b0-e7cb-4882-a751-90887f6f5aa9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source files\tGui\tPainter">
+      <UniqueIdentifier>{387479dd-cd75-4bb5-aeab-18b8fe0fc862}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\tGui\tPainter">
+      <UniqueIdentifier>{d5626d8a-75b5-4e36-8d4b-d3002764551c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\tGui\interface_conf">
+      <UniqueIdentifier>{475a4d82-79c5-41bc-8f1e-09ad834be59b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\tGui\interface_conf">
+      <UniqueIdentifier>{c273f710-4d99-4aee-a130-978207a1078a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\Device-specific files\Stack/Heap">
+      <UniqueIdentifier>{6ac6f80e-376c-4c7d-9ff1-b51f3474513d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\tGui\demo">
+      <UniqueIdentifier>{8897ddfb-eb13-4ab4-8dda-498a56d4c62d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\tGui\demo">
+      <UniqueIdentifier>{f45a8350-1607-40e5-bc02-1a501e82f5fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="system_stm32f4xx.c">
@@ -537,9 +558,6 @@
     <ClCompile Include="stm32f4xx_it.c">
       <Filter>Source files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Users\fuguangtao\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
     <ClInclude Include="tGui\tContainter\tQueue.h">
       <Filter>Header files\tGui\tContainter</Filter>
     </ClInclude>
@@ -552,9 +570,6 @@
     <ClCompile Include="tGui\tContainter\tArray.cpp">
       <Filter>Source files\tGui\tContainter</Filter>
     </ClCompile>
-    <ClCompile Include="syscalls.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
     <ClCompile Include="tGui\tObject\tObject.cpp">
       <Filter>Source files\tGui\tObject</Filter>
     </ClCompile>
@@ -564,19 +579,7 @@
     <ClCompile Include="tGui\tGuiMain.cpp">
       <Filter>Source files\tGui</Filter>
     </ClCompile>
-    <ClCompile Include="tGui\tEven.cpp">
-      <Filter>Source files\tGui\tObject</Filter>
-    </ClCompile>
-    <ClCompile Include="tGui\tPoint.cpp">
-      <Filter>Source files\tGui\tObject</Filter>
-    </ClCompile>
-    <ClCompile Include="tGui\tSize.cpp">
-      <Filter>Source files\tGui\tObject</Filter>
-    </ClCompile>
     <ClCompile Include="tGui\tObject\tEven.cpp">
-      <Filter>Source files\tGui\tObject</Filter>
-    </ClCompile>
-    <ClCompile Include="tGui\tObject\tPoint.cpp">
       <Filter>Source files\tGui\tObject</Filter>
     </ClCompile>
     <ClCompile Include="tGui\tObject\tSize.cpp">
@@ -596,6 +599,54 @@
     </ClInclude>
     <ClInclude Include="tGui\tObject\tWidget.h">
       <Filter>Header files\tGui\tObject</Filter>
+    </ClInclude>
+    <ClCompile Include="tGui\tObject\tRect.cpp">
+      <Filter>Source files\tGui\tObject</Filter>
+    </ClCompile>
+    <ClCompile Include="tGui\tObject\tWidget.cpp">
+      <Filter>Source files\tGui\tObject</Filter>
+    </ClCompile>
+    <ClCompile Include="tGui\tPainter\tPainter.cpp">
+      <Filter>Source files\tGui\tPainter</Filter>
+    </ClCompile>
+    <ClInclude Include="tGui\tPainter\tPainter.h">
+      <Filter>Header files\tGui\tPainter</Filter>
+    </ClInclude>
+    <ClCompile Include="tGui\tPainter\tPaintDiver.cpp">
+      <Filter>Source files\tGui\tPainter</Filter>
+    </ClCompile>
+    <ClCompile Include="tGui\interface_conf\tgui_conf.c">
+      <Filter>Source files\tGui\interface_conf</Filter>
+    </ClCompile>
+    <ClInclude Include="tGui\interface_conf\tgui_conf.h">
+      <Filter>Header files\tGui\interface_conf</Filter>
+    </ClInclude>
+    <ClCompile Include="tGui\tObject\tPushButton.cpp">
+      <Filter>Source files\tGui\tObject</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\StackAndHeap\StackAndHeap.c">
+      <Filter>Source files\Device-specific files\Stack/Heap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Users\fuguangtao\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="tGui\tObject\tApplication.cpp">
+      <Filter>Source files\tGui\tObject</Filter>
+    </ClCompile>
+    <ClCompile Include="tGui\tObject\tDirver.cpp">
+      <Filter>Source files\tGui\tObject</Filter>
+    </ClCompile>
+    <ClCompile Include="tGui\tObject\connection.cpp">
+      <Filter>Source files\tGui\tObject</Filter>
+    </ClCompile>
+    <ClCompile Include="tGui\tContainter\tConnectList.cpp">
+      <Filter>Source files\tGui\tContainter</Filter>
+    </ClCompile>
+    <ClCompile Include="demo\User.cpp">
+      <Filter>Source files\tGui\demo</Filter>
+    </ClCompile>
+    <ClInclude Include="demo\User.h">
+      <Filter>Header files\tGui\demo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -626,28 +677,34 @@
     <ClInclude Include="tGui\tContainter\tMap.h">
       <Filter>Header files\tGui\tContainter</Filter>
     </ClInclude>
-    <ClInclude Include="tGui\tGuiMain.h">
-      <Filter>Header files\tGui</Filter>
-    </ClInclude>
     <ClInclude Include="tGui\tContainter\tObjList.h">
       <Filter>Header files\tGui\tContainter</Filter>
-    </ClInclude>
-    <ClInclude Include="tGui\tAbstractButton.h">
-      <Filter>Header files\tGui\tObject</Filter>
-    </ClInclude>
-    <ClInclude Include="tGui\tWidget.h">
-      <Filter>Header files\tGui\tObject</Filter>
     </ClInclude>
     <ClInclude Include="tGui\tObject\tRect.h">
       <Filter>Header files\tGui\tObject</Filter>
     </ClInclude>
-    <ClInclude Include="tGui\tEven.h">
+    <ClInclude Include="tGui\tObject\tPushButton.h">
       <Filter>Header files\tGui\tObject</Filter>
     </ClInclude>
-    <ClInclude Include="tGui\tPoint.h">
+    <ClInclude Include="tGui\tPainter\tPaintDiver.h">
+      <Filter>Header files\tGui\tPainter</Filter>
+    </ClInclude>
+    <ClInclude Include="tGui\tGuiMain.h">
+      <Filter>Header files\tGui</Filter>
+    </ClInclude>
+    <ClInclude Include="tGui\tObject\tApplication.h">
       <Filter>Header files\tGui\tObject</Filter>
     </ClInclude>
-    <ClInclude Include="tGui\tSize.h">
+    <ClInclude Include="tGui\tObject\tDirver.h">
+      <Filter>Header files\tGui\tObject</Filter>
+    </ClInclude>
+    <ClInclude Include="tGui\tContainter\tFuncList.h">
+      <Filter>Header files\tGui\tContainter</Filter>
+    </ClInclude>
+    <ClInclude Include="tGui\tContainter\tConnectList.h">
+      <Filter>Header files\tGui\tContainter</Filter>
+    </ClInclude>
+    <ClInclude Include="tGui\tObject\connection.h">
       <Filter>Header files\tGui\tObject</Filter>
     </ClInclude>
   </ItemGroup>

@@ -15,6 +15,7 @@ template<class T>
 template<class T>
 	class tMapIterator;
 template<class T>
+
 class  tLNode
 {
 	friend class tList<T>;
@@ -25,7 +26,7 @@ private:
     T	    data;
     tLNode *prev;
     tLNode *next;
-	tLNode(T d){data = d; }
+	tLNode(T d) { data = d; prev = NULL; next = NULL; }
 };
 
 
@@ -40,7 +41,7 @@ class  tList : public tCollection<T>	// doubly linked generic list
 	friend class tMap<T>;
 	friend class tMapIterator<T>;
 public :
-    uint32  count() const {    return numNodes;};			// return number of nodes
+    uint32  count() const { return numNodes;};			// return number of nodes
 
 protected:
     tList();					// create empty list
@@ -63,6 +64,7 @@ protected:
     T	  takeAt( uint32 index );			// take out item at i'th pos
     T	  takeFirst();				// take out first item
     T	  takeLast();				// take out last item
+	tLNode<T> *take(T t) { find(t); return unlink(); }
 
     void  clear();				// remove all items
 
@@ -74,8 +76,6 @@ protected:
 
     T	  at(uint32 index) {tLNode<T> *n = locate( index );return n ? n->data : 0;};			// access item at i'th pos
     int32	  at() const { return curIndex;};				// get current index
-    tLNode<T> *currentNode() const { return curNode;};		// get current node
-
     T	  get() const { return curNode ? curNode->data : 0;};				// get current item
 
     T	  cfirst() const {return firstNode ? firstNode->data : 0;};			// get ptr to first list item
@@ -84,6 +84,9 @@ protected:
     T	  last();				// set last item in list curr
     T	  next();				// set next item in list curr
     T	  prev();				// set prev item in list curr
+
+	tLNode<T> *currentNode() const { return curNode; };		// get current node
+	int32 currentIndex() const { return curIndex; }
 
 	void  toVector(tVector<T> * ) const;		// put items in vector
 
@@ -101,7 +104,7 @@ private:
     tList *  iterators;				// list of iterators
 
     tLNode<T> *locate( uint32 );			// get node at i'th pos
-    tLNode<T> *unlink();				// unlink node
+	tLNode<T> *unlink();				// unlink node
 };
 
 
@@ -314,7 +317,7 @@ void tList<T>::prepend(T d)
 template<class T>
 void tList<T>::append(T d)
 {
-	register tLNode<T> *n = new tLNode<T>(newItem(d));
+	register tLNode<T> *n = new tLNode<T>((d));
 	n->next = 0;
 	if ((n->prev = lastNode))			// list is not empty
 		lastNode->next = n;
@@ -469,8 +472,10 @@ bool tList<T>::remove(T d)
 	tLNode<T> *n = unlink(); 			// unlink node
 	if(!n)
 	return false;
-	deleteItem(n->data); 			// deallocate this node
+	deleteItem((void*)n->data); 			// deallocate this node
 	delete n;
+	curNode = firstNode;
+	curIndex = curNode ? 0 : -1;
 	return true;
 }
 

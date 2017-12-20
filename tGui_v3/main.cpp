@@ -2,6 +2,7 @@
 extern "C" {
 #endif
 #include <stdio.h>
+#include <string.h>
 #include "stm32f4xx_conf.h"
 #include "led/led_conf.h"
 #include "usart/usart_conf.h"
@@ -36,10 +37,15 @@ int main()
 	FLASHConfig();
 	GTP_Init_Panel();
 	LCD_Init();
-	LCDPalette();
-
+	LCD_Clear(WHITE);
+	//LCDPalette();
+	printf("234.");
 	//tGui function
 	tGuiRun();
-	for (;;){}
+	for (;;){
+		printf("123.");
+		LED_BLUE_Toggle();
+		DelayHandler(1000);
+	}
 	return 0;
 }

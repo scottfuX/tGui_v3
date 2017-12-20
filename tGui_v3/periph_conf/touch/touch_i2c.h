@@ -9,7 +9,7 @@
 
 /*使用软件IIC，把SOFT_IIC宏设置为1，硬件IIC则设置为0
 !!使用硬件IIC时非常容易出现错误，不推荐*/
-#define SOFT_IIC      1
+#define SOFT_IIC      0
 
 /*设定使用的电容屏IIC设备地址*/
 #define GTP_ADDRESS            0xBA

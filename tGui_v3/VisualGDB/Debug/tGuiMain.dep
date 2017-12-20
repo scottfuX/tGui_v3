@@ -1,4 +1,5 @@
 VisualGDB/Debug/tGuiMain.o: tGui/tGuiMain.cpp tGui/tGuiMain.h \
+ tGui/interface_conf\tgui_conf.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdio.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\_ansi.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\newlib.h \
@@ -78,9 +79,10 @@ VisualGDB/Debug/tGuiMain.o: tGui/tGuiMain.cpp tGui/tGuiMain.h \
  periph_conf/test/fstest.h periph_conf/test/lcdtest.h \
  periph_conf/test/lcdpalette.h periph_conf/touch/palette.h \
  periph_conf/touch/touch_i2c.h periph_conf/touch/gt9xx.h tGui/tGlobal.h \
- tGui/tContainter/tList.h tGui/tContainter/tCollection.h tGui/tGlobal.h \
- tGui/tContainter/tVector.h tGui/tContainter/tString.h \
- tGui/tContainter/tArray.h tGui/tContainter/tList.h \
+ tGui/interface_conf/tgui_conf.h tGui/tContainter/tList.h \
+ tGui/tContainter/tCollection.h tGui/tGlobal.h tGui/tContainter/tVector.h \
+ tGui/tContainter/tString.h tGui/tContainter/tArray.h \
+ tGui/tContainter/tList.h \
  c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\stdlib.h \
  c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\cstdlib \
  c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\c++config.h \
@@ -93,11 +95,24 @@ VisualGDB/Debug/tGuiMain.o: tGui/tGuiMain.cpp tGui/tGuiMain.h \
  tGui/tContainter/tArray.h tGui/tContainter/tString.h \
  tGui/tContainter/tVector.h tGui/tContainter/tStack.h \
  tGui/tContainter/tQueue.h tGui/tContainter/tBTree.h \
- tGui/tContainter/tCBTree.h tGui/tContainter/tMap.h \
+ tGui/tContainter/tCBTree.h tGui/tPainter/tPainter.h \
+ tGui/tPainter/tPaintDiver.h tGui/tContainter/tMap.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\ctype.h tGui/tObject/tObject.h \
- tGui/tContainter/tStack.h tGui/tEven.h tGui/tPoint.h tGui/tSize.h
+ tGui/tContainter/tStack.h tGui/tContainter/tList.h tGui/tObject/tEven.h \
+ tGui/tObject/tPoint.h tGui/tObject/tSize.h tGui/tObject/tRect.h \
+ tGui/tObject/connection.h tGui/tContainter/tFuncList.h \
+ tGui/tContainter/tConnectList.h tGui/tContainter/tObjList.h \
+ tGui/tObject/tObject.h tGui/tObject/tWidget.h tGui/tObject/tEven.h \
+ tGui/tObject/tObject.h tGui/tObject/tPushButton.h \
+ tGui/tObject/tAbstractButton.h tGui/tObject/tWidget.h \
+ tGui/tPainter/tPainter.h tGui/tObject/tEven.h tGui/tObject/tDirver.h \
+ tGui/interface_conf/tgui_conf.h tGui/tObject/tApplication.h \
+ tGui/tObject/tDirver.h C:/STM32F429/tGui_v3/tGui_v3/demo/User.h \
+ tGui/tObject/tWidget.h
 
 tGui/tGuiMain.h:
+
+tGui/interface_conf\tgui_conf.h:
 
 c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdio.h:
 
@@ -275,6 +290,8 @@ periph_conf/touch/gt9xx.h:
 
 tGui/tGlobal.h:
 
+tGui/interface_conf/tgui_conf.h:
+
 tGui/tContainter/tList.h:
 
 tGui/tContainter/tCollection.h:
@@ -321,6 +338,10 @@ tGui/tContainter/tBTree.h:
 
 tGui/tContainter/tCBTree.h:
 
+tGui/tPainter/tPainter.h:
+
+tGui/tPainter/tPaintDiver.h:
+
 tGui/tContainter/tMap.h:
 
 c:\sysgcc\arm-eabi\arm-eabi\sys-include\ctype.h:
@@ -329,8 +350,50 @@ tGui/tObject/tObject.h:
 
 tGui/tContainter/tStack.h:
 
-tGui/tEven.h:
+tGui/tContainter/tList.h:
 
-tGui/tPoint.h:
+tGui/tObject/tEven.h:
 
-tGui/tSize.h:
+tGui/tObject/tPoint.h:
+
+tGui/tObject/tSize.h:
+
+tGui/tObject/tRect.h:
+
+tGui/tObject/connection.h:
+
+tGui/tContainter/tFuncList.h:
+
+tGui/tContainter/tConnectList.h:
+
+tGui/tContainter/tObjList.h:
+
+tGui/tObject/tObject.h:
+
+tGui/tObject/tWidget.h:
+
+tGui/tObject/tEven.h:
+
+tGui/tObject/tObject.h:
+
+tGui/tObject/tPushButton.h:
+
+tGui/tObject/tAbstractButton.h:
+
+tGui/tObject/tWidget.h:
+
+tGui/tPainter/tPainter.h:
+
+tGui/tObject/tEven.h:
+
+tGui/tObject/tDirver.h:
+
+tGui/interface_conf/tgui_conf.h:
+
+tGui/tObject/tApplication.h:
+
+tGui/tObject/tDirver.h:
+
+C:/STM32F429/tGui_v3/tGui_v3/demo/User.h:
+
+tGui/tObject/tWidget.h:

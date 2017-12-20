@@ -82,15 +82,13 @@ protected:
 class tTouchEvent :public tEvent
 {
 public:
-	tTouchEvent(int32 type, const tPoint &pos, int32 state)
-		: tEvent(type), p(pos), s((uint16)state) {}
-	const tPoint &pos() const { return p; }
-	int32	   x()		const { return p.x(); }
-	int32	   y()		const { return p.y(); }
-	int32	   state()	const { return s; }
+	tTouchEvent(int32 type, const tPoint &pos)
+		: tEvent(type) { p = new tPoint(pos);}
+	const tPoint *pos() const { return p; }
+	int32	   x()		const { return p->x(); }
+	int32	   y()		const { return p->y(); }
 private:
-	tPoint p;
-	uint16 s;
+	tPoint* p;
 };
 
 

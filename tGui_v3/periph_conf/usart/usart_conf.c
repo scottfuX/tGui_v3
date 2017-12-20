@@ -138,7 +138,10 @@ int USART1_RX()
 	while (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == 0);
 	return USART_ReceiveData(USART1);
 }
-
+void out(const char *str)
+{
+	USART_SendString(USART1, str);
+}
 void USART1_TXByte(uint8_t ch)
 {
 	USART_SendByte(USART1, ch);

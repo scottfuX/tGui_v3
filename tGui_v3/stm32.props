@@ -9,7 +9,7 @@
 <!-- In order to build this project manually (outside VisualGDB), please provide TOOLCHAIN_ROOT, BSP_ROOT, EFP_BASE and TESTFW_BASE variables via Environment or Make command line -->
 	<ItemDefinitionGroup>
 		<ClCompile>
-			<PreprocessorDefinitions>ARM_MATH_CM4;STM32F429IG;flash_layout;STM32F429_439xx;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
+			<PreprocessorDefinitions>ARM_MATH_CM4;STM32F429IG;flash_layout;STM32F429_439xx;FIXED_STACK_SIZE=8192;FIXED_HEAP_SIZE=16384;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
 			<AdditionalIncludeDirectories>$(ProjectDir);$(BSP_ROOT)/STM32F4xxxx/STM32F4xx_StdPeriph_Driver/inc;$(BSP_ROOT)/STM32F4xxxx/CMSIS_StdPeriph/Device/ST/STM32F4xx/Include;$(BSP_ROOT)/STM32F4xxxx/CMSIS_StdPeriph/Include;$(BSP_ROOT)/STM32F4xxxx/CMSIS_StdPeriph/RTOS/Template;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
 		</ClCompile>
 	</ItemDefinitionGroup>

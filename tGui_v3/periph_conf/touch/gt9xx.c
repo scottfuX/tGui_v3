@@ -6,6 +6,7 @@
 #include "palette.h"
 #include "lcd/lcd_conf.h"
 #include "delay/delay_conf.h"
+#include "interface_conf/tgui_conf.h"
 
 
 // 5寸屏GT9157驱动配置
@@ -271,27 +272,29 @@ static int16_t pre_y[GTP_MAX_TOUCH] ={-1,-1,-1,-1,-1};
 
 static void GTP_Touch_Down(int32_t id,int32_t x,int32_t y,int32_t w)
 {
-  
-	GTP_DEBUG_FUNC();
-
+	//GTP_DEBUG_FUNC();
 	/*取x、y初始值大于屏幕像素值*/
-    GTP_DEBUG("ID:%d, X:%d, Y:%d, W:%d", id, x, y, w);
+    //GTP_DEBUG("ID:%d, X:%d, Y:%d, W:%d", id, x, y, w);
 
-	
-    /* 处理触摸按钮，用于触摸画板 */
-    Touch_Button_Down(x,y); 
+	//tgui-------------function------------
+	guiTouchDown(pre_x[id], pre_y[id], x, y);
+	//tgui---------------end--------------
+
+	pre_x[id] = x; pre_y[id] = y;
+  //  /* 处理触摸按钮，用于触摸画板 */
+  //  Touch_Button_Down(x,y); 
 	
 
-    /*处理描绘轨迹，用于触摸画板 */
-    Draw_Trail(pre_x[id],pre_y[id],x,y,&brush);
+  //  /*处理描绘轨迹，用于触摸画板 */
+  //  Draw_Trail(pre_x[id],pre_y[id],x,y,&brush);
 	
-		/************************************/
-		/*在此处添加自己的触摸点按下时处理过程即可*/
-		/* (x,y) 即为最新的触摸点 *************/
-		/************************************/
+		///************************************/
+		///*在此处添加自己的触摸点按下时处理过程即可*/
+		///* (x,y) 即为最新的触摸点 *************/
+		///************************************/
 	
-		/*prex,prey数组存储上一次触摸的位置，id为轨迹编号(多点触控时有多轨迹)*/
-    pre_x[id] = x; pre_y[id] =y;
+		///*prex,prey数组存储上一次触摸的位置，id为轨迹编号(多点触控时有多轨迹)*/
+  //  pre_x[id] = x; pre_y[id] =y;
 	
 }
 
@@ -303,10 +306,11 @@ static void GTP_Touch_Down(int32_t id,int32_t x,int32_t y,int32_t w)
   */
 static void GTP_Touch_Up( int32_t id)
 {
-	
-
+	//-----------tgui funcion---------------
+	guiTouchUp(pre_x[id], pre_y[id]);
+	//-------------tgui end---------------
     /*处理触摸释放,用于触摸画板*/
-    Touch_Button_Up(pre_x[id],pre_y[id]);
+    //Touch_Button_Up(pre_x[id],pre_y[id]);
 
 		/*****************************************/
 		/*在此处添加自己的触摸点释放时的处理过程即可*/
@@ -319,7 +323,7 @@ static void GTP_Touch_Up( int32_t id)
 	  pre_x[id] = -1;
 	  pre_y[id] = -1;		
   
-    GTP_DEBUG("Touch id[%2d] release!", id);
+    //GTP_DEBUG("Touch id[%2d] release!", id);
 
 }
 

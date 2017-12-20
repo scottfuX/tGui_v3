@@ -6,11 +6,15 @@
 #include "tSize.h"
 #include "tObject.h"
 
-class tWidget :tObject
+class tWidget :public tObject
 {
 public:
 	tWidget(tString* n, tObject* obj);
 	virtual ~tWidget() { delete point; delete size; }
+	void		setX(int32 x) { point->setX(x); }
+	void		setY(int32 y) { point->setY(y); }
+	void		setW(int32 w) { size->setWidth(w); }
+	void		setH(int32 h) { size->setHeight(h); }
 	int32		x() { return point->x(); }
 	int32		y() { return point->y(); }
 	int32		width() { return size->width(); }
@@ -21,8 +25,8 @@ public:
 	tSize*		getSize() { return size; }
 	void		setZpos(int32 z) { zpos = z; }
 	int32		getZpos() { return zpos; }
-
-	virtual void eventFilter() {};
+	virtual void	show() {};
+	virtual void eventFilter(tEvent* e);
 	virtual void touchPressEvent(tTouchEvent *) {};
 	virtual void touchReleaseEvent(tTouchEvent *) {};
 	virtual void touchClickEvent(tTouchEvent *) {};
@@ -46,7 +50,6 @@ private:
 	tPoint* point;
 	tSize*	size;
 	int32	zpos;
-
 };
 
 

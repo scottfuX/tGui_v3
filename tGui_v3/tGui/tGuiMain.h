@@ -4,6 +4,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+#include "interface_conf\tgui_conf.h"
+	
 #include <stdio.h>
 #include "stm32f4xx_conf.h"
 #include "led/led_conf.h"
@@ -29,9 +31,18 @@ extern "C" {
 #include "tContainter/tQueue.h"
 #include "tContainter/tBTree.h"
 #include "tContainter/tCBTree.h"
+#include "tPainter/tPainter.h"
 #include "tContainter/tMap.h"
 #include "tObject/tObject.h"
-#include "tEven.h"
+#include "tObject/tWidget.h"
+#include "tObject/tPushButton.h"
+#include "tObject/tEven.h"
+#include "tObject/tDirver.h"
+#include "tObject/tApplication.h"
+
+#include"demo/User.h"
+
+
 
 
 void tGuiRun(void);

@@ -1053,6 +1053,7 @@ void SystemInit_ExtMemCtl(void)
   * @param  None
   * @retval None
   */
+
 void SystemInit_ExtMemCtl(void)
 {
 /*-- GPIOs Configuration -----------------------------------------------------*/

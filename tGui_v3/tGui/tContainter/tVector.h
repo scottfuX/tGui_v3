@@ -27,7 +27,7 @@ template <class T>
 class  tVector : public tCollection<T>// generic vector
 {
 		friend class tList<T>;  				// needed by tList::toVector
-protected :
+public :
 	tVector();  					// create empty vector
 	tVector(uint32 size);  			// create vector with nullptrs
 	tVector(const tVector &v);  		// make copy of other vector
