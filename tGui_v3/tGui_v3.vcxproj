@@ -61,9 +61,11 @@
     <ClCompile Include="..\..\..\Users\fuguangtao\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stm32f4xx_it.c" />
+    <ClCompile Include="syscalls.cpp" />
     <ClCompile Include="system_stm32f4xx.c" />
     <ClCompile Include="tGui\tContainter\tArray.cpp" />
     <ClCompile Include="tGui\tContainter\tConnectList.cpp" />
+    <ClCompile Include="tGui\tContainter\tFuncList.cpp" />
     <ClCompile Include="tGui\tContainter\tString.cpp" />
     <ClCompile Include="tGui\tObject\connection.cpp" />
     <ClCompile Include="tGui\tObject\tDirver.cpp" />
@@ -75,6 +77,7 @@
     <ClInclude Include="tGui\tContainter\tCollection.h" />
     <ClInclude Include="tGui\tContainter\tConnectList.h" />
     <ClInclude Include="tGui\tContainter\tFuncList.h" />
+    <ClInclude Include="tGui\tContainter\tFuncNode.h" />
     <ClInclude Include="tGui\tContainter\tMap.h" />
     <ClInclude Include="tGui\tContainter\tObjList.h" />
     <ClInclude Include="tGui\tGlobal.h" />
@@ -183,12 +186,6 @@
     <None Include="tGui_v3-Release.vgdbsettings" />
     <None Include="stm32.xml" />
     <ClCompile Include="periph_conf\delay\delay_conf.c" />
-    <None Include="periph_conf\fatfs\00history.txt" />
-    <None Include="periph_conf\fatfs\00readme.txt" />
-    <ClCompile Include="periph_conf\fatfs\diskio.c" />
-    <ClCompile Include="periph_conf\fatfs\ff.c" />
-    <ClCompile Include="periph_conf\fatfs\ffsystem.c" />
-    <ClCompile Include="periph_conf\fatfs\ffunicode.c" />
     <ClCompile Include="periph_conf\flash\flash_conf.c" />
     <ClCompile Include="periph_conf\font\fonts.c" />
     <ClCompile Include="periph_conf\lcd\lcd_conf.c" />
@@ -248,5 +245,11 @@
     <ClInclude Include="tGui\tObject\tApplication.h" />
     <ClCompile Include="demo\User.cpp" />
     <ClInclude Include="demo\User.h" />
+    <None Include="periph_conf\fatfs\00history.txt" />
+    <None Include="periph_conf\fatfs\00readme.txt" />
+    <ClCompile Include="periph_conf\fatfs\diskio.c" />
+    <ClCompile Include="periph_conf\fatfs\ff.c" />
+    <ClCompile Include="periph_conf\fatfs\ffsystem.c" />
+    <ClCompile Include="periph_conf\fatfs\ffunicode.c" />
   </ItemGroup>
 </Project>

@@ -22,7 +22,16 @@ tObject::~tObject()
 		delete name;
 }
 
-bool tObject::connect(void(*sig)(), void(*slot)())
+void tObject::setName(const char* str) 
+{ 
+	if(!name)
+		name = new tString(str);
+	else
+		name->setStr(str);
+}
+
+
+bool tObject::connect(func  sig, tObject* receiver, func  slot)
 {
 	if (!connections)
 		connections = new tConnectList();
@@ -30,12 +39,16 @@ bool tObject::connect(void(*sig)(), void(*slot)())
 	if (num >= 0)//存在
 	{//这边要先遍历一次之前是否还有槽
 		tFuncList* funclist = connections->at(num)->slotList;
+		tObjList* objlist = connections->at(num)->recvList;
 		if (funclist->find(slot) < 0)
+		{
 			funclist->append(slot);
+			objlist->append(receiver);
+		}
 	}
 	else//不存在
 	{
-		connection* con = new connection(sig,slot);
+		connection* con = new connection(sig, receiver,slot);
 		if (!con)
 			return false;
 		connections->append(con);
@@ -43,7 +56,7 @@ bool tObject::connect(void(*sig)(), void(*slot)())
 	return true;
 }
 
-bool tObject::disconnect(void(*sig)(), void(*slot)())
+bool tObject::disconnect(func  sig, tObject* receiver, func  slot)
 {
 	if (!connections)
 		return true;
@@ -51,7 +64,9 @@ bool tObject::disconnect(void(*sig)(), void(*slot)())
 	if (num >= 0)//存在
 	{
 		tFuncList* funclist = connections->at(num)->slotList;
+		tObjList* objlist = connections->at(num)->recvList;
 		funclist->remove(slot);
+		objlist->remove(receiver);
 	}
 	return true;
 }
@@ -72,6 +87,7 @@ void tObject::addChild(tObject* child)
 	if((childList->find(child)) < 0)
 		childList->append(child);
 }
+
 void tObject::remChild(tObject* child)
 {
 	if (!childList)
@@ -92,26 +108,4 @@ void tObject::destroyChild(tObject* obj)
 	}
 }
 
-void tObject::visitAll(tObject* obj,void ( *visit)(tObject* obj))
-{
-	visit(obj);
-	if (obj->childList)
-	{
-		visitAll(obj->childList->getFirst(), visit);
-		while(obj->childList->getCurrent()->getData() != obj->childList->getLast())
-			visitAll(obj->childList->getNext(), visit);
-	}
-}
-
-void tObject::showAll(tObject* obj)
-{
-	obj->show();
-	if (obj->childList)
-	{
-		showAll(obj->childList->getFirst());
-		while (obj->childList->getCurrent()->getData() != obj->childList->getLast())
-			showAll(obj->childList->getNext());
-
-	}
-}
 

@@ -75,7 +75,7 @@ inline bool tString::isEmpty() const
 { return data() == 0 || *data() == '\0'; }
 
 inline uint32 tString::length() const
-{ return strlen(data()); }
+{return strlen(data());}
 
 inline bool tString::truncate(uint32 pos)
 { return resize(pos + 1); }

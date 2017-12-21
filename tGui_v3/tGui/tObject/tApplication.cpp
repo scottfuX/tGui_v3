@@ -1,10 +1,10 @@
 #include "tObject/tApplication.h"
 
 
-tApplication::tApplication(tObject* r, tDirver* d)
+tApplication::tApplication(tWidget* r,tDirver* d)
 {
-	root = r;
-	diver = d;
+	widroot = r;
+	dirver = d;
 	objNum = 1;
 	event = NULL;
 }
@@ -17,16 +17,17 @@ tApplication::~tApplication()
 void tApplication::add(tObject* obj, tObject* parents)
 {
 	if (parents == NULL);
-		parents = root;
+		parents = widroot;
 	obj->setParent(parents);
 	parents->addChild(obj);
+	objNum++;
 }
 
 void tApplication::run()
 {
 	while (1)
 	{
-		translate(diver);
+		translate(dirver);
 		distribute();
 	}
 }
@@ -37,47 +38,68 @@ void tApplication::suspension()
 
 void tApplication::show()
 {
-	root->showAll();
+	widroot->showAll();
 }
 
-static void emit(tObject* obj)
+
+void tApplication::emit(tObject* obj)
 {
-	tApplication app;
-	obj->eventFilter(app.getEvent());
+	obj->eventFilter(getEvent());
 }
 
 //----------------private--------------
 
-void tApplication::distribute()
+
+void tApplication::visitAll(tObject* obj, tApplication* app)
 {
-	root->visitAll(root, emit);
-	delete event;
+	app->emit(obj);
+	if (obj->getChildList())
+	{
+		visitAll(obj->getChildList()->getFirst(), app);
+		while (obj->getChildList()->getCurrent()->getData() != obj->getChildList()->getLast())
+			visitAll(obj->getChildList()->getNext(), app);
+	}
 }
-
-void tApplication::distribute(tObject* obj)
-{
-	obj->visitAll(obj, emit);
-	delete event;
-}
-
-
 void tApplication::translate(tDirver* div)
 {
-	switch (div->type())
+	if (!div)
+		return;
+	div->obtainData();
+	switch (div->getType())
 	{
 		//特殊情况
-		//case:{}break;
-		default: 
+		case Event_None: break;
+		default:
 		{//默认直接发送类型，和数据即可
+			printf("type = %d\n", div->getType());
 			tPoint p(div->dataFront(), div->dataBack());
-			event = new tTouchEvent(div->type(), (const tPoint)p);
+			event =   new tTouchEvent(div->getType(), (const tPoint)p);
 		}break;
 	}
 }
 
+void tApplication::distribute()
+{
+	if (event) 
+	{
+		visitAll(widroot, this);
+		delete event;
+		event = NULL;
+	}
+}
+
+void tApplication::distribute(tObject* obj)
+{
+	if (event)
+	{
+		visitAll(obj, this);
+		delete event;
+		event = NULL;
+	}
+}
 
 void tApplication::destroy()
 {
-	delete root;
+	delete widroot;
 }
 

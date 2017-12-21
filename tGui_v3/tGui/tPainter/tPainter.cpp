@@ -37,18 +37,23 @@ void tPainter::drawWinShades(int32 x, int32 y, int32 w, int32 h,
 }
 
 //button isPress 表示是否按下状态
-void tPainter::drawButton(int32 x, int32 y, int32 w, int32 h, const char* str, int32 len ,bool isPress, colorDef back)
+void tPainter::drawButton(int32 x, int32 y, int32 w, int32 h, const char* str ,bool isPress, colorDef back)
 {
 	if (isPress)//按下
 		drawWinShades(x, y, w, h, MIDLIGHT, LIGHT, DARK, MIDLIGHT, back);
 	else//未按下
 		drawWinShades(x, y, w, h, LIGHT, DARK, MIDLIGHT, MIDDARK, back);
 	setColors(BLACK,back);
-	drawCenterText(x, y, w, h, str, len);
+	drawCenterText(x, y, w, h, str);
 }
 
-void tPainter::drawCenterText(int32 x, int32 y, int32 w, int32 h, const char* str, int32 len, bool isAllShow)
+void tPainter::drawCenterText(int32 x, int32 y, int32 w, int32 h, const char* str,  bool isAllShow)
 {
+	int32 len = -1;
+	char* p = (char*)str;
+	while (p[++len] != '\0')
+		;
+	
 	 x += (w - font->Width*len )/ 2;
 	 y += (h - font->Height) / 2;
 	if (x < 0 || y < 0)

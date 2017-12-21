@@ -1,7 +1,7 @@
 #include "tContainter/tConnectList.h"
 
 
-int32 tConnectList::find(void(*sig)())
+int32 tConnectList::find(func  sig)
 {
 	tList<connection*>::first();
 	while (tList<connection*>::currentNode())

@@ -6,7 +6,9 @@ class User :public tWidget
 public:
 	User(tString* n, tObject* obj);
 	~User();
-	void slot() { out("hello world\n"); }
+	void slot() { printf("depress_solt\n"); }
+	void slot1() { printf("hello world\n"); }
+	void slot2() { printf("release_slot\n"); }
 };
 
 

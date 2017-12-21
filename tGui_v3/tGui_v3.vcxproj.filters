@@ -34,9 +34,6 @@
     <Filter Include="Source files\periph_conf\delay">
       <UniqueIdentifier>{4361f70b-4e22-4361-9e2c-e5723fcc049e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source files\periph_conf\fatfs">
-      <UniqueIdentifier>{a3bd3cb8-db07-43a6-ab77-04e1e8e7b490}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source files\periph_conf\flash">
       <UniqueIdentifier>{17feb8c3-83f8-4011-86c0-8e36d840a03d}</UniqueIdentifier>
     </Filter>
@@ -132,6 +129,9 @@
     </Filter>
     <Filter Include="Header files\tGui\demo">
       <UniqueIdentifier>{f45a8350-1607-40e5-bc02-1a501e82f5fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\periph_conf\fatfs">
+      <UniqueIdentifier>{bb967043-bc6a-4015-8478-aa3cb6409932}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -441,24 +441,6 @@
     <ClCompile Include="periph_conf\delay\delay_conf.c">
       <Filter>Source files\periph_conf\delay</Filter>
     </ClCompile>
-    <None Include="periph_conf\fatfs\00history.txt">
-      <Filter>Source files\periph_conf\fatfs</Filter>
-    </None>
-    <None Include="periph_conf\fatfs\00readme.txt">
-      <Filter>Source files\periph_conf\fatfs</Filter>
-    </None>
-    <ClCompile Include="periph_conf\fatfs\diskio.c">
-      <Filter>Source files\periph_conf\fatfs</Filter>
-    </ClCompile>
-    <ClCompile Include="periph_conf\fatfs\ff.c">
-      <Filter>Source files\periph_conf\fatfs</Filter>
-    </ClCompile>
-    <ClCompile Include="periph_conf\fatfs\ffsystem.c">
-      <Filter>Source files\periph_conf\fatfs</Filter>
-    </ClCompile>
-    <ClCompile Include="periph_conf\fatfs\ffunicode.c">
-      <Filter>Source files\periph_conf\fatfs</Filter>
-    </ClCompile>
     <ClCompile Include="periph_conf\flash\flash_conf.c">
       <Filter>Source files\periph_conf\flash</Filter>
     </ClCompile>
@@ -648,6 +630,30 @@
     <ClInclude Include="demo\User.h">
       <Filter>Header files\tGui\demo</Filter>
     </ClInclude>
+    <ClCompile Include="syscalls.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <None Include="periph_conf\fatfs\00history.txt">
+      <Filter>Source files\periph_conf\fatfs</Filter>
+    </None>
+    <None Include="periph_conf\fatfs\00readme.txt">
+      <Filter>Source files\periph_conf\fatfs</Filter>
+    </None>
+    <ClCompile Include="periph_conf\fatfs\diskio.c">
+      <Filter>Source files\periph_conf\fatfs</Filter>
+    </ClCompile>
+    <ClCompile Include="periph_conf\fatfs\ff.c">
+      <Filter>Source files\periph_conf\fatfs</Filter>
+    </ClCompile>
+    <ClCompile Include="periph_conf\fatfs\ffsystem.c">
+      <Filter>Source files\periph_conf\fatfs</Filter>
+    </ClCompile>
+    <ClCompile Include="periph_conf\fatfs\ffunicode.c">
+      <Filter>Source files\periph_conf\fatfs</Filter>
+    </ClCompile>
+    <ClCompile Include="tGui\tContainter\tFuncList.cpp">
+      <Filter>Source files\tGui\tContainter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tGui\tContainter\tList.h">
@@ -706,6 +712,9 @@
     </ClInclude>
     <ClInclude Include="tGui\tObject\connection.h">
       <Filter>Header files\tGui\tObject</Filter>
+    </ClInclude>
+    <ClInclude Include="tGui\tContainter\tFuncNode.h">
+      <Filter>Header files\tGui\tContainter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

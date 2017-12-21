@@ -142,6 +142,10 @@ void out(const char *str)
 {
 	USART_SendString(USART1, str);
 }
+void outInt(int x)
+{
+	USART_SendByte(USART1, x+48);
+}
 void USART1_TXByte(uint8_t ch)
 {
 	USART_SendByte(USART1, ch);

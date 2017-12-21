@@ -6,6 +6,26 @@ tWidget::tWidget(tString* n,tObject* obj):tObject(n,obj)
 	size = new tSize();
 }
 
+bool tWidget::isArea(int32 xt,int32 yt)
+{
+	if (xt >= x() && yt >= y() && xt < (x() + width()) && yt < (y() + height()))
+		return true;
+	return false;
+}
+
+
+void tWidget::showAll(tWidget* obj)
+{
+	obj->show();
+	if (obj->getChildList())
+	{
+		showAll((tWidget*)obj->getChildList()->getFirst());
+		while (obj->getChildList()->getCurrent()->getData() != obj->getChildList()->getLast())
+			showAll((tWidget*)obj->getChildList()->getNext());
+
+	}
+}
+
 void tWidget::eventFilter(tEvent* e)
 {
 	switch (e->type())

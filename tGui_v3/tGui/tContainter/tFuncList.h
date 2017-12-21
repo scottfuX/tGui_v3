@@ -1,24 +1,31 @@
 #ifndef _TFUNCLIST_H_
 #define _TFUNCLIST_H_
 
-#include "tContainter/tList.h"
+#include "tGlobal.h"
+#include "tContainter/tFuncNode.h"
 
-class tFuncList :public tList<void(*)()>
+class tFuncList
 {
 public:
-	void append(void(*t)()) { tList<void(*)()>::append(t); }
-	uint32 count() { return tList<void(*)()>::count(); }
-	bool insertAt(uint32 index, void(*t)()) { return tList<void(*)()>::insertAt(index, t); }
-	bool remove(void(*t)() = 0) { return tList<void(*)()>::remove(t); }
-	void(*at(uint32 index))() { return tList<void(*)()>::at(index); }
-	void clear() { tList<void(*)()>::clear(); }
-	int32 find(void(*t)()) { return tList<void(*)()>::findRef(t, true); };
-	/*void tofirst();
-	void tolast();*/
-	virtual int32 compareItems(void(*item1)(), void(*item2)())
-	{
-		return tList<void(*)()>::compareItems(item1, item2);
-	};
+	tFuncList();
+	~tFuncList() { clear(); }
+	void append(func  t);// { tList<func >::append(t); }
+	uint32  count() const { return numNodes; };
+	bool remove(func  t = 0);// { return tList<func  >::remove(t); }
+	func  at(uint32 index) { tFuncNode *n = locate(index); return n ? n->data : 0; };
+	void clear();// { tList<func >::clear(); }
+	int32 find(func  t);// { return tList<func >::findRef(t, true); };
+	bool insertAt(uint32 index, func d);
+	void prepend(func d);
+	tFuncNode*locate(uint32 index);
+private:
+	tFuncNode *firstNode;				// first node
+	tFuncNode *lastNode;				// last node
+	tFuncNode *curNode;				// current node
+	int32	   curIndex;				// current index
+	uint32    numNodes;				// number of nodes
+
+	tFuncNode* unlink();
 };
 
 

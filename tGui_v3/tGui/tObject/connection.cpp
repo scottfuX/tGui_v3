@@ -1,26 +1,32 @@
 #include "tObject/connection.h"
 
 
-connection::connection(void(*sig) ())
+connection::connection(func  sig)
 {
 	signal = sig;
 	slotList = new tFuncList();
+	recvList = new tObjList();
 }
 
-connection::connection(void(*sig) (), void(*slot)())
+connection::connection(func  sig, tObject* receiver,func  slot)
 {
 	signal = sig;
 	slotList = new tFuncList();
-	if (slotList)
+	recvList = new tObjList();
+	if (!slotList || !recvList)
 		return;
 	slotList->append(slot);
+	recvList->append(receiver);
 }
 
 void connection::active()
 {
-	tListIterator<void(*)()> iterator((*((tList<void(*)()>*)slotList)));
-	while (iterator.get())//±éÀúÖ´ÐÐ
+	if (!slotList||!recvList)
+		return;
+	printf("slot num = %d\n", slotList->count());
+	for (int16 i=0; i < slotList->count(); i++)
 	{
-		iterator()();
+		printf("i = %d\n", i);
+		((*recvList->at(i)).*(slotList->at(i)))();
 	}
 }

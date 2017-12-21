@@ -1,29 +1,40 @@
 #include "tObject/tPushButton.h"
 
 
-void tPushButton::depress()
+void tPushButton::depress_sig()
 {
-	
-
+	tPainter p;
+	p.drawButton(x(), y(), width(), height(), getName(), true);
+	if (getConnections())
+	{
+		int num = getConnections()->find((func)(&tPushButton::depress_sig));
+		if(num >=0 )
+			getConnections()->at(num)->active();
+	}
 }
 
-void tPushButton::release()
+void tPushButton::release_sig()
 {
-
-
+	tPainter p;
+	p.drawButton(x(), y(), width(), height(), getName(), false);
+	if (getConnections())
+	{
+		int num = getConnections()->find((func)(&tPushButton::release_sig));
+		if (num >= 0)
+			getConnections()->at(num)->active();
+	}
 }
 
 void tPushButton::show()
 {
 	tPainter p;
-	p.drawButton(x(), y(), width(), height(), "btn", 3);
+	p.drawButton(x(), y(), width(), height(), getName());
 }
 
 void tPushButton::regist(tObject* obj)
 {
 	obj->addChild(this);
 	this->setParent(obj);
-	show();
 }
 void tPushButton::logout(tObject* obj)
 {
@@ -31,16 +42,20 @@ void tPushButton::logout(tObject* obj)
 	this->setParent(nullptr);
 }
 
-void tPushButton::touchPressEvent(tTouchEvent *)
+void tPushButton::touchPressEvent(tTouchEvent *e)
 {
-	tPainter p;
-	p.drawButton(x(), y(), width(), height(), "btn", 3,true);
+	if (isArea(e->x(), e->y()))
+	{
+		depress_sig();
+	}
 };
 
-void tPushButton::touchReleaseEvent(tTouchEvent *)
+void tPushButton::touchReleaseEvent(tTouchEvent *e)
 {
-	tPainter p;
-	p.drawButton(x(), y(), width(), height(), "btn", 3, false);
+	if (isArea(e->x(), e->y()))
+	{
+		release_sig();
+	}
 };
 
 void tPushButton::touchClickEvent(tTouchEvent *) 

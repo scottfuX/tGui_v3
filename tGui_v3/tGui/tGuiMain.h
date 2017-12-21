@@ -4,7 +4,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#include "interface_conf\tgui_conf.h"
 	
 #include <stdio.h>
 #include "stm32f4xx_conf.h"
@@ -19,29 +18,19 @@ extern "C" {
 #include "test/lcdtest.h"
 #include "test/lcdpalette.h"
 
+#include "interface_conf/tgui_conf.h"
 #ifdef __cplusplus
 }
 #endif
-#include "tGlobal.h"
-#include "tContainter/tList.h"
-#include "tContainter/tArray.h"
+
 #include "tContainter/tString.h"
-#include "tContainter/tVector.h"
-#include "tContainter/tStack.h"
-#include "tContainter/tQueue.h"
-#include "tContainter/tBTree.h"
-#include "tContainter/tCBTree.h"
-#include "tPainter/tPainter.h"
-#include "tContainter/tMap.h"
-#include "tObject/tObject.h"
 #include "tObject/tWidget.h"
 #include "tObject/tPushButton.h"
-#include "tObject/tEven.h"
 #include "tObject/tDirver.h"
 #include "tObject/tApplication.h"
 
 #include"demo/User.h"
-
+#include "tGlobal.h"
 
 
 

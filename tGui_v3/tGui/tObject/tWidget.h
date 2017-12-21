@@ -8,6 +8,7 @@
 
 class tWidget :public tObject
 {
+	void	showAll(tWidget*);
 public:
 	tWidget(tString* n, tObject* obj);
 	virtual ~tWidget() { delete point; delete size; }
@@ -25,7 +26,10 @@ public:
 	tSize*		getSize() { return size; }
 	void		setZpos(int32 z) { zpos = z; }
 	int32		getZpos() { return zpos; }
+	bool		isArea(int32 x, int32 y);
+	void        showAll() { showAll(this); }
 	virtual void	show() {};
+
 	virtual void eventFilter(tEvent* e);
 	virtual void touchPressEvent(tTouchEvent *) {};
 	virtual void touchReleaseEvent(tTouchEvent *) {};

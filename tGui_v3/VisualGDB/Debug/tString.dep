@@ -70,7 +70,7 @@ VisualGDB/Debug/tString.o: tGui/tContainter/tString.cpp \
  C:/Users/fuguangtao/AppData/Local/VisualGDB/EmbeddedBSPs/arm-eabi/com.sysprogs.arm.stm32/STM32F4xxxx/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_sai.h \
  periph_conf/led/led_conf.h periph_conf/usart/usart_conf.h \
  periph_conf/flash/flash_conf.h periph_conf/fatfs/ff.h \
- periph_conf/fatfs/integer.h periph_conf/fatfs/ffconf.h \
+ periph_conf/FATFS/integer.h periph_conf/FATFS/ffconf.h \
  periph_conf/lcd/lcd_conf.h periph_conf/font/fonts.h \
  periph_conf/sdram/sdram_conf.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\string.h \
@@ -240,9 +240,9 @@ periph_conf/flash/flash_conf.h:
 
 periph_conf/fatfs/ff.h:
 
-periph_conf/fatfs/integer.h:
+periph_conf/FATFS/integer.h:
 
-periph_conf/fatfs/ffconf.h:
+periph_conf/FATFS/ffconf.h:
 
 periph_conf/lcd/lcd_conf.h:
 

@@ -4,8 +4,11 @@
 extern "C" {
 #include "interface_conf/tgui_conf.h"
 }
-//copy from stm32
 
+#define MAX(x,y) x>y?x:y
+#define MIN(x,y) x<y?x:y
+#define ABS(x)  ( (x)>0?(x):-(x) ) 
+//copy from stm32
 typedef signed long  int32;
 typedef signed short int16;
 typedef signed char  int8;
@@ -31,11 +34,12 @@ typedef volatile unsigned long  const vuintc32; /* Read Only */
 typedef volatile unsigned short const vuintc16; /* Read Only */
 typedef volatile unsigned char  const vuintc8; /* Read Only */
 
+class tObject;
+typedef void (tObject::*func)();
+
 
 //__IO means volatile
 //__I means volatile and const
-#define MAX(x,y) x>y?x:y
-#define MIN(x,y) x<y?x:y
-#define ABS(x)  ( (x)>0?(x):-(x) ) 
+
 #endif // !_TGLOBAL_H_
 

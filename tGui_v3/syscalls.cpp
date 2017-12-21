@@ -52,23 +52,23 @@ extern "C"
 		return size;
 	}
 
-	caddr_t _sbrk(int increment)
-	{
-		extern char end asm("end");
-		register char *pStack asm("sp");
+	//caddr_t _sbrk(int increment)
+	//{
+	//	extern char end asm("end");
+	//	register char *pStack asm("sp");
 
-		static char *s_pHeapEnd;
+	//	static char *s_pHeapEnd;
 
-		if (!s_pHeapEnd)
-			s_pHeapEnd = &end;
+	//	if (!s_pHeapEnd)
+	//		s_pHeapEnd = &end;
 
-		if (s_pHeapEnd + increment > pStack)
-			return (caddr_t)-1;
+	//	if (s_pHeapEnd + increment > pStack)
+	//		return (caddr_t)-1;
 
-		char *pOldHeapEnd = s_pHeapEnd;
-		s_pHeapEnd += increment;
-		return (caddr_t)pOldHeapEnd;
-	}
+	//	char *pOldHeapEnd = s_pHeapEnd;
+	//	s_pHeapEnd += increment;
+	//	return (caddr_t)pOldHeapEnd;
+	//}
 	//重定向c库函数printf到串口，重定向后可使用printf函数
 
 	// int fputc(int ch, FILE *f)

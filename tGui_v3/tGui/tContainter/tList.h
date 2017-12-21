@@ -1,6 +1,6 @@
 #ifndef _TLIST_H_
 #define _TLIST_H_
-
+#include "tGlobal.h"
 #include "tCollection.h"
 #include "tVector.h"
 /*****************************************************************************
@@ -241,7 +241,7 @@ template<class T>
 tLNode<T> *tList<T>::locate(uint32 index)
 {
 	if (index == (uint32)curIndex)		// current node ?
-	return curNode;
+		return curNode;
 	if (!curNode && firstNode) {
 				// set current node
 	curNode	 = firstNode;

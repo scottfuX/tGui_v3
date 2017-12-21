@@ -4,6 +4,7 @@
 #include "tObject/connection.h"
 #include "tContainter/tList.h"
 
+class connection;
 class tConnectList :public tList<connection*>
 {
 	friend class connection;
@@ -15,7 +16,7 @@ public:
 	connection* at(uint32 index) { return tList<connection*>::at(index); }
 	void clear() { tList<connection*>::clear(); }
 	int32 find(connection* t) { return tList<connection*>::findRef(t, true); };
-	int32 find(void(*sig)());
+	int32 find(func  sig);
 };
 
 

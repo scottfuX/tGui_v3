@@ -2,32 +2,33 @@
 #define _OBJECT_H_    
 
 
-#include "tContainter/tStack.h"
-#include "tContainter/tList.h"
 #include "tObject/tEven.h"
-#include "tObject/connection.h"
-#include "tContainter/tConnectList.h"
+#include "tContainter/tString.h"
 #include "tContainter/tObjList.h"
+#include "tContainter/tConnectList.h"
 
 
-
+class tConnectList;
 class tObject
 {
 public:
-	tObject(tString* n = 0,tObject* obj= 0);
+	tObject(tString* n = 0, tObject* obj = 0);
 	virtual ~tObject();
-	bool		connect(void(*sig)(), void(*slot)());
-	bool		disconnect(void(*sig)(), void(*slot)());
+	bool		connect(func  sig, tObject* receiver, func  slot);
+	bool		disconnect(func  sig, tObject* receiver, func  slot);
 	void		addChild(tObject* child);
 	void		remChild(tObject* child);
 	void		destroyChild(tObject*);
 	void		unlink(tObject* obj);
 	void		setParent(tObject* obj) { parents = obj; };
+	void		setName(tString* str) { name = str; }
+	void		setName(const char* str);
+	const char*	getName() { return (const char*)(*name); }
+	int32       getNameLen() { return name->length(); }
 	tObject*	getParents() { return parents; }
 	tObjList*	getChildList() {return childList;}
-	void		visitAll(tObject* obj, void(*visit)(tObject* obj));
-	void        showAll() { showAll(this); }
-	virtual void	show() = 0;
+	tConnectList* getConnections() { return connections; }
+	
 	virtual void eventFilter(tEvent*)=0;
 	
 private:
@@ -35,10 +36,9 @@ private:
 	tObject* parents;
 	tObjList* childList;
 	tConnectList* connections;
-
-	void	showAll(tObject*);
-
 };
+
+
 
 
 #endif  //!_OBJECT_H_  

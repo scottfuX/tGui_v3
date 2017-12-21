@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-#include "fatfs/integer.h"
+#include "FATFS/integer.h"
 
 
 /* Status of Disk Functions */

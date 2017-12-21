@@ -39,12 +39,11 @@ extern "C" {
 
 
 
-void guiSetPoint(int32_t x,int32_t y);
+
 void guiGetPrePoint(int32_t* x,int32_t* y);
-void guiGetPoint(int32_t* x,int32_t* y);
 void guiTouchUp(int32_t xid,int32_t yid);
 void guiTouchDown(int32_t pre_x,int32_t pre_y,int32_t x,int32_t y);
 int8_t getState(void);
-int8_t getState_pre(void);
-
+int32_t getTouchX(void);
+int32_t getTouchY(void);
 #endif //!  _TGUICONF_H_ 

@@ -23,7 +23,7 @@
 */
 
 
-#include "fatfs/ff.h"
+#include "FATFS/ff.h"
 
 #if FF_USE_LFN
 

@@ -33,8 +33,8 @@ public:
 
 	//void drawImage();
 	//void drawArrow();
-	void drawButton(int32 x, int32 y, int32 w, int32 h, const char* str,int32 len,bool isPress = false,colorDef back = MID);
-	void drawCenterText(int32 x, int32 y, int32 w, int32 h, const char* str, int32 len,bool isAllShow = false);
+	void drawButton(int32 x, int32 y, int32 w, int32 h, const char* str,bool isPress = false,colorDef back = MID);
+	void drawCenterText(int32 x, int32 y, int32 w, int32 h, const char* str,bool isAllShow = false);
 private:
 	tFont*	font;
 	colorDef textcolor;

@@ -6,20 +6,7 @@ volatile int32_t TouchX_pre = -1;
 volatile int32_t TouchY_pre = -1;
 volatile int32_t TouchX = -1;
 volatile int32_t TouchY = -1;
-volatile int8_t state_pre = 0;//检查前一个是否释放 0释放 1按下
 volatile int8_t state = 0;
-
-void guiSetPoint(int32_t x,int32_t y)
-{
-	TouchX = x;
-	TouchY = y;
-}
-
-void guiGetPoint(int32_t* x,int32_t* y)
-{
-	(*x) = TouchX;
-	(*y) = TouchY;
-}
 
 void guiGetPrePoint(int32_t* x,int32_t* y)
 {
@@ -33,26 +20,26 @@ void guiTouchDown(int32_t pre_x,int32_t pre_y,int32_t x,int32_t y)
 	TouchY_pre = pre_y;
 	TouchX = x;
 	TouchY = y;
-	//TouchUp_pre = TouchUp;
-	state_pre = state;
 	state = 1;
 }
 
 void guiTouchUp(int32_t xid,int32_t yid)
 {
-	state_pre = state;
 	state = 0;
 }
 
-int8_t getState_pre(void)
-{
-	return state_pre;
-}
 int8_t getState(void)
 {
 	return state;
 }
 
-
+int32_t getTouchX(void)
+{
+	return TouchX;
+}
+int32_t getTouchY(void)
+{
+	return TouchY;
+}
 
 

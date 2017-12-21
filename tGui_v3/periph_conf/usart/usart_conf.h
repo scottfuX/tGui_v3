@@ -19,6 +19,7 @@ void USART1_TXString(char *str);
 void USART1_TXHalfWord(uint16_t ch);
 
 void out(const char *str);
+void outInt(int x);
 void USART_SendByte(USART_TypeDef * pUSARTx, uint8_t ch);
 void USART_SendString(USART_TypeDef * pUSARTx, char *str);
 void USART_SendHalfWord(USART_TypeDef * pUSARTx, uint16_t ch);

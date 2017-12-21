@@ -13,7 +13,8 @@ public:
 	virtual void	show();
 	void regist(tObject* obj);
 	void logout(tObject* obj);
-
+	void depress_sig();
+	void release_sig();
 
 	virtual void touchPressEvent(tTouchEvent *);
 	virtual void touchReleaseEvent(tTouchEvent *);
@@ -33,8 +34,7 @@ public:
 	virtual void closeEvent(tCloseEvent *) {};
 private:
 
-	void depress();
-	void release();
+	
 };
 
 #endif // !_TPUSHBUTTON_H_

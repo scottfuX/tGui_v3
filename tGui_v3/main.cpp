@@ -39,9 +39,8 @@ int main()
 	LCD_Init();
 	LCD_Clear(WHITE);
 	//LCDPalette();
-	printf("234.");
-	//tGui function
-	tGuiRun();
+
+	tGuiRun();	//tGui function
 	for (;;){
 		printf("123.");
 		LED_BLUE_Toggle();

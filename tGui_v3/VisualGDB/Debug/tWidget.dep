@@ -70,7 +70,7 @@ VisualGDB/Debug/tWidget.o: tGui/tObject/tWidget.cpp \
  C:/Users/fuguangtao/AppData/Local/VisualGDB/EmbeddedBSPs/arm-eabi/com.sysprogs.arm.stm32/STM32F4xxxx/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_sai.h \
  periph_conf/led/led_conf.h periph_conf/usart/usart_conf.h \
  periph_conf/flash/flash_conf.h periph_conf/fatfs/ff.h \
- periph_conf/fatfs/integer.h periph_conf/fatfs/ffconf.h \
+ periph_conf/FATFS/integer.h periph_conf/FATFS/ffconf.h \
  periph_conf/lcd/lcd_conf.h periph_conf/font/fonts.h \
  periph_conf/sdram/sdram_conf.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\string.h \
@@ -81,10 +81,11 @@ VisualGDB/Debug/tWidget.o: tGui/tObject/tWidget.cpp \
  periph_conf/test/lcdpalette.h periph_conf/touch/palette.h \
  periph_conf/touch/touch_i2c.h periph_conf/touch/gt9xx.h \
  tGui/tObject/tPoint.h tGui/tObject/tSize.h tGui/tObject/tRect.h \
- tGui/tObject/tObject.h tGui/tContainter/tStack.h \
- tGui/tContainter/tCollection.h tGui/tContainter/tList.h \
- tGui/tContainter/tVector.h tGui/tContainter/tString.h \
- tGui/tContainter/tArray.h \
+ tGui/tObject/tObject.h tGui/tObject/tEven.h tGui/tContainter/tString.h \
+ tGui/tContainter/tArray.h tGui/tContainter/tObjList.h \
+ tGui/tObject/tObject.h tGui/tContainter/tList.h \
+ tGui/tContainter/tCollection.h tGui/tContainter/tVector.h \
+ tGui/tContainter/tString.h tGui/tContainter/tList.h \
  c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\stdlib.h \
  c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\cstdlib \
  c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\c++config.h \
@@ -94,9 +95,8 @@ VisualGDB/Debug/tWidget.o: tGui/tObject/tWidget.cpp \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\stdlib.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\alloca.h \
  c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\bits\std_abs.h \
- tGui/tContainter/tList.h tGui/tObject/tEven.h tGui/tObject/connection.h \
- tGui/tContainter/tFuncList.h tGui/tContainter/tConnectList.h \
- tGui/tContainter/tObjList.h tGui/tObject/tObject.h
+ tGui/tContainter/tConnectList.h tGui/tObject/connection.h \
+ tGui/tContainter/tFuncList.h tGui/tContainter/tFuncNode.h
 
 tGui/tObject/tWidget.h:
 
@@ -248,9 +248,9 @@ periph_conf/flash/flash_conf.h:
 
 periph_conf/fatfs/ff.h:
 
-periph_conf/fatfs/integer.h:
+periph_conf/FATFS/integer.h:
 
-periph_conf/fatfs/ffconf.h:
+periph_conf/FATFS/ffconf.h:
 
 periph_conf/lcd/lcd_conf.h:
 
@@ -288,17 +288,25 @@ tGui/tObject/tRect.h:
 
 tGui/tObject/tObject.h:
 
-tGui/tContainter/tStack.h:
+tGui/tObject/tEven.h:
 
-tGui/tContainter/tCollection.h:
+tGui/tContainter/tString.h:
+
+tGui/tContainter/tArray.h:
+
+tGui/tContainter/tObjList.h:
+
+tGui/tObject/tObject.h:
 
 tGui/tContainter/tList.h:
+
+tGui/tContainter/tCollection.h:
 
 tGui/tContainter/tVector.h:
 
 tGui/tContainter/tString.h:
 
-tGui/tContainter/tArray.h:
+tGui/tContainter/tList.h:
 
 c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\stdlib.h:
 
@@ -318,16 +326,10 @@ c:\sysgcc\arm-eabi\arm-eabi\sys-include\alloca.h:
 
 c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\bits\std_abs.h:
 
-tGui/tContainter/tList.h:
-
-tGui/tObject/tEven.h:
+tGui/tContainter/tConnectList.h:
 
 tGui/tObject/connection.h:
 
 tGui/tContainter/tFuncList.h:
 
-tGui/tContainter/tConnectList.h:
-
-tGui/tContainter/tObjList.h:
-
-tGui/tObject/tObject.h:
+tGui/tContainter/tFuncNode.h:
