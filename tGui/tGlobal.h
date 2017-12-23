@@ -35,7 +35,7 @@ typedef volatile unsigned short const vuintc16; /* Read Only */
 typedef volatile unsigned char  const vuintc8; /* Read Only */
 
 class tObject;
-typedef void (tObject::*func)();
+typedef void (tObject::*func)(int,int);
 
 
 //__IO means volatile

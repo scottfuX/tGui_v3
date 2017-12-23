@@ -19,14 +19,13 @@ connection::connection(func  sig, tObject* receiver,func  slot)
 	recvList->append(receiver);
 }
 
-void connection::active()
+void connection::active(int32 d1,int32 d2)
 {
 	if (!slotList||!recvList)
 		return;
-	printf("slot num = %d\n", slotList->count());
 	for (int16 i=0; i < slotList->count(); i++)
 	{
 		printf("i = %d\n", i);
-		((*recvList->at(i)).*(slotList->at(i)))();
+		((*recvList->at(i)).*(slotList->at(i)))(d1,d2);//arg 有问题 把上面的active也改一下，int，int
 	}
 }

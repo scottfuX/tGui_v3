@@ -17,12 +17,13 @@ bool tWidget::isArea(int32 xt,int32 yt)
 void tWidget::showAll(tWidget* obj)
 {
 	obj->show();
-	if (obj->getChildList())
+	tObjList* list = obj->getChildList();
+	tObject* temp;
+	if (list)
 	{
-		showAll((tWidget*)obj->getChildList()->getFirst());
-		while (obj->getChildList()->getCurrent()->getData() != obj->getChildList()->getLast())
-			showAll((tWidget*)obj->getChildList()->getNext());
-
+		showAll((tWidget*)list->getFirst());
+		while (temp = list->getNext())
+			showAll((tWidget*)temp);
 	}
 }
 

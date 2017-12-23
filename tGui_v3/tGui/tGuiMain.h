@@ -26,9 +26,11 @@ extern "C" {
 #include "tContainter/tString.h"
 #include "tObject/tWidget.h"
 #include "tObject/tPushButton.h"
+#include "tObject/tCheckBox.h"
+#include "tObject/tRadioButton.h"
 #include "tObject/tDirver.h"
 #include "tObject/tApplication.h"
-
+#include "tObject/tSlider.h"
 #include"demo/User.h"
 #include "tGlobal.h"
 

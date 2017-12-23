@@ -1,14 +1,14 @@
-VisualGDB/Debug/ff.o: periph_conf/fatfs/ff.c periph_conf/fatfs/ff.h \
- periph_conf/fatfs/integer.h periph_conf/fatfs/ffconf.h \
- periph_conf/fatfs/diskio.h \
+VisualGDB/Debug/ff.o: periph_conf/fatfs/ff.c periph_conf/FATFS/ff.h \
+ periph_conf/FATFS/integer.h periph_conf/FATFS/ffconf.h \
+ periph_conf/FATFS/diskio.h \
  c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\7.2.0\include\stdarg.h
 
-periph_conf/fatfs/ff.h:
+periph_conf/FATFS/ff.h:
 
-periph_conf/fatfs/integer.h:
+periph_conf/FATFS/integer.h:
 
-periph_conf/fatfs/ffconf.h:
+periph_conf/FATFS/ffconf.h:
 
-periph_conf/fatfs/diskio.h:
+periph_conf/FATFS/diskio.h:
 
 c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\7.2.0\include\stdarg.h:

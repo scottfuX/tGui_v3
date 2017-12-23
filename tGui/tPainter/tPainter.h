@@ -34,6 +34,9 @@ public:
 	//void drawImage();
 	//void drawArrow();
 	void drawButton(int32 x, int32 y, int32 w, int32 h, const char* str,bool isPress = false,colorDef back = MID);
+	void drawCheck(int32 x, int32 y, int32 w, int32 h, const char* str, bool Selected = false, bool isPress = false, colorDef back = WHITE);
+	void drawRadio(int32 x, int32 y, int32 w, int32 h, const char* str, bool Selected = false, bool isPress = false, colorDef back = WHITE);
+	void drawSlider(int32 x, int32 y, int32 w, int32 h, int32 value = 0, int32 value_pre = -1, bool isPress = false, colorDef back = MID);
 	void drawCenterText(int32 x, int32 y, int32 w, int32 h, const char* str,bool isAllShow = false);
 private:
 	tFont*	font;

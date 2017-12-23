@@ -20,6 +20,9 @@ public:
 	void		remChild(tObject* child);
 	void		destroyChild(tObject*);
 	void		unlink(tObject* obj);
+	void		regist(tObject* obj);
+	void		logout(tObject* obj);
+
 	void		setParent(tObject* obj) { parents = obj; };
 	void		setName(tString* str) { name = str; }
 	void		setName(const char* str);
@@ -30,7 +33,8 @@ public:
 	tConnectList* getConnections() { return connections; }
 	
 	virtual void eventFilter(tEvent*)=0;
-	
+protected:
+	void callSlot(func sig, int32 d1, int32 d2);
 private:
 	tString* name;
 	tObject* parents;

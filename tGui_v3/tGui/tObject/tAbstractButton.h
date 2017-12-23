@@ -6,16 +6,22 @@
 
 class tAbstractButton:public tWidget
 {
-public :
-	tAbstractButton(tString* n = nullptr, tObject* obj = nullptr) : tWidget(n,obj){};
-	virtual ~tAbstractButton() {};
-	virtual void	show() {};
 
-	virtual void eventFilter() {};
-	virtual void touchPressEvent(tTouchEvent *) {};
-	virtual void touchReleaseEvent(tTouchEvent *) {};
+protected:
+	bool state; //true => press ;false
+public :
+	tAbstractButton(tString* n = NULL, tObject* obj = NULL) : tWidget(n,obj){};
+	virtual ~tAbstractButton() {};
+	virtual void	show() =0;
+	virtual void sig_depress(int32 d1,int32 d2)=0;
+	virtual void sig_release(int32 d1, int32 d2)=0;
+	virtual void release() = 0;//只响应，不发送signal
+	bool isPress() { return state; }
+
+	virtual void touchPressEvent(tTouchEvent *) ;
+	virtual void touchReleaseEvent(tTouchEvent *) ;
+	virtual void touchMoveEvent(tTouchEvent *) ;
 	virtual void touchClickEvent(tTouchEvent *) {};
-	virtual void touchMoveEvent(tTouchEvent *) {};
 	virtual void mousePressEvent(tMouseEvent *) {};
 	virtual void mouseReleaseEvent(tMouseEvent *) {};
 	virtual void mouseDoubleClickEvent(tMouseEvent *) {};
@@ -31,7 +37,6 @@ public :
 	virtual void moveEvent(tMoveEvent *) {};
 	virtual void resizeEvent(tResizeEvent *) {};
 	virtual void closeEvent(tCloseEvent *) {};
-private:
 
 
 };

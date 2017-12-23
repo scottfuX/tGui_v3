@@ -1,5 +1,5 @@
 VisualGDB/Debug/diskio.o: periph_conf/fatfs/diskio.c \
- periph_conf/fatfs/diskio.h periph_conf/fatfs/integer.h \
+ periph_conf/fatfs/diskio.h periph_conf/FATFS/integer.h \
  periph_conf/flash/flash_conf.h \
  C:/STM32F429/tGui_v3/tGui_v3/stm32f4xx_conf.h \
  C:/Users/fuguangtao/AppData/Local/VisualGDB/EmbeddedBSPs/arm-eabi/com.sysprogs.arm.stm32/STM32F4xxxx/CMSIS_StdPeriph/Device/ST/STM32F4xx/Include/stm32f4xx.h \
@@ -72,7 +72,7 @@ VisualGDB/Debug/diskio.o: periph_conf/fatfs/diskio.c \
 
 periph_conf/fatfs/diskio.h:
 
-periph_conf/fatfs/integer.h:
+periph_conf/FATFS/integer.h:
 
 periph_conf/flash/flash_conf.h:
 

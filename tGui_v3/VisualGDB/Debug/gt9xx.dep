@@ -74,8 +74,8 @@ VisualGDB/Debug/gt9xx.o: periph_conf/touch/gt9xx.c \
  periph_conf/font/fonts.h periph_conf/sdram/sdram_conf.h \
  periph_conf/delay/delay_conf.h tGui/interface_conf/tgui_conf.h \
  periph_conf/led/led_conf.h periph_conf/flash/flash_conf.h \
- periph_conf/fatfs/ff.h periph_conf/fatfs/integer.h \
- periph_conf/fatfs/ffconf.h periph_conf/touch/gt9xx.h \
+ periph_conf/fatfs/ff.h periph_conf/FATFS/integer.h \
+ periph_conf/FATFS/ffconf.h periph_conf/touch/gt9xx.h \
  periph_conf/test/fstest.h periph_conf/test/lcdtest.h \
  periph_conf/test/lcdpalette.h periph_conf/touch/palette.h
 
@@ -243,9 +243,9 @@ periph_conf/flash/flash_conf.h:
 
 periph_conf/fatfs/ff.h:
 
-periph_conf/fatfs/integer.h:
+periph_conf/FATFS/integer.h:
 
-periph_conf/fatfs/ffconf.h:
+periph_conf/FATFS/ffconf.h:
 
 periph_conf/touch/gt9xx.h:
 

@@ -17,7 +17,7 @@ public:
 	void add(tObject* receiver, func  slot) {slotList->append(slot); recvList->append(receiver);}
 	void del(tObject* receiver, func  slot) { slotList->remove(slot); recvList -> remove(receiver); }
 	void destroy() {if (slotList) slotList->clear(); if (recvList)recvList->clear();}
-	void active();
+	void active(int32 d1, int32 d2);
 private:
 	func  signal;
 	tFuncList* slotList;

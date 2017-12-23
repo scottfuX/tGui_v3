@@ -81,9 +81,9 @@ VisualGDB/Debug/tGuiMain.o: tGui/tGuiMain.cpp tGui/tGuiMain.h \
  tGui/interface_conf/tgui_conf.h tGui/tContainter/tString.h \
  tGui/tGlobal.h tGui/tContainter/tArray.h tGui/tObject/tWidget.h \
  tGui/tObject/tEven.h tGui/tObject/tPoint.h tGui/tObject/tSize.h \
- tGui/tObject/tRect.h tGui/tObject/tObject.h tGui/tObject/tEven.h \
- tGui/tContainter/tString.h tGui/tContainter/tObjList.h \
- tGui/tObject/tObject.h tGui/tContainter/tList.h \
+ tGui/tObject/tRect.h tGui/tObject/tPoint.h tGui/tObject/tSize.h \
+ tGui/tObject/tObject.h tGui/tContainter/tString.h \
+ tGui/tContainter/tObjList.h tGui/tContainter/tList.h \
  tGui/tContainter/tCollection.h tGui/tContainter/tVector.h \
  tGui/tContainter/tString.h tGui/tContainter/tList.h \
  c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\stdlib.h \
@@ -99,10 +99,12 @@ VisualGDB/Debug/tGuiMain.o: tGui/tGuiMain.cpp tGui/tGuiMain.h \
  tGui/tContainter/tFuncList.h tGui/tContainter/tFuncNode.h \
  tGui/tObject/tPushButton.h tGui/tObject/tAbstractButton.h \
  tGui/tObject/tWidget.h tGui/tPainter/tPainter.h \
- tGui/tPainter/tPaintDiver.h tGui/tObject/tDirver.h \
+ tGui/tPainter/tPaintDiver.h tGui/tObject/tCheckBox.h \
+ tGui/tObject/tRadioButton.h tGui/tObject/tDirver.h \
  tGui/interface_conf/tgui_conf.h tGui/tObject/tApplication.h \
- tGui/tObject/tWidget.h tGui/tObject/tDirver.h \
- C:/STM32F429/tGui_v3/tGui_v3/demo/User.h tGui/tGlobal.h
+ tGui/tObject/tWidget.h tGui/tObject/tDirver.h tGui/tObject/tSlider.h \
+ tGui/tObject/tAbstractSlider.h C:/STM32F429/tGui_v3/tGui_v3/demo/User.h \
+ tGui/tGlobal.h
 
 tGui/tGuiMain.h:
 
@@ -298,15 +300,15 @@ tGui/tObject/tSize.h:
 
 tGui/tObject/tRect.h:
 
-tGui/tObject/tObject.h:
+tGui/tObject/tPoint.h:
 
-tGui/tObject/tEven.h:
+tGui/tObject/tSize.h:
+
+tGui/tObject/tObject.h:
 
 tGui/tContainter/tString.h:
 
 tGui/tContainter/tObjList.h:
-
-tGui/tObject/tObject.h:
 
 tGui/tContainter/tList.h:
 
@@ -354,6 +356,10 @@ tGui/tPainter/tPainter.h:
 
 tGui/tPainter/tPaintDiver.h:
 
+tGui/tObject/tCheckBox.h:
+
+tGui/tObject/tRadioButton.h:
+
 tGui/tObject/tDirver.h:
 
 tGui/interface_conf/tgui_conf.h:
@@ -363,6 +369,10 @@ tGui/tObject/tApplication.h:
 tGui/tObject/tWidget.h:
 
 tGui/tObject/tDirver.h:
+
+tGui/tObject/tSlider.h:
+
+tGui/tObject/tAbstractSlider.h:
 
 C:/STM32F429/tGui_v3/tGui_v3/demo/User.h:
 

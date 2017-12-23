@@ -68,8 +68,13 @@
     <ClCompile Include="tGui\tContainter\tFuncList.cpp" />
     <ClCompile Include="tGui\tContainter\tString.cpp" />
     <ClCompile Include="tGui\tObject\connection.cpp" />
+    <ClCompile Include="tGui\tObject\tAbstractButton.cpp" />
+    <ClCompile Include="tGui\tObject\tCheckBox.cpp" />
     <ClCompile Include="tGui\tObject\tDirver.cpp" />
     <ClCompile Include="tGui\tObject\tPushButton.cpp" />
+    <ClCompile Include="tGui\tObject\tRadioButton.cpp" />
+    <ClCompile Include="tGui\tObject\tScrollBar.cpp" />
+    <ClCompile Include="tGui\tObject\tSlider.cpp" />
     <ClCompile Include="tGui\tObject\tWidget.cpp" />
     <ClInclude Include="tGui\tContainter\tArray.h" />
     <ClInclude Include="tGui\tContainter\tBTree.h" />
@@ -82,8 +87,11 @@
     <ClInclude Include="tGui\tContainter\tObjList.h" />
     <ClInclude Include="tGui\tGlobal.h" />
     <ClInclude Include="tGui\tObject\connection.h" />
+    <ClInclude Include="tGui\tObject\tAbstractSlider.h" />
+    <ClInclude Include="tGui\tObject\tCheckBox.h" />
     <ClInclude Include="tGui\tObject\tDirver.h" />
     <ClInclude Include="tGui\tObject\tPushButton.h" />
+    <ClInclude Include="tGui\tObject\tRadioButton.h" />
     <ClInclude Include="tGui\tObject\tRect.h" />
     <None Include="stm32.props" />
     <ClCompile Include="$(BSP_ROOT)\STM32F4xxxx\StartupFiles\startup_stm32f429xx.c" />
@@ -232,7 +240,9 @@
     <ClInclude Include="tGui\tObject\tAbstractButton.h" />
     <ClInclude Include="tGui\tObject\tEven.h" />
     <ClInclude Include="tGui\tObject\tPoint.h" />
+    <ClInclude Include="tGui\tObject\tScrollBar.h" />
     <ClInclude Include="tGui\tObject\tSize.h" />
+    <ClInclude Include="tGui\tObject\tSlider.h" />
     <ClInclude Include="tGui\tObject\tWidget.h" />
     <ClCompile Include="tGui\tPainter\tPainter.cpp" />
     <ClInclude Include="tGui\tPainter\tPainter.h" />

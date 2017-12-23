@@ -97,7 +97,7 @@ VisualGDB/Debug/tApplication.o: tGui/tObject/tApplication.cpp \
  c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\bits\std_abs.h \
  tGui/tContainter/tConnectList.h tGui/tObject/connection.h \
  tGui/tContainter/tFuncList.h tGui/tContainter/tFuncNode.h \
- tGui/tObject/tWidget.h tGui/tObject/tEven.h tGui/tObject/tObject.h \
+ tGui/tObject/tWidget.h tGui/tObject/tPoint.h tGui/tObject/tSize.h \
  tGui/tObject/tDirver.h tGui/interface_conf/tgui_conf.h
 
 tGui/tObject/tApplication.h:
@@ -334,9 +334,9 @@ tGui/tContainter/tFuncNode.h:
 
 tGui/tObject/tWidget.h:
 
-tGui/tObject/tEven.h:
+tGui/tObject/tPoint.h:
 
-tGui/tObject/tObject.h:
+tGui/tObject/tSize.h:
 
 tGui/tObject/tDirver.h:
 

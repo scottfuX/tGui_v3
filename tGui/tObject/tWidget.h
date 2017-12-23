@@ -1,10 +1,11 @@
 #ifndef _TWIDGET_H_
 #define _TWIDGET_H_
 
-#include "tEven.h"
-#include "tPoint.h"
-#include "tSize.h"
-#include "tObject.h"
+#include "tObject/tEven.h"
+#include "tObject/tPoint.h"
+#include "tObject/tSize.h"
+#include "tObject/tObject.h"
+
 
 class tWidget :public tObject
 {
@@ -29,6 +30,7 @@ public:
 	bool		isArea(int32 x, int32 y);
 	void        showAll() { showAll(this); }
 	virtual void	show() {};
+
 
 	virtual void eventFilter(tEvent* e);
 	virtual void touchPressEvent(tTouchEvent *) {};

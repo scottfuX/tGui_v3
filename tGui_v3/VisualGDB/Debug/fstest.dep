@@ -56,8 +56,8 @@ VisualGDB/Debug/fstest.o: periph_conf/test/fstest.c \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\cdefs.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_locale.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\string.h \
- periph_conf/fatfs/ff.h periph_conf/fatfs/integer.h \
- periph_conf/fatfs/ffconf.h periph_conf/flash/flash_conf.h \
+ periph_conf/fatfs/ff.h periph_conf/FATFS/integer.h \
+ periph_conf/FATFS/ffconf.h periph_conf/flash/flash_conf.h \
  periph_conf/usart/usart_conf.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdio.h \
  c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\7.2.0\include\stdarg.h \
@@ -191,9 +191,9 @@ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\string.h:
 
 periph_conf/fatfs/ff.h:
 
-periph_conf/fatfs/integer.h:
+periph_conf/FATFS/integer.h:
 
-periph_conf/fatfs/ffconf.h:
+periph_conf/FATFS/ffconf.h:
 
 periph_conf/flash/flash_conf.h:
 

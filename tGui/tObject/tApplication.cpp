@@ -53,11 +53,13 @@ void tApplication::emit(tObject* obj)
 void tApplication::visitAll(tObject* obj, tApplication* app)
 {
 	app->emit(obj);
-	if (obj->getChildList())
+	tObjList* list = obj->getChildList();
+	tObject* temp;
+	if (list)
 	{
-		visitAll(obj->getChildList()->getFirst(), app);
-		while (obj->getChildList()->getCurrent()->getData() != obj->getChildList()->getLast())
-			visitAll(obj->getChildList()->getNext(), app);
+		visitAll(list->getFirst(), app);
+		while (temp = list->getNext())
+				visitAll(temp, app);
 	}
 }
 void tApplication::translate(tDirver* div)
@@ -73,7 +75,7 @@ void tApplication::translate(tDirver* div)
 		{//默认直接发送类型，和数据即可
 			printf("type = %d\n", div->getType());
 			tPoint p(div->dataFront(), div->dataBack());
-			event =   new tTouchEvent(div->getType(), (const tPoint)p);
+			event =  new tTouchEvent(div->getType(), (const tPoint)p);
 		}break;
 	}
 }

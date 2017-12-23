@@ -57,7 +57,7 @@ class  tEvent					// event base class
 public:
 	tEvent(int32 type)
 		: t(type), posted(false) {}
-	~tEvent() { if (posted) peErrMsg(); }
+	virtual ~tEvent() { if (posted) peErrMsg(); }
 	int32	  type()	const { return t; }
 protected:
 	int32	  t;
@@ -84,6 +84,7 @@ class tTouchEvent :public tEvent
 public:
 	tTouchEvent(int32 type, const tPoint &pos)
 		: tEvent(type) { p = new tPoint(pos);}
+	virtual ~tTouchEvent() { delete p; };
 	const tPoint *pos() const { return p; }
 	int32	   x()		const { return p->x(); }
 	int32	   y()		const { return p->y(); }
