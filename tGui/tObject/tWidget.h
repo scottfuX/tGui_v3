@@ -5,13 +5,15 @@
 #include "tObject/tPoint.h"
 #include "tObject/tSize.h"
 #include "tObject/tObject.h"
+#include "tPainter/tPainter.h"
 
 
 class tWidget :public tObject
 {
 	void	showAll(tWidget*);
 public:
-	tWidget(tString* n, tObject* obj);
+	tWidget(const char* n, tObject* obj);
+	tWidget(int32 x, int32 y, int32 w, int32 h, const char* n, tObject* obj);
 	virtual ~tWidget() { delete point; delete size; }
 	void		setX(int32 x) { point->setX(x); }
 	void		setY(int32 y) { point->setY(y); }
@@ -27,8 +29,11 @@ public:
 	tSize*		getSize() { return size; }
 	void		setZpos(int32 z) { zpos = z; }
 	int32		getZpos() { return zpos; }
+	void		setBackColor(colorDef c) { backColor = c; };
+	colorDef	getBackColor() { return backColor; }
 	bool		isArea(int32 x, int32 y);
 	void        showAll() { showAll(this); }
+	
 	virtual void	show() {};
 
 
@@ -56,6 +61,8 @@ private:
 	tPoint* point;
 	tSize*	size;
 	int32	zpos;
+	colorDef   backColor;
+
 };
 
 

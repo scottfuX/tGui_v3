@@ -1,9 +1,25 @@
 #include "tObject/tWidget.h"
 
-tWidget::tWidget(tString* n,tObject* obj):tObject(n,obj)
+tWidget::tWidget(const char* n, tObject* obj) :tObject(n, obj)
 {
 	point = new tPoint();
 	size = new tSize();
+	setX(0);
+	setY(0);
+	setW(0);
+	setH(0);
+	backColor = WHITE;
+};
+
+tWidget::tWidget(int32 x, int32 y, int32 w, int32 h, const char* n,tObject* obj):tObject(n,obj)
+{
+	point = new tPoint();
+	size = new tSize();
+	setX(x);
+	setY(y);
+	setW(w);
+	setH(h);
+	backColor = WHITE;
 }
 
 bool tWidget::isArea(int32 xt,int32 yt)

@@ -85,8 +85,10 @@ protected:
     T	  next();				// set next item in list curr
     T	  prev();				// set prev item in list curr
 
-	tLNode<T> *currentNode() const { return curNode; };		// get current node
+	tLNode<T>* currentNode() const { return curNode; };		// get current node
 	int32 currentIndex() const { return curIndex; }
+	void setCurNode(tLNode<T> * node) { curNode = node; }
+	void setCurIndex(int32 index) { curIndex = index; }
 
 	void  toVector(tVector<T> * ) const;		// put items in vector
 

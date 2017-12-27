@@ -1,16 +1,11 @@
 #include "tObject/tCheckBox.h"
 
 
-tCheckBox::tCheckBox(int32 x, int32 y, int32 w, int32 h, const char* name) :tAbstractButton()
+tCheckBox::tCheckBox(int32 x, int32 y, int32 w, int32 h, const char* name, tObject* obj)
+	:tAbstractButton(x, y, w, h, name, obj)
 {
 	next = this; 
 	selected = false; 
-	state = false;
-	setX(x);
-	setY(y);
-	setW(w);
-	setH(h);
-	setName(name);
 }
 
 

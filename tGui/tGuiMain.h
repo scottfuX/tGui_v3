@@ -30,9 +30,11 @@ extern "C" {
 #include "tObject/tRadioButton.h"
 #include "tObject/tDirver.h"
 #include "tObject/tApplication.h"
+#include "tObject/tLabel.h"
 #include "tObject/tSlider.h"
-#include"demo/User.h"
+#include "demo/User.h"
 #include "tGlobal.h"
+
 
 
 

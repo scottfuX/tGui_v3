@@ -1,14 +1,8 @@
 #include "tObject/tPushButton.h"
 
-tPushButton::tPushButton(int32 x, int32 y, int32 w, int32 h, const char* name) 
-	:tAbstractButton()
+tPushButton::tPushButton(int32 x, int32 y, int32 w, int32 h, const char* name,tObject* obj)
+	:tAbstractButton(x, y, w, h, name, obj)
 {
-	state = false;
-	setX(x);
-	setY(y);
-	setW(w);
-	setH(h);
-	setName(name);
 }
 
 void tPushButton::sig_depress(int32 d1, int32 d2)

@@ -5,12 +5,12 @@
 class tAbstractSlider :
 	public tWidget
 {
-
 protected:
 	int32 value;
+	bool isHoriz;//true horiz
 	bool state; //true => press ;false
 public:
-	tAbstractSlider(tString* n = NULL, tObject* obj = NULL) : tWidget(n, obj) {};
+	tAbstractSlider(int32 x, int32 y, int32 w, int32 h, const char* n = NULL, bool isHoriz = true, tObject* obj = NULL) ;
 	virtual ~tAbstractSlider() {};
 	virtual void	show() = 0;
 	virtual void	sig_move(int32 d1, int32 d2) = 0;

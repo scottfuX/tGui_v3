@@ -79,6 +79,20 @@ VisualGDB/Debug/tPainter.o: tGui/tPainter/tPainter.cpp \
  periph_conf/test/fstest.h periph_conf/test/lcdtest.h \
  periph_conf/test/lcdpalette.h periph_conf/touch/palette.h \
  periph_conf/touch/touch_i2c.h periph_conf/touch/gt9xx.h \
+ tGui/tContainter/tRectList.h tGui/tObject/tRect.h tGui/tObject/tSize.h \
+ tGui/tObject/tPoint.h tGui/tContainter/tList.h \
+ tGui/tContainter/tCollection.h tGui/tContainter/tVector.h \
+ tGui/tContainter/tString.h tGui/tContainter/tArray.h \
+ tGui/tContainter/tList.h \
+ c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\stdlib.h \
+ c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\cstdlib \
+ c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\c++config.h \
+ c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\os_defines.h \
+ c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\cpu_defines.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdlib.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\stdlib.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\alloca.h \
+ c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\bits\std_abs.h \
  tGui/tPainter/tPaintDiver.h
 
 tGui/tPainter/tPainter.h:
@@ -260,5 +274,43 @@ periph_conf/touch/palette.h:
 periph_conf/touch/touch_i2c.h:
 
 periph_conf/touch/gt9xx.h:
+
+tGui/tContainter/tRectList.h:
+
+tGui/tObject/tRect.h:
+
+tGui/tObject/tSize.h:
+
+tGui/tObject/tPoint.h:
+
+tGui/tContainter/tList.h:
+
+tGui/tContainter/tCollection.h:
+
+tGui/tContainter/tVector.h:
+
+tGui/tContainter/tString.h:
+
+tGui/tContainter/tArray.h:
+
+tGui/tContainter/tList.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\stdlib.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\cstdlib:
+
+c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\c++config.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\os_defines.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\fpu\cortex_m4\bits\cpu_defines.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdlib.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\stdlib.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\sys-include\alloca.h:
+
+c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\bits\std_abs.h:
 
 tGui/tPainter/tPaintDiver.h:

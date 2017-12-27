@@ -2,7 +2,7 @@
 
 
 
-User::User(tString* n, tObject* obj):tWidget(n,obj)
+User::User(const char* n, tObject* obj):tWidget(n,obj)
 {
 
 }

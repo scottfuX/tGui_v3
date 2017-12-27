@@ -9,8 +9,7 @@ class tCheckBox :
 	public tAbstractButton
 {
 public:
-	tCheckBox() :tAbstractButton() { next = this; selected = false; state = false; };
-	tCheckBox(int32 x, int32 y, int32 w, int32 h, const char* name) ;
+	tCheckBox(int32 x, int32 y, int32 w, int32 h, const char* name, tObject* obj = NULL);
 	virtual ~tCheckBox() {};
 	virtual void	show();
 	virtual void sig_depress(int32 d1, int32 d2);

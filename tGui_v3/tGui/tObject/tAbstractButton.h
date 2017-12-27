@@ -10,7 +10,7 @@ class tAbstractButton:public tWidget
 protected:
 	bool state; //true => press ;false
 public :
-	tAbstractButton(tString* n = NULL, tObject* obj = NULL) : tWidget(n,obj){};
+	tAbstractButton(int32 x, int32 y, int32 w, int32 h, const char* n = NULL, tObject* obj = NULL) ;
 	virtual ~tAbstractButton() {};
 	virtual void	show() =0;
 	virtual void sig_depress(int32 d1,int32 d2)=0;

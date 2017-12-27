@@ -97,12 +97,14 @@ VisualGDB/Debug/tGuiMain.o: tGui/tGuiMain.cpp tGui/tGuiMain.h \
  c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\bits\std_abs.h \
  tGui/tContainter/tConnectList.h tGui/tObject/connection.h \
  tGui/tContainter/tFuncList.h tGui/tContainter/tFuncNode.h \
+ tGui/tPainter/tPainter.h tGui/tContainter/tRectList.h \
+ tGui/tObject/tRect.h tGui/tPainter/tPaintDiver.h \
  tGui/tObject/tPushButton.h tGui/tObject/tAbstractButton.h \
- tGui/tObject/tWidget.h tGui/tPainter/tPainter.h \
- tGui/tPainter/tPaintDiver.h tGui/tObject/tCheckBox.h \
+ tGui/tObject/tWidget.h tGui/tObject/tCheckBox.h \
  tGui/tObject/tRadioButton.h tGui/tObject/tDirver.h \
  tGui/interface_conf/tgui_conf.h tGui/tObject/tApplication.h \
- tGui/tObject/tWidget.h tGui/tObject/tDirver.h tGui/tObject/tSlider.h \
+ tGui/tObject/tWidget.h tGui/tObject/tDirver.h tGui/tObject/tLabel.h \
+ tGui/tObject/tFrame.h tGui/tObject/tSlider.h \
  tGui/tObject/tAbstractSlider.h C:/STM32F429/tGui_v3/tGui_v3/demo/User.h \
  tGui/tGlobal.h
 
@@ -346,15 +348,19 @@ tGui/tContainter/tFuncList.h:
 
 tGui/tContainter/tFuncNode.h:
 
+tGui/tPainter/tPainter.h:
+
+tGui/tContainter/tRectList.h:
+
+tGui/tObject/tRect.h:
+
+tGui/tPainter/tPaintDiver.h:
+
 tGui/tObject/tPushButton.h:
 
 tGui/tObject/tAbstractButton.h:
 
 tGui/tObject/tWidget.h:
-
-tGui/tPainter/tPainter.h:
-
-tGui/tPainter/tPaintDiver.h:
 
 tGui/tObject/tCheckBox.h:
 
@@ -369,6 +375,10 @@ tGui/tObject/tApplication.h:
 tGui/tObject/tWidget.h:
 
 tGui/tObject/tDirver.h:
+
+tGui/tObject/tLabel.h:
+
+tGui/tObject/tFrame.h:
 
 tGui/tObject/tSlider.h:
 

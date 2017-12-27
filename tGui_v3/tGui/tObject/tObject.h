@@ -8,11 +8,16 @@
 #include "tContainter/tConnectList.h"
 
 
+#define TYPE_INT	-1
+#define TYPE_CHAR	-2
+#define TYPE_STRING -3
+
+
 class tConnectList;
 class tObject
 {
 public:
-	tObject(tString* n = 0, tObject* obj = 0);
+	tObject(const char* n = 0, tObject* obj = 0);
 	virtual ~tObject();
 	bool		connect(func  sig, tObject* receiver, func  slot);
 	bool		disconnect(func  sig, tObject* receiver, func  slot);
@@ -24,7 +29,7 @@ public:
 	void		logout(tObject* obj);
 
 	void		setParent(tObject* obj) { parents = obj; };
-	void		setName(tString* str) { name = str; }
+	void		setName(tString* str) { delete name; name = str; }
 	void		setName(const char* str);
 	const char*	getName() { return (const char*)(*name); }
 	int32       getNameLen() { return name->length(); }

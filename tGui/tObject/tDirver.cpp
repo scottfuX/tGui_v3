@@ -12,7 +12,7 @@ void tTouchDirver::obtainData()
 			data1 = getTouchX();
 			data2 = getTouchY() ;		
 		}
-		else if (data1 != getTouchX()|| data2 != getTouchY()) //按下了且未松手x，y变化了---不好控制速度
+		else if (data1 != getTouchX() || data2 != getTouchY()) //按下了且未松手x，y变化了---不好控制速度
 		{
 			setType(Event_TouchMove);
 			data1 = getTouchX();
@@ -21,8 +21,6 @@ void tTouchDirver::obtainData()
 		else //之前没按下
 		{
 			setType(Event_None);
-			data1 = -1;
-			data2 = -1;
 		}
 	}
 	else //松手 或 没按下
