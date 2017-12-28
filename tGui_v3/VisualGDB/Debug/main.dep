@@ -78,11 +78,9 @@ VisualGDB/Debug/main.o: main.cpp \
  periph_conf/test/lcdpalette.h periph_conf/touch/palette.h \
  periph_conf/touch/touch_i2c.h periph_conf/touch/gt9xx.h tGui/tGuiMain.h \
  tGui/interface_conf/tgui_conf.h tGui/tContainter/tString.h \
- tGui/tGlobal.h tGui/tContainter/tArray.h tGui/tObject/tWidget.h \
- tGui/tObject/tEven.h tGui/tObject/tPoint.h tGui/tObject/tSize.h \
- tGui/tObject/tRect.h tGui/tObject/tPoint.h tGui/tObject/tSize.h \
- tGui/tObject/tObject.h tGui/tContainter/tString.h \
- tGui/tContainter/tObjList.h tGui/tContainter/tList.h \
+ tGui/tGlobal.h tGui/tContainter/tArray.h tGui/tPainter/tPainter.h \
+ tGui/tContainter/tRectList.h tGui/tObject/tRect.h tGui/tObject/tSize.h \
+ tGui/tObject/tPoint.h tGui/tContainter/tList.h \
  tGui/tContainter/tCollection.h tGui/tContainter/tVector.h \
  tGui/tContainter/tString.h tGui/tContainter/tList.h \
  c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\stdlib.h \
@@ -94,16 +92,20 @@ VisualGDB/Debug/main.o: main.cpp \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\stdlib.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\alloca.h \
  c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\bits\std_abs.h \
+ tGui/tPainter/tPaintDiver.h tGui/tObject/tDialog.h \
+ tGui/tObject/tWidget.h tGui/tObject/tEven.h tGui/tObject/tRect.h \
+ tGui/tObject/tPoint.h tGui/tObject/tSize.h tGui/tObject/tObject.h \
+ tGui/tContainter/tString.h tGui/tContainter/tObjList.h \
  tGui/tContainter/tConnectList.h tGui/tObject/connection.h \
  tGui/tContainter/tFuncList.h tGui/tContainter/tFuncNode.h \
+ tGui/tPainter/tPainter.h tGui/tObject/tWidget.h \
  tGui/tObject/tPushButton.h tGui/tObject/tAbstractButton.h \
- tGui/tObject/tWidget.h tGui/tPainter/tPainter.h \
- tGui/tPainter/tPaintDiver.h tGui/tObject/tCheckBox.h \
+ tGui/tObject/tWidget.h tGui/tObject/tCheckBox.h \
  tGui/tObject/tRadioButton.h tGui/tObject/tDirver.h \
  tGui/interface_conf/tgui_conf.h tGui/tObject/tApplication.h \
- tGui/tObject/tWidget.h tGui/tObject/tDirver.h tGui/tObject/tSlider.h \
- tGui/tObject/tAbstractSlider.h C:/STM32F429/tGui_v3/tGui_v3/demo/User.h \
- tGui/tGlobal.h
+ tGui/tObject/tDirver.h tGui/tObject/tLabel.h tGui/tObject/tFrame.h \
+ tGui/tObject/tSlider.h tGui/tObject/tAbstractSlider.h \
+ C:/STM32F429/tGui_v3/tGui_v3/demo/User.h tGui/tGlobal.h
 
 c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdio.h:
 
@@ -291,25 +293,15 @@ tGui/tGlobal.h:
 
 tGui/tContainter/tArray.h:
 
-tGui/tObject/tWidget.h:
+tGui/tPainter/tPainter.h:
 
-tGui/tObject/tEven.h:
-
-tGui/tObject/tPoint.h:
-
-tGui/tObject/tSize.h:
+tGui/tContainter/tRectList.h:
 
 tGui/tObject/tRect.h:
 
-tGui/tObject/tPoint.h:
-
 tGui/tObject/tSize.h:
 
-tGui/tObject/tObject.h:
-
-tGui/tContainter/tString.h:
-
-tGui/tContainter/tObjList.h:
+tGui/tObject/tPoint.h:
 
 tGui/tContainter/tList.h:
 
@@ -339,6 +331,26 @@ c:\sysgcc\arm-eabi\arm-eabi\sys-include\alloca.h:
 
 c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\bits\std_abs.h:
 
+tGui/tPainter/tPaintDiver.h:
+
+tGui/tObject/tDialog.h:
+
+tGui/tObject/tWidget.h:
+
+tGui/tObject/tEven.h:
+
+tGui/tObject/tRect.h:
+
+tGui/tObject/tPoint.h:
+
+tGui/tObject/tSize.h:
+
+tGui/tObject/tObject.h:
+
+tGui/tContainter/tString.h:
+
+tGui/tContainter/tObjList.h:
+
 tGui/tContainter/tConnectList.h:
 
 tGui/tObject/connection.h:
@@ -347,15 +359,15 @@ tGui/tContainter/tFuncList.h:
 
 tGui/tContainter/tFuncNode.h:
 
+tGui/tPainter/tPainter.h:
+
+tGui/tObject/tWidget.h:
+
 tGui/tObject/tPushButton.h:
 
 tGui/tObject/tAbstractButton.h:
 
 tGui/tObject/tWidget.h:
-
-tGui/tPainter/tPainter.h:
-
-tGui/tPainter/tPaintDiver.h:
 
 tGui/tObject/tCheckBox.h:
 
@@ -367,9 +379,11 @@ tGui/interface_conf/tgui_conf.h:
 
 tGui/tObject/tApplication.h:
 
-tGui/tObject/tWidget.h:
-
 tGui/tObject/tDirver.h:
+
+tGui/tObject/tLabel.h:
+
+tGui/tObject/tFrame.h:
 
 tGui/tObject/tSlider.h:
 

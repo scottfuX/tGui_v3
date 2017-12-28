@@ -7,8 +7,7 @@ class tScrollBar :
 	public tAbstractSlider
 {
 public:
-	tScrollBar() :tAbstractSlider() { value = 0; };
-	tScrollBar(int32 x, int32 y, int32 w, int32 h, const char* name);
+	tScrollBar(int32 x, int32 y, int32 w, int32 h, const char* name, bool isHoriz = true, tObject* obj = NULL);
 	virtual ~tScrollBar() {};
 
 	virtual void sig_move(int32 d1, int32 d2);

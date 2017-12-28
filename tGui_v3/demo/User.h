@@ -4,8 +4,9 @@
 class User :public tWidget
 {
 public:
-	User(tString* n, tObject* obj);
-	~User();
+	User(const char*  n, tObject* obj);
+	~User() {};
+	virtual void show();
 	void slot() { printf("depress_solt\n"); }
 	void slot1() { printf("hello world\n"); }
 	void slot2() { printf("release_slot\n"); }

@@ -1,14 +1,10 @@
 #include "tObject/tScrollBar.h"
 
 
-tScrollBar::tScrollBar(int32 x, int32 y, int32 w, int32 h, const char* name) :tAbstractSlider()
+tScrollBar::tScrollBar(int32 x, int32 y, int32 w, int32 h, const char* name, bool isHoriz ,tObject* obj)
+	:tAbstractSlider(x, y, w, h, name, isHoriz, obj)
 {
-	value = 0;
-	setX(x);
-	setY(y);
-	setW(w);
-	setH(h);
-	setName(name);
+
 }
 
 

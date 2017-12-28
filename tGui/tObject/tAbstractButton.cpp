@@ -1,6 +1,12 @@
 #include "tObject/tAbstractButton.h"
 
 
+tAbstractButton::tAbstractButton(int32 x, int32 y, int32 w, int32 h, const char* n, tObject* obj) 
+	: tWidget(x, y, w, h, n, obj)
+{
+	state = false;
+};
+
 void tAbstractButton::touchPressEvent(tTouchEvent *e)
 {
 	if (isArea(e->x(), e->y()))
@@ -9,7 +15,7 @@ void tAbstractButton::touchPressEvent(tTouchEvent *e)
 
 void tAbstractButton::touchReleaseEvent(tTouchEvent *e)
 {
-	if (isArea(e->x(), e->y()))
+	if (state && isArea(e->x(), e->y()))
 		sig_release(e->x(), e->y());
 };
 

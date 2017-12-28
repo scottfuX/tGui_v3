@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="tObject" Collapsed="true">
+    <Position X="6.25" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAQIAghAAKAAAEAAmAABEIAQEAAJEFAA=</HashCode>
+      <FileName>tGui\tObject\tObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tWidget" Collapsed="true">
+    <Position X="6.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCgDAQCAwIBAEIwQRIAGoABAABgQoAAABCHgFQoAACA=</HashCode>
+      <FileName>tGui\tObject\tWidget.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tAbstractButton" Collapsed="true">
+    <Position X="3.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GCgBAQAABABAAIQQBAAAIABAEAAUMIAEBCCAFAAAAAA=</HashCode>
+      <FileName>tGui\tObject\tAbstractButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tAbstractSlider" Collapsed="true">
+    <Position X="8.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GCgBAQAgAABAAIQRBAAAIABAEAAQMKAEBCDAFAAgAAA=</HashCode>
+      <FileName>tGui\tObject\tAbstractSlider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tApplication" Collapsed="true">
+    <Position X="30.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIZgAAQBAAAAAAEAAAAECAAAAAAAIAhACAAAACBAA=</HashCode>
+      <FileName>tGui\tObject\tApplication.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tCheckBox" Collapsed="true">
+    <Position X="1" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAQAAAAAAAAAAAEAAAAAAAAEIABBAAAAgIAACA=</HashCode>
+      <FileName>tGui\tObject\tCheckBox.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tDirver" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAACAAAAABAAARAAACAAAAAAEAAAAAA=</HashCode>
+      <FileName>tGui\tObject\tDirver.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tTouchDirver" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAEAACAAAAAAAAAAAAAiAAAAAAEAABBAA=</HashCode>
+      <FileName>tGui\tObject\tDirver.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tEvent" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAgAAAAAAAAAAQBAAAAABQAAAAAAAA=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tTimerEvent" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAgA=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tTouchEvent" Collapsed="true">
+    <Position X="17.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAAAEBgAAAAAIA=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tMouseEvent" Collapsed="true">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAIAAAAAAIAAMAcBwAAMAAAA=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tKeyEvent" Collapsed="true">
+    <Position X="10.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAACAAAAAAAwAAAAEBAAAAAAAAAAkgIEAAAAAAAA=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tFocusEvent" Collapsed="true">
+    <Position X="19.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAgAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tPaintEvent" Collapsed="true">
+    <Position X="24.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAABAAAAAQA=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tMoveEvent" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAMAAAAAAAAAAIAAAAAAIAAAAEAAAAAAAAA=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tResizeEvent" Collapsed="true">
+    <Position X="13" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAIAAAAAIABAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tCloseEvent" Collapsed="true">
+    <Position X="22" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAACAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tShowEvent" Collapsed="true">
+    <Position X="26.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAABAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tHideEvent" Collapsed="true">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAABAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tCustomEvent" Collapsed="true">
+    <Position X="15.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAQAAAAAAI=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tFrame" Collapsed="true">
+    <Position X="12.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCgBAQAAAABABIQQBAAAIABAAAAQIAAABCCAFAAAAAA=</HashCode>
+      <FileName>tGui\tObject\tFrame.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tLabel" Collapsed="true">
+    <Position X="12.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABAACAAAAIAA=</HashCode>
+      <FileName>tGui\tObject\tLabel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tPoint" Collapsed="true">
+    <Position X="32.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAGAQAAAIAAAAAAAABgCGAAAAA=</HashCode>
+      <FileName>tGui\tObject\tPoint.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tPushButton" Collapsed="true">
+    <Position X="3.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAIAAAAAAAAQAAEIAABAAAAAAAAAA=</HashCode>
+      <FileName>tGui\tObject\tPushButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tRadioButton" Collapsed="true">
+    <Position X="5.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAARAAAAAAAAAAAAAAAAAAAAEKAABAACAgMAACA=</HashCode>
+      <FileName>tGui\tObject\tRadioButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tRect" Collapsed="true">
+    <Position X="29" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJggBAAACAAcChwARMQGIokAB0BIAACEAQBgiAIA0AA=</HashCode>
+      <FileName>tGui\tObject\tRect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tScrollBar" Collapsed="true">
+    <Position X="10" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAQAgAAAAAAQAAAAAAAAAAAAAEIAEAAAAEBAAAAA=</HashCode>
+      <FileName>tGui\tObject\tScrollBar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tSize" Collapsed="true">
+    <Position X="30.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACBBAAQAAACAYAQAAAAQAAAAAEAABECAAACAAAwAA=</HashCode>
+      <FileName>tGui\tObject\tSize.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tSlider" Collapsed="true">
+    <Position X="7.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAQAgAAAAAAQAAAAAAAAAAAAQEIAAFAAAEAAAAAA=</HashCode>
+      <FileName>tGui\tObject\tSlider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="connection" Collapsed="true">
+    <Position X="29" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAEAAABgEAAAAAAAAACAAAAIAAGAAA=</HashCode>
+      <FileName>tGui\tObject\connection.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ButtonState" Collapsed="true">
+    <Position X="29" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAACAAAAgCAAAAAQAAAAAAAAAAAAAAAAAwgAQAAA=</HashCode>
+      <FileName>tGui\tObject\tEven.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

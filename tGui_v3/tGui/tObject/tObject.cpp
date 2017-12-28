@@ -2,9 +2,10 @@
 
 
 //-----------------------------OBJECT-------------------------
-tObject::tObject(tString* n , tObject* obj )
+tObject::tObject(const char* n , tObject* obj )
 {
-	name = n;
+	name = NULL;
+	setName(n);
 	parents = obj;
 	childList = NULL;
 	connections = NULL;

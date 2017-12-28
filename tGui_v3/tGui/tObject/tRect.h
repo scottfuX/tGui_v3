@@ -67,7 +67,6 @@ public:
 	friend  bool operator!=(const tRect &, const tRect &);
 
 private:
-
 	int32 x1;
 	int32 y1;
 	int32 x2;

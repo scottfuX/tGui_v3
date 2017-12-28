@@ -1,9 +1,9 @@
 VisualGDB/Debug/ffsystem.o: periph_conf/fatfs/ffsystem.c \
- periph_conf/fatfs/ff.h periph_conf/fatfs/integer.h \
- periph_conf/fatfs/ffconf.h
+ periph_conf/FATFS/ff.h periph_conf/FATFS/integer.h \
+ periph_conf/FATFS/ffconf.h
 
-periph_conf/fatfs/ff.h:
+periph_conf/FATFS/ff.h:
 
-periph_conf/fatfs/integer.h:
+periph_conf/FATFS/integer.h:
 
-periph_conf/fatfs/ffconf.h:
+periph_conf/FATFS/ffconf.h:

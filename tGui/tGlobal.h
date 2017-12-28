@@ -8,6 +8,8 @@ extern "C" {
 #define MAX(x,y) x>y?x:y
 #define MIN(x,y) x<y?x:y
 #define ABS(x)  ( (x)>0?(x):-(x) ) 
+
+#define COVERNUM 5 
 //copy from stm32
 typedef signed long  int32;
 typedef signed short int16;

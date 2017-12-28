@@ -5,17 +5,23 @@
 
 
 //RGB888
-#define GREY0 0xF7F7F7
-#define GREY1 0xE5E5E5
-#define GREY2 0xDBDBDB
-#define GREY3 0xC9C9C9
-#define GREY4 0xB7B7B7
-#define GREY5 0xABABAB
-#define GREY6 0x8C8C8C
-#define GREY7 0x696969
-#define BLACK 0x000000
-#define WHITE 0xFFFFFF
-
+#define GREY0	0xF7F7F7
+#define GREY1	0xE5E5E5
+#define GREY2	0xDBDBDB
+#define GREY3	0xC9C9C9
+#define GREY4	0xB7B7B7
+#define GREY5	0xABABAB
+#define GREY6	0x8C8C8C
+#define GREY7	0x696969
+#define BLACK	0x000000
+#define WHITE	0xFFFFFF
+#define RED		0xFF0000
+#define GREEN	0x008000
+#define BLUE	0x0000FF
+#define PUEPLE	0x800080
+#define GOLD	0xFFD700
+#define ROYALBLUE 0x4876FF
+#define SKYBLUE 0x00B2EE
 #define LIGHT	  GREY0
 #define DARK	  GREY7
 #define MID		  GREY2
@@ -23,6 +29,7 @@
 #define MIDDARK   GREY5
 
 
+#define WIN_TITLE_H  30
 
 typedef int32 colorDef;
 typedef sFONT tFont;
