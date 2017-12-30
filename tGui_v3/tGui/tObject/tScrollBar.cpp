@@ -1,8 +1,8 @@
 #include "tObject/tScrollBar.h"
 
 
-tScrollBar::tScrollBar(int32 x, int32 y, int32 w, int32 h, const char* name, bool isHoriz ,tObject* obj)
-	:tAbstractSlider(x, y, w, h, name, isHoriz, obj)
+tScrollBar::tScrollBar(int32 x, int32 y, int32 w, int32 h, const char* name, tWidget* obj, bool isHoriz )
+	:tAbstractSlider(x, y, w, h, name, obj, isHoriz)
 {
 
 }

@@ -1,13 +1,13 @@
 #include "tObject/tLabel.h"
 
-tLabel::tLabel(int32 x, int32 y, int32 w, int32 h, const char* n, tObject* obj)
+tLabel::tLabel(int32 x, int32 y, int32 w, int32 h, const char* n, tWidget* obj)
 	:tFrame(x,y,w,h,n,obj)
 {
 }
 
 void tLabel::show()
 {
-	tPainter p;
+	tPainter p(getInvalidList(),getPaintInvaild());
 	p.drawLabel(x(), y(), width(), height(), getName(),BLACK, ((tWidget*)getParents())->getBackColor());
 }
 

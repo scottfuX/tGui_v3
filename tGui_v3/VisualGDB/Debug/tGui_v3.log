@@ -1,44 +1,9 @@
-﻿  main.cpp
-  tDialog.cpp
-  tSlider.cpp
-  tGuiMain.cpp
-  main.cpp(6):
-stm32f4xx_conf.h(131): warning :  "assert_param" redefined
-     #define assert_param(expr) ((void)0)
-   
-  stm32f4xx_conf.h(35):
-  main.cpp(6):
-  C:\Users\fuguangtao\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F4xxxx\CMSIS_StdPeriph\Device\ST\STM32F4xx\Include\stm32f4xx.h(56): note :  this is the location of the previous definition
-   #define assert_param(expr)
-   
-  tGui\tContainter\tList.h(4):
-  tGui\tContainter\tRectList.h(4):
-  tGui\tPainter\tPainter.h(5):
-  tGui\tGuiMain.h(27):
-  main.cpp(22):
-  tGui/tContainter/tCollection.h: In instantiation of 'void tCollection<T>::deleteItem(void*) [with T = tRect*]':
-  tGui\tContainter\tList.h(97,66): note :   required from 'void tList<T>::deleteItem(void*) [with T = tRect*]'
-  tGui\tContainter\tList.h(477,12): note :   required from 'bool tList<T>::remove(T) [with T = tRect*]'
-  tGui\tContainter\tRectList.h(13,50): note :   required from here
-tGui\tContainter\tCollection.h(66,3): warning :  deleting 'void*' is undefined [-Wdelete-incomplete]
-     delete d;     // default operation
-     ^~~~~~
-  tGui/tContainter/tCollection.h: In instantiation of 'void tCollection<T>::deleteItem(void*) [with T = tObject*]':
-  tGui\tContainter\tList.h(97,66): note :   required from 'void tList<T>::deleteItem(void*) [with T = tObject*]'
-  tGui\tContainter\tList.h(477,12): note :   required from 'bool tList<T>::remove(T) [with T = tObject*]'
-  tGui\tContainter\tObjList.h(16,55): note :   required from here
-tGui\tContainter\tCollection.h(66,3): warning :  deleting 'void*' is undefined [-Wdelete-incomplete]
-  tGui/tContainter/tCollection.h: In instantiation of 'void tCollection<T>::deleteItem(void*) [with T = connection*]':
-  tGui\tContainter\tList.h(97,66): note :   required from 'void tList<T>::deleteItem(void*) [with T = connection*]'
-  tGui\tContainter\tList.h(477,12): note :   required from 'bool tList<T>::remove(T) [with T = connection*]'
-  tGui\tContainter\tConnectList.h(15,62): note :   required from here
-tGui\tContainter\tCollection.h(66,3): warning :  deleting 'void*' is undefined [-Wdelete-incomplete]
+﻿  tWidget.cpp
   tGui\interface_conf\tgui_conf.h(9):
   tGui\tGlobal.h(5):
   tGui\tObject\tEven.h(4):
   tGui\tObject\tWidget.h(4):
-  tGui\tObject\tDialog.h(4):
-  tGui\tObject\tDialog.cpp(1):
+  tGui\tObject\tWidget.cpp(1):
 C:\STM32F429\tGui_v3\tGui_v3\stm32f4xx_conf.h(131): warning :  "assert_param" redefined
      #define assert_param(expr) ((void)0)
    
@@ -47,42 +12,19 @@ C:\STM32F429\tGui_v3\tGui_v3\stm32f4xx_conf.h(131): warning :  "assert_param" re
   tGui\tGlobal.h(5):
   tGui\tObject\tEven.h(4):
   tGui\tObject\tWidget.h(4):
-  tGui\tObject\tDialog.h(4):
-  tGui\tObject\tDialog.cpp(1):
-  C:\Users\fuguangtao\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F4xxxx\CMSIS_StdPeriph\Device\ST\STM32F4xx\Include\stm32f4xx.h(56): note :  this is the location of the previous definition
-   #define assert_param(expr)
-   
-  tGui\interface_conf\tgui_conf.h(9):
-  tGui\tGlobal.h(5):
-  tGui\tObject\tEven.h(4):
-  tGui\tObject\tWidget.h(4):
-  tGui\tObject\tAbstractSlider.h(4):
-  tGui\tObject\tSlider.h(4):
-  tGui\tObject\tSlider.cpp(1):
-C:\STM32F429\tGui_v3\tGui_v3\stm32f4xx_conf.h(131): warning :  "assert_param" redefined
-     #define assert_param(expr) ((void)0)
-   
-  C:\STM32F429\tGui_v3\tGui_v3\stm32f4xx_conf.h(35):
-  tGui\interface_conf\tgui_conf.h(9):
-  tGui\tGlobal.h(5):
-  tGui\tObject\tEven.h(4):
-  tGui\tObject\tWidget.h(4):
-  tGui\tObject\tAbstractSlider.h(4):
-  tGui\tObject\tSlider.h(4):
-  tGui\tObject\tSlider.cpp(1):
+  tGui\tObject\tWidget.cpp(1):
   C:\Users\fuguangtao\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F4xxxx\CMSIS_StdPeriph\Device\ST\STM32F4xx\Include\stm32f4xx.h(56): note :  this is the location of the previous definition
    #define assert_param(expr)
    
   tGui\tContainter\tList.h(4):
   tGui\tContainter\tObjList.h(5):
-  tGui\tObject\tObject.h(7):
+  tGui\tObject\tObject.h(6):
   tGui\tObject\tWidget.h(7):
-  tGui\tObject\tDialog.h(4):
-  tGui\tObject\tDialog.cpp(1):
+  tGui\tObject\tWidget.cpp(1):
   tGui/tContainter/tCollection.h: In instantiation of 'void tCollection<T>::deleteItem(void*) [with T = tObject*]':
   tGui\tContainter\tList.h(97,66): note :   required from 'void tList<T>::deleteItem(void*) [with T = tObject*]'
   tGui\tContainter\tList.h(477,12): note :   required from 'bool tList<T>::remove(T) [with T = tObject*]'
-  tGui\tContainter\tObjList.h(16,55): note :   required from here
+  tGui\tContainter\tObjList.h(17,55): note :   required from here
 tGui\tContainter\tCollection.h(66,3): warning :  deleting 'void*' is undefined [-Wdelete-incomplete]
      delete d;     // default operation
      ^~~~~~
@@ -91,70 +33,13 @@ tGui\tContainter\tCollection.h(66,3): warning :  deleting 'void*' is undefined [
   tGui\tContainter\tList.h(477,12): note :   required from 'bool tList<T>::remove(T) [with T = connection*]'
   tGui\tContainter\tConnectList.h(15,62): note :   required from here
 tGui\tContainter\tCollection.h(66,3): warning :  deleting 'void*' is undefined [-Wdelete-incomplete]
-  tGui/tContainter/tCollection.h: In instantiation of 'void tCollection<T>::deleteItem(void*) [with T = tRect*]':
-  tGui\tContainter\tList.h(97,66): note :   required from 'void tList<T>::deleteItem(void*) [with T = tRect*]'
-  tGui\tContainter\tList.h(477,12): note :   required from 'bool tList<T>::remove(T) [with T = tRect*]'
-  tGui\tContainter\tRectList.h(13,50): note :   required from here
-tGui\tContainter\tCollection.h(66,3): warning :  deleting 'void*' is undefined [-Wdelete-incomplete]
-  tGui\tContainter\tList.h(4):
-  tGui\tContainter\tObjList.h(5):
-  tGui\tObject\tObject.h(7):
-  tGui\tObject\tWidget.h(7):
-  tGui\tObject\tAbstractSlider.h(4):
-  tGui\tObject\tSlider.h(4):
-  tGui\tObject\tSlider.cpp(1):
-  tGui/tContainter/tCollection.h: In instantiation of 'void tCollection<T>::deleteItem(void*) [with T = tObject*]':
-  tGui\tContainter\tList.h(97,66): note :   required from 'void tList<T>::deleteItem(void*) [with T = tObject*]'
-  tGui\tContainter\tList.h(477,12): note :   required from 'bool tList<T>::remove(T) [with T = tObject*]'
-  tGui\tContainter\tObjList.h(16,55): note :   required from here
-tGui\tContainter\tCollection.h(66,3): warning :  deleting 'void*' is undefined [-Wdelete-incomplete]
-     delete d;     // default operation
-     ^~~~~~
-  tGui/tContainter/tCollection.h: In instantiation of 'void tCollection<T>::deleteItem(void*) [with T = connection*]':
-  tGui\tContainter\tList.h(97,66): note :   required from 'void tList<T>::deleteItem(void*) [with T = connection*]'
-  tGui\tContainter\tList.h(477,12): note :   required from 'bool tList<T>::remove(T) [with T = connection*]'
-  tGui\tContainter\tConnectList.h(15,62): note :   required from here
-tGui\tContainter\tCollection.h(66,3): warning :  deleting 'void*' is undefined [-Wdelete-incomplete]
-  tGui/tContainter/tCollection.h: In instantiation of 'void tCollection<T>::deleteItem(void*) [with T = tRect*]':
-  tGui\tContainter\tList.h(97,66): note :   required from 'void tList<T>::deleteItem(void*) [with T = tRect*]'
-  tGui\tContainter\tList.h(477,12): note :   required from 'bool tList<T>::remove(T) [with T = tRect*]'
-  tGui\tContainter\tRectList.h(13,50): note :   required from here
-tGui\tContainter\tCollection.h(66,3): warning :  deleting 'void*' is undefined [-Wdelete-incomplete]
-  tGui\tGuiMain.h(9):
-  tGui\tGuiMain.cpp(1):
-C:\STM32F429\tGui_v3\tGui_v3\stm32f4xx_conf.h(131): warning :  "assert_param" redefined
-     #define assert_param(expr) ((void)0)
-   
-  C:\STM32F429\tGui_v3\tGui_v3\stm32f4xx_conf.h(35):
-  tGui\tGuiMain.h(9):
-  tGui\tGuiMain.cpp(1):
-  C:\Users\fuguangtao\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F4xxxx\CMSIS_StdPeriph\Device\ST\STM32F4xx\Include\stm32f4xx.h(56): note :  this is the location of the previous definition
-   #define assert_param(expr)
-   
-  tGui\tContainter\tList.h(4):
-  tGui\tContainter\tRectList.h(4):
-  tGui\tPainter\tPainter.h(5):
-  tGui\tGuiMain.h(27):
-  tGui\tGuiMain.cpp(1):
-  tGui/tContainter/tCollection.h: In instantiation of 'void tCollection<T>::deleteItem(void*) [with T = tRect*]':
-  tGui\tContainter\tList.h(97,66): note :   required from 'void tList<T>::deleteItem(void*) [with T = tRect*]'
-  tGui\tContainter\tList.h(477,12): note :   required from 'bool tList<T>::remove(T) [with T = tRect*]'
-  tGui\tContainter\tRectList.h(13,50): note :   required from here
-tGui\tContainter\tCollection.h(66,3): warning :  deleting 'void*' is undefined [-Wdelete-incomplete]
-     delete d;     // default operation
-     ^~~~~~
-  tGui/tContainter/tCollection.h: In instantiation of 'void tCollection<T>::deleteItem(void*) [with T = tObject*]':
-  tGui\tContainter\tList.h(97,66): note :   required from 'void tList<T>::deleteItem(void*) [with T = tObject*]'
-  tGui\tContainter\tList.h(477,12): note :   required from 'bool tList<T>::remove(T) [with T = tObject*]'
-  tGui\tContainter\tObjList.h(16,55): note :   required from here
-tGui\tContainter\tCollection.h(66,3): warning :  deleting 'void*' is undefined [-Wdelete-incomplete]
-  tGui/tContainter/tCollection.h: In instantiation of 'void tCollection<T>::deleteItem(void*) [with T = connection*]':
-  tGui\tContainter\tList.h(97,66): note :   required from 'void tList<T>::deleteItem(void*) [with T = connection*]'
-  tGui\tContainter\tList.h(477,12): note :   required from 'bool tList<T>::remove(T) [with T = connection*]'
-  tGui\tContainter\tConnectList.h(15,62): note :   required from here
+  tGui/tContainter/tCollection.h: In instantiation of 'void tCollection<T>::deleteItem(void*) [with T = tWidget*]':
+  tGui\tContainter\tList.h(97,66): note :   required from 'void tList<T>::deleteItem(void*) [with T = tWidget*]'
+  tGui\tContainter\tList.h(477,12): note :   required from 'bool tList<T>::remove(T) [with T = tWidget*]'
+  tGui\tContainter\tWidgetList.h(14,54): note :   required from here
 tGui\tContainter\tCollection.h(66,3): warning :  deleting 'void*' is undefined [-Wdelete-incomplete]
 F:\gdb\MSBuild\Targets\link.targets(40,2): warning : Explicit linker script in project properties (C:/Users/fuguangtao/AppData/Local/VisualGDB/EmbeddedBSPs/arm-eabi/com.sysprogs.arm.stm32/STM32F4xxxx/LinkerScripts/STM32F429IG_flash.lds) overrides the ones included in Solution Explorer
   Linking ../VisualGDB/Debug/tGui_v3...
   ------------------- Memory utilization report -------------------
-  Used FLASH: 58KB out of 1024KB (5%) [+52]
-  Used RAM: 24KB out of 256KB (9%)
+  Used FLASH: 63KB out of 1024KB (6%) [-48]
+  Used RAM: 28KB out of 256KB (11%)

@@ -54,12 +54,32 @@ void tApplication::visitAll(tObject* obj, tApplication* app)
 {
 	app->emit(obj);
 	tObjList* list = obj->getChildList();
-	tObject* temp;
+	tObject* temp; 
+	tLNode<tObject*> * tnode;
+	int32 tindex;
 	if (list)
 	{
-		visitAll(list->getFirst(), app);
+		
+		temp = list->getFirst();
+		//保存现场
+		tnode = list->getCurrent();
+		tindex = list->getCurIndex();
+		printf("%s\n", temp->getName());
+		visitAll(temp, app);
+		
+		//恢复现场
+		list->setCurIndex(tindex);
+		list->setCurNode(tnode);
 		while (temp = list->getNext())
-				visitAll(temp, app);
+		{//保存现场
+			tnode = list->getCurrent();
+			tindex = list->getCurIndex();
+			printf("%s\n", temp->getName());
+			visitAll(temp, app);
+			//恢复现场
+			list->setCurIndex(tindex);
+			list->setCurNode(tnode);
+		}
 	}
 }
 void tApplication::translate(tDirver* div)

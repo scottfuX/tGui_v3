@@ -1,15 +1,15 @@
 #include "tObject/tSlider.h"
 
 
-tSlider::tSlider(int32 x, int32 y, int32 w, int32 h, const char* name, bool isHoriz, tObject* obj) 
-	:tAbstractSlider(x,y,w,h,name,isHoriz,obj)
+tSlider::tSlider(int32 x, int32 y, int32 w, int32 h, const char* name, tWidget* obj, bool isHoriz)
+	:tAbstractSlider(x,y,w,h,name, obj,isHoriz)
 {
 }
 void tSlider::sig_move(int32 d1, int32 d2)
 {
 	printf("move y = %d", d2);
 	int32 value_pre = value;
-	tPainter p;
+	tPainter p(getInvalidList(),getPaintInvaild());
 	if (isHoriz)
 	{
 		value = ((d1 - x() + height() * 4 / 6) * 10) / (width() / 10);
@@ -32,7 +32,7 @@ void tSlider::sig_valueChange(int32 d1, int32 d2)
 
 void tSlider::sig_depress(int32 d1, int32 d2)
 {
-	tPainter p;
+	tPainter p(getInvalidList(),getPaintInvaild());
 	if (isHoriz)
 	{
 		value = ((d1 - x() + height() * 4 / 6) * 10) / (width() / 10);
@@ -50,7 +50,7 @@ void tSlider::sig_depress(int32 d1, int32 d2)
 
 void tSlider::sig_release(int32 d1, int32 d2)
 {
-	tPainter p;
+	tPainter p(getInvalidList(),getPaintInvaild());
 	if (isHoriz)
 	{
 		value = ((d1 - x() + height() * 4 / 6) * 10) / (width() / 10);
@@ -70,7 +70,7 @@ void tSlider::sig_release(int32 d1, int32 d2)
 }
 void tSlider::release()
 {
-	tPainter p;
+	tPainter p(getInvalidList(),getPaintInvaild());
 	if (isHoriz)
 		p.drawHorizSlider(x(), y(), width(), height(), value, -1, false, ((tWidget*)getParents())->getBackColor());
 	else
@@ -80,7 +80,7 @@ void tSlider::release()
 
 void tSlider::show()
 {
-	tPainter p;
+	tPainter p(getInvalidList(),getPaintInvaild());
 	if (isHoriz)
 		p.drawHorizSlider(x(), y(), width(), height(), value, -1, state, ((tWidget*)getParents())->getBackColor());
 	else

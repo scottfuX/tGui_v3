@@ -6,7 +6,7 @@
 class tLabel:public tFrame
 {
 public:
-	tLabel(int32 x, int32 y, int32 w, int32 h, const char* n, tObject* obj);
+	tLabel(int32 x, int32 y, int32 w, int32 h, const char* n, tWidget* obj);
 	virtual ~tLabel() {};
 
 	virtual void show();

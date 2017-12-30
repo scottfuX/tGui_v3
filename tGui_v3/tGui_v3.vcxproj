@@ -89,7 +89,7 @@
     <ClInclude Include="tGui\tContainter\tFuncNode.h" />
     <ClInclude Include="tGui\tContainter\tMap.h" />
     <ClInclude Include="tGui\tContainter\tObjList.h" />
-    <ClInclude Include="tGui\tContainter\tRectList.h" />
+    <ClInclude Include="tGui\tContainter\tWidgetList.h" />
     <ClInclude Include="tGui\tGlobal.h" />
     <ClInclude Include="tGui\tObject\connection.h" />
     <ClInclude Include="tGui\tObject\tAbstractSlider.h" />

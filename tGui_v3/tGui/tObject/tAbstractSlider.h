@@ -10,7 +10,7 @@ protected:
 	bool isHoriz;//true horiz
 	bool state; //true => press ;false
 public:
-	tAbstractSlider(int32 x, int32 y, int32 w, int32 h, const char* n = NULL, bool isHoriz = true, tObject* obj = NULL) ;
+	tAbstractSlider(int32 x, int32 y, int32 w, int32 h, const char* n , tWidget* obj, bool isHoriz = true) ;
 	virtual ~tAbstractSlider() {};
 	virtual void	show() = 0;
 	virtual void	sig_move(int32 d1, int32 d2) = 0;

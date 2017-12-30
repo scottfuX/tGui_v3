@@ -44,7 +44,7 @@
       </KeyValue>
       <KeyValue>
         <Key>com.sysprogs.bspoptions.stackheap.heapsize</Key>
-        <Value>16384</Value>
+        <Value>20480</Value>
       </KeyValue>
     </Entries>
   </FrameworkProperties>

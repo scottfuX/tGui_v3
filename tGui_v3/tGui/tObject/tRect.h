@@ -41,6 +41,7 @@ public:
 	void   coords(int *x1, int *y1, int *x2, int *y2) const;
 
 	void   moveTopLeft(const tPoint &p);
+	void   moveTopLeft(int32 xt, int32 yt);
 	void   moveBottomRight(const tPoint &p);
 	void   moveTopRight(const tPoint &p);
 	void   moveBottomLeft(const tPoint &p);

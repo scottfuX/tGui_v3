@@ -1,13 +1,13 @@
 #include "tPainter/tPainter.h"
 
 
-tPainter::tPainter(tRectList* list,tRect* invaild)
+tPainter::tPainter(tWidgetList* list,tRect* invalid)
 {
 	font = &Font16x24;
 	textcolor = 0;
 	backcolor = 0;
-	rectlist = list;
-	invaildArea = invaild;
+	widgetlist = list;
+	invalidArea = invalid;
 	nestingNum = COVERNUM;
 }
 
@@ -19,15 +19,20 @@ void tPainter::setColors(colorDef text, colorDef back)
 };
 
 
-void tPainter::drawPoint(int32 x, int32 y)
+void tPainter::drawPoint(int32 x, int32 y, bool isDircDraw)
 {
-	tRect rect(x, y, 1, 1);
-	paintMeta(&rect);
+	if (isDircDraw)
+		drawDivRect(x, y, 1, 1);
+	else
+	{
+		tRect rect(x, y, 1, 1);
+		paintMeta(&rect);
+	}
 }
 
 void tPainter::drawLine(int32 x1, int32 y1, int32 x2, int32 y2)
 {
-	if (x1 == x2)
+	if (x1 == x2)//竖直
 	{
 		if (y2 > y1)
 		{
@@ -40,7 +45,7 @@ void tPainter::drawLine(int32 x1, int32 y1, int32 x2, int32 y2)
 			paintMeta(&rect);
 		}
 	}
-	else if (y1 == y2)
+	else if (y1 == y2)//水平
 	{
 		if (x2 > x1)
 		{
@@ -234,8 +239,8 @@ void tPainter::drawFullEllipse(int32 x, int32 y, int32 r1, int32 r2)
 		do
 		{
 			K = (float)(rad1 / rad2);
-			LCD_DrawLine((x + xt), (y - (uint16_t)(yt / K)), (2 * (uint16_t)(yt / K) + 1), LCD_DIR_VERTICAL);
-			LCD_DrawLine((x - xt), (y - (uint16_t)(yt / K)), (2 * (uint16_t)(yt / K) + 1), LCD_DIR_VERTICAL);
+			drawLine((x + xt), (y - (uint16)(yt / K)), (x + xt), (y - (uint16)(yt / K))+ (2 * (uint16)(yt / K) + 1));
+			drawLine((x - xt), (y - (uint16_t)(yt / K)), (x - xt), (y - (uint16_t)(yt / K))+ (2 * (uint16)(yt / K) + 1));
 
 			e2 = err;
 			if (e2 <= yt)
@@ -254,8 +259,8 @@ void tPainter::drawFullEllipse(int32 x, int32 y, int32 r1, int32 r2)
 		do
 		{
 			K = (float)(rad2 / rad1);
-			LCD_DrawLine((x - (uint16_t)(xt / K)), (y + yt), (2 * (uint16_t)(xt / K) + 1), LCD_DIR_HORIZONTAL);
-			LCD_DrawLine((x - (uint16_t)(xt / K)), (y - yt), (2 * (uint16_t)(xt / K) + 1), LCD_DIR_HORIZONTAL);
+			drawLine((x - (uint16)(xt / K)), (y + yt), (x - (uint16)(xt / K)) + (2 * (uint16)(xt / K) + 1), (y + yt));
+			drawLine((x - (uint16)(xt / K)), (y - yt), (x - (uint16)(xt / K)) + (2 * (uint16)(xt / K) + 1), (y - yt));
 
 			e2 = err;
 			if (e2 <= xt)
@@ -290,14 +295,14 @@ void tPainter::drawFullCircle(int32 x, int32 y, int32 r)
 	{
 		if (CurY > 0)
 		{
-			LCD_DrawLine(x - CurX, y - CurY, 2 * CurY, LCD_DIR_VERTICAL);
-			LCD_DrawLine(x + CurX, y - CurY, 2 * CurY, LCD_DIR_VERTICAL);
+			drawLine(x - CurX, y - CurY, x - CurX, y - CurY + 2 * CurY);
+			drawLine(x + CurX, y - CurY, x + CurX, y - CurY + 2 * CurY);
 		}
 
 		if (CurX > 0)
 		{
-			LCD_DrawLine(x - CurY, y - CurX, 2 * CurX, LCD_DIR_VERTICAL);
-			LCD_DrawLine(x + CurY, y - CurX, 2 * CurX, LCD_DIR_VERTICAL);
+			drawLine(x - CurY, y - CurX, x - CurY, y - CurX+ 2 * CurX);
+			drawLine(x + CurY, y - CurX, x + CurY, y - CurX +2 * CurX);
 		}
 		if (D < 0)
 		{
@@ -413,7 +418,7 @@ void tPainter::drawButton(int32 x, int32 y, int32 w, int32 h, const char* str ,b
 		drawWinShades(x, y, w, h, MIDLIGHT, LIGHT, DARK, MIDLIGHT, MID);
 	else//未按下
 		drawWinShades(x, y, w, h, LIGHT, DARK, MIDLIGHT, MIDDARK, MID);
-	drawCenterText(x, y, w, h, str, BLACK, MID);
+	drawCenterEnText(x, y, w, h, str, BLACK, MID);
 }
 
 void tPainter::drawCheck(int32 x, int32 y, int32 w, int32 h, const char* str, bool Selected, bool isPress, colorDef back)
@@ -428,7 +433,7 @@ void tPainter::drawCheck(int32 x, int32 y, int32 w, int32 h, const char* str, bo
 		drawLine(x + 2, y + h / 2, x + h / 2, y + h - 2);
 		drawLine(x + h / 2, y + h - 2, x + h - 2, y + 2);
 	}
-	drawCenterText(x+h, y, w-h, h, str, BLACK, back);
+	drawCenterEnText(x+h, y, w-h, h, str, BLACK, back);
 }
 
 void tPainter::drawRadio(int32 x, int32 y, int32 w, int32 h, const char* str, bool Selected, bool isPress, colorDef back)
@@ -460,7 +465,7 @@ void tPainter::drawRadio(int32 x, int32 y, int32 w, int32 h, const char* str, bo
 		setColors(BLACK, WHITE);
 		drawFullCircle(xt, yt, rt / 3);
 	}
-	drawCenterText(x + h, y, w - h, h, str, BLACK, back);
+	drawCenterEnText(x + h, y, w - h, h, str, BLACK, back);
 }
 
 
@@ -480,11 +485,11 @@ void tPainter::drawHorizSlider(int32 x, int32 y, int32 w, int32 h,int32 value, i
 	{
 		tRect rect(x + value_pre*(w / 10) / 10 - sliderW / 2 , y ,  sliderW , h);
 		//绘画之前的区域
-		invaildArea = &rect;
+		invalidArea = &rect;
 		setColors(back, back);
 		drawFullRect(x, y, w, h);
 		drawWinShades(x, y + sliderBackH, w, sliderBackH, MIDDARK, MID, DARK, MIDDARK, MIDLIGHT);//背景 
-		invaildArea =NULL;
+		invalidArea =NULL;
 	}
 	//实际物体
 	sliderX = x + value*( w / 10)/10 - sliderW/2;
@@ -516,11 +521,11 @@ void tPainter::drawVertSlider(int32 x, int32 y, int32 w, int32 h, int32 value, i
 	{
 		tRect rect(x , y + value_pre*(h / 10) / 10 - sliderH / 2, w, sliderH);
 		//绘画之前的区域
-		invaildArea = &rect;
+		invalidArea = &rect;
 		setColors(back, back);
 		drawFullRect(x, y, w, h);
 		drawWinShades(x + sliderBackW, y,  sliderBackW, h , MIDDARK, MID, DARK, MIDDARK, MIDLIGHT);//背景 
-		invaildArea = NULL;
+		invalidArea = NULL;
 	}
 	//实际物体
 	sliderY = y + value*(h / 10) / 10 - sliderH / 2;
@@ -541,7 +546,7 @@ void tPainter::drawLabel(int32 x, int32 y, int32 w, int32 h, const char* str,col
 {
 	setTextColor(back);
 	drawFullRect(x, y, w, h);
-	drawCenterText(x, y, w, h, str, text, back);
+	drawCenterEnText(x, y, w, h, str, text, back);
 }
 
 void tPainter::drawDialog(int32 x, int32 y, int32 w, int32 h, const char* str,bool hasFocus,colorDef back)
@@ -557,18 +562,18 @@ void tPainter::drawDialogTitle(int32 x, int32 y, int32 w, const char* str, bool 
 	{
 		setTextColor(SKYBLUE);
 		drawFullRect(x + 2, y + 2, w - 4, WIN_TITLE_H);
-		drawCenterText(x + 2, y + 2, w - 4, WIN_TITLE_H, str, BLACK, SKYBLUE);
+		drawCenterEnText(x + 2, y + 2, w - 4, WIN_TITLE_H, str, BLACK, SKYBLUE);
 	}
 	else
 	{
 		setTextColor(MID);
 		drawFullRect(x + 2, y + 2, w - 4, WIN_TITLE_H);
-		drawCenterText(x + 2, y + 2, w - 4, WIN_TITLE_H, str, BLACK, MID);
+		drawCenterEnText(x + 2, y + 2, w - 4, WIN_TITLE_H, str, BLACK, MID);
 	}
 }
 
 
-void tPainter::drawCenterText(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text, colorDef back,  bool isAllShow)
+void tPainter::drawCenterEnText(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text, colorDef back,  bool isAllShow)
 {
 	setBackColor(back);
 	setTextColor(text);
@@ -584,7 +589,7 @@ void tPainter::drawCenterText(int32 x, int32 y, int32 w, int32 h, const char* st
 		//自动缩小字体，通过存字体的列表，这里先不做处理
 		return;
 	else
-		drawDivText(x, y, str, len);
+		drawEnText(x, y, str, len);
 }
 
 
@@ -598,9 +603,9 @@ void tPainter::drawCenterText(int32 x, int32 y, int32 w, int32 h, const char* st
 
 void tPainter::paintMeta(tRect* srcRect)
 {
-	if (invaildArea)//恢复无效区
+	if (invalidArea)//恢复无效区
 	{ 
-		tRect rect = srcRect->intersect(*invaildArea);
+		tRect rect = srcRect->intersect(*invalidArea);
 		if (rect.isValid())
 			rectCut(&rect);
 	}
@@ -608,75 +613,163 @@ void tPainter::paintMeta(tRect* srcRect)
 		rectCut(srcRect);
 }
 
+
 void tPainter::rectCut(tRect* srcRect)
 {
-	if (!srcRect)//小于一个值时
+	if (!srcRect)
 		return;
-	if(rectlist && nestingNum > 0)
-	{ 
-		tRect rect = srcRect->intersect(*(rectlist->getCurrent()->getData())) ;
-		nestingNum--;
+	tRect rect(0,0,-1,-1);
+	if (widgetlist && widgetlist->getFirst())//若无效列表存在，且当前的位置有数据
+	{//这里等于是真的赋值么？
+		rect = srcRect->intersect(*widgetlist->getCurrent()->getData()->getRect());//进行交集
 		if (!rect.isValid())
 		{
-			while (rectlist->getNext())
+			while (widgetlist->getNext())//继续遍历查看覆盖区
 			{
-				rect = srcRect->intersect(*(rectlist->getCurrent()->getData()));
-				if (rect.isValid())
+				tWidget* w = widgetlist->getCurrent()->getData();
+				rect = srcRect->intersect(*w->getRect());
+				if (rect.isValid())//是覆盖区
 					break;
 			}
 		}
-		if (rectlist->getCurrent())//未遍历完
-		{
-			int32 currIndex = rectlist->at();
-			tLNode<tRect*>* currNode = rectlist->getCurrent();
-			tRect tmp;
-			//Area of up
-			if (srcRect->left() < srcRect->right() && srcRect->top() < rect.top())
-			{
-				rectlist->setCurNode(currNode);
-				rectlist->setCurIndex(currIndex);
-				tmp.setLeft(srcRect->left());
-				tmp.setTop(srcRect->top());
-				tmp.setRight(srcRect->right());
-				tmp.setBottom(rect.top());
-			}
-			//Area of left
-			if (srcRect->left() < rect.right() && rect.top() < rect.bottom())
-			{
-				rectlist->setCurNode(currNode);
-				rectlist->setCurIndex(currIndex);
-				tmp.setLeft(srcRect->left());
-				tmp.setTop(rect.top());
-				tmp.setRight(rect.right());
-				tmp.setBottom(rect.bottom());
-				rectCut(&tmp);
-			}
-			//Area of right
-			if (rect.left() < rect.top() && srcRect->right() < rect.bottom())
-			{
-				rectlist->setCurNode(currNode);
-				rectlist->setCurIndex(currIndex);
-				tmp.setLeft(rect.left());
-				tmp.setTop(rect.top());
-				tmp.setRight(srcRect->right());
-				tmp.setBottom(rect.bottom());
-				rectCut(&tmp);
-			}
-			//Area of down
-			if (srcRect->left() < rect.bottom() && srcRect->right() < srcRect->bottom())
-			{
-				rectlist->setCurNode(currNode);
-				rectlist->setCurIndex(currIndex);
-				tmp.setLeft(srcRect->left());
-				tmp.setTop(rect.bottom());
-				tmp.setRight(srcRect->right());
-				tmp.setBottom(srcRect->bottom());
-				rectCut(&tmp);
-			}
+	}
+	if (rect.isValid())//这个是无效区的矩形
+	{//保存现场
+		tRect tmp;
+		/*//Area of up
+		*|--------x-------| 5个矩形----进行递归
+		*|--|----------|--|
+		*|	| invlidal |  |
+		*|--|----------|--|
+		*|----------------|
+		*/
+		if (srcRect->top() < rect.top())
+		{//恢复现场
+			tmp.setLeft(srcRect->left());
+			tmp.setTop(srcRect->top());
+			tmp.setRight(srcRect->right());
+			tmp.setBottom(rect.top()-1);
+			rectCut(&tmp);
+		}
+
+		/*//Area of left
+		*|----------------| 5个矩形----进行递归
+		*|--|----------|--|
+		*|x	| invlidal |  |
+		*|--|----------|--|
+		*|----------------|
+		*/
+		if (srcRect->left() < rect.left())
+		{//恢复现场
+			tmp.setLeft(srcRect->left());
+			tmp.setTop(rect.top());
+			tmp.setRight(rect.left()-1);
+			tmp.setBottom(rect.bottom());
+			rectCut(&tmp);
+		}
+
+		/*//Area of right
+		*|----------------| 5个矩形----进行递归
+		*|--|----------|--|
+		*|	| invlidal |x |
+		*|--|----------|--|
+		*|----------------|
+		*/
+		if (rect.right() < srcRect->right())
+		{//恢复现场
+			tmp.setLeft(rect.right()+1);
+			tmp.setTop(rect.top());
+			tmp.setRight(srcRect->right());
+			tmp.setBottom(rect.bottom());
+			rectCut(&tmp);
+		}
+
+		/*//Area of down
+		*|----------------| 5个矩形----进行递归
+		*|--|----------|--|
+		*|	| invlidal |  |
+		*|--|----------|--|
+		*|-------x--------|
+		*/
+		if (rect.bottom() < srcRect->bottom())
+		{//恢复现场
+			tmp.setLeft(srcRect->left());
+			tmp.setTop(rect.bottom()+1);
+			tmp.setRight(srcRect->right());
+			tmp.setBottom(srcRect->bottom());
+			rectCut(&tmp);
 		}
 	}
-	else//链表遍历完了，或没有覆盖物了
+	else//没有无效区矩形
 	{
 		drawDivFullRect(srcRect->left(), srcRect->top(), srcRect->width(), srcRect->height());
 	}
 }
+
+void tPainter::drawEnText(int32 x, int32 y, const char* str, int32 len)
+{
+	const char* pstr = str;
+	for (int i = 0; i<len; i++)
+	{
+		displayEnChar(x + i*(font->Width), y , *(pstr + i));
+	}
+}
+
+
+void tPainter::displayEnChar(int32 x, int32 y,uint8 Ascii)
+{
+	Ascii -= 32;
+	tRect rect(0, 0, -1, -1);
+	tRect srcRect(x, y, font->Width, font->Height);
+	if (widgetlist && widgetlist->getFirst())//若无效列表存在，且当前的位置有数据
+	{
+		rect = srcRect.intersect(*widgetlist->getCurrent()->getData()->getRect());//进行交集
+		if (!rect.isValid())
+		{
+			while (widgetlist->getNext())//继续遍历查看覆盖区
+			{
+				tWidget* w = widgetlist->getCurrent()->getData();
+				rect = srcRect.intersect(*w->getRect());
+				if (rect.isValid())//是覆盖区
+					break;
+			}
+		}
+	}
+	if (rect.isValid())
+		drawChar(x, y, &font->table[Ascii * font->Height],false);
+	else
+		drawChar(x, y, &font->table[Ascii * font->Height], true);
+}
+
+void tPainter::drawChar(int32 x, int32 y, const uint16 *c, bool isDircDraw, bool hasBack)
+{
+	uint32 index = 0, counter = 0;
+	int32 xpos = x;
+	int32 ypos = y;
+	colorDef tmp;
+	for (index = 0; index < font->Height; index++)//h
+	{
+		xpos = x;
+		for (counter = 0; counter <font->Width; counter++)//w
+		{
+			if (((font->Width <= 12) && ((c[index] & ((0x80 << ((font->Width / 12) * 8)) >> counter)) == 0x00))
+				|| ((font->Width > 12) && ((c[index] & (0x1 << counter)) == 0x00)))//背景
+			{
+				if (hasBack)
+				{
+					tmp = textcolor;
+					setTextColor(backcolor);
+					drawPoint(xpos, ypos, isDircDraw);
+					setTextColor(tmp);
+				}
+			}
+			else  //内容
+			{
+				drawPoint(xpos, ypos, isDircDraw);
+			}
+			xpos++;
+		}
+		ypos++;
+	}
+}
+

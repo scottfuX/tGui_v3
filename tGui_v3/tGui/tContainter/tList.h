@@ -46,7 +46,7 @@ public :
 protected:
     tList();					// create empty list
     tList( const tList & );			// make copy of other list
-   ~tList();
+	 virtual ~tList();
 
     tList &operator=( const tList & );	// assign from other list
 
@@ -319,7 +319,7 @@ void tList<T>::prepend(T d)
 template<class T>
 void tList<T>::append(T d)
 {
-	register tLNode<T> *n = new tLNode<T>((d));
+	register tLNode<T> *n = new tLNode<T>(d);
 	n->next = 0;
 	if ((n->prev = lastNode))			// list is not empty
 		lastNode->next = n;

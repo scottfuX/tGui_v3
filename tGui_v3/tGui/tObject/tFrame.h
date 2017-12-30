@@ -6,7 +6,7 @@ class tFrame :
 	public tWidget
 {
 public:
-	tFrame(int32 x, int32 y, int32 w, int32 h, const char* n = NULL, tObject* obj = NULL);
+	tFrame(int32 x, int32 y, int32 w, int32 h, const char* n , tWidget* obj );
 	virtual ~tFrame();
 	virtual void show() = 0;
 

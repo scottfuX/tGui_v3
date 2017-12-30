@@ -7,6 +7,8 @@ tObject::tObject(const char* n , tObject* obj )
 	name = NULL;
 	setName(n);
 	parents = obj;
+	if (obj)
+		obj->addChild(this);
 	childList = NULL;
 	connections = NULL;
 }
@@ -43,15 +45,18 @@ void tObject::logout(tObject* obj)
 	this->setParent(nullptr);
 }
 
-
-
-void tObject::unlink(tObject* obj)
+tLNode<tObject*> * tObject::unlink(tObject* obj)
 {
-	if (!(obj->getParents()))
-		return;
-	obj->getParents()->getChildList()->unlink(obj);
+	if (getChildList())
+		return getChildList()->unlink(obj);
+	return NULL;
 }
 
+void tObject::relink(tLNode<tObject*> * node)
+{
+	if(getChildList())
+		getChildList()->relink(node);
+}
 
 void tObject::addChild(tObject* child)
 {

@@ -2,7 +2,7 @@
 
 
 
-User::User(const char* n, tObject* obj):tWidget(n,obj)
+User::User(const char* n, tWidget* obj):tWidget(n,obj)
 {
 	setX(0);
 	setY(0);

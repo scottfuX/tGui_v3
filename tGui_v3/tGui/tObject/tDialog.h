@@ -2,7 +2,7 @@
 #define _TDIALOG_H_
 
 #include "tObject/tWidget.h"
-
+#include "tPainter/tPainter.h"
 
 class tDialog :
 	public tWidget
@@ -10,10 +10,13 @@ class tDialog :
 private:
 	bool state;
 	bool hasFocus;
-	int32 movOffsetW;
-	int32 movOffsetH;
+	int32 preX;
+	int32 preY;
+	int32 contactOffsetW;
+	int32 contactOffsetH;
+
 public:
-	tDialog(int32 x, int32 y, int32 w, int32 h, const char* n, tObject* obj = NULL);
+	tDialog(int32 x, int32 y, int32 w, int32 h, const char* n, tWidget* obj );
 	virtual ~tDialog();
 
 	virtual void	show();

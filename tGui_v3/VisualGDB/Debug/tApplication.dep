@@ -98,8 +98,8 @@ VisualGDB/Debug/tApplication.o: tGui/tObject/tApplication.cpp \
  tGui/tContainter/tConnectList.h tGui/tObject/connection.h \
  tGui/tContainter/tFuncList.h tGui/tContainter/tFuncNode.h \
  tGui/tObject/tWidget.h tGui/tObject/tPoint.h tGui/tObject/tSize.h \
- tGui/tPainter/tPainter.h tGui/tContainter/tRectList.h \
- tGui/tObject/tRect.h tGui/tPainter/tPaintDiver.h tGui/tObject/tDirver.h \
+ tGui/tContainter/tWidgetList.h tGui/tPainter/tPainter.h \
+ tGui/tPainter/tPaintDiver.h tGui/tObject/tDirver.h \
  tGui/interface_conf/tgui_conf.h
 
 tGui/tObject/tApplication.h:
@@ -340,11 +340,9 @@ tGui/tObject/tPoint.h:
 
 tGui/tObject/tSize.h:
 
+tGui/tContainter/tWidgetList.h:
+
 tGui/tPainter/tPainter.h:
-
-tGui/tContainter/tRectList.h:
-
-tGui/tObject/tRect.h:
 
 tGui/tPainter/tPaintDiver.h:
 

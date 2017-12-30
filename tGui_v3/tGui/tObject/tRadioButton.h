@@ -8,7 +8,7 @@ class tRadioButton :
 	public tAbstractButton
 {
 public:
-	tRadioButton(int32 x, int32 y, int32 w, int32 h, const char* name,tObject* obj = NULL);
+	tRadioButton(int32 x, int32 y, int32 w, int32 h, const char* name, tWidget* obj);
 	virtual ~tRadioButton() { delRadio(); };
 	virtual void	show();
 	virtual void sig_depress(int32 d1, int32 d2);

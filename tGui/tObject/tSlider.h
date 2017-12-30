@@ -10,7 +10,7 @@ class tSlider :
 private:
 	
 public:
-	tSlider(int32 x, int32 y, int32 w, int32 h, const char* n , bool isHoriz = true, tObject* obj = NULL);
+	tSlider(int32 x, int32 y, int32 w, int32 h, const char* n, tWidget* obj , bool isHoriz = true);
 	virtual ~tSlider() {};
 	virtual void show();
 	virtual void sig_move(int32 d1, int32 d2);
