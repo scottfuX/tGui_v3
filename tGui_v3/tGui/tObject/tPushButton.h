@@ -7,7 +7,7 @@
 class tPushButton :public tAbstractButton
 {
 public:
-	tPushButton(int32 x, int32 y, int32 w, int32 h, const char* name, tObject* obj = NULL);
+	tPushButton(int32 x, int32 y, int32 w, int32 h, const char* name, tWidget* obj );
 	virtual ~tPushButton() {};
 
 	virtual void	show();

@@ -1,16 +1,10 @@
 #ifndef _OBJECT_H_  
 #define _OBJECT_H_    
 
-
 #include "tObject/tEven.h"
 #include "tContainter/tString.h"
 #include "tContainter/tObjList.h"
 #include "tContainter/tConnectList.h"
-
-
-#define TYPE_INT	-1
-#define TYPE_CHAR	-2
-#define TYPE_STRING -3
 
 
 class tConnectList;
@@ -24,7 +18,8 @@ public:
 	void		addChild(tObject* child);
 	void		remChild(tObject* child);
 	void		destroyChild(tObject*);
-	void		unlink(tObject* obj);
+	tLNode<tObject*> *		unlink(tObject* obj);
+	void			relink(tLNode<tObject*> * node);
 	void		regist(tObject* obj);
 	void		logout(tObject* obj);
 
@@ -39,7 +34,7 @@ public:
 	
 	virtual void eventFilter(tEvent*)=0;
 protected:
-	void callSlot(func sig, int32 d1, int32 d2);
+	void callSlot(func sig, int32 d1, int32 d2); //Ñ°ÕÒconnect ºô³öslot
 private:
 	tString* name;
 	tObject* parents;

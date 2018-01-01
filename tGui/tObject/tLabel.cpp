@@ -1,14 +1,16 @@
 #include "tObject/tLabel.h"
 
-tLabel::tLabel(int32 x, int32 y, int32 w, int32 h, const char* n, tObject* obj)
+tLabel::tLabel(int32 x, int32 y, int32 w, int32 h, const char* n, tWidget* obj)
 	:tFrame(x,y,w,h,n,obj)
 {
+	textColor = BLACK;
+	setBackColor(((tWidget*)getParents())->getBackColor());
 }
 
 void tLabel::show()
 {
-	tPainter p;
-	p.drawLabel(x(), y(), width(), height(), getName(),BLACK,getBackColor());
+	tPainter p(getInvalidList(),getPaintInvaild());
+	p.drawLabel(x(), y(), width(), height(), getName(),textColor,getBackColor());
 }
 
 void tLabel::slot_showValue(int32 d1,int32 d2)

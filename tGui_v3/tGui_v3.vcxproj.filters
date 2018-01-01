@@ -537,6 +537,7 @@
     <ClCompile Include="tGui\tObject\tAbstractButton.cpp">
       <Filter>Source files\tGui\tObject</Filter>
     </ClCompile>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tGui\tContainter\tList.h">
@@ -614,14 +615,17 @@
     <ClInclude Include="tGui\tObject\tSlider.h">
       <Filter>Header files\tGui\tObject</Filter>
     </ClInclude>
-    <ClInclude Include="tGui\tContainter\tRectList.h">
-      <Filter>Header files\tGui\tContainter</Filter>
-    </ClInclude>
     <ClInclude Include="tGui\tObject\tLabel.h">
       <Filter>Header files\tGui\tObject</Filter>
     </ClInclude>
     <ClInclude Include="tGui\tObject\tFrame.h">
       <Filter>Header files\tGui\tObject</Filter>
+    </ClInclude>
+    <ClInclude Include="tGui\tObject\tDialog.h">
+      <Filter>Header files\tGui\tObject</Filter>
+    </ClInclude>
+    <ClInclude Include="tGui\tContainter\tWidgetList.h">
+      <Filter>Header files\tGui\tContainter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -636,140 +640,8 @@
     <ClCompile Include="tGui\tObject\tSlider.cpp">
       <Filter>Source files\tGui\tObject</Filter>
     </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cec.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dfsdm.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dsi.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash_ramfunc.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Users\fuguangtao\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmpi2c.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_lptim.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_qspi.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spdifrx.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\misc.c">
-      <Filter>Source files\Device-specific files\StdPeriph</Filter>
-    </ClCompile>
     <ClCompile Include="tGui\tObject\tLabel.cpp">
       <Filter>Source files\tGui\tObject</Filter>
-    </ClCompile>
-    <ClCompile Include="\StackAndHeap\StackAndHeap.c">
-      <Filter>Source files\Device-specific files\Stack/Heap</Filter>
-    </ClCompile>
-    <ClCompile Include="\STM32F4xxxx\StartupFiles\startup_stm32f429xx.c">
-      <Filter>Source files\Device-specific files</Filter>
     </ClCompile>
     <ClCompile Include="stm32f4xx_it.c">
       <Filter>Source files</Filter>
@@ -779,6 +651,141 @@
     </ClCompile>
     <ClCompile Include="tGui\tObject\tAbstractSlider.cpp">
       <Filter>Source files\tGui\tObject</Filter>
+    </ClCompile>
+    <ClCompile Include="tGui\tObject\tDialog.cpp">
+      <Filter>Source files\tGui\tObject</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\StartupFiles\startup_stm32f429xx.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\misc.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cec.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dfsdm.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dsi.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash_ramfunc.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmpi2c.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_lptim.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_qspi.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spdifrx.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="\StackAndHeap\StackAndHeap.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Users\fuguangtao\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c">
+      <Filter>Source files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

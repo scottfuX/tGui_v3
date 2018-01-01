@@ -6,12 +6,14 @@
 class tLabel:public tFrame
 {
 public:
-	tLabel(int32 x, int32 y, int32 w, int32 h, const char* n, tObject* obj);
+	tLabel(int32 x, int32 y, int32 w, int32 h, const char* n, tWidget* obj);
 	virtual ~tLabel() {};
 
 	virtual void show();
 	void slot_showValue(int32 d1, int32 d2);
-
+private:
+	colorDef textColor;
+	bool hasBack;
 };
 
 

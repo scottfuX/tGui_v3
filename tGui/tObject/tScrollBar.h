@@ -7,7 +7,7 @@ class tScrollBar :
 	public tAbstractSlider
 {
 public:
-	tScrollBar(int32 x, int32 y, int32 w, int32 h, const char* name, bool isHoriz = true, tObject* obj = NULL);
+	tScrollBar(int32 x, int32 y, int32 w, int32 h, const char* name, tWidget* obj, bool isHoriz = true );
 	virtual ~tScrollBar() {};
 
 	virtual void sig_move(int32 d1, int32 d2);

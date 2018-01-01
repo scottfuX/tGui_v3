@@ -106,6 +106,14 @@ void tRect::moveTopLeft(const tPoint &p)
 	y1 = p.y();
 }
 
+void tRect::moveTopLeft(int32 xt, int32 yt)
+{
+	x2 += (xt - x1);
+	y2 += (yt - y1);
+	x1 = xt;
+	y1 = yt;
+}
+
 /*!
 Sets the bottom right position of the rectangle to \e p, leaving the size
 unchanged.

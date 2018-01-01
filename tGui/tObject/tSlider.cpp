@@ -1,66 +1,65 @@
 #include "tObject/tSlider.h"
 
 
-tSlider::tSlider(int32 x, int32 y, int32 w, int32 h, const char* name, bool isHoriz, tObject* obj) 
-	:tAbstractSlider(x,y,w,h,name,isHoriz,obj)
+tSlider::tSlider(int32 x, int32 y, int32 w, int32 h, const char* name, tWidget* obj, bool isHoriz)
+	:tAbstractSlider(x,y,w,h,name, obj,isHoriz)
 {
 }
 void tSlider::sig_move(int32 d1, int32 d2)
 {
 	printf("move y = %d", d2);
 	int32 value_pre = value;
-	tPainter p;
+	tPainter p(getInvalidList(),getPaintInvaild());
 	if (isHoriz)
 	{
 		value = ((d1 - x() + height() * 4 / 6) * 10) / (width() / 10);
-		p.drawHorizSlider(x(), y(), width(), height(), value, value_pre, true);
+		p.drawHorizSlider(x(), y(), width(), height(), value, value_pre, true, ((tWidget*)getParents())->getBackColor());
 	}
 	else
 	{
 		value = ((d2 - y() + width() * 4 / 6) * 10) / (height() / 10);
-		p.drawVertSlider(x(), y(), width(), height(), value, value_pre, true);
+		p.drawVertSlider(x(), y(), width(), height(), value, value_pre, true, ((tWidget*)getParents())->getBackColor());
 	}
-	
-	if (value > 100) value = 100;
-	if (value < 0)value = 0;
-	d1 = TYPE_INT;
-	d2 = value;
+	sig_valueChange(TYPE_INT, value);
 	callSlot((func)&tSlider::sig_move, d1, d2);
+}
+void tSlider::sig_valueChange(int32 d1, int32 d2)
+{
+	if (d2 > 100) d2 = 100;
+	if (d2 < 0)d2 = 0;
+	callSlot((func)&tSlider::sig_valueChange, d1, d2);
 }
 
 void tSlider::sig_depress(int32 d1, int32 d2)
 {
-	tPainter p;
+	tPainter p(getInvalidList(),getPaintInvaild());
 	if (isHoriz)
 	{
 		value = ((d1 - x() + height() * 4 / 6) * 10) / (width() / 10);
-		p.drawHorizSlider(x(), y(), width(), height(), value, -1, true);
+		p.drawHorizSlider(x(), y(), width(), height(), value, -1, true, ((tWidget*)getParents())->getBackColor());
 	}
 	else
 	{
 		value = ((d2 - y() + width() * 4 / 6) * 10) / (height() / 10);
-		p.drawVertSlider(x(), y(), width(), height(), value, -1, true);
+		p.drawVertSlider(x(), y(), width(), height(), value, -1, true, ((tWidget*)getParents())->getBackColor());
 	}
 	state = true;
-	if (value > 100) value = 100;
-	if (value < 0)value = 0;
-	d1 = TYPE_INT;
-	d2 = value;
+	sig_valueChange(TYPE_INT, value);
 	callSlot((func)&tSlider::sig_depress, d1, d2);
 }
 
 void tSlider::sig_release(int32 d1, int32 d2)
 {
-	tPainter p;
+	tPainter p(getInvalidList(),getPaintInvaild());
 	if (isHoriz)
 	{
 		value = ((d1 - x() + height() * 4 / 6) * 10) / (width() / 10);
-		p.drawHorizSlider(x(), y(), width(), height(), value, -1, false);
+		p.drawHorizSlider(x(), y(), width(), height(), value, -1, false, ((tWidget*)getParents())->getBackColor());
 	}
 	else
 	{
 		value = ((d2 - y() + width() * 4 / 6) * 10) / (height() / 10);
-		p.drawVertSlider(x(), y(), width(), height(), value, -1, false);
+		p.drawVertSlider(x(), y(), width(), height(), value, -1, false, ((tWidget*)getParents())->getBackColor());
 	}
 	state = false;
 	if (value > 100) value = 100;
@@ -71,32 +70,32 @@ void tSlider::sig_release(int32 d1, int32 d2)
 }
 void tSlider::release()
 {
-	tPainter p;
+	tPainter p(getInvalidList(),getPaintInvaild());
 	if (isHoriz)
-		p.drawHorizSlider(x(), y(), width(), height(), value, -1, false);
+		p.drawHorizSlider(x(), y(), width(), height(), value, -1, false, ((tWidget*)getParents())->getBackColor());
 	else
-		p.drawVertSlider(x(), y(), width(), height(), value, -1, false);
+		p.drawVertSlider(x(), y(), width(), height(), value, -1, false, ((tWidget*)getParents())->getBackColor());
 	state = false;
 }
 
 void tSlider::show()
 {
-	tPainter p;
+	tPainter p(getInvalidList(),getPaintInvaild());
 	if (isHoriz)
-		p.drawHorizSlider(x(), y(), width(), height(), value, -1, state);
+		p.drawHorizSlider(x(), y(), width(), height(), value, -1, state, ((tWidget*)getParents())->getBackColor());
 	else
-		p.drawVertSlider(x(), y(), width(), height(), value, -1, state);
+		p.drawVertSlider(x(), y(), width(), height(), value, -1, state, ((tWidget*)getParents())->getBackColor());
 }
 
 void tSlider::touchPressEvent(tTouchEvent *e)
 {
-	if (isArea(e->x(), e->y()))
+	if (isInRealArea(e->x(), e->y()))
 		sig_depress(e->x(), e->y());
 };
 
 void tSlider::touchReleaseEvent(tTouchEvent *e)
 {
-	if (state && isArea(e->x(), e->y()))
+	if (state && isInRealArea(e->x(), e->y()))
 		sig_release(e->x(), e->y());
 	if (state)
 		release();

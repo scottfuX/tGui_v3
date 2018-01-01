@@ -2,23 +2,25 @@
 #define _TPAINTER_H_
 
 #include "tGlobal.h"
-#include "tContainter/tRectList.h"
 #include "tPainter/tPaintDiver.h"
-
-
+#include "tObject/tWidget.h"
 
 class tPainter
 {
 public:
-	tPainter(tRectList* list = NULL,tRect* invaild = NULL);
+	tPainter(tWidgetList* list = NULL,tRect* invalid = NULL);
 	~tPainter() {};
+	tFont* getFont() { return font; }
 	void setFont(tFont* f) { font = f; setDivFont(f); };
 	void setColors(colorDef text, colorDef back);
 	void setTextColor(colorDef text) { textcolor = text; setDivColor(text, backcolor);}
 	void setBackColor(colorDef back) { backcolor = back; setDivColor(textcolor, back);}
 
 	//basic
-	void drawPoint(int32 x, int32 y);
+
+	
+
+	void drawPoint(int32 x, int32 y, bool isDircDraw = false);
 	void drawLine(int32 x1, int32 y1, int32 x2, int32 y2);
 	void drawRect(int32 x, int32 y, int32 w, int32 h);
 	void drawCircle(int32 x, int32 y, int32 r);
@@ -30,8 +32,8 @@ public:
 	void drawFullEllipse(int32 x, int32 y, int32 r1, int32 r2);
 	void drawFullTriangle(int32 x1, int32 y1, int32 x2, int32 y2, int32 x3, int32 y3);
 	void drawRoundRect(int32 x, int32 y, int32 w, int32 h, int32 r = 0);
-	void drawText(int32 x, int32 y, const char* str ,int32 len=-1);
 
+	void drawEnText(int32 x, int32 y, const char* str, int32 len);
 	//void drawImage();
 	//void drawArrow();
 	void drawButton(int32 x, int32 y, int32 w, int32 h, const char* str,bool isPress = false);
@@ -40,20 +42,25 @@ public:
 	void drawHorizSlider(int32 x, int32 y, int32 w, int32 h, int32 value = 0, int32 value_pre = -1, bool isPress = false, colorDef back = WHITE);
 	void drawVertSlider(int32 x, int32 y, int32 w, int32 h, int32 value = 0, int32 value_pre = -1, bool isPress = false, colorDef back = WHITE);
 	void drawLabel(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text = BLACK, colorDef back = WHITE);
+	void drawDialog(int32 x, int32 y, int32 w, int32 h, const char* str, bool hasFocus = true, colorDef back = MIDLIGHT);
+	void drawDialogTitle(int32 x, int32 y, int32 w, const char* str, bool hasFocus = true);
 	
-	void drawCenterText(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text = BLACK,colorDef back = WHITE,bool isAllShow = false);
+	void drawCenterEnText(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text = BLACK,colorDef back = WHITE,bool isAllShow = false);
 private:
 	tFont*	font;
 	colorDef textcolor;
 	colorDef backcolor;
-	tRectList* rectlist;
-	tRect* invaildArea;
+	tWidgetList* widgetlist;
+	tRect* invalidArea;
 	int8 nestingNum;
+
 
 	void rectCut( tRect *srcRect);
 	void paintMeta(tRect* srcRect);
-	void drawWinShades(int32 x, int32 y, int32 w, int32 h,
-		colorDef c1, colorDef c2, colorDef c3, colorDef c4, colorDef back);
+	void displayEnChar(int32 x, int32 y,uint8 Ascii);
+	void drawChar(int32 x, int32 y, const uint16 *c, bool isDircDraw, bool hasBack = false);
+	void drawWinShades(int32 x, int32 y, int32 w, int32 h,colorDef c1, 
+		colorDef c2,colorDef c3, colorDef c4, colorDef back, bool hasBack = true);
 };
 
 //basic
@@ -63,10 +70,5 @@ inline void tPainter::drawRoundRect(int32 x, int32 y, int32 w, int32 h, int32 r)
 	drawDivRoundRect(x, y, w, h, r);
 }
 
-inline void tPainter::drawText(int32 x, int32 y, const char* str, int32 len)
-{
-	drawDivText(x, y, str, len);
-}
- 
 
 #endif // !_TPAINTER_H_

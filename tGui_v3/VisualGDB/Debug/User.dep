@@ -97,8 +97,8 @@ VisualGDB/Debug/User.o: demo/User.cpp \
  c:\sysgcc\arm-eabi\arm-eabi\include\c++\7.2.0\bits\std_abs.h \
  tGui/tContainter/tConnectList.h tGui/tObject/connection.h \
  tGui/tContainter/tFuncList.h tGui/tContainter/tFuncNode.h \
- tGui/tPainter/tPainter.h tGui/tContainter/tRectList.h \
- tGui/tObject/tRect.h tGui/tPainter/tPaintDiver.h
+ tGui/tContainter/tWidgetList.h tGui/tPainter/tPainter.h \
+ tGui/tPainter/tPaintDiver.h
 
 C:/STM32F429/tGui_v3/tGui_v3/demo\User.h:
 
@@ -338,10 +338,8 @@ tGui/tContainter/tFuncList.h:
 
 tGui/tContainter/tFuncNode.h:
 
+tGui/tContainter/tWidgetList.h:
+
 tGui/tPainter/tPainter.h:
-
-tGui/tContainter/tRectList.h:
-
-tGui/tObject/tRect.h:
 
 tGui/tPainter/tPaintDiver.h:

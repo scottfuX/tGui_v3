@@ -13,6 +13,7 @@ class tObject;
 		uint32 count() { return tList<tObject*>::count(); }
 		bool insertAt(uint32 index, tObject* obj) { return tList<tObject*>::insertAt(index, obj); }
 		tLNode<tObject*> *  unlink(tObject* obj) { return tList<tObject*>::take(obj); }
+		void relink(tLNode<tObject*> * node) { tList<tObject*>::relinkNode(node); }
 		bool remove(tObject* obj) { return tList<tObject*>::remove(obj); }
 		bool removeLast() { return tList<tObject*>::removeLast(); }
 		bool remove(tLNode<tObject*>* node) { return tList<tObject*>::removeNode(node); }
@@ -22,7 +23,10 @@ class tObject;
 		tObject*  getNext() { return tList<tObject*>::next(); }
 		tObject*  getLast() { return tList<tObject*>::last(); }
 		tObject*  getFirst() { return tList<tObject*>::first(); }
+		void setCurNode(tLNode<tObject*> * node) { tList<tObject*>::setCurNode(node); }
+		void setCurIndex(int32 index) { tList<tObject*>::setCurIndex(index); }
 		tLNode<tObject*> *  getCurrent() { return tList<tObject*>::currentNode(); }
+		int32 getCurIndex() { return tList<tObject*>::currentIndex(); }
 		virtual int32 compareItems(tObject* item1, tObject* item2)
 		{
 			return tList<tObject*>::compareItems(item1, item2);

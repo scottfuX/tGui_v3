@@ -46,7 +46,7 @@ public :
 protected:
     tList();					// create empty list
     tList( const tList & );			// make copy of other list
-   ~tList();
+	 virtual ~tList();
 
     tList &operator=( const tList & );	// assign from other list
 
@@ -84,6 +84,7 @@ protected:
     T	  last();				// set last item in list curr
     T	  next();				// set next item in list curr
     T	  prev();				// set prev item in list curr
+
 
 	tLNode<T>* currentNode() const { return curNode; };		// get current node
 	int32 currentIndex() const { return curIndex; }
@@ -319,7 +320,7 @@ void tList<T>::prepend(T d)
 template<class T>
 void tList<T>::append(T d)
 {
-	register tLNode<T> *n = new tLNode<T>((d));
+	register tLNode<T> *n = new tLNode<T>(d);
 	n->next = 0;
 	if ((n->prev = lastNode))			// list is not empty
 		lastNode->next = n;
@@ -732,42 +733,6 @@ uint32 tList<T>::contains(T d) const
 }
 
 
-/*!
-  \fn T tList<T>::at( uint32 index )
-  \internal
-  Sets the item at position \e index to the current item.
-*/
-
-/*!
-  \fn int32 tList<T>::at() const
-  \internal
-  Returns the current index.
-*/
-
-/*!
-  \fn tLNode<T> *tList<T>::currentNode() const
-  \internal
-  Returns the current node.
-*/
-
-/*!
-  \fn T tList<T>::get() const
-  \internal
-  Returns the current item.
-*/
-
-/*!
-  \fn T tList<T>::cfirst() const
-  \internal
-  Returns the first item in the list.
-*/
-
-/*!
-  \fn T tList<T>::clast() const
-  \internal
-  Returns the last item in the list.
-*/
-
 
 /*!
   \internal
@@ -854,8 +819,6 @@ void tList<T>::toVector(tVector<T> *vector) const
 		i++;
 	}
 }
-
-
 /*****************************************************************************
   tListIterator<T> member functions
  *****************************************************************************/
