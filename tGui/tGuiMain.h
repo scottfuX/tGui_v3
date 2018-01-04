@@ -34,10 +34,9 @@ extern "C" {
 #include "tObject/tApplication.h"
 #include "tObject/tLabel.h"
 #include "tObject/tSlider.h"
+#include "tObject/tScrollBar.h"
 #include "demo/User.h"
 #include "tGlobal.h"
-
-
 
 
 void tGuiRun(void);

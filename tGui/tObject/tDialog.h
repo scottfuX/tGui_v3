@@ -15,6 +15,8 @@ private:
 	int32 contactOffsetW;
 	int32 contactOffsetH;
 
+	void restRect(int32 preX, int32 preY, int32 nowX, int32 nowY, tRect &r1, tRect &r2);
+
 public:
 	tDialog(int32 x, int32 y, int32 w, int32 h, const char* n, tWidget* obj );
 	virtual ~tDialog();

@@ -27,8 +27,8 @@ void tApplication::run()
 {
 	while (1)
 	{
-		translate(dirver);
-		distribute();
+		translate(dirver);//获取/翻译数据
+		distribute();//分发数据
 	}
 }
 
@@ -52,7 +52,7 @@ void tApplication::emit(tObject* obj)
 
 void tApplication::visitAll(tObject* obj, tApplication* app)
 {
-	app->emit(obj);
+	app->emit(obj);//进行分发
 	tObjList* list = obj->getChildList();
 	tObject* temp; 
 	tLNode<tObject*> * tnode;
@@ -86,7 +86,7 @@ void tApplication::translate(tDirver* div)
 {
 	if (!div)
 		return;
-	div->obtainData();
+	div->obtainData();//获取数据
 	switch (div->getType())
 	{
 		//特殊情况

@@ -5,6 +5,10 @@ extern "C" {
 #include "interface_conf/tgui_conf.h"
 }
 
+#define RGB888    //定义显示屏每个像素类型
+
+
+
 #define MAX(x,y) x>y?x:y
 #define MIN(x,y) x<y?x:y
 #define ABS(x)  ( (x)>0?(x):-(x) ) 

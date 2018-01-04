@@ -9,10 +9,24 @@ tWidget::tWidget(const char* n, tWidget* obj) :tObject(n, obj)
 	setX(0);
 	setY(0);
 	setW(0);
-	setH(0);
-	backColor = WHITE;
+	setH(0);	
 	offsetWH->setWidth(obj->x() - this->x()  );//修改 偏移
 	offsetWH->setHeight(obj->y() - this->y());
+	if (getParents())
+	{
+		backColor = ((tWidget*)getParents())->getBackColor();
+		if (((tWidget*)getParents())->getIsVariable())
+		{
+			isVariable = true;
+			chgPareInValid();//若父类可变，则为父类添加无效区域，保证变化时不闪屏
+		}
+
+	}
+	else
+	{
+		backColor = WHITE;
+		isVariable = false; //默认不可变，除非父类为可变
+	}
 };
 
 tWidget::tWidget(int32 x, int32 y, int32 w, int32 h, const char* n, tWidget* obj):tObject(n,obj)
@@ -28,6 +42,21 @@ tWidget::tWidget(int32 x, int32 y, int32 w, int32 h, const char* n, tWidget* obj
 	backColor = WHITE;
 	offsetWH->setWidth(obj->x() - this->x());//修改 偏移
 	offsetWH->setHeight(obj->y() - this->y());
+	if (getParents())
+	{
+		backColor = ((tWidget*)getParents())->getBackColor();
+		if (((tWidget*)getParents())->getIsVariable())
+		{
+			isVariable = true;
+			chgPareInValid();//若父类可变，则为父类添加无效区域，保证变化时不闪屏
+		}
+
+	}
+	else
+	{
+		backColor = WHITE;
+		isVariable = false; //默认不可变，除非父类为可变
+	}
 }
 
 
@@ -36,7 +65,27 @@ tWidget::~tWidget() {
 	delete offsetWH;
 	delete invalidList;
 }
-bool tWidget::isArea(int32 xt,int32 yt)
+
+bool tWidget::isInRealArea(int32 xt, int32 yt)
+{
+	if (isInArea(xt,yt))
+	{
+		
+		if (invalidList)
+		{
+			tWidget * tmp;
+			tmp = invalidList->getFirst();
+			if (tmp->isInArea(xt, yt))
+				return false;
+			while (tmp = invalidList->getNext())
+				if (tmp->isInArea(xt, yt))
+					return false;
+		}
+		return true;
+	}
+	return false;
+}
+bool tWidget::isInArea(int32 xt, int32 yt)
 {
 	if (xt >= x() && yt >= y() && xt < (x() + width()) && yt < (y() + height()))
 		return true;
@@ -48,16 +97,34 @@ void tWidget::showAll(tWidget* obj)
 {
 	obj->show();
 	tObjList* list = obj->getChildList();
-	tObject* temp;
+	tObject* tmp;
 	if (list)
 	{
-		temp = list->getFirst();
-		showAll((tWidget*)temp);
-		while (temp = list->getNext())
-			showAll((tWidget*)temp);
+		tmp = list->getFirst();
+		showAll((tWidget*)tmp);
+		while (tmp = list->getNext())
+		{
+			showAll((tWidget*)tmp);
+		}
 	}
 }
 
+void  tWidget::setIsVariable(bool statVari)
+{
+	isVariable = statVari;
+	chgPareInValid();
+	tWidget* tmp;
+	if (getChildList())
+	{
+		tmp = (tWidget*)getChildList()->getFirst();
+		tmp->setIsVariable(statVari);
+		while (tmp = (tWidget*)getChildList()->getNext())
+		{
+			tmp->setIsVariable(statVari);
+		}
+			
+	}
+}
 
 //改变子类的XY值，保证和自己同步
 void tWidget::chgChildsXY(tWidget* widget)
@@ -86,13 +153,18 @@ void tWidget::chgInValid(tRect* area1, tRect* area2)
 	tWidget* pare = (tWidget*)getParents();
 	if (pare)
 	{
-		if (pare->getRect()->intersects(*(getRect())))//看看是否在里面
-			pare->addAchgInvalid(this, area1, area2);//加/修补无效
-		else
-			pare->remInvalid(this);//减无效区
+		pare->addAchgInvalid(this, area1, area2);//加/修补无效
 		tLNode<tObject*> * node = pare->unlink(this);//先断开连接
 		chgAllInValid(pare->getChildList(), this,area1,area2);//遍历增加无效区
 		pare->relink(node);//接上连接
+	}
+}
+
+void tWidget::chgPareInValid()
+{
+	if (getParents())
+	{
+		((tWidget*)getParents())->addAchgInvalid(this,NULL,NULL);
 	}
 }
 
@@ -104,7 +176,6 @@ void  tWidget::addAchgInvalid(tWidget* area, tRect* area1, tRect* area2)
 		if (invalidList->find(area) == -1)
 		{
 			invalidList->append(area);
-			//repaintInvaild(area1, area2);//修补无效区
 		}
 		else
 		{
@@ -128,21 +199,20 @@ void  tWidget::remInvalid(tWidget* area)
 //重绘更改后剩下的区域
 void tWidget::repaintInvaild(tRect* area1, tRect* area2)
 {
-	show();
-	//if (area1)
-	//{	//增加修补区
-	//	paintInvaild = area1;
-	//	//进行绘画
-	//	show();
-	//	paintInvaild = NULL;
-	//}
-	//if(area2)
-	//{	paintInvaild = area2;
-	//	//进行绘画
-	//	show();
-	//	//去除修补区
-	//	paintInvaild = NULL;
-	//}	
+	if (area1&&area1->isValid())
+	{	//增加修补区
+		paintInvaild = area1;
+		//进行绘画
+		show();
+		paintInvaild = NULL;
+	}
+	if(area2&&area2->isValid())
+	{	paintInvaild = area2;
+		//进行绘画
+		show();
+		//去除修补区
+		paintInvaild = NULL;
+	}	
 	
 }
 
@@ -180,12 +250,12 @@ void tWidget::chgAllInValid(tObjList* chdlist, tWidget* area, tRect* area1, tRec
 			{
 				temp->addAchgInvalid(area, area1, area2);//加/修补无效区
 				chgAllInValid(temp->getChildList(), area, area1, area2);
-			}//恢复现场
+			}
 			else
 			{
 				temp->remInvalid(area);//减无效区
 				chgAllInValid(temp->getChildList(), area, area1, area2);
-			}
+			}//恢复现场
 			chdlist->setCurIndex(tindex);
 			chdlist->setCurNode(tnode);
 		}

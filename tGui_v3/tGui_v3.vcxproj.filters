@@ -538,6 +538,8 @@
       <Filter>Source files\tGui\tObject</Filter>
     </ClCompile>
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tGui\tContainter\tList.h">
@@ -627,6 +629,18 @@
     <ClInclude Include="tGui\tContainter\tWidgetList.h">
       <Filter>Header files\tGui\tContainter</Filter>
     </ClInclude>
+    <ClInclude Include="tGui\tContainter\tStrList.h">
+      <Filter>Header files\tGui\tContainter</Filter>
+    </ClInclude>
+    <ClInclude Include="tGui\tObject\tTextEdit.h">
+      <Filter>Header files\tGui\tObject</Filter>
+    </ClInclude>
+    <ClInclude Include="tGui\tObject\tTextEditor.h">
+      <Filter>Header files\tGui\tObject</Filter>
+    </ClInclude>
+    <ClInclude Include="tGui\tObject\tAbstractScrollArea.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <LinkerScript Include="STM32F429IG_flash.lds">
@@ -654,6 +668,9 @@
     </ClCompile>
     <ClCompile Include="tGui\tObject\tDialog.cpp">
       <Filter>Source files\tGui\tObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Users\fuguangtao\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c">
+      <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="\STM32F4xxxx\StartupFiles\startup_stm32f429xx.c">
       <Filter>Source files</Filter>
@@ -784,7 +801,13 @@
     <ClCompile Include="\StackAndHeap\StackAndHeap.c">
       <Filter>Source files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Users\fuguangtao\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c">
+    <ClCompile Include="tGui\tObject\tTextEditor.cpp">
+      <Filter>Source files\tGui\tObject</Filter>
+    </ClCompile>
+    <ClCompile Include="tGui\tObject\tTextEdit.cpp">
+      <Filter>Source files\tGui\tObject</Filter>
+    </ClCompile>
+    <ClCompile Include="tGui\tObject\tAbstractScrollArea.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
   </ItemGroup>

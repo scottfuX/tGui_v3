@@ -7,9 +7,6 @@
 #include "tContainter/tConnectList.h"
 
 
-
-
-
 class tConnectList;
 class tObject
 {

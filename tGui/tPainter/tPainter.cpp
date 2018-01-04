@@ -22,7 +22,7 @@ void tPainter::setColors(colorDef text, colorDef back)
 void tPainter::drawPoint(int32 x, int32 y, bool isDircDraw)
 {
 	if (isDircDraw)
-		drawDivRect(x, y, 1, 1);
+		drawDivPoint(x, y);
 	else
 	{
 		tRect rect(x, y, 1, 1);
@@ -390,7 +390,7 @@ void tPainter::drawFullTriangle(int32 x1, int32 y1, int32 x2, int32 y2, int32 x3
 * 窗口画图方法 用于窗口和按键
 */
 void tPainter::drawWinShades(int32 x, int32 y, int32 w, int32 h,
-	colorDef c1, colorDef c2, colorDef c3, colorDef c4, colorDef back,bool isFrame)
+	colorDef c1, colorDef c2, colorDef c3, colorDef c4, colorDef back,bool hasBack)
 {
 	setTextColor(c1); //上外框
 	drawLine(x, y + h - 2, x, y);
@@ -404,11 +404,23 @@ void tPainter::drawWinShades(int32 x, int32 y, int32 w, int32 h,
 	setTextColor(c4);//下内框
 	drawLine(x + 1, y + h - 2, x + w - 2, y + h - 2);
 	drawLine(x + w - 2, y + h - 2, x + w - 2, y + 1);
-	if (!isFrame)
+	if (hasBack)
 	{
 		setTextColor(back);
 		drawFullRect(x + 2, y + 2, w - 4, h - 4);
 	}
+}
+
+//绘画光标
+void tPainter::drawCursor(int32 x, int32 y,colorDef back,bool isDisplay)
+{
+	if (!isDisplay)//是否显示，用于光标闪烁
+		setTextColor(back);
+	else if(isShadow(back))//若为暗背景，则用亮光标
+		setTextColor(WHITE);
+	else//若为亮背景，则用黑光标
+		setTextColor(BLACK);
+	drawLine(x, y, x, y + font->Height - 1);
 }
 
 //button isPress 表示是否按下状态
@@ -433,11 +445,13 @@ void tPainter::drawCheck(int32 x, int32 y, int32 w, int32 h, const char* str, bo
 		drawLine(x + 2, y + h / 2, x + h / 2, y + h - 2);
 		drawLine(x + h / 2, y + h - 2, x + h - 2, y + 2);
 	}
-	drawCenterEnText(x+h, y, w-h, h, str, BLACK, back);
+	drawCenterEnText(x+h, y, w-h, h, str, BLACK, back,false);
 }
 
 void tPainter::drawRadio(int32 x, int32 y, int32 w, int32 h, const char* str, bool Selected, bool isPress, colorDef back)
 {
+	//setColors(back, back);
+	//drawFullRect(x, y, h, h);
 	int32 xt, yt, rt;
 	xt = x + h / 2;
 	yt = y + h / 2;
@@ -483,16 +497,17 @@ void tPainter::drawHorizSlider(int32 x, int32 y, int32 w, int32 h,int32 value, i
 	}
 	else
 	{
-		tRect rect(x + value_pre*(w / 10) / 10 - sliderW / 2 , y ,  sliderW , h);
+		tRect rect(x + value_pre*w / 100 - sliderW / 2 , y ,  sliderW , h);
 		//绘画之前的区域
+		tRect* tmp = invalidArea;
 		invalidArea = &rect;
 		setColors(back, back);
 		drawFullRect(x, y, w, h);
 		drawWinShades(x, y + sliderBackH, w, sliderBackH, MIDDARK, MID, DARK, MIDDARK, MIDLIGHT);//背景 
-		invalidArea =NULL;
+		invalidArea =tmp;
 	}
 	//实际物体
-	sliderX = x + value*( w / 10)/10 - sliderW/2;
+	sliderX = x + value* w / 100 - sliderW/2;
 	if (sliderX < x)sliderX = x;
 	if (sliderX >( x + w - sliderW))sliderX = (x + w - sliderW);
 	drawButton(sliderX, y, sliderW, h, NULL, isPress);
@@ -519,18 +534,19 @@ void tPainter::drawVertSlider(int32 x, int32 y, int32 w, int32 h, int32 value, i
 	}
 	else
 	{
-		tRect rect(x , y + value_pre*(h / 10) / 10 - sliderH / 2, w, sliderH);
+		tRect rect(x , y + value_pre*h / 100 - sliderH / 2, w, sliderH);
 		//绘画之前的区域
+		tRect* tmp = invalidArea;
 		invalidArea = &rect;
 		setColors(back, back);
 		drawFullRect(x, y, w, h);
 		drawWinShades(x + sliderBackW, y,  sliderBackW, h , MIDDARK, MID, DARK, MIDDARK, MIDLIGHT);//背景 
-		invalidArea = NULL;
+		invalidArea = tmp;
 	}
 	//实际物体
-	sliderY = y + value*(h / 10) / 10 - sliderH / 2;
+	sliderY = y + value * h / 100 - sliderH / 2;
 	if (sliderY < y)sliderY = y;
-	if (sliderY >(y + h - sliderH))sliderY = (y + h - sliderH);
+	if (sliderY > (y + h - sliderH))sliderY = (y + h - sliderH);
 	drawButton(x, sliderY, w, sliderH, NULL, isPress);
 	setColors(BLACK, MID);
 	int32 ystart = sliderY + sliderH / 4;
@@ -539,6 +555,51 @@ void tPainter::drawVertSlider(int32 x, int32 y, int32 w, int32 h, int32 value, i
 	drawLine(x + w / 5, ystart, x + w - w / 5, ystart);
 	ystart = sliderY + sliderH - sliderH / 4;
 	drawLine(x + w / 5, ystart, x + w - w / 5, ystart);
+}
+
+void tPainter::drawHorizScroll(int32 x, int32 y, int32 w, int32 h, int32 scrollLen, int32 value, int32 value_pre, bool isPress, colorDef back)
+{
+	if (value_pre < 0) //开始的时候画下背景
+	{
+		drawWinShades( x, y, w, h, MIDDARK, MID, DARK, MIDDARK, MIDLIGHT);//背景 
+	}
+	else
+	{
+		tRect rect(x + value_pre * w / 100 - scrollLen / 2, y , scrollLen, h);
+		//绘画之前的区域
+		tRect* tmp = invalidArea;
+		invalidArea = &rect;
+		drawWinShades(x, y, w, h, MIDDARK, MID, DARK, MIDDARK, MIDLIGHT);//背景 
+		invalidArea = tmp;
+	}
+	//实际物体
+	int32 scrollX = x + value * w / 100 - scrollLen / 2;;
+	if (scrollX < x + 2)scrollX = x + 2;
+	if (scrollX > (x + w - scrollLen - 2))scrollX = (x + w - scrollLen - 2);
+	drawButton(scrollX, y + 2, scrollLen, h - 4, NULL, isPress);
+}
+
+
+void tPainter::drawVertScroll(int32 x, int32 y, int32 w, int32 h, int32 scrollLen, int32 value, int32 value_pre, bool isPress, colorDef back)
+{
+	if (value_pre < 0) //开始的时候画下背景
+	{
+		drawWinShades(x, y, w, h, MIDDARK, MID, DARK, MIDDARK, MIDLIGHT);//背景 
+	}
+	else
+	{
+		tRect rect(x, y + value_pre * h / 100 - scrollLen / 2, w, scrollLen);
+		//绘画之前的区域
+		tRect* tmp = invalidArea;
+		invalidArea = &rect;
+		drawWinShades(x, y, w, h, MIDDARK, MID, DARK, MIDDARK, MIDLIGHT);//背景 
+		invalidArea = tmp;
+	}
+	//实际物体
+	int32 scrollY = y + value * h / 100 - scrollLen / 2;
+	if (scrollY < y + 2)scrollY = y + 2;
+	if (scrollY > (y + h - scrollLen - 2))scrollY = (y + h - scrollLen - 2);
+	drawButton( x + 2, scrollY, w - 4,scrollLen, NULL, isPress);
 }
 
 
@@ -551,7 +612,7 @@ void tPainter::drawLabel(int32 x, int32 y, int32 w, int32 h, const char* str,col
 
 void tPainter::drawDialog(int32 x, int32 y, int32 w, int32 h, const char* str,bool hasFocus,colorDef back)
 {
-	drawWinShades(x , y, w, h, LIGHT, DARK, MIDLIGHT, MIDDARK, back,true);
+	drawWinShades(x , y, w, h, LIGHT, DARK, MIDLIGHT, MIDDARK, back,false);
 	drawWinShades(x + 2, y + WIN_TITLE_H + 2, w - 4, h - WIN_TITLE_H - 4, MIDDARK, MIDLIGHT, DARK, MID, back);
 	drawDialogTitle(x, y, w, str, hasFocus);
 }
@@ -573,7 +634,7 @@ void tPainter::drawDialogTitle(int32 x, int32 y, int32 w, const char* str, bool 
 }
 
 
-void tPainter::drawCenterEnText(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text, colorDef back,  bool isAllShow)
+void tPainter::drawCenterEnText(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text, colorDef back ,bool hasBack,  bool isAllShow)
 {
 	setBackColor(back);
 	setTextColor(text);
@@ -589,7 +650,7 @@ void tPainter::drawCenterEnText(int32 x, int32 y, int32 w, int32 h, const char* 
 		//自动缩小字体，通过存字体的列表，这里先不做处理
 		return;
 	else
-		drawEnText(x, y, str, len);
+		drawEnText(x, y, str, len,hasBack);
 }
 
 
@@ -637,7 +698,7 @@ void tPainter::rectCut(tRect* srcRect)
 	{//保存现场
 		tRect tmp;
 		/*//Area of up
-		*|--------x-------| 5个矩形----进行递归
+		*|--------1-------| 5个矩形----进行递归
 		*|--|----------|--|
 		*|	| invlidal |  |
 		*|--|----------|--|
@@ -655,7 +716,7 @@ void tPainter::rectCut(tRect* srcRect)
 		/*//Area of left
 		*|----------------| 5个矩形----进行递归
 		*|--|----------|--|
-		*|x	| invlidal |  |
+		*|2	| invlidal |  |
 		*|--|----------|--|
 		*|----------------|
 		*/
@@ -671,7 +732,7 @@ void tPainter::rectCut(tRect* srcRect)
 		/*//Area of right
 		*|----------------| 5个矩形----进行递归
 		*|--|----------|--|
-		*|	| invlidal |x |
+		*|	| invlidal |3 |
 		*|--|----------|--|
 		*|----------------|
 		*/
@@ -689,7 +750,7 @@ void tPainter::rectCut(tRect* srcRect)
 		*|--|----------|--|
 		*|	| invlidal |  |
 		*|--|----------|--|
-		*|-------x--------|
+		*|-------4--------|
 		*/
 		if (rect.bottom() < srcRect->bottom())
 		{//恢复现场
@@ -706,17 +767,17 @@ void tPainter::rectCut(tRect* srcRect)
 	}
 }
 
-void tPainter::drawEnText(int32 x, int32 y, const char* str, int32 len)
+void tPainter::drawEnText(int32 x, int32 y, const char* str, int32 len, bool hasBack)
 {
 	const char* pstr = str;
 	for (int i = 0; i<len; i++)
 	{
-		displayEnChar(x + i*(font->Width), y , *(pstr + i));
+		displayEnChar(x + i*(font->Width), y , *(pstr + i),hasBack);
 	}
 }
 
 
-void tPainter::displayEnChar(int32 x, int32 y,uint8 Ascii)
+void tPainter::displayEnChar(int32 x, int32 y,uint8 Ascii, bool hasBack)
 {
 	Ascii -= 32;
 	tRect rect(0, 0, -1, -1);
@@ -736,9 +797,9 @@ void tPainter::displayEnChar(int32 x, int32 y,uint8 Ascii)
 		}
 	}
 	if (rect.isValid())
-		drawChar(x, y, &font->table[Ascii * font->Height],false);
+		drawChar(x, y, &font->table[Ascii * font->Height],false,hasBack);
 	else
-		drawChar(x, y, &font->table[Ascii * font->Height], true);
+		drawChar(x, y, &font->table[Ascii * font->Height], true, hasBack);
 }
 
 void tPainter::drawChar(int32 x, int32 y, const uint16 *c, bool isDircDraw, bool hasBack)

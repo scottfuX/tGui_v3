@@ -476,9 +476,10 @@ tString tString::upper() const
   \endcode
 */
 
-tString &tString::insert(uint32 index, const char *s)
+tString &tString::insert(uint32 index, const char *s,uint32 len)
 {
-	uint32 len = strlen(s);
+	if(!len)
+	 len = strlen(s);
 	if (len == 0)
 		return *this;
 	uint32 olen = length();

@@ -27,16 +27,23 @@ public:
 	int32		getZpos() { return zpos; }
 	void		setBackColor(colorDef c) { backColor = c; };
 	colorDef	getBackColor() { return backColor; }
-	void		setOffsetWH(int32 w, int32 h) { offsetWH->setWidth(w); offsetWH->setHeight(h); }
-	tSize*		getOffsetWH() { return offsetWH; }
-	void		chgChildsXY(tWidget* widget);
-	void		chgInValid(tRect* area1 = NULL , tRect* area2 = NULL);
-	tWidgetList* getInvalidList() { return invalidList; }
-	bool		isArea(int32 x, int32 y);
+	void		setOffsetWH(int32 w, int32 h) { offsetWH->setWidth(w); offsetWH->setHeight(h); } //设置与父类的偏移
+	tSize*		getOffsetWH() { return offsetWH; }	
+	void		chgChildsXY(tWidget* widget);//改变子类坐标 -- 父类在动
+	void		chgInValid(tRect* area1 = NULL , tRect* area2 = NULL); //修改/添加/删除覆盖区
+	void		chgPareInValid();
+	tWidgetList* getInvalidList() { return invalidList; } 
+	bool		isInRealArea(int32 x, int32 y); //  真实的区域 ，被覆盖后剩下的区域
+	bool		isInArea(int32 x, int32 y); //设定的区域
 	void        showAll() { showAll(this); }
 	tRect*		getPaintInvaild() { return paintInvaild; }
+	void		setIsVariable(bool statVari); //把子类也改变
+	bool		getIsVariable() { return isVariable; }
 
-	virtual void	show() =0;
+
+
+
+	virtual void show() =0;
 	virtual void eventFilter(tEvent* e);
 	virtual void touchPressEvent(tTouchEvent *) {};
 	virtual void touchReleaseEvent(tTouchEvent *) {};
@@ -65,6 +72,7 @@ private:
 	int32	zpos;
 	colorDef   backColor;
 	tWidgetList* invalidList;
+	bool	isVariable; //窗口是否是可变的  
 
 	void		showAll(tWidget*);
 	void		chgAllInValid(tObjList* chdlist, tWidget* area,tRect* area1, tRect* area2);

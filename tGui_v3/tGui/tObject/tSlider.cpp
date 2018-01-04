@@ -7,17 +7,16 @@ tSlider::tSlider(int32 x, int32 y, int32 w, int32 h, const char* name, tWidget* 
 }
 void tSlider::sig_move(int32 d1, int32 d2)
 {
-	printf("move y = %d", d2);
 	int32 value_pre = value;
 	tPainter p(getInvalidList(),getPaintInvaild());
 	if (isHoriz)
 	{
-		value = ((d1 - x() + height() * 4 / 6) * 10) / (width() / 10);
+		value = ((d1 - x() ) * 100) / (width());
 		p.drawHorizSlider(x(), y(), width(), height(), value, value_pre, true, ((tWidget*)getParents())->getBackColor());
 	}
 	else
 	{
-		value = ((d2 - y() + width() * 4 / 6) * 10) / (height() / 10);
+		value = ((d2 - y() ) * 100) / (height());
 		p.drawVertSlider(x(), y(), width(), height(), value, value_pre, true, ((tWidget*)getParents())->getBackColor());
 	}
 	sig_valueChange(TYPE_INT, value);
@@ -35,12 +34,12 @@ void tSlider::sig_depress(int32 d1, int32 d2)
 	tPainter p(getInvalidList(),getPaintInvaild());
 	if (isHoriz)
 	{
-		value = ((d1 - x() + height() * 4 / 6) * 10) / (width() / 10);
+		value = ((d1 - x() ) * 100) / (width());
 		p.drawHorizSlider(x(), y(), width(), height(), value, -1, true, ((tWidget*)getParents())->getBackColor());
 	}
 	else
 	{
-		value = ((d2 - y() + width() * 4 / 6) * 10) / (height() / 10);
+		value = ((d2 - y() ) * 100) / (height() );
 		p.drawVertSlider(x(), y(), width(), height(), value, -1, true, ((tWidget*)getParents())->getBackColor());
 	}
 	state = true;
@@ -53,12 +52,12 @@ void tSlider::sig_release(int32 d1, int32 d2)
 	tPainter p(getInvalidList(),getPaintInvaild());
 	if (isHoriz)
 	{
-		value = ((d1 - x() + height() * 4 / 6) * 10) / (width() / 10);
+		value = ((d1 - x()) * 100) / (width() );
 		p.drawHorizSlider(x(), y(), width(), height(), value, -1, false, ((tWidget*)getParents())->getBackColor());
 	}
 	else
 	{
-		value = ((d2 - y() + width() * 4 / 6) * 10) / (height() / 10);
+		value = ((d2 - y()) * 100) / (height());
 		p.drawVertSlider(x(), y(), width(), height(), value, -1, false, ((tWidget*)getParents())->getBackColor());
 	}
 	state = false;
@@ -68,6 +67,8 @@ void tSlider::sig_release(int32 d1, int32 d2)
 	d2 = value;
 	callSlot((func)&tSlider::sig_release, d1, d2);
 }
+
+//就只是释放，不是消息
 void tSlider::release()
 {
 	tPainter p(getInvalidList(),getPaintInvaild());
@@ -89,16 +90,19 @@ void tSlider::show()
 
 void tSlider::touchPressEvent(tTouchEvent *e)
 {
-	if (isArea(e->x(), e->y()))
+	if (isInRealArea(e->x(), e->y()))
 		sig_depress(e->x(), e->y());
 };
 
 void tSlider::touchReleaseEvent(tTouchEvent *e)
 {
-	if (state && isArea(e->x(), e->y()))
-		sig_release(e->x(), e->y());
 	if (state)
-		release();
+	{
+		if (isInRealArea(e->x(), e->y()))
+			sig_release(e->x(), e->y());
+		else
+			release();
+	}
 };
 
 void tSlider::touchMoveEvent(tTouchEvent *e)

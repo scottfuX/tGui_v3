@@ -105,8 +105,8 @@ VisualGDB/Debug/tGuiMain.o: tGui/tGuiMain.cpp tGui/tGuiMain.h \
  tGui/tObject/tDirver.h tGui/interface_conf/tgui_conf.h \
  tGui/tObject/tApplication.h tGui/tObject/tDirver.h tGui/tObject/tLabel.h \
  tGui/tObject/tFrame.h tGui/tObject/tSlider.h \
- tGui/tObject/tAbstractSlider.h C:/STM32F429/tGui_v3/tGui_v3/demo/User.h \
- tGui/tGlobal.h
+ tGui/tObject/tAbstractSlider.h tGui/tObject/tScrollBar.h \
+ C:/STM32F429/tGui_v3/tGui_v3/demo/User.h tGui/tGlobal.h
 
 tGui/tGuiMain.h:
 
@@ -385,6 +385,8 @@ tGui/tObject/tFrame.h:
 tGui/tObject/tSlider.h:
 
 tGui/tObject/tAbstractSlider.h:
+
+tGui/tObject/tScrollBar.h:
 
 C:/STM32F429/tGui_v3/tGui_v3/demo/User.h:
 

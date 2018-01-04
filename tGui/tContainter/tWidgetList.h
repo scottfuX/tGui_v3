@@ -11,7 +11,7 @@ public:
 	uint32 count() { return tList<tWidget*>::count(); }
 	bool insertAt(uint32 index, tWidget* obj) { return tList<tWidget*>::insertAt(index, obj); }
 	tLNode<tWidget*> *  unlink(tWidget* obj) { return tList<tWidget*>::take(obj); }
-	bool remove(tWidget* obj) { return tList<tWidget*>::remove(obj); }
+	bool remove(tWidget* obj = 0) { return tList<tWidget*>::remove(obj); }
 	bool removeLast() { return tList<tWidget*>::removeLast(); }
 	bool remove(tLNode<tWidget*>* node) { return tList<tWidget*>::removeNode(node); }
 	tWidget* at(uint32 index) { return tList<tWidget*>::at(index); }

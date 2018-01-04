@@ -12,7 +12,7 @@ User::User(const char* n, tWidget* obj):tWidget(n,obj)
 
 void User::show()
 {
-	tPainter p;
+	tPainter p(getInvalidList(), getPaintInvaild());
 	p.setColors(getBackColor(), getBackColor());
 	p.drawFullRect(x(),y(),width(),height());
 }

@@ -11,7 +11,9 @@ public:
 
 	virtual void show();
 	void slot_showValue(int32 d1, int32 d2);
-
+private:
+	colorDef textColor;
+	bool hasBack;
 };
 
 

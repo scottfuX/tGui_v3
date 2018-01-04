@@ -11,6 +11,8 @@ tDialog::tDialog(int32 x, int32 y, int32 w, int32 h, const char* n, tWidget* obj
 	preY = -1;
 	state = false;
 	hasFocus = true;
+	setBackColor(MIDLIGHT);
+	setIsVariable(true);//设置为可变状态
 }
 
 tDialog::~tDialog()
@@ -21,13 +23,17 @@ tDialog::~tDialog()
 void tDialog::show()
 {
 	tPainter p(getInvalidList(),getPaintInvaild());
-	p.drawDialog(x(), y(), width(), height(), getName(), true);
+	p.drawDialog(x(), y(), width(), height(), getName(), hasFocus, getBackColor());
+	//chgInValid(NULL, NULL);
 }
 
 void tDialog::touchPressEvent(tTouchEvent *e)
 {
-	if (isArea(e->x(), e->y()))
-	{//在区域内，且之前为失去焦点的，重新加上焦点
+	if (isInRealArea(e->x(), e->y()))
+	{
+		//告诉被覆盖的对象，重绘移动后的区域
+		chgInValid(NULL, NULL);
+		//在区域内，且之前为失去焦点的，重新加上焦点
 		if (!hasFocus)
 		{
 			state = true;
@@ -42,6 +48,25 @@ void tDialog::touchPressEvent(tTouchEvent *e)
 			contactOffsetH = e->y() - y();
 			preX = x();
 			preY = y();
+		}
+		if (getInvalidList())//被激活，且有覆盖区
+		{
+			tWidget* tmp;
+			if (getInvalidList()->getFirst()->getParents() != this)//若不是子类  则清理覆盖区
+				getInvalidList()->remove();
+			while (tmp = getInvalidList()->getNext())
+				if (tmp->getParents() != this)//若不是子类  则清理覆盖区
+					getInvalidList()->remove();
+			if (getChildList())//这里只查看子类的没有递归查看子类----------------------------------------
+			{
+				tmp = (tWidget*)getChildList()->getFirst();
+				if(tmp->getInvalidList())
+				tmp->getInvalidList()->clear();
+				while (tmp = (tWidget*)getChildList()->getNext())
+					if (tmp->getInvalidList())
+					tmp->getInvalidList()->clear();
+			}
+			showAll();//重绘  -------保证在最顶端
 		}
 	}
 	else if(hasFocus)
@@ -63,87 +88,86 @@ void tDialog::touchMoveEvent(tTouchEvent *e)
 {
 	if (state && contactOffsetW != -1)
 	{ 
+		int32 nowX = e->x() - contactOffsetW;
+		int32 nowY = e->y() - contactOffsetH;
+		tRect r1(preX, preY, width(), height());//两个矩形用来 收集移动后留下的空隙
+		tRect r2(nowX, nowY, width(), height());
 		//改变自己的坐标
-		getRect()->moveTopLeft(e->x() - contactOffsetW, e->y() - contactOffsetH);
+		getRect()->moveTopLeft(nowX, nowY);
 		//遍历改变子类的坐标 
 		chgChildsXY(this);
-		//遍历树，并设置覆盖情况  Zpos / 移动后面补充没加
-
-	/*		|---------|
-		|---|-----|	  |
-		|	|	  |	  |
-		|	|-----|---|
-		|---------|*/
-		tRect r1(preX,preY,width(),height());//收集移动后留下的空隙为两个矩形构成
-		tRect r2;
-		//chgInValid(&r1, NULL);
-		if (e->x() >= preX)
-		{
-			if (preY > e->y())//右上方移动
-			{
-				r1.setLeft(preX);
-				r1.setTop(preY);
-				r1.setWidth(e->x() - preX + 1);
-				r1.setHeight(height() + e->y() - preY + 1);
-				r2.setLeft(preX);
-				r2.setTop(e->y() + height() - 1);
-				r2.setWidth(width());
-				r2.setHeight(preY - e->y() + 1);
-			}
-			else//右上方移动
-			{
-				r1.setLeft(preX);
-				r1.setTop(preY);
-				r1.setWidth(width());
-				r1.setHeight(e->y() - preY + 1);
-				r2.setLeft(preX);
-				r2.setTop(e->y());
-				r2.setWidth(e->x() - preX + 1);
-				r2.setHeight(height() + e->y() - preY + 1);
-			}
-		}
-		else
-		{
-			if (preY > e->y())//左上方移动
-			{
-				r1.setLeft(preX + width() - e->x() - 1);
-				r1.setTop(preY);
-				r1.setWidth(preX - e->x() + 1);
-				r1.setHeight(e->y() + height() - preY + 1);
-				r2.setLeft(preX);
-				r2.setTop(e->y() + height() - 1);
-				r2.setWidth(width());
-				r2.setHeight(preY - e->y() + 1);
-			}
-			else  //左下发移动
-			{
-				r1.setLeft(preX);
-				r1.setTop(preY);
-				r1.setWidth(width());
-				r1.setHeight(e->y() - preY + 1);
-				r2.setLeft(e->x() + width() - 1);
-				r2.setTop(e->y());
-				r2.setWidth(e->x() - preX + 1);
-				r2.setHeight(preY + height() - e->y() + 1);
-			}
-		}
-		if (!r1.isValid() && !r2.isValid())
-		chgInValid();
-		else if (!r1.isValid())
-		chgInValid(NULL, &r2);
-		else if (!r2.isValid())
-		chgInValid(&r1, NULL);
-		else
-		chgInValid(&r1, &r2);
 		//遍历画全部的子类的图像
 		showAll();
+		//遍历树，并设置覆盖情况  Zpos / 移动后面补充没加
+		restRect(preX, preY, nowX, nowY, r1, r2);
 		//告诉被覆盖的对象，重绘移动后的区域
-		preX = e->x();
-		preY = e->y();
+		chgInValid(&r1, &r2);
+		//改变之前坐标
+		preX = nowX;
+		preY =nowY;
 	}
 };
 
 
-
+//移动后释放的区域  
+void tDialog::restRect(int32 preX, int32 preY, int32 nowX, int32 nowY ,tRect &r1, tRect &r2)
+{
+	//chgInValid(&r1, NULL); //整个dialog刷新
+	/*	|---------|
+	|---|-----|	  |
+	|	|	  |	  |
+	|	|-----|---|
+	|---------|*/
+	if (nowX > preX)
+	{
+		if (preY > nowY)//右上方移动
+		{
+			r1.setLeft(preX -1);
+			r1.setTop(preY -1);
+			r1.setWidth(nowX - preX + 2);
+			r1.setHeight(height() + nowY - preY + 2);
+			r2.setLeft(preX -1);
+			r2.setTop(nowY + height() - 1);
+			r2.setWidth(width()+1);
+			r2.setHeight(preY - nowY + 2);
+		}
+		else //右下方移动
+		{
+			r1.setLeft(preX -1);
+			r1.setTop(preY -1);
+			r1.setWidth(width()+1);
+			r1.setHeight(nowY - preY + 2);
+			r2.setLeft(preX-1);
+			r2.setTop(nowY-1);
+			r2.setWidth(nowX - preX + 2);
+			r2.setHeight(height() + nowY - preY + 2);
+		}
+	}
+	else
+	{
+		if (preY > nowY)//左上方移动
+		{
+			r1.setLeft(nowX + width() - 1);
+			r1.setTop(preY-1);
+			r1.setWidth(preX - nowX + 2);
+			r1.setHeight(nowY + height() - preY + 2);
+			r2.setLeft(preX-1);
+			r2.setTop(nowY + height() - 1);
+			r2.setWidth(width()+1);
+			r2.setHeight(preY - nowY + 2);
+		}
+		else   //左下发移动
+		{
+			r1.setLeft(preX-1);
+			r1.setTop(preY-1);
+			r1.setWidth(width()+1);
+			r1.setHeight(nowY - preY +2);
+			r2.setLeft(nowX + width() - 1);
+			r2.setTop(nowY-1);
+			r2.setWidth(preX - nowX + 2);
+			r2.setHeight(preY + height() - nowY + 2);
+		}
+	}
+}
 
 

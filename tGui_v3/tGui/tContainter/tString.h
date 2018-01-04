@@ -42,7 +42,7 @@ public:
 	uint32		toUInt(bool *ok) const;
 	char*		toCharPoint() const;
 
-	tString		&insert(uint32 index, const char *);
+	tString		&insert(uint32 index, const char *,uint32 len = 0);
 	tString		&insert(uint32 index, char);
 	tString		&append(const char *);
 	tString		&prepend(const char *);

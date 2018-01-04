@@ -69,6 +69,7 @@
     <ClCompile Include="tGui\tContainter\tString.cpp" />
     <ClCompile Include="tGui\tObject\connection.cpp" />
     <ClCompile Include="tGui\tObject\tAbstractButton.cpp" />
+    <ClCompile Include="tGui\tObject\tAbstractScrollArea.cpp" />
     <ClCompile Include="tGui\tObject\tAbstractSlider.cpp" />
     <ClCompile Include="tGui\tObject\tCheckBox.cpp" />
     <ClCompile Include="tGui\tObject\tDialog.cpp" />
@@ -79,6 +80,8 @@
     <ClCompile Include="tGui\tObject\tRadioButton.cpp" />
     <ClCompile Include="tGui\tObject\tScrollBar.cpp" />
     <ClCompile Include="tGui\tObject\tSlider.cpp" />
+    <ClCompile Include="tGui\tObject\tTextEdit.cpp" />
+    <ClCompile Include="tGui\tObject\tTextEditor.cpp" />
     <ClCompile Include="tGui\tObject\tWidget.cpp" />
     <ClInclude Include="tGui\tContainter\tArray.h" />
     <ClInclude Include="tGui\tContainter\tBTree.h" />
@@ -89,9 +92,11 @@
     <ClInclude Include="tGui\tContainter\tFuncNode.h" />
     <ClInclude Include="tGui\tContainter\tMap.h" />
     <ClInclude Include="tGui\tContainter\tObjList.h" />
+    <ClInclude Include="tGui\tContainter\tStrList.h" />
     <ClInclude Include="tGui\tContainter\tWidgetList.h" />
     <ClInclude Include="tGui\tGlobal.h" />
     <ClInclude Include="tGui\tObject\connection.h" />
+    <ClInclude Include="tGui\tObject\tAbstractScrollArea.h" />
     <ClInclude Include="tGui\tObject\tAbstractSlider.h" />
     <ClInclude Include="tGui\tObject\tCheckBox.h" />
     <ClInclude Include="tGui\tObject\tDialog.h" />
@@ -102,6 +107,8 @@
     <ClInclude Include="tGui\tObject\tRadioButton.h" />
     <ClInclude Include="tGui\tObject\tRect.h" />
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="stm32.props" />
     <ClCompile Include="$(BSP_ROOT)\STM32F4xxxx\StartupFiles\startup_stm32f429xx.c" />
     <ClCompile Include="$(BSP_ROOT)\STM32F4xxxx\STM32F4xx_StdPeriph_Driver\src\misc.c" />
@@ -252,6 +259,8 @@
     <ClInclude Include="tGui\tObject\tScrollBar.h" />
     <ClInclude Include="tGui\tObject\tSize.h" />
     <ClInclude Include="tGui\tObject\tSlider.h" />
+    <ClInclude Include="tGui\tObject\tTextEdit.h" />
+    <ClInclude Include="tGui\tObject\tTextEditor.h" />
     <ClInclude Include="tGui\tObject\tWidget.h" />
     <ClCompile Include="tGui\tPainter\tPainter.cpp" />
     <ClInclude Include="tGui\tPainter\tPainter.h" />
