@@ -1,8 +1,9 @@
-.\objects\diskio.o: ..\User\FATFS\diskio.c
-.\objects\diskio.o: ..\User\fatfs/diskio.h
-.\objects\diskio.o: ..\User\FATFS/integer.h
-.\objects\diskio.o: ..\User\flash/flash_conf.h
-.\objects\diskio.o: ..\User\stm32f4xx_conf.h
+.\objects\diskio.o: ..\User\fatfs\diskio.c
+.\objects\diskio.o: ..\User\fatfs\diskio.h
+.\objects\diskio.o: ..\User\fatfs\integer.h
+.\objects\diskio.o: ..\User\fatfs\ff.h
+.\objects\diskio.o: ..\User\fatfs\ffconf.h
+.\objects\diskio.o: ..\User\sdio/sdio_sd_conf.h
 .\objects\diskio.o: ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 .\objects\diskio.o: ..\Libraries\CMSIS\Include\core_cm4.h
 .\objects\diskio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -11,6 +12,7 @@
 .\objects\diskio.o: ..\Libraries\CMSIS\Include\core_cmSimd.h
 .\objects\diskio.o: ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h
 .\objects\diskio.o: ..\User\stm32f4xx_conf.h
+.\objects\diskio.o: ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 .\objects\diskio.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_adc.h
 .\objects\diskio.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_crc.h
 .\objects\diskio.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h
@@ -40,5 +42,7 @@
 .\objects\diskio.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h
 .\objects\diskio.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 .\objects\diskio.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
+.\objects\diskio.o: ..\User\flash/flash_conf.h
 .\objects\diskio.o: ..\User\usart/usart_conf.h
 .\objects\diskio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\diskio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

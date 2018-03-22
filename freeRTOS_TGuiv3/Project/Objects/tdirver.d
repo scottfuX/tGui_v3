@@ -45,15 +45,14 @@
 .\objects\tdirver.o: ..\User\usart/usart_conf.h
 .\objects\tdirver.o: ..\User\flash/flash_conf.h
 .\objects\tdirver.o: ..\User\fatfs/ff.h
-.\objects\tdirver.o: ..\User\FATFS/integer.h
-.\objects\tdirver.o: ..\User\FATFS/ffconf.h
+.\objects\tdirver.o: ..\User\fatfs/integer.h
+.\objects\tdirver.o: ..\User\fatfs/ffconf.h
 .\objects\tdirver.o: ..\User\lcd/lcd_conf.h
 .\objects\tdirver.o: ..\User\font/fonts.h
 .\objects\tdirver.o: ..\User\sdram/sdram_conf.h
 .\objects\tdirver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tdirver.o: ..\User\touch/gt9xx.h
 .\objects\tdirver.o: ..\User\delay/delay_conf.h
-.\objects\tdirver.o: ..\User\test/fstest.h
 .\objects\tdirver.o: ..\User\test/lcdtest.h
 .\objects\tdirver.o: ..\User\test/lcdpalette.h
 .\objects\tdirver.o: ..\User\touch/palette.h

@@ -47,15 +47,14 @@
 .\objects\tdialog.o: ..\User\usart/usart_conf.h
 .\objects\tdialog.o: ..\User\flash/flash_conf.h
 .\objects\tdialog.o: ..\User\fatfs/ff.h
-.\objects\tdialog.o: ..\User\FATFS/integer.h
-.\objects\tdialog.o: ..\User\FATFS/ffconf.h
+.\objects\tdialog.o: ..\User\fatfs/integer.h
+.\objects\tdialog.o: ..\User\fatfs/ffconf.h
 .\objects\tdialog.o: ..\User\lcd/lcd_conf.h
 .\objects\tdialog.o: ..\User\font/fonts.h
 .\objects\tdialog.o: ..\User\sdram/sdram_conf.h
 .\objects\tdialog.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tdialog.o: ..\User\touch/gt9xx.h
 .\objects\tdialog.o: ..\User\delay/delay_conf.h
-.\objects\tdialog.o: ..\User\test/fstest.h
 .\objects\tdialog.o: ..\User\test/lcdtest.h
 .\objects\tdialog.o: ..\User\test/lcdpalette.h
 .\objects\tdialog.o: ..\User\touch/palette.h

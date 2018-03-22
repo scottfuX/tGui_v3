@@ -20,7 +20,7 @@ void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
 
-extern void GTP_TouchProcess(void);
+
 
 //void SysTick_Handler(void);
 void USART1_IRQHandler(void);
@@ -28,7 +28,9 @@ void EXTI0_IRQHandler(void);
 void EXTI15_10_IRQHandler(void);
 void ADC_IRQHandler(void);
 	 
+extern uint32_t tim6_delay_count;
 extern uint32_t tim6_count ;
+extern void GTP_TouchProcess(void);
 
 #ifdef __cplusplus
 }

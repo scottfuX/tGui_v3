@@ -8,15 +8,15 @@
 class TBuffer
 {
 private:
-    uint32* buf;
+    uint8* buf;
     uint32 bufW;
     uint32 bufH;
 public:
-    TBuffer(uint32* pre_addr,uint32 pre_w,uint32 w,uint32 h);
+    TBuffer(uint8* pre_addr,uint32 pre_w,uint32 w,uint32 h);
     ~TBuffer();
-    uint32* getBufAddr(){return buf;};
-    //
-    void transform();
+    uint8* getBufAddr(){return buf;};
+    uint32  getBufW(){return bufW;}
+    uint32  getBufH(){return bufH;}
 
 };
 

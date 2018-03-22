@@ -45,15 +45,14 @@
 .\objects\tarray.o: ..\User\usart/usart_conf.h
 .\objects\tarray.o: ..\User\flash/flash_conf.h
 .\objects\tarray.o: ..\User\fatfs/ff.h
-.\objects\tarray.o: ..\User\FATFS/integer.h
-.\objects\tarray.o: ..\User\FATFS/ffconf.h
+.\objects\tarray.o: ..\User\fatfs/integer.h
+.\objects\tarray.o: ..\User\fatfs/ffconf.h
 .\objects\tarray.o: ..\User\lcd/lcd_conf.h
 .\objects\tarray.o: ..\User\font/fonts.h
 .\objects\tarray.o: ..\User\sdram/sdram_conf.h
 .\objects\tarray.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tarray.o: ..\User\touch/gt9xx.h
 .\objects\tarray.o: ..\User\delay/delay_conf.h
-.\objects\tarray.o: ..\User\test/fstest.h
 .\objects\tarray.o: ..\User\test/lcdtest.h
 .\objects\tarray.o: ..\User\test/lcdpalette.h
 .\objects\tarray.o: ..\User\touch/palette.h

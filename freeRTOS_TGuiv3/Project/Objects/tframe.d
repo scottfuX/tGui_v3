@@ -47,15 +47,14 @@
 .\objects\tframe.o: ..\User\usart/usart_conf.h
 .\objects\tframe.o: ..\User\flash/flash_conf.h
 .\objects\tframe.o: ..\User\fatfs/ff.h
-.\objects\tframe.o: ..\User\FATFS/integer.h
-.\objects\tframe.o: ..\User\FATFS/ffconf.h
+.\objects\tframe.o: ..\User\fatfs/integer.h
+.\objects\tframe.o: ..\User\fatfs/ffconf.h
 .\objects\tframe.o: ..\User\lcd/lcd_conf.h
 .\objects\tframe.o: ..\User\font/fonts.h
 .\objects\tframe.o: ..\User\sdram/sdram_conf.h
 .\objects\tframe.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tframe.o: ..\User\touch/gt9xx.h
 .\objects\tframe.o: ..\User\delay/delay_conf.h
-.\objects\tframe.o: ..\User\test/fstest.h
 .\objects\tframe.o: ..\User\test/lcdtest.h
 .\objects\tframe.o: ..\User\test/lcdpalette.h
 .\objects\tframe.o: ..\User\touch/palette.h

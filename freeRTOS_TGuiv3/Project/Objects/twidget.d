@@ -46,15 +46,14 @@
 .\objects\twidget.o: ..\User\usart/usart_conf.h
 .\objects\twidget.o: ..\User\flash/flash_conf.h
 .\objects\twidget.o: ..\User\fatfs/ff.h
-.\objects\twidget.o: ..\User\FATFS/integer.h
-.\objects\twidget.o: ..\User\FATFS/ffconf.h
+.\objects\twidget.o: ..\User\fatfs/integer.h
+.\objects\twidget.o: ..\User\fatfs/ffconf.h
 .\objects\twidget.o: ..\User\lcd/lcd_conf.h
 .\objects\twidget.o: ..\User\font/fonts.h
 .\objects\twidget.o: ..\User\sdram/sdram_conf.h
 .\objects\twidget.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\twidget.o: ..\User\touch/gt9xx.h
 .\objects\twidget.o: ..\User\delay/delay_conf.h
-.\objects\twidget.o: ..\User\test/fstest.h
 .\objects\twidget.o: ..\User\test/lcdtest.h
 .\objects\twidget.o: ..\User\test/lcdpalette.h
 .\objects\twidget.o: ..\User\touch/palette.h

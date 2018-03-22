@@ -46,15 +46,14 @@
 .\objects\tpushbutton.o: ..\User\usart/usart_conf.h
 .\objects\tpushbutton.o: ..\User\flash/flash_conf.h
 .\objects\tpushbutton.o: ..\User\fatfs/ff.h
-.\objects\tpushbutton.o: ..\User\FATFS/integer.h
-.\objects\tpushbutton.o: ..\User\FATFS/ffconf.h
+.\objects\tpushbutton.o: ..\User\fatfs/integer.h
+.\objects\tpushbutton.o: ..\User\fatfs/ffconf.h
 .\objects\tpushbutton.o: ..\User\lcd/lcd_conf.h
 .\objects\tpushbutton.o: ..\User\font/fonts.h
 .\objects\tpushbutton.o: ..\User\sdram/sdram_conf.h
 .\objects\tpushbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tpushbutton.o: ..\User\touch/gt9xx.h
 .\objects\tpushbutton.o: ..\User\delay/delay_conf.h
-.\objects\tpushbutton.o: ..\User\test/fstest.h
 .\objects\tpushbutton.o: ..\User\test/lcdtest.h
 .\objects\tpushbutton.o: ..\User\test/lcdpalette.h
 .\objects\tpushbutton.o: ..\User\touch/palette.h

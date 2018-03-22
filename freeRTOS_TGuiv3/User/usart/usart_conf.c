@@ -18,8 +18,8 @@ void USART1Config()
 	 /* RX PA10 */
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
-	/*  Á¬½Ó PXx µ½ USARTx__Rx*/
-	/*  Á¬½Ó PXx µ½ USARTx__Tx*/
+	/*  è¿žæŽ¥ PXx åˆ° USARTx__Rx*/
+	/*  è¿žæŽ¥ PXx åˆ° USARTx__Tx*/
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_USART1);
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_USART1);
 	
@@ -33,9 +33,9 @@ void USART1Config()
 	
 	USART_Init(USART1, &USART_InitStructure); 
 	
-	/* Ç¶Ì×ÏòÁ¿ÖÐ¶Ï¿ØÖÆÆ÷NVICÅäÖÃ */
+	/* åµŒå¥—å‘é‡ä¸­æ–­æŽ§åˆ¶å™¨NVICé…ç½® */
 	USART1_NVICConfig();
-	/* Ê¹ÄÜ´®¿Ú */
+	/* ä½¿èƒ½ä¸²å£ */
 	USART_Cmd(USART1, ENABLE);
 	
     /* Enable the EVAL_COM1 Receive interrupt: this interrupt is generated when the 
@@ -62,7 +62,7 @@ void USART1_NVICConfig()
 void USART_SendByte(USART_TypeDef * pUSARTx, uint8_t ch)
 {
 	USART_SendData(pUSARTx, ch);
-	/* µÈ´ý·¢ËÍÊý¾Ý¼Ä´æÆ÷Îª¿Õ µ± TDR ¼Ä´æÆ÷µÄÄÚÈÝÒÑ´«Êäµ½ÒÆÎ»¼Ä´æÆ÷Ê±£¬¸ÃÎ»ÓÉÓ²¼þÖÃ 1*/
+	/* ç­‰å¾…å‘é€æ•°æ®å¯„å­˜å™¨ä¸ºç©º å½“ TDR å¯„å­˜å™¨çš„å†…å®¹å·²ä¼ è¾“åˆ°ç§»ä½å¯„å­˜å™¨æ—¶ï¼Œè¯¥ä½ç”±ç¡¬ä»¶ç½® 1*/
 	while (USART_GetFlagStatus(pUSARTx, USART_FLAG_TXE) == 0);
 }
 
@@ -75,44 +75,44 @@ void USART_SendString(USART_TypeDef * pUSARTx, const char *str)
 		k++;
 	} while (*(str + k) != '\0');
   
-	/* µÈ´ý·¢ËÍÍê³É */
+	/* ç­‰å¾…å‘é€å®Œæˆ */
 	while (USART_GetFlagStatus(pUSARTx, USART_FLAG_TC) == RESET);
 }
 
-//·¢16Î»
+//å‘16ä½
 void USART_SendHalfWord(USART_TypeDef * pUSARTx, uint16_t ch)
 {
 	uint8_t temp_h, temp_l;
-	/* È¡³ö¸ß°ËÎ» */
+	/* å–å‡ºé«˜å…«ä½ */
 	temp_h = (ch & 0XFF00) >> 8;
-	/* È¡³öµÍ°ËÎ» */
+	/* å–å‡ºä½Žå…«ä½ */
 	temp_l = ch & 0XFF;
-	/* ·¢ËÍ¸ß°ËÎ» */
+	/* å‘é€é«˜å…«ä½ */
 	USART_SendData(pUSARTx, temp_h);	
 	while (USART_GetFlagStatus(pUSARTx, USART_FLAG_TXE) == RESET);
-	/* ·¢ËÍµÍ°ËÎ» */
+	/* å‘é€ä½Žå…«ä½ */
 	USART_SendData(pUSARTx, temp_l);	
 	while (USART_GetFlagStatus(pUSARTx, USART_FLAG_TXE) == RESET);	
 }
 
 /*----------------------------printf-------------------------------*/
-//ÖØ¶¨Ïòc¿âº¯Êýprintfµ½´®¿Ú£¬ÖØ¶¨Ïòºó¿ÉÊ¹ÓÃprintfº¯Êý
+//é‡å®šå‘cåº“å‡½æ•°printfåˆ°ä¸²å£ï¼Œé‡å®šå‘åŽå¯ä½¿ç”¨printfå‡½æ•°
 
  int fputc(int ch, FILE *f)
 {
-	// ·¢ËÍÒ»¸ö×Ö½ÚÊý¾Ýµ½´®¿Ú 
+	// å‘é€ä¸€ä¸ªå­—èŠ‚æ•°æ®åˆ°ä¸²å£ 
 	USART_SendData(USART1, (uint8_t) ch);
 		
-	// µÈ´ý·¢ËÍÍê±Ï 
+	// ç­‰å¾…å‘é€å®Œæ¯• 
 	while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET)
 		;		
 	return (ch);
 }
 
-//ÖØ¶¨Ïòc¿âº¯Êýscanfµ½´®¿Ú£¬ÖØÐ´Ïòºó¿ÉÊ¹ÓÃscanf¡¢getcharµÈº¯Êý
+//é‡å®šå‘cåº“å‡½æ•°scanfåˆ°ä¸²å£ï¼Œé‡å†™å‘åŽå¯ä½¿ç”¨scanfã€getcharç­‰å‡½æ•°
 int fgetc(FILE *f)
 {
-	// µÈ´ý´®¿ÚÊäÈëÊý¾Ý 
+	// ç­‰å¾…ä¸²å£è¾“å…¥æ•°æ® 
 	while (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET)
 		;
 	return (int)USART_ReceiveData(USART1);
@@ -134,7 +134,7 @@ void USART1_TX(int*buf, int bufnum)
 
 int USART1_RX()
 {
-	/* µÈ´ý´®¿ÚÊäÈëÊý¾Ý µ± RDR ÒÆÎ»¼Ä´æÆ÷µÄÄÚÈÝÒÑ´«Êäµ½ USART_DR ¼Ä´æÆ÷Ê±£¬¸ÃÎ»ÓÉÓ²¼þÖÃ 1¡£*/
+	/* ç­‰å¾…ä¸²å£è¾“å…¥æ•°æ® å½“ RDR ç§»ä½å¯„å­˜å™¨çš„å†…å®¹å·²ä¼ è¾“åˆ° USART_DR å¯„å­˜å™¨æ—¶ï¼Œè¯¥ä½ç”±ç¡¬ä»¶ç½® 1ã€‚*/
 	while (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == 0);
 	return USART_ReceiveData(USART1);
 }

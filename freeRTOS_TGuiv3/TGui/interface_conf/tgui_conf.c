@@ -70,7 +70,7 @@ void gui_dma2d_memset(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint3
   DMA2D_InitStruct.DMA2D_OutputGreen = Green_Value;      
   DMA2D_InitStruct.DMA2D_OutputBlue = Blue_Value;     
   DMA2D_InitStruct.DMA2D_OutputRed = Red_Value;                
-  DMA2D_InitStruct.DMA2D_OutputAlpha = Alpha_Value;                  
+  DMA2D_InitStruct.DMA2D_OutputAlpha = 0xff;//Alpha_Value;                  
   DMA2D_InitStruct.DMA2D_OutputMemoryAdd = Xaddress;                
   DMA2D_InitStruct.DMA2D_OutputOffset = (buf_width - width);                
   DMA2D_InitStruct.DMA2D_NumberOfLine = height;            

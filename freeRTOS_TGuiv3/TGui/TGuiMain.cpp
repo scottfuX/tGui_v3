@@ -10,7 +10,7 @@ void TGuiRun()
 	user.setBackColor(GOLD);
 	TApplication app(&user, &dirve);
 	TPushButton btn(100,230,150,65, "button", &user);
-	TPushButton btn2(400,230,150,65, "button", &user);
+	//TPushButton btn2(400,230,150,65, "button", &user);
 	TCheckBox chck1(100,50,150,30,"check1", &user);
 	TRadioButton radio1(100, 100, 150, 30, "radio1", &user);
 	TRadioButton radio2(100, 140, 150, 30, "radio2", &user);
@@ -21,6 +21,9 @@ void TGuiRun()
 	TSlider slider11(100, 400, 300, 30,NULL, &user,true);
 	TSlider slider12(100, 440, 300, 30,NULL, &user,true);
 	TSlider slider2(700, 100, 30, 300, NULL, &user,false);
+	TImageBox img(300,10,new TImage("1:/PNG/pic3.png"),"i'm png!",&user) ;
+	TImageBox img2(400,10,new TImage("1:/Picture/21.jpg"),"i'm jpg!",&user) ;
+	TImageBox img3(300,100,new TImage("1:/Picture/1.bmp"),"i'm bmp!",&user) ;
 
 	TLabel label1(400, 350, 50, 30, "0", &user);
 	TDialog dialog1(300, 50, 250, 200, "dialog", &user);

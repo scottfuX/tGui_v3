@@ -4,6 +4,9 @@
 #include "stm32f4xx_conf.h"
 
 
+
+void delay_ms(__IO uint32_t num);
+
 //∆’Õ®—”≥Ÿ —≠ª∑—”≥Ÿ
 void Delay(__IO uint32_t nCount);
 

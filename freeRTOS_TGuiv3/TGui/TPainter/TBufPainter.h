@@ -16,7 +16,7 @@ extern "C" {
 class TBufPainter
 {
 public:
-	TBufPainter(uint32* addr,TRect* rect);
+	TBufPainter(uint8* addr,TRect* rect);
 	~TBufPainter() {};
 	tFont* getFont() { return font; }
 	void setFont(tFont* f) { font = f; setDivFont(f); };
@@ -60,7 +60,7 @@ private:
 	tFont*	font;
 	colorDef textcolor;
 	colorDef backcolor;
-	uint32* bufAddr;
+	uint8* bufAddr;
     TRect*  bufRect;
 
 	void paintMeta(TRect* srcRect);

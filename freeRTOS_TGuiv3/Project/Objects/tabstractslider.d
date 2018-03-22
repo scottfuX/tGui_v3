@@ -47,15 +47,14 @@
 .\objects\tabstractslider.o: ..\User\usart/usart_conf.h
 .\objects\tabstractslider.o: ..\User\flash/flash_conf.h
 .\objects\tabstractslider.o: ..\User\fatfs/ff.h
-.\objects\tabstractslider.o: ..\User\FATFS/integer.h
-.\objects\tabstractslider.o: ..\User\FATFS/ffconf.h
+.\objects\tabstractslider.o: ..\User\fatfs/integer.h
+.\objects\tabstractslider.o: ..\User\fatfs/ffconf.h
 .\objects\tabstractslider.o: ..\User\lcd/lcd_conf.h
 .\objects\tabstractslider.o: ..\User\font/fonts.h
 .\objects\tabstractslider.o: ..\User\sdram/sdram_conf.h
 .\objects\tabstractslider.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tabstractslider.o: ..\User\touch/gt9xx.h
 .\objects\tabstractslider.o: ..\User\delay/delay_conf.h
-.\objects\tabstractslider.o: ..\User\test/fstest.h
 .\objects\tabstractslider.o: ..\User\test/lcdtest.h
 .\objects\tabstractslider.o: ..\User\test/lcdpalette.h
 .\objects\tabstractslider.o: ..\User\touch/palette.h

@@ -51,8 +51,7 @@
 .\objects\gt9xx.o: ..\User\led/led_conf.h
 .\objects\gt9xx.o: ..\User\flash/flash_conf.h
 .\objects\gt9xx.o: ..\User\fatfs/ff.h
-.\objects\gt9xx.o: ..\User\FATFS/integer.h
-.\objects\gt9xx.o: ..\User\FATFS/ffconf.h
-.\objects\gt9xx.o: ..\User\test/fstest.h
+.\objects\gt9xx.o: ..\User\fatfs/integer.h
+.\objects\gt9xx.o: ..\User\fatfs/ffconf.h
 .\objects\gt9xx.o: ..\User\test/lcdtest.h
 .\objects\gt9xx.o: ..\User\test/lcdpalette.h

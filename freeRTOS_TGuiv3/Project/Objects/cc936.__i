@@ -1,0 +1,6 @@
+--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui
+-I.\RTE\_STM32F429IGT6Demo
+-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+-IC:\Keil_v5\ARM\CMSIS\Include
+-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx
+-o .\objects\cc936.o --omf_browse .\objects\cc936.crf --depend .\objects\cc936.d "..\User\fatfs\option\cc936.c"

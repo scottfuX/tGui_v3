@@ -1,19 +1,20 @@
 #include "TObject/TBuffer.h"
 
-TBuffer::TBuffer(uint32* pre_addr,uint32 pre_w,uint32 w,uint32 h)
+TBuffer::TBuffer(uint8* pre_addr,uint32 pre_w,uint32 w,uint32 h)
 {
     buf = NULL;
-    buf= (uint32*)new uint8[w * h * GUI_PIXELSIZE];
+    buf= (uint8*)new uint8[w * h * GUI_PIXELSIZE];
+	//buf = 
     bufW = w;
 	bufH = h;
 	//搬运父亲背景 至 TBuffer
-	uint32 * des_addr = buf;
-	uint32 * src_addr = pre_addr;
+	uint8 * des_addr = buf;
+	uint8 * src_addr = pre_addr;
 	for(int i = 0;i < h;  i++)
 	{
 		memcpy(des_addr,src_addr,pre_w * GUI_PIXELSIZE);
-		src_addr += pre_w;
-		des_addr += w;
+		src_addr += pre_w * GUI_PIXELSIZE;
+		des_addr += w * GUI_PIXELSIZE;
 	}
 }
 TBuffer::~TBuffer()
@@ -23,11 +24,4 @@ TBuffer::~TBuffer()
 }
 
 
-void TBuffer::transform()
-{
-
-	//直接刷新
-
-	//剪切域剪切后刷新
-}
 

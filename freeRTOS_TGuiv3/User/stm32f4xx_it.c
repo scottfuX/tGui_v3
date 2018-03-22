@@ -116,6 +116,7 @@ void TIM6_DAC_IRQHandler(void)
 	if ( TIM_GetITStatus( TIM6, TIM_IT_Update) != RESET ) 
 	{	
 		//LED_BLUE_Toggle();
+		tim6_delay_count--;
     tim6_count++;
 		TIM_ClearITPendingBit(TIM6 , TIM_IT_Update);  		 
 	}		 	

@@ -45,15 +45,14 @@
 .\objects\tpainter.o: ..\User\usart/usart_conf.h
 .\objects\tpainter.o: ..\User\flash/flash_conf.h
 .\objects\tpainter.o: ..\User\fatfs/ff.h
-.\objects\tpainter.o: ..\User\FATFS/integer.h
-.\objects\tpainter.o: ..\User\FATFS/ffconf.h
+.\objects\tpainter.o: ..\User\fatfs/integer.h
+.\objects\tpainter.o: ..\User\fatfs/ffconf.h
 .\objects\tpainter.o: ..\User\lcd/lcd_conf.h
 .\objects\tpainter.o: ..\User\font/fonts.h
 .\objects\tpainter.o: ..\User\sdram/sdram_conf.h
 .\objects\tpainter.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tpainter.o: ..\User\touch/gt9xx.h
 .\objects\tpainter.o: ..\User\delay/delay_conf.h
-.\objects\tpainter.o: ..\User\test/fstest.h
 .\objects\tpainter.o: ..\User\test/lcdtest.h
 .\objects\tpainter.o: ..\User\test/lcdpalette.h
 .\objects\tpainter.o: ..\User\touch/palette.h

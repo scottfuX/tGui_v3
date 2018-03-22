@@ -1,34 +1,44 @@
 #include "TWidget/TWidget.h"
 
-// TWidget::TWidget(const char* n, TWidget* obj) :TObject(n, obj)
+
+// TWidget::TWidget(int32 x, int32 y,Image* img, const char* n, TWidget* obj):TObject(n,obj)
 // {
 // 	rect = new TRect();
 // 	offsetWH = new TSize();
 // 	invalidList = NULL;
-// 	paintInvaild = NULL;
-// 	setX(0);
-// 	setY(0);
-// 	setW(0);
-// 	setH(0);	
-// 	offsetWH->setWidth(obj->x() - this->x()  );//修改 偏移
-// 	offsetWH->setHeight(obj->y() - this->y());
-
-// 	if (getParents())
-// 	{
-// 		backColor = ((TWidget*)getParents())->getBackColor();
-// 		if (((TWidget*)getParents())->getIsVariable())
-// 		{
-// 			isVariable = true;
-// 			chgPareInValid();//若父类可变，则为父类添加无效区域，保证变化时不闪屏
-// 		}
-
-// 	}
+// 	//paintInvaild = NULL;
+// 	setX(x);
+// 	setY(y);
+// 	setW(img->width());
+// 	setH(img->height());
+// 	backColor = WHITE;
+// 	offsetWH->setWidth(this->x() - obj->x() );//修改 偏移
+// 	offsetWH->setHeight(this->y() - obj->y() );
+	
+// 	chgPareInValid();
+	
+// 	if(getParents() == NULL)
+// 		widgetBuf = new TBuffer(NULL, w , w , h);
 // 	else
-// 	{
-// 		backColor = WHITE;
-// 		isVariable = false; //默认不可变，除非父类为可变
-// 	}
-// };
+// 		widgetBuf = new TBuffer(((TWidget*)getParents())->getBuffer()->getBufAddr(), ((TWidget*)getParents())->width() , w , h);
+		
+// 	// if (getParents())
+// 	// {
+// 	// 	backColor = ((TWidget*)getParents())->getBackColor();
+// 	// 	if (((TWidget*)getParents())->getIsVariable())
+// 	// 	{
+// 	// 		isVariable = true;
+// 	// 		chgPareInValid();//若父类可变，则为父类添加无效区域，保证变化时不闪屏
+// 	// 	}
+
+// 	// }
+// 	// else
+// 	// {
+// 	// 	backColor = WHITE;
+// 	// 	isVariable = false; //默认不可变，除非父类为可变
+// 	// }
+// }
+
 
 TWidget::TWidget(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj):TObject(n,obj)
 {
@@ -41,8 +51,8 @@ TWidget::TWidget(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj
 	setW(w);
 	setH(h);
 	backColor = WHITE;
-	offsetWH->setWidth(obj->x() - this->x());//修改 偏移
-	offsetWH->setHeight(obj->y() - this->y());
+	offsetWH->setWidth(this->x() - obj->x() );//修改 偏移
+	offsetWH->setHeight(this->y() - obj->y() );
 	
 	chgPareInValid();
 	
@@ -134,13 +144,13 @@ void TWidget::chgChildsXY(TWidget* widget)
 	if (list)
 	{
 		temp = (TWidget*)list->getFirst();
-		temp->getRect()->moveTopLeft(widget->x() - temp->getOffsetWH()->width(),
-			widget->y() - temp->getOffsetWH()->height());
+		temp->getRect()->moveTopLeft(widget->x() + temp->getOffsetWH()->width(),
+			widget->y() + temp->getOffsetWH()->height());
 		chgChildsXY(temp);
 		while ((temp = (TWidget*)list->getNext())!=0)
 		{
-			temp->getRect()->moveTopLeft(widget->x() - temp->getOffsetWH()->width(),
-				widget->y() - temp->getOffsetWH()->height());
+			temp->getRect()->moveTopLeft(widget->x() + temp->getOffsetWH()->width(),
+				widget->y() + temp->getOffsetWH()->height());
 			chgChildsXY(temp);
 		}
 	}
@@ -446,10 +456,10 @@ void TWidget::transform(TRect* srcRect)
 	// r.intersectInr(srcRect);
 	// if(!srcRect->isValidStrict())
 	// 		return;
-	uint32 * des_addr = (uint32 *)(GUI_FG_BUFADDR + (srcRect->top() * GUI_WIDTH +  srcRect->left()) * GUI_PIXELSIZE);
+	uint8 * des_addr = (uint8 *)(GUI_FG_BUFADDR + (srcRect->top() * GUI_WIDTH +  srcRect->left()) * GUI_PIXELSIZE);
 	uint32 x_offset = srcRect->left() - x(); //算出 剪切区域x 相对 TBuffer 偏移
 	uint32 y_offset = srcRect->top() - y();	 //算出 剪切区域y 相对 TBuffer 偏移
-	uint32 * src_addr = (uint32 *)((uint32)widgetBuf->getBufAddr() + (y_offset * width() + x_offset ) * GUI_PIXELSIZE);
+	uint8 * src_addr = (uint8 *)((uint32)widgetBuf->getBufAddr() + (y_offset * width() + x_offset ) * GUI_PIXELSIZE);
 
 	for(int i = 0;i < srcRect->height();  i++)
 	{
@@ -457,8 +467,8 @@ void TWidget::transform(TRect* srcRect)
 		memcpy(des_addr,src_addr,srcRect->width() * GUI_PIXELSIZE);
 		//dma 模式
 		//--------------------------
-		src_addr += width();
-		des_addr += GUI_WIDTH;
+		src_addr += width() * GUI_PIXELSIZE;
+		des_addr += GUI_WIDTH * GUI_PIXELSIZE;
 	}
 
 }

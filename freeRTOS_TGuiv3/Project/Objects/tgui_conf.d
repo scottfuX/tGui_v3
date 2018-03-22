@@ -43,15 +43,14 @@
 .\objects\tgui_conf.o: ..\User\usart/usart_conf.h
 .\objects\tgui_conf.o: ..\User\flash/flash_conf.h
 .\objects\tgui_conf.o: ..\User\fatfs/ff.h
-.\objects\tgui_conf.o: ..\User\FATFS/integer.h
-.\objects\tgui_conf.o: ..\User\FATFS/ffconf.h
+.\objects\tgui_conf.o: ..\User\fatfs/integer.h
+.\objects\tgui_conf.o: ..\User\fatfs/ffconf.h
 .\objects\tgui_conf.o: ..\User\lcd/lcd_conf.h
 .\objects\tgui_conf.o: ..\User\font/fonts.h
 .\objects\tgui_conf.o: ..\User\sdram/sdram_conf.h
 .\objects\tgui_conf.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tgui_conf.o: ..\User\touch/gt9xx.h
 .\objects\tgui_conf.o: ..\User\delay/delay_conf.h
-.\objects\tgui_conf.o: ..\User\test/fstest.h
 .\objects\tgui_conf.o: ..\User\test/lcdtest.h
 .\objects\tgui_conf.o: ..\User\test/lcdpalette.h
 .\objects\tgui_conf.o: ..\User\touch/palette.h

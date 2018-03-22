@@ -45,15 +45,14 @@
 .\objects\tabstractbutton.o: ..\User\usart/usart_conf.h
 .\objects\tabstractbutton.o: ..\User\flash/flash_conf.h
 .\objects\tabstractbutton.o: ..\User\fatfs/ff.h
-.\objects\tabstractbutton.o: ..\User\FATFS/integer.h
-.\objects\tabstractbutton.o: ..\User\FATFS/ffconf.h
+.\objects\tabstractbutton.o: ..\User\fatfs/integer.h
+.\objects\tabstractbutton.o: ..\User\fatfs/ffconf.h
 .\objects\tabstractbutton.o: ..\User\lcd/lcd_conf.h
 .\objects\tabstractbutton.o: ..\User\font/fonts.h
 .\objects\tabstractbutton.o: ..\User\sdram/sdram_conf.h
 .\objects\tabstractbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tabstractbutton.o: ..\User\touch/gt9xx.h
 .\objects\tabstractbutton.o: ..\User\delay/delay_conf.h
-.\objects\tabstractbutton.o: ..\User\test/fstest.h
 .\objects\tabstractbutton.o: ..\User\test/lcdtest.h
 .\objects\tabstractbutton.o: ..\User\test/lcdpalette.h
 .\objects\tabstractbutton.o: ..\User\touch/palette.h

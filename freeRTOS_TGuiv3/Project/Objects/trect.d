@@ -45,15 +45,14 @@
 .\objects\trect.o: ..\User\usart/usart_conf.h
 .\objects\trect.o: ..\User\flash/flash_conf.h
 .\objects\trect.o: ..\User\fatfs/ff.h
-.\objects\trect.o: ..\User\FATFS/integer.h
-.\objects\trect.o: ..\User\FATFS/ffconf.h
+.\objects\trect.o: ..\User\fatfs/integer.h
+.\objects\trect.o: ..\User\fatfs/ffconf.h
 .\objects\trect.o: ..\User\lcd/lcd_conf.h
 .\objects\trect.o: ..\User\font/fonts.h
 .\objects\trect.o: ..\User\sdram/sdram_conf.h
 .\objects\trect.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\trect.o: ..\User\touch/gt9xx.h
 .\objects\trect.o: ..\User\delay/delay_conf.h
-.\objects\trect.o: ..\User\test/fstest.h
 .\objects\trect.o: ..\User\test/lcdtest.h
 .\objects\trect.o: ..\User\test/lcdpalette.h
 .\objects\trect.o: ..\User\touch/palette.h

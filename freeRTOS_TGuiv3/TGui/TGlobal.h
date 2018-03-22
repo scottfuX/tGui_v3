@@ -8,9 +8,10 @@ extern "C" {
 
 #define RGB888    //定义显示屏每个像素类型
 
-#define MAX(x,y) x>y?x:y
-#define MIN(x,y) x<y?x:y
-#define ABS(x)  ( (x)>0?(x):-(x) ) 
+#define MAX(x,y) x > y ? x : y
+#define MIN(x,y) x < y ? x : y
+#define ABS(x)  ( (x) > 0 ? (x) : -(x) )
+#define UPPER(c)  c >= 'a' ? c -= 0x20 : c
 
 #define COVERNUM 5 
 //copy from stm32

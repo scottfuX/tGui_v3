@@ -44,15 +44,14 @@
 .\objects\tbufpainter.o: ..\User\usart/usart_conf.h
 .\objects\tbufpainter.o: ..\User\flash/flash_conf.h
 .\objects\tbufpainter.o: ..\User\fatfs/ff.h
-.\objects\tbufpainter.o: ..\User\FATFS/integer.h
-.\objects\tbufpainter.o: ..\User\FATFS/ffconf.h
+.\objects\tbufpainter.o: ..\User\fatfs/integer.h
+.\objects\tbufpainter.o: ..\User\fatfs/ffconf.h
 .\objects\tbufpainter.o: ..\User\lcd/lcd_conf.h
 .\objects\tbufpainter.o: ..\User\font/fonts.h
 .\objects\tbufpainter.o: ..\User\sdram/sdram_conf.h
 .\objects\tbufpainter.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tbufpainter.o: ..\User\touch/gt9xx.h
 .\objects\tbufpainter.o: ..\User\delay/delay_conf.h
-.\objects\tbufpainter.o: ..\User\test/fstest.h
 .\objects\tbufpainter.o: ..\User\test/lcdtest.h
 .\objects\tbufpainter.o: ..\User\test/lcdpalette.h
 .\objects\tbufpainter.o: ..\User\touch/palette.h

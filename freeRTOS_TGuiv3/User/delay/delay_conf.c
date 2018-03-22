@@ -8,6 +8,14 @@
 		SystemCoreClock/1000000=1us
 */
 
+uint32_t tim6_delay_count;
+
+void delay_ms(__IO uint32_t num)
+{
+	//中断一次1毫秒
+	tim6_delay_count = num;
+	while(tim6_delay_count);
+}
 //普通延迟
 void Delay(__IO uint32_t nCount)	 //简单的延时函数 大概为1/10000ms
 {

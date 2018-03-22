@@ -47,15 +47,14 @@
 .\objects\tconnectlist.o: ..\User\usart/usart_conf.h
 .\objects\tconnectlist.o: ..\User\flash/flash_conf.h
 .\objects\tconnectlist.o: ..\User\fatfs/ff.h
-.\objects\tconnectlist.o: ..\User\FATFS/integer.h
-.\objects\tconnectlist.o: ..\User\FATFS/ffconf.h
+.\objects\tconnectlist.o: ..\User\fatfs/integer.h
+.\objects\tconnectlist.o: ..\User\fatfs/ffconf.h
 .\objects\tconnectlist.o: ..\User\lcd/lcd_conf.h
 .\objects\tconnectlist.o: ..\User\font/fonts.h
 .\objects\tconnectlist.o: ..\User\sdram/sdram_conf.h
 .\objects\tconnectlist.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tconnectlist.o: ..\User\touch/gt9xx.h
 .\objects\tconnectlist.o: ..\User\delay/delay_conf.h
-.\objects\tconnectlist.o: ..\User\test/fstest.h
 .\objects\tconnectlist.o: ..\User\test/lcdtest.h
 .\objects\tconnectlist.o: ..\User\test/lcdpalette.h
 .\objects\tconnectlist.o: ..\User\touch/palette.h

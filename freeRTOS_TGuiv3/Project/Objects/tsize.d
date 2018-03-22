@@ -45,15 +45,14 @@
 .\objects\tsize.o: ..\User\usart/usart_conf.h
 .\objects\tsize.o: ..\User\flash/flash_conf.h
 .\objects\tsize.o: ..\User\fatfs/ff.h
-.\objects\tsize.o: ..\User\FATFS/integer.h
-.\objects\tsize.o: ..\User\FATFS/ffconf.h
+.\objects\tsize.o: ..\User\fatfs/integer.h
+.\objects\tsize.o: ..\User\fatfs/ffconf.h
 .\objects\tsize.o: ..\User\lcd/lcd_conf.h
 .\objects\tsize.o: ..\User\font/fonts.h
 .\objects\tsize.o: ..\User\sdram/sdram_conf.h
 .\objects\tsize.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tsize.o: ..\User\touch/gt9xx.h
 .\objects\tsize.o: ..\User\delay/delay_conf.h
-.\objects\tsize.o: ..\User\test/fstest.h
 .\objects\tsize.o: ..\User\test/lcdtest.h
 .\objects\tsize.o: ..\User\test/lcdpalette.h
 .\objects\tsize.o: ..\User\touch/palette.h

@@ -42,7 +42,7 @@ static void TIM_Mode_Config(void)
 
   /* 累计 TIM_Period个后产生一个更新或者中断*/		
   //当定时器从0计数到4999，即为5000次，为一个定时周期 --重装载器
-  TIM_TimeBaseStructure.TIM_Period = 50-1;       
+  TIM_TimeBaseStructure.TIM_Period = 10-1;       
 	
 	//定时器时钟源TIMxCLK = 2 * PCLK1  //分频
   //				PCLK1 = HCLK / 4 

@@ -46,15 +46,14 @@
 .\objects\tradiobutton.o: ..\User\usart/usart_conf.h
 .\objects\tradiobutton.o: ..\User\flash/flash_conf.h
 .\objects\tradiobutton.o: ..\User\fatfs/ff.h
-.\objects\tradiobutton.o: ..\User\FATFS/integer.h
-.\objects\tradiobutton.o: ..\User\FATFS/ffconf.h
+.\objects\tradiobutton.o: ..\User\fatfs/integer.h
+.\objects\tradiobutton.o: ..\User\fatfs/ffconf.h
 .\objects\tradiobutton.o: ..\User\lcd/lcd_conf.h
 .\objects\tradiobutton.o: ..\User\font/fonts.h
 .\objects\tradiobutton.o: ..\User\sdram/sdram_conf.h
 .\objects\tradiobutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tradiobutton.o: ..\User\touch/gt9xx.h
 .\objects\tradiobutton.o: ..\User\delay/delay_conf.h
-.\objects\tradiobutton.o: ..\User\test/fstest.h
 .\objects\tradiobutton.o: ..\User\test/lcdtest.h
 .\objects\tradiobutton.o: ..\User\test/lcdpalette.h
 .\objects\tradiobutton.o: ..\User\touch/palette.h

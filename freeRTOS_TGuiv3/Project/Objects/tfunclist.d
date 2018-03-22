@@ -45,15 +45,14 @@
 .\objects\tfunclist.o: ..\User\usart/usart_conf.h
 .\objects\tfunclist.o: ..\User\flash/flash_conf.h
 .\objects\tfunclist.o: ..\User\fatfs/ff.h
-.\objects\tfunclist.o: ..\User\FATFS/integer.h
-.\objects\tfunclist.o: ..\User\FATFS/ffconf.h
+.\objects\tfunclist.o: ..\User\fatfs/integer.h
+.\objects\tfunclist.o: ..\User\fatfs/ffconf.h
 .\objects\tfunclist.o: ..\User\lcd/lcd_conf.h
 .\objects\tfunclist.o: ..\User\font/fonts.h
 .\objects\tfunclist.o: ..\User\sdram/sdram_conf.h
 .\objects\tfunclist.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tfunclist.o: ..\User\touch/gt9xx.h
 .\objects\tfunclist.o: ..\User\delay/delay_conf.h
-.\objects\tfunclist.o: ..\User\test/fstest.h
 .\objects\tfunclist.o: ..\User\test/lcdtest.h
 .\objects\tfunclist.o: ..\User\test/lcdpalette.h
 .\objects\tfunclist.o: ..\User\touch/palette.h

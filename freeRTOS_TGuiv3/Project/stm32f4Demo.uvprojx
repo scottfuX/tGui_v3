@@ -311,7 +311,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>2</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -768,16 +768,16 @@
               <FileType>1</FileType>
               <FilePath>..\User\tim\tim_conf.c</FilePath>
             </File>
+            <File>
+              <FileName>sdio_sd_conf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\sdio\sdio_sd_conf.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Test</GroupName>
           <Files>
-            <File>
-              <FileName>fstest.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\test\fstest.c</FilePath>
-            </File>
             <File>
               <FileName>lcdpalette.c</FileName>
               <FileType>1</FileType>
@@ -801,22 +801,17 @@
             <File>
               <FileName>diskio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\FATFS\diskio.c</FilePath>
+              <FilePath>..\User\fatfs\diskio.c</FilePath>
             </File>
             <File>
               <FileName>ff.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\FATFS\ff.c</FilePath>
+              <FilePath>..\User\fatfs\ff.c</FilePath>
             </File>
             <File>
-              <FileName>ffsystem.c</FileName>
+              <FileName>unicode.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\FATFS\ffsystem.c</FilePath>
-            </File>
-            <File>
-              <FileName>ffunicode.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\FATFS\ffunicode.c</FilePath>
+              <FilePath>..\User\fatfs\option\unicode.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1042,6 +1037,61 @@
               <FileName>TBufPainter.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\TGui\TPainter\TBufPainter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>TImageBox.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\TWidget\TImageBox.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>TImage.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\TObject\TImage.cpp</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>picture_lib</GroupName>
+          <Files>
+            <File>
+              <FileName>bmp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TGui\libraries\picture_lib\bmp.c</FilePath>
+            </File>
+            <File>
+              <FileName>gif.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TGui\libraries\picture_lib\gif.c</FilePath>
+            </File>
+            <File>
+              <FileName>piclib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TGui\libraries\picture_lib\piclib.c</FilePath>
+            </File>
+            <File>
+              <FileName>tjpgd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TGui\libraries\picture_lib\tjpgd.c</FilePath>
+            </File>
+            <File>
+              <FileName>lodepng.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\libraries\picture_lib\lodepng.cpp</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>exfuns_lib</GroupName>
+          <Files>
+            <File>
+              <FileName>exfuns.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TGui\libraries\exfuns_lib\exfuns.c</FilePath>
+            </File>
+            <File>
+              <FileName>aux_data.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TGui\libraries\exfuns_lib\aux_data.c</FilePath>
             </File>
           </Files>
         </Group>

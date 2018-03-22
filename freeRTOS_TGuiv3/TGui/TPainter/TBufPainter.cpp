@@ -3,7 +3,7 @@
 
 
 
-TBufPainter::TBufPainter(uint32* addr,TRect* rect)
+TBufPainter::TBufPainter(uint8* addr,TRect* rect)
 {
 	font = &Font16x24;
 	textcolor = 0;

@@ -45,15 +45,14 @@
 .\objects\teven.o: ..\User\usart/usart_conf.h
 .\objects\teven.o: ..\User\flash/flash_conf.h
 .\objects\teven.o: ..\User\fatfs/ff.h
-.\objects\teven.o: ..\User\FATFS/integer.h
-.\objects\teven.o: ..\User\FATFS/ffconf.h
+.\objects\teven.o: ..\User\fatfs/integer.h
+.\objects\teven.o: ..\User\fatfs/ffconf.h
 .\objects\teven.o: ..\User\lcd/lcd_conf.h
 .\objects\teven.o: ..\User\font/fonts.h
 .\objects\teven.o: ..\User\sdram/sdram_conf.h
 .\objects\teven.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\teven.o: ..\User\touch/gt9xx.h
 .\objects\teven.o: ..\User\delay/delay_conf.h
-.\objects\teven.o: ..\User\test/fstest.h
 .\objects\teven.o: ..\User\test/lcdtest.h
 .\objects\teven.o: ..\User\test/lcdpalette.h
 .\objects\teven.o: ..\User\touch/palette.h

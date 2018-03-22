@@ -21,6 +21,17 @@
         "lcd_conf.h": "c",
         "tgui_conf.h": "c",
         "__locale": "cpp",
-        "__mutex_base": "cpp"
+        "__mutex_base": "cpp",
+        "ratio": "cpp",
+        "chrono": "c",
+        "piclib.h": "c",
+        "aux_data.h": "c",
+        "__functional_base": "cpp",
+        "__functional_base_03": "cpp",
+        "__tuple": "cpp",
+        "functional": "cpp",
+        "limits": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp"
     }
 }

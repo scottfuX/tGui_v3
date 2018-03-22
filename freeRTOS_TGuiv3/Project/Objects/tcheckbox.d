@@ -46,15 +46,14 @@
 .\objects\tcheckbox.o: ..\User\usart/usart_conf.h
 .\objects\tcheckbox.o: ..\User\flash/flash_conf.h
 .\objects\tcheckbox.o: ..\User\fatfs/ff.h
-.\objects\tcheckbox.o: ..\User\FATFS/integer.h
-.\objects\tcheckbox.o: ..\User\FATFS/ffconf.h
+.\objects\tcheckbox.o: ..\User\fatfs/integer.h
+.\objects\tcheckbox.o: ..\User\fatfs/ffconf.h
 .\objects\tcheckbox.o: ..\User\lcd/lcd_conf.h
 .\objects\tcheckbox.o: ..\User\font/fonts.h
 .\objects\tcheckbox.o: ..\User\sdram/sdram_conf.h
 .\objects\tcheckbox.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tcheckbox.o: ..\User\touch/gt9xx.h
 .\objects\tcheckbox.o: ..\User\delay/delay_conf.h
-.\objects\tcheckbox.o: ..\User\test/fstest.h
 .\objects\tcheckbox.o: ..\User\test/lcdtest.h
 .\objects\tcheckbox.o: ..\User\test/lcdpalette.h
 .\objects\tcheckbox.o: ..\User\touch/palette.h

@@ -48,15 +48,14 @@
 .\objects\tslider.o: ..\User\usart/usart_conf.h
 .\objects\tslider.o: ..\User\flash/flash_conf.h
 .\objects\tslider.o: ..\User\fatfs/ff.h
-.\objects\tslider.o: ..\User\FATFS/integer.h
-.\objects\tslider.o: ..\User\FATFS/ffconf.h
+.\objects\tslider.o: ..\User\fatfs/integer.h
+.\objects\tslider.o: ..\User\fatfs/ffconf.h
 .\objects\tslider.o: ..\User\lcd/lcd_conf.h
 .\objects\tslider.o: ..\User\font/fonts.h
 .\objects\tslider.o: ..\User\sdram/sdram_conf.h
 .\objects\tslider.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tslider.o: ..\User\touch/gt9xx.h
 .\objects\tslider.o: ..\User\delay/delay_conf.h
-.\objects\tslider.o: ..\User\test/fstest.h
 .\objects\tslider.o: ..\User\test/lcdtest.h
 .\objects\tslider.o: ..\User\test/lcdpalette.h
 .\objects\tslider.o: ..\User\touch/palette.h
