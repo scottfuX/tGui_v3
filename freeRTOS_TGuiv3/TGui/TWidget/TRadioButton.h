@@ -4,13 +4,16 @@
 #include "TWidget/TAbstractButton.h"
 #include "TPainter/TBufPainter.h"
 #include "TPainter/TPainter.h"
+#include "TObject/TImage.h"
+#include "TGlobal.h"
 
 class TRadioButton :
 	public TAbstractButton
 {
 public:
 	TRadioButton(int32 x, int32 y, int32 w, int32 h, const char* name, TWidget* obj);
-	virtual ~TRadioButton() { delRadio(); };
+	TRadioButton(TRect* rect,TImage* norImg,TImage* selImg, const char* name, TWidget* obj);
+	virtual ~TRadioButton();
 	virtual void	show();
 	virtual void sig_depress(int32 d1, int32 d2);
 	virtual void sig_release(int32 d1, int32 d2);
@@ -24,6 +27,9 @@ public:
 private:
 	bool selected;
 	TRadioButton* next;
+	TImage* norImg;
+	TImage* selImg;
+
 	void changeSelected() { selected ? selected = false : selected = true; }
 	void changeOtherSelect();
 	

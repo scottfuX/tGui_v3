@@ -723,6 +723,24 @@ void TBufPainter::drawCenterEnText(int32 x, int32 y, int32 w, int32 h, const cha
 }
 
 
+void TBufPainter::drawEnText(int32 x, int32 y, const char* str, colorDef text )
+{
+	setTextColor(text);
+	int32 len = -1;
+	char* p = (char*)str;
+	while (p[++len] != '\0')
+		;
+	if(bufRect->width() - font->Width * len - x < 0)
+		return;
+	y += (bufRect->height() - font->Height) / 2;
+	if(y < 0)
+		return;
+	for (int i = 0; i<len; i++)
+	{
+		displayEnChar(x + i*(font->Width), y , *(p + i),false);
+	}
+}
+
 void TBufPainter::drawEnText(int32 x, int32 y, const char* str, int32 len, bool hasBack)
 {
 	const char* pstr = str;

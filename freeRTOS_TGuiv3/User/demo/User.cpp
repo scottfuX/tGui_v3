@@ -2,11 +2,25 @@
 
 
 
-User::User(int32 x, int32 y, int32 w, int32 h,const char* n, TWidget* obj):TWidget(x,y,w,h,n,obj)
+User::User(int32 x, int32 y, int32 w, int32 h, const char* n,TWidget* obj)
+	:TWidget(x,y,w,h,n,obj)
 {
 	TBufPainter p(getBuffer()->getBufAddr(),getRect());
 	p.setColors(GOLD, GOLD);
-	p.drawFullRect(0,0,w,h); //这个的锅。。。//太简单粗暴了  导致把头数据都覆盖了 以至于后面分配内存又覆盖上去了
+	p.drawFullRect(0,0,w,h); 
+}
+
+User::User(int32 x, int32 y, int32 w, int32 h,const char* filename,const char* n, TWidget* obj)
+	:TWidget(x,y,w,h,n,obj)
+{
+	TImage img(getBuffer(), w, h, filename);
+}
+
+User::User(int32 x, int32 y,TImage* img,const char* n, TWidget* obj)
+	:TWidget(x,y,img->imgW(),img->imgH(),n,obj)
+{
+	img->ImgLoad(0,0,getBuffer());
+    delete img;
 }
 
 void User::show()

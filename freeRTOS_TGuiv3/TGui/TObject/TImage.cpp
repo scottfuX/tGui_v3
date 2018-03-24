@@ -2,13 +2,48 @@
 
 //图像png加载出来一定是8888的格式
 
- TImage::TImage(const char* filename)
+//fast for png need imgload
+ TImage::TImage(const char* filename)  
  {
     this->filename = filename;
     imgBufAddr = NULL;
 	imgType = 0;
     Decode();			//解码 并 根据图片来确定Image类的参数大小
  }
+
+//fast for bmp/jpg need have buf
+TImage::TImage(TBuffer* buf,uint16 w,uint16 h,const char* filen) 
+{
+	uint8 res = 0;
+	imgBufAddr = NULL;
+	unsigned int wpng,hpng;
+	this->filename = filen;
+	imgType = ObFileType(filename);	//得到文件的类型
+	switch(imgType)
+	{	
+		case T_PNG:
+		{
+			res = lodepng_decode32_file(&imgBufAddr, &wpng, &hpng, filename);			//解码png	  
+			width = wpng;
+			height = hpng;
+			if(buf->getBufW()  < width  || buf->getBufH()  < height)
+				return ;
+			ImgBlendLoad(0,0,buf);
+		}break;								  
+		case T_JPG:
+		case T_JPEG:
+		case T_BMP:
+			piclib_init(buf->getBufAddr(),w,h);		
+			ai_load_picfile(filename,0,0,w,h,1);
+			break;
+		case T_GIF: 
+				
+			break;
+		default:
+	 		//res = PIC_FORMAT_ERR;  													//非图片格式!!!  
+			break;
+	}
+}
 
  TImage::~TImage()
  {
@@ -29,9 +64,9 @@ void TImage::Decode()
 			res = jpg_decode_file(&imgBufAddr, &width, &height, filename);				//解码JPG/JPEG	 
 			break;
 		case T_PNG:
-  			res = lodepng_decode32_file(&imgBufAddr, &wpng, &hpng, filename);		//解码png	  
-			  width = wpng;
-			  height = hpng;
+  			res = lodepng_decode32_file(&imgBufAddr, &wpng, &hpng, filename);			//解码png	  
+			width = wpng;
+			height = hpng;
 			break;
 		case T_BMP:
 			res = bmp_decode_file(&imgBufAddr, &width, &height, filename); 				//解码bmp	    	  
@@ -40,7 +75,7 @@ void TImage::Decode()
 			//res = gif_decode(filename,x,y,width,height);								//解码gif  	    -->需要把 bufaddr ， width ，height 获取过来
 			break;
 		default:
-	 		//res = PIC_FORMAT_ERR;  						//非图片格式!!!  
+	 		//res = PIC_FORMAT_ERR;  													//非图片格式!!!  
 			break;
 	}  	
 	if(res)
@@ -49,12 +84,11 @@ void TImage::Decode()
 
 void TImage::ImgLoad(int32 offX, int32 offY,TBuffer* buf)
 {
-
 	if(buf->getBufW()  < width + offX )
 		return ;
 	if(buf->getBufH()  < height + offY)
 		return ;
-	if(imgType == T_PNG || imgType == T_BMP) 
+	if(imgType == T_PNG ) 
 	{
 		ImgBlendLoad(offX,offY,buf);
 	}
@@ -80,33 +114,30 @@ void TImage::ImgBlendLoad(int32 offX, int32 offY,TBuffer* buf)
 {
 
 #if defined ARGB_8888
-	uint8* addr = buf->getBufAddr() + (offX + offY * buf->getBufW()) * GUI_PIXELSIZE;
+	uint32 point ,color = 0;
 	uint8* imgaddr = imgBufAddr;
 	uint8  a = 255; //前景透明色
-	uint8 r1,g1,b1; //背景
-	uint8 r2,g2,b2; //前景
+	uint32 r,g,b; 
 	uint32 offF = 0;
-	uint32 offB = 0; //前后背景的偏移
 	if(imgType == T_PNG) //RGBA
 	{
 		for(int i=0;i<height;i++)
 		{
 			for(int j=0;j<width;j++)
 			{
+				point = buf->readPoint(j + offX,i + offY);
 				a = imgaddr[offF + 3];
-				r2 = imgaddr[offF];
-				g2 = imgaddr[offF + 1];
-				b2 = imgaddr[offF + 2];
-				r1 = addr[offB + 1];
-				g1 = addr[offB + 2];
-				b1 = addr[offB + 3];
-				addr[offB + 1] = ((r1 * (255 - a)+ r2 * a) >> 8);
-				addr[offB + 2] = ((g1 * (255 - a)+ g2 * a) >> 8);
-				addr[offB + 3] = ((b1 * (255 - a)+ b2 * a) >> 8);
+				r = imgaddr[offF];
+				g = imgaddr[offF + 1];
+				b = imgaddr[offF + 2];
+				color |= point & 0xff000000;
+				color |= ((((point >> 16) & 0xff)  * (0xff - a) + r * a)  >> 8) << 16;
+				color |= ((((point >> 8) & 0xff ) * (0xff - a) + g * a)  >> 8) << 8;
+				color |= (((point & 0xff) * (0xff - a) + b * a)  >> 8);
+				buf->writePoint(j + offX,i + offY,color);
+				color = 0;
 				offF += GUI_PIXELSIZE;
-				offB += GUI_PIXELSIZE;
 			}
-			offB += (buf->getBufW() - width) * GUI_PIXELSIZE;
 		}
 	}
 	else //ARGB
@@ -115,20 +146,19 @@ void TImage::ImgBlendLoad(int32 offX, int32 offY,TBuffer* buf)
 		{
 			for(int j=0;j<width;j++)
 			{
-				a = imgaddr[offF ];
-				r2 = imgaddr[offF + 1];
-				g2 = imgaddr[offF + 2];
-				b2 = imgaddr[offF + 3];
-				r1 = addr[offB + 1];
-				g1 = addr[offB + 2];
-				b1 = addr[offB + 3];
-				addr[offB + 1] = ((r1 * (255 - a)+ r2 * a) >> 8);
-				addr[offB + 2] = ((g1 * (255 - a)+ g2 * a) >> 8);
-				addr[offB + 3] = ((b1 * (255 - a)+ b2 * a) >> 8);
+				point = buf->readPoint(j + offX,i + offY);
+				a = imgaddr[offF];
+				r = imgaddr[offF + 1];
+				g = imgaddr[offF + 2];
+				b = imgaddr[offF + 3];
+				color |= point & 0xff000000;
+				color |= ((((point >> 16) & 0xff)  * (0xff - a) + r * a)  >> 8) << 16;
+				color |= ((((point >> 8) & 0xff ) * (0xff - a) + g * a)  >> 8) << 8;
+				color |= (((point & 0xff) * (0xff - a) + b * a)  >> 8);
+				buf->writePoint(j + offX,i + offY,color);
+				color = 0;
 				offF += GUI_PIXELSIZE;
-				offB += GUI_PIXELSIZE;
 			}
-			offB += (buf->getBufW() - width) * GUI_PIXELSIZE;
 		}
 	}
 #elif defined  ARGB_1555
@@ -138,6 +168,7 @@ void TImage::ImgBlendLoad(int32 offX, int32 offY,TBuffer* buf)
 
 
 }
+
 
 
 

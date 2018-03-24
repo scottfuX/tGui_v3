@@ -60,8 +60,8 @@ FIL* f_bmp;
 		picinfo.ImgHeight=pbmp->bmiHeader.biHeight;	//得到图片高度
 		picinfo.ImgWidth=pbmp->bmiHeader.biWidth;  	//得到图片宽度 
 
-		(*height) = pbmp->bmiHeader.biHeight ;											//-|
-		(*width) = pbmp->bmiHeader.biWidth ;												// |
+		(*height) = pbmp->bmiHeader.biHeight ;										//-|
+		(*width) = pbmp->bmiHeader.biWidth ;										// |
 		(*out_buf) = (u8*)pic_memalloc(	(*width) * (*height) * GUI_PIXELSIZE);		// |	
 		picinfo.S_Width = (*height);												// |---->>>>>>>>自己加的>>>
 		picinfo.S_Height = (*width);												// |
@@ -143,7 +143,7 @@ FIL* f_bmp;
 							color+=((u32)bmpbuf[count] << 16) & 0XFF0000;//R	  
 							break ;				
 						case 3 :
-							color+=((u32)bmpbuf[count] << 24) & 0XFF000000;	//A
+							//color+=((u32)bmpbuf[count] << 24) & 0XFF000000;	//A
 							//alphabend = bmpbuf[count];//不读取  ALPHA通道
 							break ;  		  	 
 					}	
@@ -517,11 +517,11 @@ u8 minibmp_decode(u8 *filename,u16 x,u16 y,u16 width,u16 height,u16 acolor,u8 mo
 					{
 						for(i=0;i<rowpix;i++)
 						{
-							color=(*bmpbuf++);		   		 	//B
+							color=(*bmpbuf++);		   		 		//B
 							color+=(((u32)*bmpbuf++)<<8)&0XFF00;	//G
 							color+=(((u32)*bmpbuf++)<<16)&0XFF0000;	//R
 							alphabend=*bmpbuf++;					//ALPHA通道
-							if(alphamode!=1) //需要读取底色
+							if(alphamode!=1) 						//需要读取底色
 							{
 								tmp_color=pic_phy.read_point(x+tx,y+ty);//读取颜色		   
 							    if(alphamode==2)//需要附加的alphablend

@@ -1,45 +1,6 @@
 #include "TWidget/TWidget.h"
 
 
-// TWidget::TWidget(int32 x, int32 y,Image* img, const char* n, TWidget* obj):TObject(n,obj)
-// {
-// 	rect = new TRect();
-// 	offsetWH = new TSize();
-// 	invalidList = NULL;
-// 	//paintInvaild = NULL;
-// 	setX(x);
-// 	setY(y);
-// 	setW(img->width());
-// 	setH(img->height());
-// 	backColor = WHITE;
-// 	offsetWH->setWidth(this->x() - obj->x() );//修改 偏移
-// 	offsetWH->setHeight(this->y() - obj->y() );
-	
-// 	chgPareInValid();
-	
-// 	if(getParents() == NULL)
-// 		widgetBuf = new TBuffer(NULL, w , w , h);
-// 	else
-// 		widgetBuf = new TBuffer(((TWidget*)getParents())->getBuffer()->getBufAddr(), ((TWidget*)getParents())->width() , w , h);
-		
-// 	// if (getParents())
-// 	// {
-// 	// 	backColor = ((TWidget*)getParents())->getBackColor();
-// 	// 	if (((TWidget*)getParents())->getIsVariable())
-// 	// 	{
-// 	// 		isVariable = true;
-// 	// 		chgPareInValid();//若父类可变，则为父类添加无效区域，保证变化时不闪屏
-// 	// 	}
-
-// 	// }
-// 	// else
-// 	// {
-// 	// 	backColor = WHITE;
-// 	// 	isVariable = false; //默认不可变，除非父类为可变
-// 	// }
-// }
-
-
 TWidget::TWidget(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj):TObject(n,obj)
 {
 	rect = new TRect();
@@ -442,12 +403,11 @@ void TWidget::rectCut(TRect* srcRect)
 /*
 |---------------|			|---------------|
 |				|			|	showMem	    |
-|	|-------|	| transform	|	|-------|	|
-|	|srcRect|---+-----------+-->| 		|	|
+|	|-------|	| 			|	|-------|	|
+|	|srcRect|---+-transform-+-->| 		|	|
 |	|-------|	|			|	|-------|	|
-|	TBuffer		|			|				|
+|	 TBuffer	|			|				|
 |---------------|			|---------------|
-
 */
 void TWidget::transform(TRect* srcRect)
 {

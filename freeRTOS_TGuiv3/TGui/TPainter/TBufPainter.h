@@ -41,7 +41,8 @@ public:
 	void drawFullTriangle(int32 x1, int32 y1, int32 x2, int32 y2, int32 x3, int32 y3);
 	void drawRoundRect(int32 x, int32 y, int32 w, int32 h, int32 r = 0);
 
-	void drawEnText(int32 x, int32 y, const char* str, int32 len, bool hasBack);
+	void drawEnText(int32 x, int32 y, const char* str, colorDef text = BLACK );
+	void drawEnText(int32 x, int32 y, const char* str, int32 len, bool hasBack = false);
 	//void drawImage();
 	//void drawArrow();
 	void drawCursor(int32 x, int32 y, colorDef back, bool isDisplay);

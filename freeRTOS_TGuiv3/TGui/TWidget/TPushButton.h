@@ -4,12 +4,14 @@
 #include "TWidget/TAbstractButton.h"
 #include "TPainter/TBufPainter.h"
 #include "TPainter/TPainter.h"
+#include "TObject/TImage.h"
 
 class TPushButton :public TAbstractButton
 {
 public:
 	TPushButton(int32 x, int32 y, int32 w, int32 h, const char* name, TWidget* obj );
-	virtual ~TPushButton() {};
+	TPushButton(int32 x, int32 y, TImage* norImg ,TImage* pressImg, const char* name, TWidget* obj );
+	virtual ~TPushButton() ;
 
 	virtual void	show();
 	virtual void	sig_depress(int32 d1, int32 d2);
@@ -18,7 +20,8 @@ public:
 	
 
 private:
-	
+	TBuffer * norBuf;
+	TBuffer * pressBuf; 
 	
 };
 

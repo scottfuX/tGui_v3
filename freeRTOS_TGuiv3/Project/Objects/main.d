@@ -151,6 +151,7 @@
 .\objects\main.o: ..\TGui\TWidget/TDialog.h
 .\objects\main.o: ..\TGui\TWidget/TPushButton.h
 .\objects\main.o: ..\TGui\TWidget/TAbstractButton.h
+.\objects\main.o: ..\TGui\TObject/TImage.h
 .\objects\main.o: ..\TGui\TWidget/TCheckBox.h
 .\objects\main.o: ..\TGui\TWidget/TRadioButton.h
 .\objects\main.o: ..\TGui\TWidget/TLabel.h
@@ -158,5 +159,4 @@
 .\objects\main.o: ..\TGui\TWidget/TSlider.h
 .\objects\main.o: ..\TGui\TWidget/TAbstractSlider.h
 .\objects\main.o: ..\TGui\TWidget/TImageBox.h
-.\objects\main.o: ..\TGui\TObject/TImage.h
 .\objects\main.o: ..\User\demo/User.h

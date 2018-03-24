@@ -52,12 +52,12 @@ static void task2_tgui(void *pvParameters);
 static void task3_driver(void *pvParameters);
 
 
-FATFS fs[2];													/* FatFs文件系统对象 */
-DIR dj;         								/*目录搜索对象*/ 
-FIL fnew;													/* 文件对象 */
-FRESULT res;                /* 文件操作结果 */
+FATFS fs[2];					/* FatFs文件系统对象 */
+DIR dj;         				/*目录搜索对象*/ 
+FIL fnew;						/* 文件对象 */
+FRESULT res;                	/* 文件操作结果 */
 FILINFO fno;
-UINT fnum;            					  /* 文件成功读写数量 */
+UINT fnum;            			/* 文件成功读写数量 */
 BYTE ReadBuffer[100]={0};        /* 读缓冲区 */
 BYTE WriteBuffer[] =              /* 写缓冲区*/
 "SD Card 测试实验 1234567890\r\n";       
@@ -77,14 +77,13 @@ int main()
 	LCD_Init();
 	//SDRAMConfig();  //进入main前，已经初始化了
 	//FLASHConfig();
-	//LCD_Clear(0xFFFFFFFF);
 	gui_dma2d_memset((uint32_t* )GUI_FG_BUFADDR,GUI_WIDTH,0xFFFFFFFF,0 ,0,GUI_WIDTH,GUI_HIGH);
 	wifi_close();
 	
 	//每个函数都要用while结尾
 	xTaskCreate( task0_temp, "gui_temp", 1000, NULL, 1, NULL );
 	xTaskCreate( task1_led, "led_flash", configMINIMAL_STACK_SIZE, NULL, 2, NULL );
-	xTaskCreate( task2_tgui, "TGui",10000, NULL,2, NULL );
+	xTaskCreate( task2_tgui, "TGui",16318, NULL,2, NULL );
 	xTaskCreate( task3_driver, "driver", configMINIMAL_STACK_SIZE, NULL, 1, NULL );
 	vTaskStartScheduler();	// 启动调度器，任务开始执行
 	
@@ -93,45 +92,68 @@ int main()
 
 static void task0_temp(void *pvParameters)
 {
-	
-	// res = copy_file_sd2flash(src_dir,dst_dir);
-	// if(res == FR_OK)
-	// 	printf("\r\n 所有数据已成功复制到FLASH！！！ \r\n");  
-	// else
-	// 	printf("\r\n 复制文件到FLASH失败(文件系统部分)，请复位重试！！ \r\n"); 
+	if(f_mount(&fs[1],"1:",1) != FR_OK)//挂载 flash card
+		printf("\r\nflash mount failed ...\r\n");
+	if(f_mount(&fs[0],"0:",1) != FR_OK)//挂载 sd card
+		printf("\r\nsd mount failed ...\r\n");
+	res = copy_file_sd2flash(src_dir,dst_dir);
+	if(res == FR_OK)
+		printf("\r\n 所有数据已成功复制到FLASH！！！ \r\n");  
+	else
+		printf("\r\n 复制文件到FLASH失败(文件系统部分)，请复位重试！！ \r\n"); 
 
-  unsigned int error;
-  //unsigned char* 
-  u8* image;
-  u16 width = 0;
-  u16 height = 0;
-	tim6_count = 0;
-  //error = lodepng_decode32_file(&image, &width, &height, "1:/PNG/pic1.png");
-  error = bmp_decode_file(&image, &width,&height, "1:/PICTURE/1.bmp");				//解码JPG/JPEG	
-  if(error) 
-		printf("error %u: %s\n", error, lodepng_error_text(error));
+//   unsigned int error;
+//   //unsigned char* 
+//   u8* image;
+//   unsigned int width = 0;
+//   unsigned int height = 0;
+// 	tim6_count = 0;
+//   error = lodepng_decode32_file(&image, &width, &height, "1:/Picture/0.png");
+//   //error = bmp_decode_file(&image, &width,&height, "1:/PICTURE/1.bmp");				//解码JPG/JPEG	
+//   if(error) 
+// 		printf("error %u: %s\n", error, lodepng_error_text(error));
 
-	uint32 * des_addr = (uint32 *)GUI_FG_BUFADDR ;
-	uint32 * src_addr = (uint32 *)(image);
+// 	uint32 * des_addr = (uint32 *)GUI_FG_BUFADDR ;
+// 	//uint32 * src_addr = (uint32 *)(image);
 
-	for(int i = 0;i < height;  i++)
-	{
-		//memcpy 模式
-		memcpy(des_addr,src_addr,width * GUI_PIXELSIZE);
-		//dma 模式
-		//--------------------------
-		src_addr += width;
-		des_addr += GUI_WIDTH;
-	}
+// 	u32 color_tmp;
+// 	u32 offset;
+// 	u16 i,j;
+// 	uint32 a;
+// 	for(i=0;i<height;i++)
+// 	{
+// 		for(j=0;j<width;j++)
+// 		{ 
+// 			offset = (i * width  + j) * 4;
+// 			a = image[offset + 3]  ;
+// 			color_tmp |= ((image[offset]  * a + 0xFF * (0xff - a)) >> 8) << 16;
+// 			color_tmp |= ((image[offset + 1] * a + 0xFF * (0xff - a)) >> 8) << 8;
+// 			color_tmp |= ((image[offset + 2]* a + 0xFF * (0xff - a)) >> 8);
+// 			color_tmp |= (image[offset + 3] << 24);
+
+// 			gui_dma2d_memset((uint32_t* )des_addr,GUI_WIDTH, color_tmp ,  j ,  i , 1 , 1);
+// 			color_tmp = 0;
+// 		}
+// 	}
+
+// 	// for(int i = 0;i < height;  i++)
+// 	// {
+// 	// 	//memcpy 模式
+// 	// 	memcpy(des_addr,src_addr,width * GUI_PIXELSIZE);
+// 	// 	//dma 模式
+// 	// 	//--------------------------
+// 	// 	src_addr += width;
+// 	// 	des_addr += GUI_WIDTH;
+// 	// }
 
 
-	printf("end_tim: %d \n",tim6_count);
-  	free(image);
+// 	printf("end_tim: %d \n",tim6_count);
+//   	free(image);
 
-	piclib_init((uint8 *)GUI_FG_BUFADDR,GUI_WIDTH,GUI_HIGH);
-	tim6_count = 0;
-	ai_load_picfile("1:/PICTURE/2.jpg",0,0,GUI_WIDTH,GUI_HIGH,1);//显示图片   
-	printf("end_tim: %d \n",tim6_count);
+// 	piclib_init((uint8 *)GUI_FG_BUFADDR,GUI_WIDTH,GUI_HIGH);
+// 	tim6_count = 0;
+// 	ai_load_picfile("1:/PICTURE/2.jpg",0,0,GUI_WIDTH,GUI_HIGH,1);//显示图片   
+// 	printf("end_tim: %d \n",tim6_count);
 	
 	while(1);
 }

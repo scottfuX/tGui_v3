@@ -150,98 +150,50 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>87</LineNumber>
+          <LineNumber>13</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134278386</Address>
+          <Address>134250342</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\User\main.cpp</Filename>
+          <Filename>..\TGui\TGuiMain.cpp</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\stm32f4Demo\../User/main.cpp\87</Expression>
+          <Expression>\\stm32f4Demo\../TGui/TGuiMain.cpp\13</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>4</LineNumber>
+          <LineNumber>33</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134250004</Address>
+          <Address>134259524</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\TGui\TGuiMain.cpp</Filename>
+          <Filename>..\TGui\TObject/TImage.h</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\stm32f4Demo\../TGui/TGuiMain.cpp\4</Expression>
+          <Expression>\\stm32f4Demo\../TGui/TObject/TImage.h\33</Expression>
         </Bp>
         <Bp>
           <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>109</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134254686</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\TGui\TObject\TApplication.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\stm32f4Demo\../TGui/TObject/TApplication.cpp\109</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
           <LineNumber>31</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134254712</Address>
+          <Address>134259436</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\TGui\TObject\TApplication.cpp</Filename>
+          <Filename>..\TGui\TWidget/TWidget.h</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\stm32f4Demo\../TGui/TObject/TApplication.cpp\31</Expression>
-        </Bp>
-        <Bp>
-          <Number>4</Number>
-          <Type>0</Type>
-          <LineNumber>41</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134254732</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\TGui\TObject\TApplication.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\stm32f4Demo\../TGui/TObject/TApplication.cpp\41</Expression>
-        </Bp>
-        <Bp>
-          <Number>5</Number>
-          <Type>0</Type>
-          <LineNumber>24</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134250286</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\TGui\TGuiMain.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\stm32f4Demo\../TGui/TGuiMain.cpp\24</Expression>
+          <Expression>\\stm32f4Demo\../TGui/TWidget/TWidget.h\31</Expression>
         </Bp>
       </Breakpoint>
       <MemoryWindow1>

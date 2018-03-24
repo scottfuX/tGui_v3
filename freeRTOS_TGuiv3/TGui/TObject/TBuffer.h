@@ -1,6 +1,13 @@
 #ifndef _TBUFFER_H_
 #define _TBUFFER_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+#include <stdlib.h>
+#ifdef __cplusplus
+}
+#endif
 
 #include "TGlobal.h"
 
@@ -17,6 +24,9 @@ public:
     uint8* getBufAddr(){return buf;};
     uint32  getBufW(){return bufW;}
     uint32  getBufH(){return bufH;}
+
+    uint32 readPoint(int32 x,int32 y);
+    void writePoint(int32 x,int32 y,uint32 color);
 
 };
 

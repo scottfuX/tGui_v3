@@ -19,7 +19,7 @@ extern "C" {
 
 
 #define 	T_JPG		0x0f
-#define 	T_JPEG	0x1f
+#define 	T_JPEG	    0x1f
 #define 	T_PNG		0x2f
 #define  	T_BMP   	0x3f
 #define 	T_GIF		0x4f
@@ -28,9 +28,11 @@ class TImage
 {
 public:
     TImage(const char* filename);
+    TImage(TBuffer* buf,uint16 w,uint16 h,const char* filename) ;
     ~TImage();
-    int32	imgW()		const	{ return width; }
+    int32	imgW()	const	{ return width; }
     int32	imgH()	const	{ return height; }
+    uint8*  imgBuf() const  {return imgBufAddr;}
     void Decode();
     void ImgLoad(int32 offX, int32 offY,TBuffer* buf);
     void ImgBlendLoad(int32 offX, int32 offY,TBuffer* buf);
@@ -39,7 +41,7 @@ public:
 						
 private:
     uint16	width;				// image width
-		uint16	height;				// image height
+	uint16	height;				// image height
 
     const char* filename;
     uint8* imgBufAddr;

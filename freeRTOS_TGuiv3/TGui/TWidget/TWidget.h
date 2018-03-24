@@ -29,6 +29,7 @@ public:
 	void		setBackColor(colorDef c) { backColor = c; };
 	colorDef	getBackColor() { return backColor; }
 	TBuffer* 	getBuffer(){ return widgetBuf;};
+	void 		setBuffer(TBuffer* buf){widgetBuf = buf;};
 	void		setOffsetWH(int32 w, int32 h) { offsetWH->setWidth(w); offsetWH->setHeight(h); } //设置与父类的偏移
 	TSize*		getOffsetWH() { return offsetWH; }	
 	void		chgChildsXY(TWidget* widget);//改变子类坐标 -- 父类在动
@@ -38,7 +39,7 @@ public:
 	bool		isInRealArea(int32 x, int32 y); //  真实的区域 ，被覆盖后剩下的区域
 	bool		isInArea(int32 x, int32 y); //设定的区域
 	void        showAll() { showAll(this); }
-	//TRect*		getPaintInvaild() { return paintInvaild; }
+	//TRect*	getPaintInvaild() { return paintInvaild; }
 	// void		setIsVariable(bool statVari); //把子类也改变
 	// bool		getIsVariable() { return isVariable; }
 	
