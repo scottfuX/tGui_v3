@@ -1,9 +1,11 @@
-#ifndef _TGLOBAL_H_
+﻿#ifndef _TGLOBAL_H_
 #define _TGLOBAL_H_				 
 
 extern "C" {
 #include "interface_conf/tgui_conf.h"
 }
+
+/////////////////////////////////////////////////////
 
 
 #define RGB888    //定义显示屏每个像素类型
