@@ -3,24 +3,25 @@
 TBuffer::TBuffer(uint8* pre_addr,uint32 pre_w,uint32 w,uint32 h)
 {
     buf = NULL;
-    //buf= (uint8*)new uint8[w * h * GUI_PIXELSIZE];
-    buf = (uint8*) malloc (w * h * GUI_PIXELSIZE);
+    buf = new uint8[w * h * GUI_PIXELSIZE];
+    //buf = (uint8*) malloc (w * h * GUI_PIXELSIZE);
 	bufW = w;
 	bufH = h;
 	if(pre_addr)
 	{//搬运父亲背景 至 TBuffer
-		uint8 * des_addr = buf;
-		uint8 * src_addr = pre_addr;
-		for(int i = 0;i < h;  i++)
+		uint8 * res_addr = NULL;
+		uint32 des_addr = (uint32)buf;
+		uint32 src_addr = (uint32)pre_addr;
+		for(int i = 0;i < h;  ++i)
 		{
-			memcpy(des_addr,src_addr,pre_w * GUI_PIXELSIZE);
+			res_addr =	(uint8 *) memcpy((uint8 *)des_addr,(uint8 *)src_addr,w * GUI_PIXELSIZE);
 			src_addr += pre_w * GUI_PIXELSIZE;
 			des_addr += w * GUI_PIXELSIZE;
 		}
 	}
 	else
 	{
-		gui_dma2d_memset((uint32_t*)pre_addr,w,WHITE,0 , 0,w,h);
+		gui_dma2d_memset((uint32_t*)buf,w,WHITE,0 , 0,w,h);
 	}
 }
 
@@ -28,8 +29,8 @@ TBuffer::TBuffer(uint8* pre_addr,uint32 pre_w,uint32 w,uint32 h)
 TBuffer::~TBuffer()
 {
     if(buf)
-        //delete[] (buf);
-		free(buf);
+        delete[] (buf);
+		//free(buf);
 }
 
 //若用宏定义 减少call 减少执行世界

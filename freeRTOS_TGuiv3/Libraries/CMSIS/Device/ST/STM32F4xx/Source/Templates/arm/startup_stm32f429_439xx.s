@@ -49,7 +49,7 @@ __initial_sp
 ; </h>
 
 
-Heap_Size       EQU     0x400000;4M ; 0x00000200
+Heap_Size       EQU     0x577000;0x400000;4M ; 0x00000200
 
                 AREA    HEAP, NOINIT, READWRITE, ALIGN=3
 

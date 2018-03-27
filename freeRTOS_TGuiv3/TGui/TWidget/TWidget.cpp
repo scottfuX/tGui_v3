@@ -416,15 +416,15 @@ void TWidget::transform(TRect* srcRect)
 	// r.intersectInr(srcRect);
 	// if(!srcRect->isValidStrict())
 	// 		return;
-	uint8 * des_addr = (uint8 *)(GUI_FG_BUFADDR + (srcRect->top() * GUI_WIDTH +  srcRect->left()) * GUI_PIXELSIZE);
+	uint32 des_addr = (GUI_FG_BUFADDR + (srcRect->top() * GUI_WIDTH +  srcRect->left()) * GUI_PIXELSIZE);
 	uint32 x_offset = srcRect->left() - x(); //算出 剪切区域x 相对 TBuffer 偏移
 	uint32 y_offset = srcRect->top() - y();	 //算出 剪切区域y 相对 TBuffer 偏移
-	uint8 * src_addr = (uint8 *)((uint32)widgetBuf->getBufAddr() + (y_offset * width() + x_offset ) * GUI_PIXELSIZE);
+	uint32 src_addr = ((uint32)widgetBuf->getBufAddr() + (y_offset * width() + x_offset ) * GUI_PIXELSIZE);
 
 	for(int i = 0;i < srcRect->height();  i++)
 	{
 		//memcpy 模式
-		memcpy(des_addr,src_addr,srcRect->width() * GUI_PIXELSIZE);
+		memcpy((uint8*)des_addr,(uint8*)src_addr,srcRect->width() * GUI_PIXELSIZE);
 		//dma 模式
 		//--------------------------
 		src_addr += width() * GUI_PIXELSIZE;

@@ -14,13 +14,11 @@ TPushButton::TPushButton(int32 x, int32 y, TImage* norImg ,TImage* pressImg ,  c
 	//:TAbstractButton(x, y,norImg->imgW(),norImg->imgH(),name,obj)
 	:TAbstractButton(x, y,MAX(norImg->imgW(),pressImg->imgW()),MAX(norImg->imgH(),pressImg->imgH()), name, obj)
 {
-	printf("\r\n is coming \r\n");
 	if(getParents() == NULL)
 		pressBuf = new TBuffer(NULL, width() ,width(), height());
 	else
 	{
 		pressBuf = new TBuffer(((TWidget*)getParents())->getBuffer()->getBufAddr(), ((TWidget*)getParents())->width() ,width(), height());
-		printf("\r\n is coming \r\n");
 	}
 
 	norBuf =  getBuffer();
@@ -99,7 +97,6 @@ void TPushButton::release()
 		refresh();
 	}
 	state = false;
-	
 }
 
 void TPushButton::show()

@@ -84,9 +84,10 @@ ARM Macro Assembler    Page 2
    49 00001000         ; </h>
    50 00001000         
    51 00001000         
-   52 00001000 00400000 
+   52 00001000 00577000 
                        Heap_Size
-                               EQU              0x400000    ;4M ; 0x00000200
+                               EQU              0x577000    ;0x400000;4M ; 0x00
+                                                            000200
    53 00001000         
    54 00001000                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
 3
@@ -95,22 +96,22 @@ ARM Macro Assembler    Page 2
    57 00000000         __heap_base
    58 00000000         Heap_Mem
                                SPACE            Heap_Size
-   59 00400000         __heap_limit                         ;EQU     0xd0800000
+   59 00577000         __heap_limit                         ;EQU     0xd0800000
                                                              ;设置堆的大小限制 
                                                             0xd0000000+0x008000
                                                             00
-   60 00400000         
-   61 00400000                 PRESERVE8
-   62 00400000                 THUMB
-   63 00400000         
-   64 00400000         ;加入freeRTOS
-   65 00400000         ;IMPORT xPortPendSVHandler 
-   66 00400000         ;IMPORT xPortSysTickHandler
-   67 00400000         ;IMPORT vPortSVCHandler
-   68 00400000         
-   69 00400000         
-   70 00400000         ; Vector Table Mapped to Address 0 at Reset
-   71 00400000                 AREA             RESET, DATA, READONLY
+   60 00577000         
+   61 00577000                 PRESERVE8
+   62 00577000                 THUMB
+   63 00577000         
+   64 00577000         ;加入freeRTOS
+   65 00577000         ;IMPORT xPortPendSVHandler 
+   66 00577000         ;IMPORT xPortSysTickHandler
+   67 00577000         ;IMPORT vPortSVCHandler
+   68 00577000         
+   69 00577000         
+   70 00577000         ; Vector Table Mapped to Address 0 at Reset
+   71 00577000                 AREA             RESET, DATA, READONLY
    72 00000000                 EXPORT           __Vectors
    73 00000000                 EXPORT           __Vectors_End
    74 00000000                 EXPORT           __Vectors_Size
@@ -127,13 +128,13 @@ ARM Macro Assembler    Page 2
                                                             
    81 00000014 00000000        DCD              BusFault_Handler 
                                                             ; Bus Fault Handler
-                                                            
 
 
 
 ARM Macro Assembler    Page 3 
 
 
+                                                            
    82 00000018 00000000        DCD              UsageFault_Handler ; Usage Faul
                                                             t Handler
    83 0000001C 00000000        DCD              0           ; Reserved
@@ -192,13 +193,13 @@ ARM Macro Assembler    Page 3
                                                                  
   106 00000068 00000000        DCD              EXTI4_IRQHandler ; EXTI Line4  
                                                                                
-                                                                               
 
 
 
 ARM Macro Assembler    Page 4 
 
 
+                                                                               
                                                                  
   107 0000006C 00000000        DCD              DMA1_Stream0_IRQHandler ; DMA1 
                                                             Stream 0           
@@ -257,13 +258,13 @@ ARM Macro Assembler    Page 4
   121 000000A4 00000000        DCD              TIM1_UP_TIM10_IRQHandler ; TIM1
                                                              Update and TIM10  
                                                                            
-  122 000000A8 00000000        DCD              TIM1_TRG_COM_TIM11_IRQHandler ;
 
 
 
 ARM Macro Assembler    Page 5 
 
 
+  122 000000A8 00000000        DCD              TIM1_TRG_COM_TIM11_IRQHandler ;
                                                              TIM1 Trigger and C
                                                             ommutation and TIM1
                                                             1
@@ -322,13 +323,13 @@ ARM Macro Assembler    Page 5
   138 000000E8 00000000        DCD              OTG_FS_WKUP_IRQHandler ; USB OT
                                                             G FS Wakeup through
                                                              EXTI line         
-                                                                           
 
 
 
 ARM Macro Assembler    Page 6 
 
 
+                                                                           
   139 000000EC 00000000        DCD              TIM8_BRK_TIM12_IRQHandler ; TIM
                                                             8 Break and TIM12  
                                                                             
@@ -387,13 +388,13 @@ ARM Macro Assembler    Page 6
                                                             Stream 3           
                                                                                
                                                                  
-  156 00000130 00000000        DCD              DMA2_Stream4_IRQHandler ; DMA2 
 
 
 
 ARM Macro Assembler    Page 7 
 
 
+  156 00000130 00000000        DCD              DMA2_Stream4_IRQHandler ; DMA2 
                                                             Stream 4           
                                                                                
                                                                  
@@ -452,13 +453,13 @@ ARM Macro Assembler    Page 7
                                                              Out               
                                                                    
   171 0000016C 00000000        DCD              OTG_HS_EP1_IN_IRQHandler ; USB 
-                                                            OTG HS End Point 1 
 
 
 
 ARM Macro Assembler    Page 8 
 
 
+                                                            OTG HS End Point 1 
                                                             In                 
                                                                   
   172 00000170 00000000        DCD              OTG_HS_WKUP_IRQHandler ; USB OT
@@ -517,13 +518,13 @@ ARM Macro Assembler    Page 8
   210 00000008         
   211 00000008 4807            LDR              R0, =__main
   212 0000000A 4700            BX               R0
-  213 0000000C                 ENDP
 
 
 
 ARM Macro Assembler    Page 9 
 
 
+  213 0000000C                 ENDP
   214 0000000C         
   215 0000000C         ; Dummy Exception Handlers (infinite loops which can be 
                        modified)
@@ -582,13 +583,13 @@ K]
 K]
   256 0000001C E7FE            B                .
   257 0000001E                 ENDP
-  258 0000001E         
 
 
 
 ARM Macro Assembler    Page 10 
 
 
+  258 0000001E         
   259 0000001E         Default_Handler
                                PROC
   260 0000001E         
@@ -647,13 +648,13 @@ ARM Macro Assembler    Page 10
   287 0000001E                 EXPORT           TIM1_TRG_COM_TIM11_IRQHandler  
    [WEAK]
   288 0000001E                 EXPORT           TIM1_CC_IRQHandler             
-   [WEAK]
 
 
 
 ARM Macro Assembler    Page 11 
 
 
+   [WEAK]
   289 0000001E                 EXPORT           TIM2_IRQHandler                
    [WEAK]
   290 0000001E                 EXPORT           TIM3_IRQHandler                
@@ -712,13 +713,13 @@ ARM Macro Assembler    Page 11
    [WEAK]
   317 0000001E                 EXPORT           DMA2_Stream0_IRQHandler        
    [WEAK]
-  318 0000001E                 EXPORT           DMA2_Stream1_IRQHandler        
 
 
 
 ARM Macro Assembler    Page 12 
 
 
+  318 0000001E                 EXPORT           DMA2_Stream1_IRQHandler        
    [WEAK]
   319 0000001E                 EXPORT           DMA2_Stream2_IRQHandler        
    [WEAK]
@@ -777,13 +778,13 @@ ARM Macro Assembler    Page 12
   346 0000001E                 EXPORT           SPI5_IRQHandler                
    [WEAK]
   347 0000001E                 EXPORT           SPI6_IRQHandler                
-   [WEAK]
 
 
 
 ARM Macro Assembler    Page 13 
 
 
+   [WEAK]
   348 0000001E                 EXPORT           SAI1_IRQHandler                
    [WEAK]
   349 0000001E                 EXPORT           LTDC_IRQHandler                
@@ -842,13 +843,13 @@ ARM Macro Assembler    Page 13
   399 0000001E         TIM8_CC_IRQHandler
   400 0000001E         DMA1_Stream7_IRQHandler
   401 0000001E         FMC_IRQHandler
-  402 0000001E         SDIO_IRQHandler
 
 
 
 ARM Macro Assembler    Page 14 
 
 
+  402 0000001E         SDIO_IRQHandler
   403 0000001E         TIM5_IRQHandler
   404 0000001E         SPI3_IRQHandler
   405 0000001E         UART4_IRQHandler
@@ -907,13 +908,13 @@ ARM Macro Assembler    Page 14
   456 00000020                 EXPORT           __heap_base
   457 00000020                 EXPORT           __heap_limit
   458 00000020         
-  459 00000020                 ELSE
 
 
 
 ARM Macro Assembler    Page 15 
 
 
+  459 00000020                 ELSE
   474                          ENDIF
   475 00000020         
   476 00000020                 END
@@ -998,7 +999,7 @@ s\arm\startup_stm32f429_439xx.s
       At line 456 in file ..\Libraries\CMSIS\Device\ST\STM32F4xx\Source\Templat
 es\arm\startup_stm32f429_439xx.s
 Comment: __heap_base used once
-__heap_limit 00400000
+__heap_limit 00577000
 
 Symbol: __heap_limit
    Definitions
@@ -2412,7 +2413,7 @@ es\arm\startup_stm32f429_439xx.s
 ARM Macro Assembler    Page 1 Alphabetic symbol ordering
 Absolute symbols
 
-Heap_Size 00400000
+Heap_Size 00577000
 
 Symbol: Heap_Size
    Definitions
