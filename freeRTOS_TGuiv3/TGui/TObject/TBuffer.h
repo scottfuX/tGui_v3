@@ -10,6 +10,7 @@ extern "C" {
 #endif
 
 #include "TGlobal.h"
+#include "TObject/TRect.h"
 
 
 class TBuffer
@@ -21,10 +22,12 @@ private:
 public:
     TBuffer(uint8* pre_addr,uint32 pre_w,uint32 w,uint32 h);
     ~TBuffer();
-    uint8* getBufAddr(){return buf;};
+    uint8*  getBufAddr(){return buf;};
     uint32  getBufW(){return bufW;}
     uint32  getBufH(){return bufH;}
 
+    void obPareBack(uint8* pre_addr,uint32 pre_w);
+    void transform(int32 x,int32 y,TRect* srcRect);//输送一部分内容到显存
     uint32 readPoint(int32 x,int32 y);
     void writePoint(int32 x,int32 y,uint32 color);
 

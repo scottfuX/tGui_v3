@@ -1,57 +1,41 @@
 #include "TWidget/TPushButton.h"
 
 TPushButton::TPushButton(int32 x, int32 y, int32 w, int32 h, const char* name, TWidget* obj)
-	:TAbstractButton(x, y, w, h, name, obj)
+	:TAbstractButton(x, y, w, h,false, name, obj)
 {
 	TBufPainter p(getBuffer()->getBufAddr(),getRect());
 	p.drawButton(0, 0, width(), height(), getName(), state);
-	pressBuf = NULL;
+	selBuf = NULL;
 	norBuf = NULL;
 }
 
 
-TPushButton::TPushButton(int32 x, int32 y, TImage* norImg ,TImage* pressImg ,  const char* name, TWidget* obj)
-	//:TAbstractButton(x, y,norImg->imgW(),norImg->imgH(),name,obj)
-	:TAbstractButton(x, y,MAX(norImg->imgW(),pressImg->imgW()),MAX(norImg->imgH(),pressImg->imgH()), name, obj)
+TPushButton::TPushButton(int32 x, int32 y, TImage norImg ,TImage selImg ,  const char* name, TWidget* obj)
+	:TAbstractButton(x, y,MAX(norImg.imgW() ,selImg.imgW()),MAX(norImg.imgH() ,selImg.imgH()),true, name, obj)
 {
-	if(getParents() == NULL)
-		pressBuf = new TBuffer(NULL, width() ,width(), height());
-	else
-	{
-		pressBuf = new TBuffer(((TWidget*)getParents())->getBuffer()->getBufAddr(), ((TWidget*)getParents())->width() ,width(), height());
-	}
+	norImg.ImgLoad(0,0,norBuf);
+	selImg.ImgLoad(0,0,selBuf);
 
-	norBuf =  getBuffer();
-	norImg->ImgLoad(0,0,getBuffer());
-    delete norImg;
-
-	pressImg->ImgLoad(0,0,pressBuf);
-	delete pressImg;
-	TBufPainter p(getBuffer()->getBufAddr(),getRect());
-	p.drawCenterEnText(0,0, width(), height(), getName());
+	TBufPainter p1(norBuf->getBufAddr(),getRect());
+	p1.drawCenterEnText(0,0, width(), height(), getName());
+	TBufPainter p2(selBuf->getBufAddr(),getRect());
+	p2.drawCenterEnText(0,0, width(), height(), getName());
 }
 
 TPushButton::~TPushButton() 
 {
-	if(pressBuf)
-	{
-		setBuffer(norBuf);
-		delete pressBuf;
-	}
 };
 
 void TPushButton::sig_depress(int32 d1, int32 d2)
 {
-	if(pressBuf)
+	if(haveImg)
 	{
-		setBuffer(pressBuf);
-		TBufPainter p(getBuffer()->getBufAddr(),getRect());
-		p.drawCenterEnText(0,0, width(), height(), getName());
+		setBuffer(selBuf);
 		refresh();
 	}
 	else
 	{
-		// TPainter p(getInvalidList(),getPaintInvaild());
+		//TPainter p(getInvalidList(),getPaintInvaild());
 		//改painter为在buf上面画画 通过refresh进行剪切
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
 		p.drawButton(0, 0, width(), height(), getName(), true);
@@ -63,16 +47,14 @@ void TPushButton::sig_depress(int32 d1, int32 d2)
 
 void TPushButton::sig_release(int32 d1, int32 d2)
 {
-	if(pressBuf)
+	if(haveImg)
 	{
 		setBuffer(norBuf);
-		TBufPainter p(getBuffer()->getBufAddr(),getRect());
-		p.drawCenterEnText(0,0, width(), height(), getName());
 		refresh();
 	}
 	else
 	{
-		// TPainter p(getInvalidList(),getPaintInvaild());
+		//TPainter p(getInvalidList(),getPaintInvaild());
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
 		p.drawButton(0, 0, width(), height(), getName(), false);
 		refresh();
@@ -80,13 +62,12 @@ void TPushButton::sig_release(int32 d1, int32 d2)
 	state = false;
 	callSlot((func)&TPushButton::sig_release,d1,d2);
 }
+
 void TPushButton::release()
 {
-	if(pressBuf)
+	if(haveImg)
 	{
 		setBuffer(norBuf);
-		TBufPainter p(getBuffer()->getBufAddr(),getRect());
-		p.drawCenterEnText(0,0, width(), height(), getName());
 		refresh();
 	}
 	else

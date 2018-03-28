@@ -69,27 +69,27 @@ ARM Macro Assembler    Page 1
 ARM Macro Assembler    Page 2 
 
 
-   41 00000000 00001000 
+   41 00000000 00000400 
                        Stack_Size
-                               EQU              0x1000
+                               EQU              0x400
    42 00000000                 AREA             STACK, NOINIT, READWRITE, ALIGN
 =3
    43 00000000         Stack_Mem
                                SPACE            Stack_Size
-   44 00001000         __initial_sp
-   45 00001000         
-   46 00001000         
-   47 00001000         ; <h> Heap Configuration
-   48 00001000         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
-   49 00001000         ; </h>
-   50 00001000         
-   51 00001000         
-   52 00001000 00577000 
+   44 00000400         __initial_sp
+   45 00000400         
+   46 00000400         
+   47 00000400         ; <h> Heap Configuration
+   48 00000400         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   49 00000400         ; </h>
+   50 00000400         
+   51 00000400         
+   52 00000400 00577000 
                        Heap_Size
                                EQU              0x577000    ;0x400000;4M ; 0x00
                                                             000200
-   53 00001000         
-   54 00001000                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
+   53 00000400         
+   54 00000400                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
 3
    55 00000000         
    56 00000000         
@@ -952,7 +952,7 @@ s\arm\startup_stm32f429_439xx.s
    Uses
       None
 Comment: Stack_Mem unused
-__initial_sp 00001000
+__initial_sp 00000400
 
 Symbol: __initial_sp
    Definitions
@@ -2423,7 +2423,7 @@ s\arm\startup_stm32f429_439xx.s
       At line 58 in file ..\Libraries\CMSIS\Device\ST\STM32F4xx\Source\Template
 s\arm\startup_stm32f429_439xx.s
 Comment: Heap_Size used once
-Stack_Size 00001000
+Stack_Size 00000400
 
 Symbol: Stack_Size
    Definitions

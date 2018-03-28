@@ -20,7 +20,7 @@ TWidget::TWidget(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj
 	if(getParents() == NULL)
 		widgetBuf = new TBuffer(NULL, w , w , h);
 	else
-		widgetBuf = new TBuffer(((TWidget*)getParents())->getBuffer()->getBufAddr(), ((TWidget*)getParents())->width() , w , h);
+		widgetBuf = new TBuffer(obj->getBuffer()->getBufAddr() + (offsetWH->width() +  offsetWH->height() * obj->width())*GUI_PIXELSIZE, obj->width() , w , h);
 		
 	// if (getParents())
 	// {
@@ -39,6 +39,28 @@ TWidget::TWidget(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj
 	// }
 }
 
+
+TWidget::TWidget(TRect r, const char* n, TWidget* obj):TObject(n,obj)
+{
+	rect = new TRect();
+	offsetWH = new TSize();
+	invalidList = NULL;
+	//paintInvaild = NULL;
+	setX(r.x());
+	setY(r.y());
+	setW(r.width());
+	setH(r.height());
+	backColor = WHITE;
+	offsetWH->setWidth(this->x() - obj->x());//修改 偏移
+	offsetWH->setHeight(this->y() - obj->y());
+	
+	chgPareInValid();
+	
+	if(getParents() == NULL)
+		widgetBuf = new TBuffer(NULL, r.width() , r.width() , r.height());
+	else
+		widgetBuf = new TBuffer(((TWidget*)getParents())->getBuffer()->getBufAddr(), ((TWidget*)getParents())->width() , r.width() , r.height());
+}
 
 TWidget::~TWidget() {
 	delete rect; 
@@ -96,6 +118,13 @@ void TWidget::showAll(TWidget* obj)
 	}
 }
 
+//清除在显存中的自己
+void TWidget::cleanShow(TRect* rect)
+{	//拿父亲去覆盖自己
+	TWidget* pare = (TWidget*) getParents();
+	if(pare)
+		pare->repaintInvaild(rect,NULL);
+}
 
 //改变子类的XY值，保证和自己同步
 void TWidget::chgChildsXY(TWidget* widget)
@@ -392,7 +421,7 @@ void TWidget::rectCut(TRect* srcRect)
 	else//没有无效区矩形
 	{
 		//搬运TBuffer剪切后的区域 至 显存  
-		transform(srcRect);
+		getBuffer()->transform(x(),y(),srcRect);
 	}
 }
 
@@ -409,27 +438,26 @@ void TWidget::rectCut(TRect* srcRect)
 |	 TBuffer	|			|				|
 |---------------|			|---------------|
 */
-void TWidget::transform(TRect* srcRect)
-{
-	//边界问题还是有点棘手
-	// TRect r(0,0,GUI_WIDTH-1,GUI_HIGH-1);
-	// r.intersectInr(srcRect);
-	// if(!srcRect->isValidStrict())
-	// 		return;
-	uint32 des_addr = (GUI_FG_BUFADDR + (srcRect->top() * GUI_WIDTH +  srcRect->left()) * GUI_PIXELSIZE);
-	uint32 x_offset = srcRect->left() - x(); //算出 剪切区域x 相对 TBuffer 偏移
-	uint32 y_offset = srcRect->top() - y();	 //算出 剪切区域y 相对 TBuffer 偏移
-	uint32 src_addr = ((uint32)widgetBuf->getBufAddr() + (y_offset * width() + x_offset ) * GUI_PIXELSIZE);
+// void TWidget::transform(TRect* srcRect)
+// {
+// 	//边界问题还是有点棘手
+// 	// TRect r(0,0,GUI_WIDTH-1,GUI_HIGH-1);
+// 	// r.intersectInr(srcRect);
+// 	// if(!srcRect->isValidStrict())
+// 	// 		return;
+// 	uint32 des_addr = (GUI_FG_BUFADDR + (srcRect->top() * GUI_WIDTH +  srcRect->left()) * GUI_PIXELSIZE);
+// 	uint32 x_offset = srcRect->left() - x(); //算出 剪切区域x 相对 TBuffer 偏移
+// 	uint32 y_offset = srcRect->top() - y();	 //算出 剪切区域y 相对 TBuffer 偏移
+// 	uint32 src_addr = ((uint32)widgetBuf->getBufAddr() + (y_offset * width() + x_offset ) * GUI_PIXELSIZE);
+// 	for(int i = 0;i < srcRect->height();  i++)
+// 	{
+// 		//memcpy 模式
+// 		memcpy((uint8*)des_addr,(uint8*)src_addr,srcRect->width() * GUI_PIXELSIZE);
+// 		//dma 模式
+// 		//--------------------------
+// 		src_addr += width() * GUI_PIXELSIZE;
+// 		des_addr += GUI_WIDTH * GUI_PIXELSIZE;
+// 	}
 
-	for(int i = 0;i < srcRect->height();  i++)
-	{
-		//memcpy 模式
-		memcpy((uint8*)des_addr,(uint8*)src_addr,srcRect->width() * GUI_PIXELSIZE);
-		//dma 模式
-		//--------------------------
-		src_addr += width() * GUI_PIXELSIZE;
-		des_addr += GUI_WIDTH * GUI_PIXELSIZE;
-	}
-
-}
+// }
 

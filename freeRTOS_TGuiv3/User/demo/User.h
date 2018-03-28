@@ -10,7 +10,7 @@ class User :public TWidget
 {
 public:
 	User(int32 x, int32 y, int32 w, int32 h,const char*  n, TWidget* obj);
-	User(int32 x, int32 y,TImage* img,const char*  n, TWidget* obj);
+	User(int32 x, int32 y,TImage img,const char*  n, TWidget* obj);
 	User(int32 x, int32 y, int32 w, int32 h,const char* filename,const char*  n, TWidget* obj);
 	virtual ~User() {};
 	virtual void show();

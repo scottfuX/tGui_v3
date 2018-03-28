@@ -58,3 +58,6 @@
 .\objects\tbuffer.o: ..\User\test/lcdpalette.h
 .\objects\tbuffer.o: ..\User\touch/palette.h
 .\objects\tbuffer.o: ..\User\touch/touch_i2c.h
+.\objects\tbuffer.o: ..\TGui\TObject/TRect.h
+.\objects\tbuffer.o: ..\TGui\TObject/TSize.h
+.\objects\tbuffer.o: ..\TGui\TObject/TPoint.h

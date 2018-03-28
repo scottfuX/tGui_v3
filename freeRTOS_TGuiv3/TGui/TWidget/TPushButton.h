@@ -10,7 +10,8 @@ class TPushButton :public TAbstractButton
 {
 public:
 	TPushButton(int32 x, int32 y, int32 w, int32 h, const char* name, TWidget* obj );
-	TPushButton(int32 x, int32 y, TImage* norImg ,TImage* pressImg, const char* name, TWidget* obj );
+	TPushButton(int32 x, int32 y, TImage norImg ,TImage selImg, const char* name, TWidget* obj );
+	
 	virtual ~TPushButton() ;
 
 	virtual void	show();
@@ -20,8 +21,6 @@ public:
 	
 
 private:
-	TBuffer * norBuf;
-	TBuffer * pressBuf; 
 	
 };
 

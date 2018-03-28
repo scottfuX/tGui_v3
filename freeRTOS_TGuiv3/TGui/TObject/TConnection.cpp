@@ -25,7 +25,7 @@ void TConnection::active(int32 d1,int32 d2)
 		return;
 	for (int16 i=0; i < slotList->count(); i++)
 	{
-		printf("Connection Num = %d\n", i);
+		printf("Connection Num = %d\r\n", i);
 		((*recvList->at(i)).*(slotList->at(i)))(d1,d2);//arg 有问题 把上面的active也改一下，int，int
 	}
 }

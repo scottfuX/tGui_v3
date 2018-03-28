@@ -3,15 +3,20 @@
 
 #include "TGlobal.h"
 #include "TWidget.h"
+#include "TObject/TImage.h"
 
 class TAbstractButton:public TWidget
 {
 
 protected:
 	bool state; //true => press ;false
+	bool haveImg;
+	TBuffer * norBuf;
+	TBuffer * selBuf; 
+	
 public :
-	TAbstractButton(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj) ;
-	virtual ~TAbstractButton() {};
+	TAbstractButton(int32 x, int32 y, int32 w, int32 h,bool haveImg ,const char* n, TWidget* obj) ;
+	virtual ~TAbstractButton();
 	virtual void	show() =0;
 	virtual void sig_depress(int32 d1,int32 d2)=0;
 	virtual void sig_release(int32 d1, int32 d2)=0;

@@ -82,8 +82,6 @@
 .\objects\tradiobutton.o: ..\TGui\TWidget/TWidget.h
 .\objects\tradiobutton.o: ..\TGui\TPainter/TPainter.h
 .\objects\tradiobutton.o: ..\TGui\TPainter/TPaintDiver.h
-.\objects\tradiobutton.o: ..\TGui\TPainter/TBufPainter.h
-.\objects\tradiobutton.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\tradiobutton.o: ..\TGui\TObject/TImage.h
 .\objects\tradiobutton.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tradiobutton.o: ..\TGui\interface_conf/tgui_conf.h
@@ -127,3 +125,6 @@
 .\objects\tradiobutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_strref.h
 .\objects\tradiobutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_traits.h
 .\objects\tradiobutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
+.\objects\tradiobutton.o: ..\TGui\TPainter/TBufPainter.h
+.\objects\tradiobutton.o: ..\TGui\interface_conf/tgui_conf.h
+.\objects\tradiobutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

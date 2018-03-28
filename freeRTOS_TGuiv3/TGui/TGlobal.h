@@ -48,6 +48,21 @@ typedef void (TObject::*func)(int,int);
 #define TYPE_CHAR	-2
 #define TYPE_STRING -3
 
+//对齐格式
+
+#define ALIGN_UP_LEFT       20
+#define ALIGN_UP_MID        30
+#define ALIGN_UP_RIGHT      40
+
+#define ALIGN_MID_LEFT      50
+#define ALIGN_CENTER        10
+#define ALIGN_MID_RIGHT     60
+
+#define ALIGN_LOW_LEFT      70
+#define ALIGN_LOW_MID       80
+#define ALIGN_LOW_RIGHT     90
+
+
 #if defined ARGB_8888
 //ARGB888
 #define GREY0	    0xFFF7F7F7

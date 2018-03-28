@@ -16,11 +16,10 @@ User::User(int32 x, int32 y, int32 w, int32 h,const char* filename,const char* n
 	TImage img(getBuffer(), w, h, filename);
 }
 
-User::User(int32 x, int32 y,TImage* img,const char* n, TWidget* obj)
-	:TWidget(x,y,img->imgW(),img->imgH(),n,obj)
+User::User(int32 x, int32 y,TImage img,const char* n, TWidget* obj)
+	:TWidget(x,y,img.imgW(),img.imgH(),n,obj)
 {
-	img->ImgLoad(0,0,getBuffer());
-    delete img;
+	img.ImgLoad(0,0,getBuffer());
 }
 
 void User::show()

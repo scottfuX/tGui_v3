@@ -63,7 +63,7 @@ void TApplication::visitAll(TObject* obj, TApplication* app)
 		//保存现场
 		tnode = list->getCurrent();
 		tindex = list->getCurIndex();
-		printf("%s\n", temp->getName());
+		printf("%s\r\n", temp->getName());
 		//if this event is not all emit && event is not in this's area 
 		// stop to visit son
 		visitAll(temp, app);
@@ -75,7 +75,7 @@ void TApplication::visitAll(TObject* obj, TApplication* app)
 		{//保存现场
 			tnode = list->getCurrent();
 			tindex = list->getCurIndex();
-			printf("%s\n", temp->getName());
+			printf("%s\r\n", temp->getName());
 			visitAll(temp, app);
 			//恢复现场
 			list->setCurIndex(tindex);

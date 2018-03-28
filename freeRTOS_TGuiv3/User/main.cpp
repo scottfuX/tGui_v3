@@ -81,9 +81,9 @@ int main()
 	wifi_close();
 	
 	//每个函数都要用while结尾
-	xTaskCreate( task0_temp, "gui_temp", 1000, NULL, 1, NULL );
+	//xTaskCreate( task0_temp, "gui_temp", 512, NULL,1, NULL );
 	xTaskCreate( task1_led, "led_flash", configMINIMAL_STACK_SIZE, NULL, 1, NULL );
-	xTaskCreate( task2_tgui, "TGui",16318, NULL,2, NULL );
+	xTaskCreate( task2_tgui, "TGui",20480, NULL,2, NULL );
 	xTaskCreate( task3_driver, "driver", configMINIMAL_STACK_SIZE, NULL, 1, NULL );
 	vTaskStartScheduler();	// 启动调度器，任务开始执行
 	

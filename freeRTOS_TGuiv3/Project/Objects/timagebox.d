@@ -102,9 +102,9 @@
 .\objects\timagebox.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_traits.h
 .\objects\timagebox.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
 .\objects\timagebox.o: ..\TGui\TObject/TBuffer.h
+.\objects\timagebox.o: ..\TGui\TObject/TRect.h
 .\objects\timagebox.o: ..\TGui\TObject/TSize.h
 .\objects\timagebox.o: ..\TGui\TObject/TPoint.h
-.\objects\timagebox.o: ..\TGui\TObject/TRect.h
 .\objects\timagebox.o: ..\TGui\TWidget/TWidget.h
 .\objects\timagebox.o: ..\TGui\TObject/TEven.h
 .\objects\timagebox.o: ..\TGui\TObject/TObject.h

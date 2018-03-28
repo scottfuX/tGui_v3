@@ -96,7 +96,7 @@
 #define configTICK_RATE_HZ				( ( TickType_t ) 1000 )				//FreeRTOS的时钟Tick的频率，也就是FreeRTOS用到的定时中断的产生频率。这个频率越高则定时的精度越高，但是由此带来的开销也越大。FreeRTOS 自带的Demo 程序中将TickRate 设为了1000Hz只是用来测试内核的性能的。实际的应用程序应该根据需要改为较小的数值。
 #define configMAX_PRIORITIES			( 5 )													//程序中可以使用的最大优先级。FreeRTOS 会为每个优先级建立一个链表，因此没多一个优先级都会增加些RAM 的开销。所以，要根据程序中需要多少种不同的优先级来设置这个参数。
 #define configMINIMAL_STACK_SIZE		( ( unsigned short ) 130 )	//任务堆栈的最小大小，FreeRTOS根据这个参数来给idle task 分配堆栈空间。这个值如果设置的比实际需要的空间小，会导致程序挂掉。因此，最好不要减小Demo 程序中给出的大小。
-#define configTOTAL_HEAP_SIZE			( ( size_t ) ( 80*1024 ) )	//设置堆空间（Heap）的大小。只有当程序中采用FreeRTOS 提供的内存分配算法时才会用到。
+#define configTOTAL_HEAP_SIZE			( ( size_t ) ( 100*1024 ) )	//设置堆空间（Heap）的大小。只有当程序中采用FreeRTOS 提供的内存分配算法时才会用到。
 #define configMAX_TASK_NAME_LEN			( 10 )											//任务名称最大的长度，这个长度是以字节为单位的，并且包括最后的 NULL 结束字节。
 #define configUSE_TRACE_FACILITY		1														//如果程序中需要用到TRACE功能，则需将这个宏设为1。否则设为0。开启TRACE功能后，RAM占用量会增大许多，因此在设为1之前请三思。
 #define configUSE_16_BIT_TICKS			0														//将 configUSE_16_BIT_TICKS设为 1后portTickType 将被定义为无符号的16位整形类型，configUSE_16_BIT_TICKS 设为0 后portTickType 则被定义为无符号的32位整型。

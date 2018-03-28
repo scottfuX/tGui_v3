@@ -102,6 +102,6 @@
 .\objects\timage.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\timage.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\timage.o: ..\TGui\TObject/TBuffer.h
+.\objects\timage.o: ..\TGui\TObject/TRect.h
 .\objects\timage.o: ..\TGui\TObject/TSize.h
 .\objects\timage.o: ..\TGui\TObject/TPoint.h
-.\objects\timage.o: ..\TGui\TObject/TRect.h

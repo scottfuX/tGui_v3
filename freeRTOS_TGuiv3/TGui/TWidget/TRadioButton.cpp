@@ -2,10 +2,8 @@
 
 
 TRadioButton::TRadioButton(int32 x, int32 y, int32 w, int32 h, const char* name, TWidget* obj)
-	:TAbstractButton(x, y, w, h, name, obj)
+	:TAbstractButton(x, y, w, h, false,name, obj)
 {
-	norImg = NULL;
-	selImg = NULL;
 	next = this;
 	selected = false;
 
@@ -14,33 +12,30 @@ TRadioButton::TRadioButton(int32 x, int32 y, int32 w, int32 h, const char* name,
 }
 
 
-TRadioButton::TRadioButton(TRect* rect,TImage* norImg,TImage* selImg, const char* name, TWidget* obj)
-	:TAbstractButton(rect->left(), rect->top(), rect->width(), rect->height(), name, obj)
+TRadioButton::TRadioButton(TRect rect,TImage norImg,TImage selImg, const char* name, TWidget* obj)
+	:TAbstractButton(rect.x(),rect.y(),rect.width(),rect.height(), true,name, obj)
 {
 	next = this; 
 	selected = false; 
-	delete rect;
 
-	this->norImg = norImg;
-	this->selImg = selImg;
+	norImg.ImgLoad(0,(height() - norImg.imgH())/2,norBuf);
+	TBufPainter p1(norBuf->getBufAddr(),getRect());
+	p1.drawEnText(norImg.imgW(),0, getName());
 
-	norImg->ImgLoad(0,(height() - norImg->imgH())/2,getBuffer());
-	TBufPainter p(getBuffer()->getBufAddr(),getRect());
-	p.drawEnText(norImg->imgW(),0, getName());
+	selImg.ImgLoad(0,(height() - selImg.imgH())/2,selBuf);
+	TBufPainter p2(selBuf->getBufAddr(),getRect());
+	p2.drawEnText(selImg.imgW(),0, getName());
+
 }
 
 TRadioButton::~TRadioButton()
 { 	
-	if(norImg)
-		delete norImg;
-	if(selImg)
-		delete selImg;
 	delRadio(); 
 }
 
 void TRadioButton::sig_depress(int32 d1, int32 d2)
 {
-	if(norImg)
+	if(haveImg)
 	{
 	}
 	else
@@ -58,12 +53,12 @@ void TRadioButton::sig_depress(int32 d1, int32 d2)
 void TRadioButton::sig_release(int32 d1, int32 d2)
 {
 	changeOtherSelect();
-	if(norImg)
+	if(haveImg)
 	{
 		if(selected)
-			selImg->ImgLoad(0,(height() - selImg->imgH())/2,getBuffer());
+			setBuffer(selBuf);
 		else
-			norImg->ImgLoad(0,(height() - norImg->imgH())/2,getBuffer());
+			setBuffer(norBuf);
 		refresh();
 	}
 	else
@@ -79,12 +74,12 @@ void TRadioButton::sig_release(int32 d1, int32 d2)
 
 void TRadioButton::release()
 {
-	if(norImg)
+	if(haveImg)
 	{
 		if(selected)
-			selImg->ImgLoad(0,(height() - selImg->imgH())/2,getBuffer());
+			setBuffer(selBuf);
 		else
-			norImg->ImgLoad(0,(height() - norImg->imgH())/2,getBuffer());
+			setBuffer(norBuf);
 		refresh();
 	}
 	else

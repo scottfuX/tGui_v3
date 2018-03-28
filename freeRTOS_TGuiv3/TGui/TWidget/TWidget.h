@@ -14,6 +14,7 @@ class TWidget :public TObject
 public:
 	//TWidget(const char* n, TWidget* obj);
 	TWidget(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj);
+	TWidget(TRect r, const char* n, TWidget* obj);
 	virtual		~TWidget();
 	void		setX(int32 x) { rect->setX(x); }
 	void		setY(int32 y) { rect->setY(y); }
@@ -39,6 +40,7 @@ public:
 	bool		isInRealArea(int32 x, int32 y); //  真实的区域 ，被覆盖后剩下的区域
 	bool		isInArea(int32 x, int32 y); //设定的区域
 	void        showAll() { showAll(this); }
+	void 		cleanShow(TRect* rect);
 	//TRect*	getPaintInvaild() { return paintInvaild; }
 	// void		setIsVariable(bool statVari); //把子类也改变
 	// bool		getIsVariable() { return isVariable; }
@@ -79,7 +81,7 @@ private:
 	TBuffer* widgetBuf;
 
 	void 		rectCut(TRect* srcRect);
-	void 		transform(TRect* srcRect);
+	//void 		transform(TRect* srcRect);
 
 	void		showAll(TWidget*);
 	void		chgAllInValid(TObjList* chdlist, TWidget* widget,TRect* area1, TRect* area2);
