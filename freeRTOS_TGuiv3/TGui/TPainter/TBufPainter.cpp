@@ -5,11 +5,20 @@
 
 TBufPainter::TBufPainter(uint8* addr,TRect* rect)
 {
-	font = &Font16x24;
+	if(TFON_TYPE != 0)
+		fontCH = new TFont(TFON_FILE,TFON_WIDTH,TFON_HEIGHT,TFON_TYPE);
+	fontEn = &Font16x16;
 	textcolor = 0;
 	backcolor = 0;
     bufAddr = addr;
     bufRect = rect;
+}
+
+
+TBufPainter::~TBufPainter()
+{
+	if(fontCH)
+		delete fontCH;
 }
 
 void TBufPainter::setColors(colorDef text, colorDef back)
@@ -18,6 +27,13 @@ void TBufPainter::setColors(colorDef text, colorDef back)
 	backcolor = back; 
 };
 
+
+void TBufPainter::setFontCH(const char *filename,uint16 width,uint16 height,uint8 codetype)
+{
+	if(fontCH)
+		delete fontCH;
+	fontCH = new TFont(filename, width, height, codetype);
+}
 
 void TBufPainter::drawPoint(int32 x, int32 y)
 {
@@ -103,7 +119,6 @@ void TBufPainter::drawNLine(int32 x1, int32 y1, int32 x2, int32 y2)
 			y += yinc2;                 /* Change the y as appropriate */
 		}
 }
-
 
 void TBufPainter::drawLine(int32 x1, int32 y1, int32 x2, int32 y2)
 {
@@ -312,7 +327,7 @@ void TBufPainter::drawFullEllipse(int32 x, int32 y, int32 r1, int32 r2)
 		{
 			K = (float)(rad1 / rad2);
 			drawLine((x + xt), (y - (uint16)(yt / K)), (x + xt), (y - (uint16)(yt / K))+ (2 * (uint16)(yt / K) + 1));
-			drawLine((x - xt), (y - (uint16_t)(yt / K)), (x - xt), (y - (uint16_t)(yt / K))+ (2 * (uint16)(yt / K) + 1));
+			drawLine((x - xt), (y - (uint16)(yt / K)), (x - xt), (y - (uint16)(yt / K))+ (2 * (uint16)(yt / K) + 1));
 
 			e2 = err;
 			if (e2 <= yt)
@@ -354,9 +369,9 @@ void TBufPainter::drawFullRect(int32 x, int32 y, int32 w, int32 h)
 
 void TBufPainter::drawFullCircle(int32 x, int32 y, int32 r)
 {
-	int32_t  D;    /* Decision Variable */
-	uint32_t  CurX;/* Current X Value */
-	uint32_t  CurY;/* Current Y Value */
+	int32  D;    /* Decision Variable */
+	int32  CurX;/* Current X Value */
+	int32  CurY;/* Current Y Value */
 
 	D = 3 - (r << 1);
 
@@ -487,18 +502,6 @@ void TBufPainter::drawWinShades(int32 x, int32 y, int32 w, int32 h,
 	}
 }
 
-//绘画光标
-void TBufPainter::drawCursor(int32 x, int32 y,colorDef back,bool isDisplay)
-{
-	if (!isDisplay)//是否显示，用于光标闪烁
-		setTextColor(back);
-	else if(isShadow(back))//若为暗背景，则用亮光标
-		setTextColor(WHITE);
-	else//若为亮背景，则用黑光标
-		setTextColor(BLACK);
-	drawLine(x, y, x, y + font->Height - 1);
-}
-
 //button isPress 表示是否按下状态
 void TBufPainter::drawButton(int32 x, int32 y, int32 w, int32 h, const char* str ,bool isPress)
 {
@@ -557,7 +560,6 @@ void TBufPainter::drawRadio(int32 x, int32 y, int32 w, int32 h, const char* str,
 	}
 	drawCenterEnText(x + h, y, w - h, h, str, BLACK, back);
 }
-
 
 void TBufPainter::drawHorizSlider(int32 x, int32 y, int32 w, int32 h,int32 value, int32 value_pre, bool isPress,colorDef back)
 {
@@ -648,7 +650,6 @@ void TBufPainter::drawHorizScroll(int32 x, int32 y, int32 w, int32 h, int32 scro
 	drawButton(scrollX, y + 2, scrollLen, h - 4, NULL, isPress);
 }
 
-
 void TBufPainter::drawVertScroll(int32 x, int32 y, int32 w, int32 h, int32 scrollLen, int32 value, int32 value_pre, bool isPress, colorDef back)
 {
 	if (value_pre < 0) //开始的时候画下背景
@@ -703,7 +704,9 @@ void TBufPainter::drawDialogTitle(int32 x, int32 y, int32 w, const char* str, bo
 }
 
 
-void TBufPainter::drawCenterEnText(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text, colorDef back ,bool hasBack,  bool isAllShow)
+//---------------En---------------
+
+void TBufPainter::drawCenterEnText(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text, colorDef back ,bool hasBack)
 {
 	setBackColor(back);
 	setTextColor(text);
@@ -713,80 +716,296 @@ void TBufPainter::drawCenterEnText(int32 x, int32 y, int32 w, int32 h, const cha
 	char* p = (char*)str;
 	while (p[++len] != '\0')
 		;
-	 x += (w - font->Width*len )/ 2;
-	 y += (h - font->Height) / 2;
+	 x += (w - fontEn->Width*len )/ 2;
+	 y += (h - fontEn->Height) / 2;
 	if (x < 0 || y < 0)
 		//自动缩小字体，通过存字体的列表，这里先不做处理
 		return;
-	else
-		drawEnText(x, y, str, len,hasBack);
+	for (int i = 0; i<len; i++)
+	{
+		displayEnChar(x + i*(fontEn->Width), y ,*(p + i),false);
+	}
 }
 
-
-void TBufPainter::drawEnText(int32 x, int32 y, const char* str, colorDef text )
+void TBufPainter::drawEnAlignText(int32 x, int32 y, const char* str,uint8 align, colorDef text)
 {
 	setTextColor(text);
-	int32 len = -1;
 	char* p = (char*)str;
+	int32 len = -1;
 	while (p[++len] != '\0')
 		;
-	if(bufRect->width() - font->Width * len - x < 0)
+	if(bufRect->width() - fontEn->Width * len - x < 0)
 		return;
-	y += (bufRect->height() - font->Height) / 2;
-	if(y < 0)
-		return;
-	for (int i = 0; i<len; i++)
+	switch(align)
 	{
-		displayEnChar(x + i*(font->Width), y , *(p + i),false);
+		case ALIGN_UP_LEFT  :
+		{
+			for (int i = 0; i<len; i++)
+			{
+				displayEnChar(i*(fontEn->Width), 0 ,*(p + i),false);
+			}
+		}
+			break;
+		case ALIGN_UP_MID   :  
+		{
+			x += (bufRect->width() - fontEn->Width *len )/ 2;
+			if(x < 0)
+				return;
+			for (int i = 0; i<len; i++)
+			{
+				displayEnChar(x + i*(fontEn->Width), 0 ,*(p + i),false);
+			}
+		}
+			break;  
+		case ALIGN_UP_RIGHT :  
+		{
+
+		}  
+			break;
+		case ALIGN_MID_LEFT  : 
+		{
+			y += (bufRect->height() - fontEn->Height) / 2;
+			if(y < 0)
+				return;
+			for (int i = 0; i<len; i++)
+			{
+				displayEnChar(x + i*(fontEn->Width), y , *(p + i),false);
+			}
+		}
+			break;
+		case ALIGN_CENTER    :  
+		{
+			 x += (bufRect->width() - fontEn->Width * len )/ 2;
+			 y += (bufRect->height() - fontEn->Height) / 2;
+			if (x < 0 || y < 0)
+				//自动缩小字体，通过存字体的列表，这里先不做处理
+				return;
+			for (int i = 0; i<len; i++)
+			{
+				displayEnChar(x + i*(fontEn->Width), y ,*(p + i),false);
+			}
+		}
+			break;
+		case ALIGN_MID_RIGHT : 
+		{
+			
+		}   
+			break;
+		case ALIGN_LOW_LEFT  :   
+		{
+			y += (bufRect->height() - fontEn->Height);
+			if(y < 0)
+				return;
+			for (int i = 0; i<len; i++)
+			{
+				displayEnChar(x + i*(fontEn->Width), y ,*(p + i),false);
+			}
+		}
+			break;
+		case ALIGN_LOW_MID   :  
+		{
+			 x += (bufRect->width() - fontEn->Width * len )/ 2;
+			 y += (bufRect->height() - fontEn->Height);
+			if (x < 0 || y < 0)
+				return;
+			for (int i = 0; i<len; i++)
+			{
+				displayEnChar(x + i*(fontEn->Width), y ,*(p + i),false);
+			}
+		}  
+			break;
+		case ALIGN_LOW_RIGHT :    
+		{
+
+		}
+			break;
 	}
 }
-
-void TBufPainter::drawEnText(int32 x, int32 y, const char* str, int32 len, bool hasBack)
-{
-	const char* pstr = str;
-	for (int i = 0; i<len; i++)
-	{
-		displayEnChar(x + i*(font->Width), y , *(pstr + i),hasBack);
-	}
-}
-
 
 void TBufPainter::displayEnChar(int32 x, int32 y,uint8 Ascii, bool hasBack)
 {
 	Ascii -= 32;
-	TRect srcRect(x, y, font->Width, font->Height);
-	drawChar(x, y, &font->table[Ascii * font->Height], hasBack);
-}
+	uint16 y0=y;
+	uint8 temp;
+	uint8 csize=(fontEn->Width/8+((fontEn->Width%8)?1:0))*(fontEn->Width/2);		//得到字体一个字符对应点阵集所占的字节数	
+	uint8* add = fontEn->table + csize * Ascii;
+	for(int t=0;t<csize;t++)
+	{   
+		temp = add[t];
 
-void TBufPainter::drawChar(int32 x, int32 y, const uint16 *c, bool hasBack)
-{
-	uint32 index = 0, counter = 0;
-	int32 xpos = x;
-	int32 ypos = y;
-	colorDef tmp;
-	for (index = 0; index < font->Height; index++)//h
-	{
-		xpos = x;
-		for (counter = 0; counter <font->Width; counter++)//w
-		{
-			if (((font->Width <= 12) && ((c[index] & ((0x80 << ((font->Width / 12) * 8)) >> counter)) == 0x00))
-				|| ((font->Width > 12) && ((c[index] & (0x1 << counter)) == 0x00)))//背景
+		for(int t1=0;t1<8;t1++)
+		{			    
+			if(temp&0x80)
 			{
-				if (hasBack)
+				setTextColor(textcolor);
+				drawPoint(x,y);
+			}
+			else
+			{
+				if(hasBack)
 				{
-					tmp = textcolor;
 					setTextColor(backcolor);
-					drawPoint(xpos, ypos);
-					setTextColor(tmp);
+					drawPoint(x,y);
 				}
 			}
-			else  //内容
+			temp<<=1;
+			y++;
+			if((y-y0) == fontEn->Width)
 			{
-				drawPoint(xpos, ypos);
+				y=y0;
+				x++;
+				break;
 			}
-			xpos++;
+		}  	 
+	}  	    	   	 	  
+}
+
+//----------------CH----------------
+void TBufPainter::displayCHChar ( int32 x,int32 y, uint32 word,bool hasBack)
+{
+	uint8* fontBuf;
+	fontBuf = fontCH->getWordCode(word);
+	int32 tmpX = x;
+	int32 tmpY = y;
+	uint32 usTemp; 	
+	for ( int i = 0; i < fontCH->fontH() *  fontCH->fontW()/8; i ++ )
+	{	
+		usTemp = fontBuf [ i * 3 ];
+		usTemp = ( usTemp << 8 );
+		usTemp |= fontBuf [ i * 3 + 1 ];
+		usTemp = ( usTemp << 8 );
+		usTemp |= fontBuf [ i * 3 + 2];
+		for ( int j = 0; j < 8; j ++ ) 
+		{			
+			if ( usTemp & ( 0x01 << 23 ) )  //高位在前 				
+			{
+				//字体色
+				setTextColor(textcolor);
+				drawPoint(tmpX,tmpY);
+			}				
+			else	
+			{
+				if(hasBack)
+				{	//背景色
+					setTextColor(backcolor);
+					drawPoint(tmpX,tmpY);
+				}
+			}		
+			tmpX++;			
+			usTemp <<= 1;
 		}
-		ypos++;
+		tmpX = x;
+		tmpY ++;
+	}
+}
+
+void TBufPainter::displayCHStr (int32 x,int32 y, const char* str,bool hasBack)
+{
+	char* p = (char*)str;
+	uint16 usCh =0;
+	while ((*p) != '\0')
+	{
+		usCh =  *(uint16*)p;
+		//usCh = ( usCh << 8 ) + ( usCh >> 8 );	
+		displayCHChar(x,y,usCh,hasBack);
+		x += fontCH->fontW();
+		p += 2;
+	}
+}
+
+
+void TBufPainter::drawCHAlignText(int32 x, int32 y, const char* str,uint8 align, colorDef text)
+{
+	setTextColor(text);
+	char* p = (char*)str;
+	int32 len = -1;
+	while (p[++len] != '\0')
+		;
+	if(bufRect->width() - fontCH->fontW() * len - x < 0)
+		return;
+	switch(align)
+	{
+		case ALIGN_UP_LEFT  :
+		{
+			for (int i = 0; i<len; i+=2)
+			{
+				displayCHChar(i*(fontCH->fontW()), 0 ,(uint16) *(p + i),false);
+			}
+		}
+			break;
+		case ALIGN_UP_MID   :  
+		{
+			x += (bufRect->width() - fontCH->fontW() *len )/ 2;
+			if(x < 0)
+				return;
+			for (int i = 0; i<len; i+=2)
+			{
+				displayCHChar(x + i*(fontCH->fontW()), 0 ,(uint16) *(p + i),false);
+			}
+		}
+			break;  
+		case ALIGN_UP_RIGHT :  
+		{
+
+		}  
+			break;
+		case ALIGN_MID_LEFT  : 
+		{
+			y += (bufRect->height() - fontCH->fontH()) / 2;
+			if(y < 0)
+				return;
+			for (int i = 0; i<len; i+=2)
+			{
+				displayCHChar(x + i*(fontCH->fontW()), y ,(uint16) *(p + i),false);
+			}
+		}
+			break;
+		case ALIGN_CENTER    :  
+		{
+			 x += (bufRect->width() - fontCH->fontW() * len )/ 2;
+			 y += (bufRect->height() - fontCH->fontH()) / 2;
+			if (x < 0 || y < 0)
+				//自动缩小字体，通过存字体的列表，这里先不做处理
+				return;
+			for (int i = 0; i<len; i+=2)
+			{
+				displayCHChar(x + i*(fontCH->fontW()), y ,(uint16) *(p + i),false);
+			}
+		}
+			break;
+		case ALIGN_MID_RIGHT : 
+		{
+			
+		}   
+			break;
+		case ALIGN_LOW_LEFT  :   
+		{
+			y += (bufRect->height() - fontCH->fontH());
+			if(y < 0)
+				return;
+			for (int i = 0; i<len; i+=2)
+			{
+				displayCHChar(x + i*(fontCH->fontW()), y ,(uint16) *(p + i),false);
+			}
+		}
+			break;
+		case ALIGN_LOW_MID   :  
+		{
+			 x += (bufRect->width() - fontCH->fontW() * len )/ 2;
+			 y += (bufRect->height() - fontCH->fontH());
+			if (x < 0 || y < 0)
+				return;
+			for (int i = 0; i<len; i+=2)
+			{
+				displayCHChar(x + i*(fontCH->fontW()), y ,(uint16) *(p + i),false);
+			}
+		}  
+			break;
+		case ALIGN_LOW_RIGHT :    
+		{
+
+		}
+			break;
 	}
 }
 

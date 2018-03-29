@@ -21,7 +21,6 @@ extern "C" {
 #endif
 
 #include "TContainter/TString.h"
-#include "TPainter/TPainter.h"
 #include "TPainter/TBufPainter.h"
 #include "TObject/TDirver.h"
 #include "TObject/TApplication.h"
@@ -33,6 +32,7 @@ extern "C" {
 #include "TWidget/TLabel.h"
 #include "TWidget/TSlider.h"
 #include "TWidget/TImageBox.h"
+#include "TWidget/TSwitch.h"
 #include "demo/User.h"
 #include "TGlobal.h"
 

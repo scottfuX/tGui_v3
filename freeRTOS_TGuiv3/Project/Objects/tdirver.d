@@ -48,7 +48,6 @@
 .\objects\tdirver.o: ..\User\fatfs/integer.h
 .\objects\tdirver.o: ..\User\fatfs/ffconf.h
 .\objects\tdirver.o: ..\User\lcd/lcd_conf.h
-.\objects\tdirver.o: ..\User\font/fonts.h
 .\objects\tdirver.o: ..\User\sdram/sdram_conf.h
 .\objects\tdirver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tdirver.o: ..\User\touch/gt9xx.h

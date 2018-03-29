@@ -48,7 +48,6 @@
 .\objects\piclib.o: ..\User\fatfs/integer.h
 .\objects\piclib.o: ..\User\fatfs/ffconf.h
 .\objects\piclib.o: ..\User\lcd/lcd_conf.h
-.\objects\piclib.o: ..\User\font/fonts.h
 .\objects\piclib.o: ..\User\sdram/sdram_conf.h
 .\objects\piclib.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\piclib.o: ..\User\touch/gt9xx.h

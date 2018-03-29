@@ -45,7 +45,6 @@
 .\objects\gt9xx.o: ..\User\delay/delay_conf.h
 .\objects\gt9xx.o: ..\User\touch\palette.h
 .\objects\gt9xx.o: ..\User\lcd/lcd_conf.h
-.\objects\gt9xx.o: ..\User\font/fonts.h
 .\objects\gt9xx.o: ..\User\sdram/sdram_conf.h
 .\objects\gt9xx.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\gt9xx.o: ..\User\led/led_conf.h

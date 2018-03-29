@@ -49,7 +49,6 @@
 .\objects\tradiobutton.o: ..\User\fatfs/integer.h
 .\objects\tradiobutton.o: ..\User\fatfs/ffconf.h
 .\objects\tradiobutton.o: ..\User\lcd/lcd_conf.h
-.\objects\tradiobutton.o: ..\User\font/fonts.h
 .\objects\tradiobutton.o: ..\User\sdram/sdram_conf.h
 .\objects\tradiobutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tradiobutton.o: ..\User\touch/gt9xx.h
@@ -79,9 +78,6 @@
 .\objects\tradiobutton.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tradiobutton.o: ..\TGui\TObject/TBuffer.h
 .\objects\tradiobutton.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\tradiobutton.o: ..\TGui\TWidget/TWidget.h
-.\objects\tradiobutton.o: ..\TGui\TPainter/TPainter.h
-.\objects\tradiobutton.o: ..\TGui\TPainter/TPaintDiver.h
 .\objects\tradiobutton.o: ..\TGui\TObject/TImage.h
 .\objects\tradiobutton.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tradiobutton.o: ..\TGui\interface_conf/tgui_conf.h
@@ -128,3 +124,4 @@
 .\objects\tradiobutton.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\tradiobutton.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\tradiobutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\tradiobutton.o: ..\TGui\TObject/TFont.h

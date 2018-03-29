@@ -51,7 +51,6 @@
 .\objects\tslider.o: ..\User\fatfs/integer.h
 .\objects\tslider.o: ..\User\fatfs/ffconf.h
 .\objects\tslider.o: ..\User\lcd/lcd_conf.h
-.\objects\tslider.o: ..\User\font/fonts.h
 .\objects\tslider.o: ..\User\sdram/sdram_conf.h
 .\objects\tslider.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tslider.o: ..\User\touch/gt9xx.h
@@ -79,11 +78,9 @@
 .\objects\tslider.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tslider.o: ..\TGui\TObject/TBuffer.h
 .\objects\tslider.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\tslider.o: ..\TGui\TWidget/TWidget.h
-.\objects\tslider.o: ..\TGui\TPainter/TPainter.h
-.\objects\tslider.o: ..\TGui\TPainter/TPaintDiver.h
 .\objects\tslider.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\tslider.o: ..\TGui\interface_conf/tgui_conf.h
+.\objects\tslider.o: ..\TGui\TObject/TFont.h
 .\objects\tslider.o: ..\TGui\TObject/TImage.h
 .\objects\tslider.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tslider.o: ..\TGui\interface_conf/tgui_conf.h

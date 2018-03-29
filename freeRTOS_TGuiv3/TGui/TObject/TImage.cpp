@@ -78,7 +78,7 @@ void TImage::Decode()
 			break;
 	}  	
 	if(res)
-		printf("\t\n>> decode is failed! the num is %d\t\n",res	);
+		printf("\r\n>> decode is failed! the num is %d\r\n",res	);
 }
 
 void TImage::ImgLoad(int32 offX, int32 offY,TBuffer* buf)

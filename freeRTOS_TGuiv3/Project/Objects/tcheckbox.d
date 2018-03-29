@@ -49,7 +49,6 @@
 .\objects\tcheckbox.o: ..\User\fatfs/integer.h
 .\objects\tcheckbox.o: ..\User\fatfs/ffconf.h
 .\objects\tcheckbox.o: ..\User\lcd/lcd_conf.h
-.\objects\tcheckbox.o: ..\User\font/fonts.h
 .\objects\tcheckbox.o: ..\User\sdram/sdram_conf.h
 .\objects\tcheckbox.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tcheckbox.o: ..\User\touch/gt9xx.h
@@ -79,9 +78,6 @@
 .\objects\tcheckbox.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tcheckbox.o: ..\TGui\TObject/TBuffer.h
 .\objects\tcheckbox.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\tcheckbox.o: ..\TGui\TWidget/TWidget.h
-.\objects\tcheckbox.o: ..\TGui\TPainter/TPainter.h
-.\objects\tcheckbox.o: ..\TGui\TPainter/TPaintDiver.h
 .\objects\tcheckbox.o: ..\TGui\TObject/TImage.h
 .\objects\tcheckbox.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tcheckbox.o: ..\TGui\interface_conf/tgui_conf.h
@@ -128,3 +124,4 @@
 .\objects\tcheckbox.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\tcheckbox.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\tcheckbox.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\tcheckbox.o: ..\TGui\TObject/TFont.h

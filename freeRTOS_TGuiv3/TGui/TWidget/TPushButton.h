@@ -3,7 +3,6 @@
 
 #include "TWidget/TAbstractButton.h"
 #include "TPainter/TBufPainter.h"
-#include "TPainter/TPainter.h"
 #include "TObject/TImage.h"
 
 class TPushButton :public TAbstractButton

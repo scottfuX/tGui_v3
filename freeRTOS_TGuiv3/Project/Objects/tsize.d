@@ -48,7 +48,6 @@
 .\objects\tsize.o: ..\User\fatfs/integer.h
 .\objects\tsize.o: ..\User\fatfs/ffconf.h
 .\objects\tsize.o: ..\User\lcd/lcd_conf.h
-.\objects\tsize.o: ..\User\font/fonts.h
 .\objects\tsize.o: ..\User\sdram/sdram_conf.h
 .\objects\tsize.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tsize.o: ..\User\touch/gt9xx.h

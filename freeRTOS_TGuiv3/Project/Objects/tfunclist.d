@@ -48,7 +48,6 @@
 .\objects\tfunclist.o: ..\User\fatfs/integer.h
 .\objects\tfunclist.o: ..\User\fatfs/ffconf.h
 .\objects\tfunclist.o: ..\User\lcd/lcd_conf.h
-.\objects\tfunclist.o: ..\User\font/fonts.h
 .\objects\tfunclist.o: ..\User\sdram/sdram_conf.h
 .\objects\tfunclist.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tfunclist.o: ..\User\touch/gt9xx.h

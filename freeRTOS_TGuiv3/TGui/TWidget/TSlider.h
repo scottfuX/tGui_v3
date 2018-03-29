@@ -3,7 +3,6 @@
 
 #include "TWidget/TAbstractSlider.h"
 #include "TPainter/TBufPainter.h"
-#include "TPainter/TPainter.h"
 #include "TObject/TRect.h"
 #include "TObject/TImage.h"
 

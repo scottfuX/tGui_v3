@@ -35,8 +35,7 @@ void TPushButton::sig_depress(int32 d1, int32 d2)
 	}
 	else
 	{
-		//TPainter p(getInvalidList(),getPaintInvaild());
-		//鏀筽ainter涓哄湪buf涓婇潰鐢荤敾 閫氳繃refresh杩涜鍓垏
+		//改painter为在buf上面画画 通过refresh进行剪切
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
 		p.drawButton(0, 0, width(), height(), getName(), true);
 		refresh();
@@ -54,7 +53,6 @@ void TPushButton::sig_release(int32 d1, int32 d2)
 	}
 	else
 	{
-		//TPainter p(getInvalidList(),getPaintInvaild());
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
 		p.drawButton(0, 0, width(), height(), getName(), false);
 		refresh();
@@ -72,7 +70,6 @@ void TPushButton::release()
 	}
 	else
 	{
-		// TPainter p(getInvalidList(),getPaintInvaild());
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
 		p.drawButton(0, 0, width(), height(), getName(), false);
 		refresh();
@@ -82,6 +79,7 @@ void TPushButton::release()
 
 void TPushButton::show()
 {
-	//TPainter p(getInvalidList(),getPaintInvaild());
+	TBufPainter p(getBuffer()->getBufAddr(),getRect());
+	p.displayCHStr(0,0,"你好",false);
 	refresh();
 }

@@ -46,7 +46,6 @@
 .\objects\tgui_conf.o: ..\User\fatfs/integer.h
 .\objects\tgui_conf.o: ..\User\fatfs/ffconf.h
 .\objects\tgui_conf.o: ..\User\lcd/lcd_conf.h
-.\objects\tgui_conf.o: ..\User\font/fonts.h
 .\objects\tgui_conf.o: ..\User\sdram/sdram_conf.h
 .\objects\tgui_conf.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tgui_conf.o: ..\User\touch/gt9xx.h

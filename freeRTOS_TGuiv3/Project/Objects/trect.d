@@ -48,7 +48,6 @@
 .\objects\trect.o: ..\User\fatfs/integer.h
 .\objects\trect.o: ..\User\fatfs/ffconf.h
 .\objects\trect.o: ..\User\lcd/lcd_conf.h
-.\objects\trect.o: ..\User\font/fonts.h
 .\objects\trect.o: ..\User\sdram/sdram_conf.h
 .\objects\trect.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\trect.o: ..\User\touch/gt9xx.h

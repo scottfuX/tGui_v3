@@ -1,7 +1,6 @@
 #ifndef _USER_H_
 #define _USER_H_
 #include "TWidget/TWidget.h"
-#include "TPainter/TPainter.h"
 #include "TPainter/TBufPainter.h"
 #include "TObject/TImage.h"
 #include "TGlobal.h"

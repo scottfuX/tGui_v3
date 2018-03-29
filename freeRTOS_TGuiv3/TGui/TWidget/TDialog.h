@@ -3,7 +3,6 @@
 
 #include "TWidget/TWidget.h"
 #include "TPainter/TBufPainter.h"
-#include "TPainter/TPainter.h"
 
 class TDialog :
 	public TWidget

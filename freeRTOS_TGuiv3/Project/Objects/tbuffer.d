@@ -49,7 +49,6 @@
 .\objects\tbuffer.o: ..\User\fatfs/integer.h
 .\objects\tbuffer.o: ..\User\fatfs/ffconf.h
 .\objects\tbuffer.o: ..\User\lcd/lcd_conf.h
-.\objects\tbuffer.o: ..\User\font/fonts.h
 .\objects\tbuffer.o: ..\User\sdram/sdram_conf.h
 .\objects\tbuffer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tbuffer.o: ..\User\touch/gt9xx.h

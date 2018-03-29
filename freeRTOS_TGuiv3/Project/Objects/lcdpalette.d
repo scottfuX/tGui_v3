@@ -39,7 +39,6 @@
 .\objects\lcdpalette.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 .\objects\lcdpalette.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
 .\objects\lcdpalette.o: ..\User\lcd/lcd_conf.h
-.\objects\lcdpalette.o: ..\User\font/fonts.h
 .\objects\lcdpalette.o: ..\User\sdram/sdram_conf.h
 .\objects\lcdpalette.o: ..\User\usart/usart_conf.h
 .\objects\lcdpalette.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

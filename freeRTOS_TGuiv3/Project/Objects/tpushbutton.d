@@ -49,7 +49,6 @@
 .\objects\tpushbutton.o: ..\User\fatfs/integer.h
 .\objects\tpushbutton.o: ..\User\fatfs/ffconf.h
 .\objects\tpushbutton.o: ..\User\lcd/lcd_conf.h
-.\objects\tpushbutton.o: ..\User\font/fonts.h
 .\objects\tpushbutton.o: ..\User\sdram/sdram_conf.h
 .\objects\tpushbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tpushbutton.o: ..\User\touch/gt9xx.h
@@ -79,9 +78,6 @@
 .\objects\tpushbutton.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tpushbutton.o: ..\TGui\TObject/TBuffer.h
 .\objects\tpushbutton.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\tpushbutton.o: ..\TGui\TWidget/TWidget.h
-.\objects\tpushbutton.o: ..\TGui\TPainter/TPainter.h
-.\objects\tpushbutton.o: ..\TGui\TPainter/TPaintDiver.h
 .\objects\tpushbutton.o: ..\TGui\TObject/TImage.h
 .\objects\tpushbutton.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tpushbutton.o: ..\TGui\interface_conf/tgui_conf.h
@@ -128,3 +124,4 @@
 .\objects\tpushbutton.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\tpushbutton.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\tpushbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\tpushbutton.o: ..\TGui\TObject/TFont.h

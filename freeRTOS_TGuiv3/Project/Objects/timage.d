@@ -49,7 +49,6 @@
 .\objects\timage.o: ..\User\fatfs/integer.h
 .\objects\timage.o: ..\User\fatfs/ffconf.h
 .\objects\timage.o: ..\User\lcd/lcd_conf.h
-.\objects\timage.o: ..\User\font/fonts.h
 .\objects\timage.o: ..\User\sdram/sdram_conf.h
 .\objects\timage.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\timage.o: ..\User\touch/gt9xx.h

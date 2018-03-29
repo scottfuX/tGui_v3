@@ -34,6 +34,7 @@
         "tuple": "cpp",
         "type_traits": "cpp",
         "atomic": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "sdram_conf.h": "c"
     }
 }

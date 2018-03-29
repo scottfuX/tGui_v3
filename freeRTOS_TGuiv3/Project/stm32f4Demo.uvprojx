@@ -779,16 +779,6 @@
           <GroupName>Test</GroupName>
           <Files>
             <File>
-              <FileName>lcdpalette.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\test\lcdpalette.c</FilePath>
-            </File>
-            <File>
-              <FileName>lcdtest.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\test\lcdtest.c</FilePath>
-            </File>
-            <File>
               <FileName>sdramtest.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\test\sdramtest.c</FilePath>
@@ -812,16 +802,6 @@
               <FileName>unicode.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\fatfs\option\unicode.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Font</GroupName>
-          <Files>
-            <File>
-              <FileName>fonts.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\FONT\fonts.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -884,11 +864,6 @@
               <FilePath>..\User\touch\gt9xx.c</FilePath>
             </File>
             <File>
-              <FileName>palette.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\touch\palette.c</FilePath>
-            </File>
-            <File>
               <FileName>touch_i2c.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\touch\touch_i2c.c</FilePath>
@@ -922,16 +897,6 @@
               <FileName>tgui_conf.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TGui\interface_conf\tgui_conf.c</FilePath>
-            </File>
-            <File>
-              <FileName>TPaintDiver.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\TGui\TPainter\TPaintDiver.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>TPainter.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\TGui\TPainter\TPainter.cpp</FilePath>
             </File>
             <File>
               <FileName>TGuiMain.cpp</FileName>
@@ -1047,6 +1012,16 @@
               <FileName>TImage.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\TGui\TObject\TImage.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>TSwitch.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\TWidget\TSwitch.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>TFont.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\TObject\TFont.cpp</FilePath>
             </File>
           </Files>
         </Group>

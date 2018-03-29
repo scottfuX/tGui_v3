@@ -47,7 +47,6 @@
 .\objects\tbufpainter.o: ..\User\fatfs/integer.h
 .\objects\tbufpainter.o: ..\User\fatfs/ffconf.h
 .\objects\tbufpainter.o: ..\User\lcd/lcd_conf.h
-.\objects\tbufpainter.o: ..\User\font/fonts.h
 .\objects\tbufpainter.o: ..\User\sdram/sdram_conf.h
 .\objects\tbufpainter.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tbufpainter.o: ..\User\touch/gt9xx.h
@@ -79,6 +78,4 @@
 .\objects\tbufpainter.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tbufpainter.o: ..\TGui\TObject/TBuffer.h
 .\objects\tbufpainter.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\tbufpainter.o: ..\TGui\TWidget/TWidget.h
-.\objects\tbufpainter.o: ..\TGui\TPainter/TPainter.h
-.\objects\tbufpainter.o: ..\TGui\TPainter/TPaintDiver.h
+.\objects\tbufpainter.o: ..\TGui\TObject/TFont.h

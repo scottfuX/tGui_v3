@@ -119,7 +119,7 @@ void TWidget::showAll(TWidget* obj)
 }
 
 //清除在显存中的自己
-void TWidget::cleanShow(TRect* rect)
+void TWidget::cleanShowed(TRect* rect)
 {	//拿父亲去覆盖自己
 	TWidget* pare = (TWidget*) getParents();
 	if(pare)

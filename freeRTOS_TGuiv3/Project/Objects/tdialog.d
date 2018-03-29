@@ -50,7 +50,6 @@
 .\objects\tdialog.o: ..\User\fatfs/integer.h
 .\objects\tdialog.o: ..\User\fatfs/ffconf.h
 .\objects\tdialog.o: ..\User\lcd/lcd_conf.h
-.\objects\tdialog.o: ..\User\font/fonts.h
 .\objects\tdialog.o: ..\User\sdram/sdram_conf.h
 .\objects\tdialog.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tdialog.o: ..\User\touch/gt9xx.h
@@ -78,8 +77,6 @@
 .\objects\tdialog.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tdialog.o: ..\TGui\TObject/TBuffer.h
 .\objects\tdialog.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\tdialog.o: ..\TGui\TWidget/TWidget.h
-.\objects\tdialog.o: ..\TGui\TPainter/TPainter.h
-.\objects\tdialog.o: ..\TGui\TPainter/TPaintDiver.h
 .\objects\tdialog.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\tdialog.o: ..\TGui\interface_conf/tgui_conf.h
+.\objects\tdialog.o: ..\TGui\TObject/TFont.h

@@ -50,7 +50,6 @@
 .\objects\tabstractslider.o: ..\User\fatfs/integer.h
 .\objects\tabstractslider.o: ..\User\fatfs/ffconf.h
 .\objects\tabstractslider.o: ..\User\lcd/lcd_conf.h
-.\objects\tabstractslider.o: ..\User\font/fonts.h
 .\objects\tabstractslider.o: ..\User\sdram/sdram_conf.h
 .\objects\tabstractslider.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tabstractslider.o: ..\User\touch/gt9xx.h
@@ -78,6 +77,3 @@
 .\objects\tabstractslider.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tabstractslider.o: ..\TGui\TObject/TBuffer.h
 .\objects\tabstractslider.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\tabstractslider.o: ..\TGui\TWidget/TWidget.h
-.\objects\tabstractslider.o: ..\TGui\TPainter/TPainter.h
-.\objects\tabstractslider.o: ..\TGui\TPainter/TPaintDiver.h

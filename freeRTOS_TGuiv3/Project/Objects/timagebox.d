@@ -48,7 +48,6 @@
 .\objects\timagebox.o: ..\User\fatfs/integer.h
 .\objects\timagebox.o: ..\User\fatfs/ffconf.h
 .\objects\timagebox.o: ..\User\lcd/lcd_conf.h
-.\objects\timagebox.o: ..\User\font/fonts.h
 .\objects\timagebox.o: ..\User\sdram/sdram_conf.h
 .\objects\timagebox.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\timagebox.o: ..\User\touch/gt9xx.h
@@ -122,9 +121,7 @@
 .\objects\timagebox.o: ..\TGui\TContainter/TFuncList.h
 .\objects\timagebox.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\timagebox.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\timagebox.o: ..\TGui\TWidget/TWidget.h
-.\objects\timagebox.o: ..\TGui\TPainter/TPainter.h
-.\objects\timagebox.o: ..\TGui\TPainter/TPaintDiver.h
 .\objects\timagebox.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\timagebox.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\timagebox.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\timagebox.o: ..\TGui\TObject/TFont.h

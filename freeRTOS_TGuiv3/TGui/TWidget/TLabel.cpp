@@ -11,14 +11,15 @@ TLabel::TLabel(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj)
 	p.drawLabel(0, 0, width(), height(), getName(),textColor,getBackColor());
 }
 
-TLabel::TLabel(int32 x, int32 y,TImage* img, const char* name, TWidget* obj)
+TLabel::TLabel(int32 x, int32 y,TImage* img, const char* name,uint8 align, TWidget* obj)
 	:TFrame(x, y, img->imgW(),img->imgH(), name, obj)
 {
 	haveImg = true;
 	labelImg = img;
+	labelAlign = align;
     labelImg->ImgLoad(0,0,getBuffer());
     TBufPainter p(getBuffer()->getBufAddr(),getRect());
-    p.drawCenterEnText(0,0,getRect()->width(),getRect()->height(),getName());
+    p.drawEnAlignText(0,0,getName(),labelAlign);
 }
 
 TLabel::~TLabel() 
@@ -41,7 +42,7 @@ void TLabel::slot_showValue(int32 d1,int32 d2)
 		//移动位置到d1处  要先改变 要不无法清楚之前的痕迹
 		getRect()->moveTopLeft(d1 - width()/2,y());
 		//清除之前的痕迹
-		cleanShow(&r);
+		cleanShowed(&r);
 		
 	}
 	else if(d1 == 0 && d2 > 0 )
@@ -50,7 +51,7 @@ void TLabel::slot_showValue(int32 d1,int32 d2)
 		//移动位置到d2处
 		getRect()->moveTopLeft(x(),d2 - height()/2);
 		//清除之前的痕迹
-		cleanShow(&r);
+		cleanShowed(&r);
 	}
 	else
 	{ //d1 < 0
@@ -71,7 +72,7 @@ void TLabel::slot_showValue(int32 d1,int32 d2)
 		getBuffer()->obPareBack(((TWidget*)getParents())->getBuffer()->getBufAddr() + (getOffsetWH()->width() +  getOffsetWH()->height() * ((TWidget*)getParents())->width())*GUI_PIXELSIZE,((TWidget*)getParents())->width() );
 		labelImg->ImgLoad(0,0,getBuffer());
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
-		p.drawCenterEnText(0,0,getRect()->width(),getRect()->height(),getName());
+		p.drawEnAlignText(0,0,getName(),labelAlign);
 	}
 	else
 	{

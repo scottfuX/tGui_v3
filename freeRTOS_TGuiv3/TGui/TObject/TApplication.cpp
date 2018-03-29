@@ -94,7 +94,7 @@ void TApplication::translate(TDirver* div)
 		case Event_None: break;
 		default:
 		{//默认直接发送类型，和数据即可
-			printf("type = %d\n", div->getType());
+			printf("type = %d\r\n", div->getType());
 			TPoint p(div->dataFront(), div->dataBack());
 			event =  new TTouchEvent(div->getType(), (const TPoint)p);
 		}break;

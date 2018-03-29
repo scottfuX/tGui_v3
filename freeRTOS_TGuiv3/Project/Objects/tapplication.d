@@ -48,7 +48,6 @@
 .\objects\tapplication.o: ..\User\fatfs/integer.h
 .\objects\tapplication.o: ..\User\fatfs/ffconf.h
 .\objects\tapplication.o: ..\User\lcd/lcd_conf.h
-.\objects\tapplication.o: ..\User\font/fonts.h
 .\objects\tapplication.o: ..\User\sdram/sdram_conf.h
 .\objects\tapplication.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tapplication.o: ..\User\touch/gt9xx.h
@@ -78,8 +77,5 @@
 .\objects\tapplication.o: ..\TGui\TWidget/TWidget.h
 .\objects\tapplication.o: ..\TGui\TObject/TBuffer.h
 .\objects\tapplication.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\tapplication.o: ..\TGui\TWidget/TWidget.h
-.\objects\tapplication.o: ..\TGui\TPainter/TPainter.h
-.\objects\tapplication.o: ..\TGui\TPainter/TPaintDiver.h
 .\objects\tapplication.o: ..\TGui\TObject/TDirver.h
 .\objects\tapplication.o: ..\TGui\interface_conf/tgui_conf.h

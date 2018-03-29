@@ -1,7 +1,6 @@
 #ifndef _TWIDGETLIST_H_
 #define _TWIDGETLIST_H_
 #include "TContainter/TList.h"
-#include "TWidget/TWidget.h"
 
 class TWidget;
 class tWidgetList :public TList<TWidget*>

@@ -120,7 +120,6 @@ typedef void (TObject::*func)(int,int);
 #define WIN_TITLE_H  30
 
 typedef uint32 colorDef;
-typedef sFONT tFont;
 
 //__IO means volatile
 //__I means volatile and const

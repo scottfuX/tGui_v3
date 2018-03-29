@@ -7,7 +7,7 @@
 #include "TObject/TObject.h"
 #include "TObject/TBuffer.h"
 #include "TContainter/tWidgetList.h"
-#include "TPainter/TPainter.h"
+
 
 class TWidget :public TObject
 {
@@ -40,7 +40,7 @@ public:
 	bool		isInRealArea(int32 x, int32 y); //  真实的区域 ，被覆盖后剩下的区域
 	bool		isInArea(int32 x, int32 y); //设定的区域
 	void        showAll() { showAll(this); }
-	void 		cleanShow(TRect* rect);
+	void 		cleanShowed(TRect* rect);
 	//TRect*	getPaintInvaild() { return paintInvaild; }
 	// void		setIsVariable(bool statVari); //把子类也改变
 	// bool		getIsVariable() { return isVariable; }

@@ -50,7 +50,6 @@
 .\objects\tframe.o: ..\User\fatfs/integer.h
 .\objects\tframe.o: ..\User\fatfs/ffconf.h
 .\objects\tframe.o: ..\User\lcd/lcd_conf.h
-.\objects\tframe.o: ..\User\font/fonts.h
 .\objects\tframe.o: ..\User\sdram/sdram_conf.h
 .\objects\tframe.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tframe.o: ..\User\touch/gt9xx.h
@@ -78,6 +77,3 @@
 .\objects\tframe.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tframe.o: ..\TGui\TObject/TBuffer.h
 .\objects\tframe.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\tframe.o: ..\TGui\TWidget/TWidget.h
-.\objects\tframe.o: ..\TGui\TPainter/TPainter.h
-.\objects\tframe.o: ..\TGui\TPainter/TPaintDiver.h

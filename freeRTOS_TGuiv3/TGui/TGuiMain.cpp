@@ -21,22 +21,22 @@ void TGuiRun()
 	TImageBox img(620,0,TImage("1:/tgui_pic/imac.png"),NULL, &user);
 	
 	//TPushButton btn(50,230,150,65, "button", &user);
-	TPushButton btn2(50,220,TImage("1:/tgui_pic/spare/button.png"),TImage("1:/tgui_pic/spare/button_pre.png"), "button", &user);
-	// app.show();
+	TPushButton btn2(50,220,TImage("1:/tgui_pic/button.png"),TImage("1:/tgui_pic/button_sel.png"), NULL, &user);
+	TSwitch swtch(50,270,TImage("1:/tgui_pic/switch_off.png"),TImage("1:/tgui_pic/switch_on.png"),NULL, &user);
 	
 	//TCheckBox chck(50,50,150,30,"check1", &user);
 	TCheckBox chck(TRect(50,20,150,30),TImage("1:/tgui_pic/check1_nor.png"),TImage("1:/tgui_pic/check1_sel.png"),"check1", &user);
 	TCheckBox chck1(TRect(50,60,150,30),TImage("1:/tgui_pic/check2_nor.png"),TImage("1:/tgui_pic/check2_sel.png"),"check1", &user);
 	
-	TSlider slider1(50,355,new TImage("1:/tgui_pic/slider_back.png"),new TImage("1:/tgui_pic/slider_front.png"),new TImage("1:/tgui_pic/slider_bar.png"),NULL,&user);
+	TSlider slider1(50,370,new TImage("1:/tgui_pic/slider_back.png"),new TImage("1:/tgui_pic/slider_front.png"),new TImage("1:/tgui_pic/slider_bar.png"),NULL,&user);
 	TSlider slider2(50,415,new TImage("1:/tgui_pic/slider_back.png"),new TImage("1:/tgui_pic/slider_front.png"),new TImage("1:/tgui_pic/slider_bar.png"),NULL, &user);
 	// TSlider slider2(700, 100, 30, 300, NULL, &user,false);	
-	TLabel label1(50,305,new TImage("1:/tgui_pic/label_slider.png"),"0", &user);
+	TLabel label1(50,320,new TImage("1:/tgui_pic/label_slider.png"),"0",ALIGN_UP_MID,&user);
 	
 	TDialog dialog1(300, 50, 250, 200, "dialog", &user);
 	TLabel label2(315, 100, 190, 50, "hello world", &dialog1);
 	TDialog dialog2(350, 150, 250, 200, "dialog", &user);
- 	TPushButton btn1(410, 200, TImage("1:/tgui_pic/spare/button.png"),TImage("1:/tgui_pic/spare/button_pre.png"),"btn",&dialog2);
+ 	TPushButton btn1(410, 200, TImage("1:/tgui_pic/button.png"),TImage("1:/tgui_pic/button_sel.png"),"btn",&dialog2);
 	
 	//TPushButton btn2(50,220,new TImage("1:/tgui_pic/imac.png"),new TImage("1:/tgui_pic/mail.png"), "button", &user);
 

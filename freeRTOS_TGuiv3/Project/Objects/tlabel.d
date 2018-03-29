@@ -51,7 +51,6 @@
 .\objects\tlabel.o: ..\User\fatfs/integer.h
 .\objects\tlabel.o: ..\User\fatfs/ffconf.h
 .\objects\tlabel.o: ..\User\lcd/lcd_conf.h
-.\objects\tlabel.o: ..\User\font/fonts.h
 .\objects\tlabel.o: ..\User\sdram/sdram_conf.h
 .\objects\tlabel.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tlabel.o: ..\User\touch/gt9xx.h
@@ -79,11 +78,9 @@
 .\objects\tlabel.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tlabel.o: ..\TGui\TObject/TBuffer.h
 .\objects\tlabel.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\tlabel.o: ..\TGui\TWidget/TWidget.h
-.\objects\tlabel.o: ..\TGui\TPainter/TPainter.h
-.\objects\tlabel.o: ..\TGui\TPainter/TPaintDiver.h
 .\objects\tlabel.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\tlabel.o: ..\TGui\interface_conf/tgui_conf.h
+.\objects\tlabel.o: ..\TGui\TObject/TFont.h
 .\objects\tlabel.o: ..\TGui\TObject/TImage.h
 .\objects\tlabel.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tlabel.o: ..\TGui\interface_conf/tgui_conf.h

@@ -21,11 +21,11 @@ TCheckBox::TCheckBox(TRect rect,TImage norImg,TImage selImg, const char* name, T
 
 	norImg.ImgLoad(0,(height() - norImg.imgH())/2,norBuf);
 	TBufPainter p1(norBuf->getBufAddr(),getRect());
-	p1.drawEnText(norImg.imgW(),0, getName());
+	p1.drawEnAlignText(norImg.imgW(),0, getName(),ALIGN_MID_LEFT);
 
 	selImg.ImgLoad(0,(height() - selImg.imgH())/2,selBuf);
 	TBufPainter p2(selBuf->getBufAddr(),getRect());
-	p2.drawEnText(selImg.imgW(),0, getName());
+	p2.drawEnAlignText(selImg.imgW(),0, getName(),ALIGN_MID_LEFT);
 }
 
 TCheckBox::~TCheckBox() 

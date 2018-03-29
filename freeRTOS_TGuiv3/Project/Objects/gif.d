@@ -48,7 +48,6 @@
 .\objects\gif.o: ..\User\fatfs/integer.h
 .\objects\gif.o: ..\User\fatfs/ffconf.h
 .\objects\gif.o: ..\User\lcd/lcd_conf.h
-.\objects\gif.o: ..\User\font/fonts.h
 .\objects\gif.o: ..\User\sdram/sdram_conf.h
 .\objects\gif.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\gif.o: ..\User\touch/gt9xx.h

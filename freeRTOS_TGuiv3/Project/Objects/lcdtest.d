@@ -39,7 +39,6 @@
 .\objects\lcdtest.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 .\objects\lcdtest.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
 .\objects\lcdtest.o: ..\User\lcd/lcd_conf.h
-.\objects\lcdtest.o: ..\User\font/fonts.h
 .\objects\lcdtest.o: ..\User\sdram/sdram_conf.h
 .\objects\lcdtest.o: ..\User\usart/usart_conf.h
 .\objects\lcdtest.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

@@ -48,7 +48,6 @@
 .\objects\tarray.o: ..\User\fatfs/integer.h
 .\objects\tarray.o: ..\User\fatfs/ffconf.h
 .\objects\tarray.o: ..\User\lcd/lcd_conf.h
-.\objects\tarray.o: ..\User\font/fonts.h
 .\objects\tarray.o: ..\User\sdram/sdram_conf.h
 .\objects\tarray.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tarray.o: ..\User\touch/gt9xx.h

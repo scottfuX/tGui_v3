@@ -30,7 +30,6 @@ extern "C" {
 
 #define GUI_DELAY_MS(x)        vTaskDelay(x);       //延时函数
 
-
 //基本LCD	
 #define GUI_COLORMODE		ARGB_8888
 #define GUI_PIXELSIZE		4          		        //每个像素4字节
@@ -43,6 +42,13 @@ extern "C" {
 
 #define GUI_SET_DMA2D           1                   //使用DMA2D进行绘图
 #define GUI_DIRECT_SHEAR_FIELD  0                   //直接绘画在显存上
+
+
+#define TFON_FILE           "1:/GB2312_H2424.FON"
+#define TFON_WIDTH          24
+#define TFON_HEIGHT         24
+#define TFON_TYPE           T_GB2312
+
 
 #if GUI_SET_DMA2D                                   //设置画点函数
     void gui_dma2d_memset(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint32_t xpos,uint32_t ypos,uint32_t width,uint32_t height);

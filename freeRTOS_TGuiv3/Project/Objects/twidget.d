@@ -49,7 +49,6 @@
 .\objects\twidget.o: ..\User\fatfs/integer.h
 .\objects\twidget.o: ..\User\fatfs/ffconf.h
 .\objects\twidget.o: ..\User\lcd/lcd_conf.h
-.\objects\twidget.o: ..\User\font/fonts.h
 .\objects\twidget.o: ..\User\sdram/sdram_conf.h
 .\objects\twidget.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\twidget.o: ..\User\touch/gt9xx.h
@@ -77,6 +76,3 @@
 .\objects\twidget.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\twidget.o: ..\TGui\TObject/TBuffer.h
 .\objects\twidget.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\twidget.o: ..\TGui\TWidget/TWidget.h
-.\objects\twidget.o: ..\TGui\TPainter/TPainter.h
-.\objects\twidget.o: ..\TGui\TPainter/TPaintDiver.h

@@ -64,7 +64,6 @@
 .\objects\main.o: ..\User\fatfs/ffconf.h
 .\objects\main.o: ..\User\tim/tim_conf.h
 .\objects\main.o: ..\User\lcd/lcd_conf.h
-.\objects\main.o: ..\User\font/fonts.h
 .\objects\main.o: ..\User\sdram/sdram_conf.h
 .\objects\main.o: ..\User\test/lcdtest.h
 .\objects\main.o: ..\User\test/lcdpalette.h
@@ -121,8 +120,8 @@
 .\objects\main.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\main.o: ..\TGui\TContainter/TArray.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\main.o: ..\TGui\TPainter/TPainter.h
-.\objects\main.o: ..\TGui\TPainter/TPaintDiver.h
+.\objects\main.o: ..\TGui\TPainter/TBufPainter.h
+.\objects\main.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\main.o: ..\TGui\TWidget/TWidget.h
 .\objects\main.o: ..\TGui\TObject/TEven.h
 .\objects\main.o: ..\TGui\TObject/TPoint.h
@@ -141,10 +140,7 @@
 .\objects\main.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\main.o: ..\TGui\TObject/TBuffer.h
 .\objects\main.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\main.o: ..\TGui\TWidget/TWidget.h
-.\objects\main.o: ..\TGui\TPainter/TPainter.h
-.\objects\main.o: ..\TGui\TPainter/TBufPainter.h
-.\objects\main.o: ..\TGui\interface_conf/tgui_conf.h
+.\objects\main.o: ..\TGui\TObject/TFont.h
 .\objects\main.o: ..\TGui\TObject/TDirver.h
 .\objects\main.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\main.o: ..\TGui\TObject/TApplication.h
@@ -159,4 +155,5 @@
 .\objects\main.o: ..\TGui\TWidget/TSlider.h
 .\objects\main.o: ..\TGui\TWidget/TAbstractSlider.h
 .\objects\main.o: ..\TGui\TWidget/TImageBox.h
+.\objects\main.o: ..\TGui\TWidget/TSwitch.h
 .\objects\main.o: ..\User\demo/User.h

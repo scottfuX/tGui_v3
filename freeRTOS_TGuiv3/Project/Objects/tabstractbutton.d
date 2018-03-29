@@ -48,7 +48,6 @@
 .\objects\tabstractbutton.o: ..\User\fatfs/integer.h
 .\objects\tabstractbutton.o: ..\User\fatfs/ffconf.h
 .\objects\tabstractbutton.o: ..\User\lcd/lcd_conf.h
-.\objects\tabstractbutton.o: ..\User\font/fonts.h
 .\objects\tabstractbutton.o: ..\User\sdram/sdram_conf.h
 .\objects\tabstractbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tabstractbutton.o: ..\User\touch/gt9xx.h
@@ -78,9 +77,6 @@
 .\objects\tabstractbutton.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tabstractbutton.o: ..\TGui\TObject/TBuffer.h
 .\objects\tabstractbutton.o: ..\TGui\TContainter/tWidgetList.h
-.\objects\tabstractbutton.o: ..\TGui\TWidget/TWidget.h
-.\objects\tabstractbutton.o: ..\TGui\TPainter/TPainter.h
-.\objects\tabstractbutton.o: ..\TGui\TPainter/TPaintDiver.h
 .\objects\tabstractbutton.o: ..\TGui\TObject/TImage.h
 .\objects\tabstractbutton.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tabstractbutton.o: ..\TGui\interface_conf/tgui_conf.h

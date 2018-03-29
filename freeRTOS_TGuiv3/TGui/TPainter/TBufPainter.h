@@ -11,15 +11,18 @@ extern "C" {
 
 #include "TGlobal.h"
 #include "TWidget/TWidget.h"
+#include "TObject/TFont.h"
 
 
 class TBufPainter
 {
 public:
 	TBufPainter(uint8* addr,TRect* rect);
-	~TBufPainter() {};
-	tFont* getFont() { return font; }
-	void setFont(tFont* f) { font = f; setDivFont(f); };
+	~TBufPainter();
+	TFont* getFontCH() { return fontCH; }
+	void setFontCH(const char *filename,uint16 width,uint16 height,uint8 codetype = T_GB2312);
+	T_ASCII_FONT* getFontEn() { return fontEn; }
+	void setFontEn(T_ASCII_FONT* f){fontEn = f;};
 	void setColors(colorDef text, colorDef back);
 	void setTextColor(colorDef text) { textcolor = text;}
 	void setBackColor(colorDef back) { backcolor = back;}
@@ -41,11 +44,11 @@ public:
 	void drawFullTriangle(int32 x1, int32 y1, int32 x2, int32 y2, int32 x3, int32 y3);
 	void drawRoundRect(int32 x, int32 y, int32 w, int32 h, int32 r = 0);
 
-	void drawEnText(int32 x, int32 y, const char* str, colorDef text = BLACK );
-	void drawEnText(int32 x, int32 y, const char* str, int32 len, bool hasBack = false);
-	//void drawImage();
-	//void drawArrow();
-	void drawCursor(int32 x, int32 y, colorDef back, bool isDisplay);
+	void drawEnAlignText(int32 x, int32 y, const char* str,uint8 align = ALIGN_CENTER, colorDef text = BLACK );
+	void drawCHAlignText(int32 x, int32 y, const char* str,uint8 align = ALIGN_CENTER, colorDef text = BLACK );
+	void drawCenterEnText(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text = BLACK,colorDef back = WHITE, bool hasBack = false);
+	void displayCHStr(int32 x,int32 y,const char* str,bool hasBack = false);
+
 	void drawButton(int32 x, int32 y, int32 w, int32 h, const char* str,bool isPress = false);
 	void drawCheck(int32 x, int32 y, int32 w, int32 h, const char* str, bool Selected = false, bool isPress = false, colorDef back = WHITE);
 	void drawRadio(int32 x, int32 y, int32 w, int32 h, const char* str, bool Selected = false, bool isPress = false, colorDef back = WHITE);
@@ -56,17 +59,17 @@ public:
 	void drawLabel(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text = BLACK, colorDef back = WHITE);
 	void drawDialog(int32 x, int32 y, int32 w, int32 h, const char* str, bool hasFocus = true, colorDef back = MIDLIGHT);
 	void drawDialogTitle(int32 x, int32 y, int32 w, const char* str, bool hasFocus = true);
-	void drawCenterEnText(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text = BLACK,colorDef back = WHITE, bool hasBack = false,bool isAllShow = false);
 private:
-	tFont*	font;
+	T_ASCII_FONT* fontEn;
+	TFont*	fontCH;
 	colorDef textcolor;
 	colorDef backcolor;
 	uint8* bufAddr;
     TRect*  bufRect;
 
 	void paintMeta(TRect* srcRect);
-	void displayEnChar(int32 x, int32 y,uint8 Ascii, bool hasBack);
-	void drawChar(int32 x, int32 y, const uint16 *c, bool hasBack );
+	void displayEnChar(int32 x,int32 y,uint8 Ascii, bool hasBack);
+	void displayCHChar(int32 x,int32 y,uint32 word,bool hasBack);
 	void drawWinShades(int32 x, int32 y, int32 w, int32 h,colorDef c1, 
 		colorDef c2,colorDef c3, colorDef c4, colorDef back, bool hasBack = true);
 };

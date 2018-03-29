@@ -44,6 +44,5 @@
 .\objects\palette.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\palette.o: ..\User\delay/delay_conf.h
 .\objects\palette.o: ..\User\lcd/lcd_conf.h
-.\objects\palette.o: ..\User\font/fonts.h
 .\objects\palette.o: ..\User\sdram/sdram_conf.h
 .\objects\palette.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
