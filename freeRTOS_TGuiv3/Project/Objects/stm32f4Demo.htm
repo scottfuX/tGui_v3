@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\stm32f4Demo.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\stm32f4Demo.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Thu Mar 29 22:09:21 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Fri Mar 30 15:24:48 2018
 <BR><P>
-<H3>Maximum Stack Usage =       2956 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       3092 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-task2_tgui(void*) &rArr; TGuiRun() &rArr; User::User(long, long, long, long, const char*, const char*, TWidget*) &rArr; TImage::TImage(TBuffer*, unsigned short, unsigned short, const char*) &rArr; lodepng_decode32_file(unsigned char**, unsigned*, unsigned*, const char*) &rArr; lodepng_decode_file(unsigned char**, unsigned*, unsigned*, const char*, LodePNGColorType, unsigned) &rArr; lodepng_load_file(unsigned char**, unsigned*, const char*) &rArr; lodepng_buffer_file(unsigned char*, unsigned, const char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
+task2_tgui(void*) &rArr; TGuiRun() &rArr; TDialog::TDialog(long, long, long, long, const char*, TWidget*) &rArr; TBufPainter::drawDialog(long, long, long, long, const char*, bool, unsigned long) &rArr; TBufPainter::drawDialogTitle(long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 <P>
 <H3>
 Mutually Recursive functions
@@ -2458,8 +2458,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lodepng_decoder_settings_init(LodePNGDecoderSettings*)
 </UL>
 
-<P><STRONG><a name="[20c]"></a>TGuiRun()</STRONG> (Thumb, 1672 bytes, Stack size 1280 bytes, tguimain.o(i._Z7TGuiRunv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 2956<LI>Call Chain = TGuiRun() &rArr; User::User(long, long, long, long, const char*, const char*, TWidget*) &rArr; TImage::TImage(TBuffer*, unsigned short, unsigned short, const char*) &rArr; lodepng_decode32_file(unsigned char**, unsigned*, unsigned*, const char*) &rArr; lodepng_decode_file(unsigned char**, unsigned*, unsigned*, const char*, LodePNGColorType, unsigned) &rArr; lodepng_load_file(unsigned char**, unsigned*, const char*) &rArr; lodepng_buffer_file(unsigned char*, unsigned, const char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
+<P><STRONG><a name="[20c]"></a>TGuiRun()</STRONG> (Thumb, 1684 bytes, Stack size 1280 bytes, tguimain.o(i._Z7TGuiRunv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 3092<LI>Call Chain = TGuiRun() &rArr; TDialog::TDialog(long, long, long, long, const char*, TWidget*) &rArr; TBufPainter::drawDialog(long, long, long, long, const char*, bool, unsigned long) &rArr; TBufPainter::drawDialogTitle(long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TImageBox::~TImageBox()
 <LI><a href="#[28a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TImageBox::TImageBox(long, long, TImage, const char*, TWidget*)
@@ -2495,13 +2495,13 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[298]"></a>TBufPainter::drawButton(long, long, long, long, const char*, bool)</STRONG> (Thumb, 124 bytes, Stack size 64 bytes, tbufpainter.o(i._ZN11TBufPainter10drawButtonEllllPKcb))
-<BR><BR>[Stack]<UL><LI>Max Depth = 324<LI>Call Chain = TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1676<LI>Call Chain = TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
+<BR>[Calls]<UL><LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
 <LI><a href="#[299]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long)
-<LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
+<LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TPushButton::release()
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TPushButton::sig_release(long, long)
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TPushButton::sig_depress(long, long)
@@ -2512,11 +2512,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[29c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawPoint(long, long)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullCircle(long, long, long)
+<BR>[Called By]<UL><LI><a href="#[2a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullCircle(long, long, long)
 </UL>
 
 <P><STRONG><a name="[29d]"></a>TBufPainter::drawDialog(long, long, long, long, const char*, bool, unsigned long)</STRONG> (Thumb, 116 bytes, Stack size 80 bytes, tbufpainter.o(i._ZN11TBufPainter10drawDialogEllllPKcbm))
-<BR><BR>[Stack]<UL><LI>Max Depth = 372<LI>Call Chain = TBufPainter::drawDialog(long, long, long, long, const char*, bool, unsigned long) &rArr; TBufPainter::drawDialogTitle(long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::displayEnChar(long, long, unsigned char, bool) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1748<LI>Call Chain = TBufPainter::drawDialog(long, long, long, long, const char*, bool, unsigned long) &rArr; TBufPainter::drawDialogTitle(long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[29e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawDialogTitle(long, long, long, const char*, bool)
 <LI><a href="#[299]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool)
@@ -2524,98 +2524,52 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[291]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TDialog::TDialog(long, long, long, long, const char*, TWidget*)
 </UL>
 
-<P><STRONG><a name="[29f]"></a>TBufPainter::displayCHStr(long, long, const char*, bool)</STRONG> (Thumb, 48 bytes, Stack size 32 bytes, tbufpainter.o(i._ZN11TBufPainter12displayCHStrEllPKcb))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1564<LI>Call Chain = TBufPainter::displayCHStr(long, long, const char*, bool) &rArr; TBufPainter::displayCHChar(long, long, unsigned long, bool) &rArr; TFont::getWordCode(unsigned long) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
+<P><STRONG><a name="[29f]"></a>TBufPainter::drawString(long, long, const char*, unsigned long)</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, tbufpainter.o(i._ZN11TBufPainter10drawStringEllPKcm))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1572<LI>Call Chain = TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[2a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::displayCHChar(long, long, unsigned long, bool)
+<BR>[Calls]<UL><LI><a href="#[2a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::displayEnChar(long, long, unsigned char, bool)
+<LI><a href="#[2a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::displayCHChar(long, long, unsigned char*, bool)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TPushButton::show()
+<BR>[Called By]<UL><LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long)
+<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
 </UL>
 
-<P><STRONG><a name="[2a1]"></a>TBufPainter::drawFullRect(long, long, long, long)</STRONG> (Thumb, 28 bytes, Stack size 32 bytes, tbufpainter.o(i._ZN11TBufPainter12drawFullRectEllll))
+<P><STRONG><a name="[2a2]"></a>TBufPainter::drawFullRect(long, long, long, long)</STRONG> (Thumb, 28 bytes, Stack size 32 bytes, tbufpainter.o(i._ZN11TBufPainter12drawFullRectEllll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = TBufPainter::drawFullRect(long, long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[286]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::TRect(int, int, int, int)
-<LI><a href="#[2a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::paintMeta(TRect*)
+<LI><a href="#[2a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::paintMeta(TRect*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLabel(long, long, long, long, const char*, unsigned long, unsigned long)
 <LI><a href="#[29e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawDialogTitle(long, long, long, const char*, bool)
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long)
-<LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
+<LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
 <LI><a href="#[299]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool)
 </UL>
 
-<P><STRONG><a name="[2a0]"></a>TBufPainter::displayCHChar(long, long, unsigned long, bool)</STRONG> (Thumb, 130 bytes, Stack size 40 bytes, tbufpainter.o(i._ZN11TBufPainter13displayCHCharEllmb))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1532<LI>Call Chain = TBufPainter::displayCHChar(long, long, unsigned long, bool) &rArr; TFont::getWordCode(unsigned long) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
+<P><STRONG><a name="[2a0]"></a>TBufPainter::displayCHChar(long, long, unsigned char*, bool)</STRONG> (Thumb, 138 bytes, Stack size 40 bytes, tbufpainter.o(i._ZN11TBufPainter13displayCHCharEllPhb))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1540<LI>Call Chain = TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[2a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFont::getWordCode(unsigned long)
+<BR>[Calls]<UL><LI><a href="#[2a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFont::getWordCode(unsigned char*)
 <LI><a href="#[29c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawPoint(long, long)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[29f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::displayCHStr(long, long, const char*, bool)
+<BR>[Called By]<UL><LI><a href="#[29f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawString(long, long, const char*, unsigned long)
 </UL>
 
-<P><STRONG><a name="[2a4]"></a>TBufPainter::displayEnChar(long, long, unsigned char, bool)</STRONG> (Thumb, 144 bytes, Stack size 40 bytes, tbufpainter.o(i._ZN11TBufPainter13displayEnCharEllhb))
+<P><STRONG><a name="[2a1]"></a>TBufPainter::displayEnChar(long, long, unsigned char, bool)</STRONG> (Thumb, 146 bytes, Stack size 40 bytes, tbufpainter.o(i._ZN11TBufPainter13displayEnCharEllhb))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = TBufPainter::displayEnChar(long, long, unsigned char, bool) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[29c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawPoint(long, long)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawEnAlignText(long, long, const char*, unsigned char, unsigned long)
-<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
+<BR>[Called By]<UL><LI><a href="#[29f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawString(long, long, const char*, unsigned long)
 </UL>
 
-<P><STRONG><a name="[299]"></a>TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool)</STRONG> (Thumb, 212 bytes, Stack size 40 bytes, tbufpainter.o(i._ZN11TBufPainter13drawWinShadesEllllmmmmmb))
-<BR><BR>[Stack]<UL><LI>Max Depth = 260<LI>Call Chain = TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<P><STRONG><a name="[2a5]"></a>TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long)</STRONG> (Thumb, 426 bytes, Stack size 40 bytes, tbufpainter.o(i._ZN11TBufPainter13drawAlignTextEllPKchm))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1612<LI>Call Chain = TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[2a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
-<LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
-</UL>
-<BR>[Called By]<UL><LI><a href="#[2af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long)
-<LI><a href="#[29d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawDialog(long, long, long, long, const char*, bool, unsigned long)
-<LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long)
-<LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
-<LI><a href="#[298]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawButton(long, long, long, long, const char*, bool)
-</UL>
-
-<P><STRONG><a name="[2a6]"></a>TBufPainter::drawFullCircle(long, long, long)</STRONG> (Thumb, 140 bytes, Stack size 56 bytes, tbufpainter.o(i._ZN11TBufPainter14drawFullCircleElll))
-<BR><BR>[Stack]<UL><LI>Max Depth = 268<LI>Call Chain = TBufPainter::drawFullCircle(long, long, long) &rArr; TBufPainter::drawCircle(long, long, long) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
-</UL>
-<BR>[Calls]<UL><LI><a href="#[2a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVLine(long, long, long)
-<LI><a href="#[29b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCircle(long, long, long)
-</UL>
-<BR>[Called By]<UL><LI><a href="#[2b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawRadio(long, long, long, long, const char*, bool, bool, unsigned long)
-</UL>
-
-<P><STRONG><a name="[2a8]"></a>TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)</STRONG> (Thumb, 376 bytes, Stack size 96 bytes, tbufpainter.o(i._ZN11TBufPainter14drawVertSliderEllllllbm))
-<BR><BR>[Stack]<UL><LI>Max Depth = 420<LI>Call Chain = TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
-</UL>
-<BR>[Calls]<UL><LI><a href="#[286]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::TRect(int, int, int, int)
-<LI><a href="#[2a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::setColors(unsigned long, unsigned long)
-<LI><a href="#[2a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
-<LI><a href="#[298]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawButton(long, long, long, long, const char*, bool)
-<LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
-<LI><a href="#[299]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool)
-</UL>
-<BR>[Called By]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSlider::sig_move(long, long)
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSlider::release()
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSlider::sig_depress(long, long)
-</UL>
-
-<P><STRONG><a name="[29e]"></a>TBufPainter::drawDialogTitle(long, long, long, const char*, bool)</STRONG> (Thumb, 138 bytes, Stack size 56 bytes, tbufpainter.o(i._ZN11TBufPainter15drawDialogTitleElllPKcb))
-<BR><BR>[Stack]<UL><LI>Max Depth = 292<LI>Call Chain = TBufPainter::drawDialogTitle(long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::displayEnChar(long, long, unsigned char, bool) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
-</UL>
-<BR>[Calls]<UL><LI><a href="#[2a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
-<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
-</UL>
-<BR>[Called By]<UL><LI><a href="#[29d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawDialog(long, long, long, long, const char*, bool, unsigned long)
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TDialog::touchPressEvent(TTouchEvent*)
-</UL>
-
-<P><STRONG><a name="[2aa]"></a>TBufPainter::drawEnAlignText(long, long, const char*, unsigned char, unsigned long)</STRONG> (Thumb, 468 bytes, Stack size 40 bytes, tbufpainter.o(i._ZN11TBufPainter15drawEnAlignTextEllPKchm))
-<BR><BR>[Stack]<UL><LI>Max Depth = 236<LI>Call Chain = TBufPainter::drawEnAlignText(long, long, const char*, unsigned char, unsigned long) &rArr; TBufPainter::displayEnChar(long, long, unsigned char, bool) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
-</UL>
-<BR>[Calls]<UL><LI><a href="#[2ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::height() const
-<LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::width() const
-<LI><a href="#[2a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::displayEnChar(long, long, unsigned char, bool)
+<BR>[Calls]<UL><LI><a href="#[2a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::height() const
+<LI><a href="#[2a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::width() const
+<LI><a href="#[29f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawString(long, long, const char*, unsigned long)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[28d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TCheckBox::TCheckBox(TRect, TImage, TImage, const char*, TWidget*)
 <LI><a href="#[28c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSwitch::TSwitch(long, long, TImage, TImage, const char*, TWidget*)
@@ -2624,25 +2578,24 @@ Global Symbols
 <LI><a href="#[287]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRadioButton::TRadioButton(TRect, TImage, TImage, const char*, TWidget*)
 </UL>
 
-<P><STRONG><a name="[2ad]"></a>TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long)</STRONG> (Thumb, 378 bytes, Stack size 96 bytes, tbufpainter.o(i._ZN11TBufPainter15drawHorizSliderEllllllbm))
-<BR><BR>[Stack]<UL><LI>Max Depth = 420<LI>Call Chain = TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<P><STRONG><a name="[299]"></a>TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool)</STRONG> (Thumb, 212 bytes, Stack size 40 bytes, tbufpainter.o(i._ZN11TBufPainter13drawWinShadesEllllmmmmmb))
+<BR><BR>[Stack]<UL><LI>Max Depth = 260<LI>Call Chain = TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[286]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::TRect(int, int, int, int)
-<LI><a href="#[2a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::setColors(unsigned long, unsigned long)
-<LI><a href="#[2a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
+<BR>[Calls]<UL><LI><a href="#[2a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
+<LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long)
+<LI><a href="#[29d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawDialog(long, long, long, long, const char*, bool, unsigned long)
+<LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long)
+<LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
 <LI><a href="#[298]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawButton(long, long, long, long, const char*, bool)
-<LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
-<LI><a href="#[299]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool)
-</UL>
-<BR>[Called By]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSlider::sig_move(long, long)
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSlider::release()
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSlider::sig_depress(long, long)
 </UL>
 
-<P><STRONG><a name="[29a]"></a>TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool)</STRONG> (Thumb, 114 bytes, Stack size 40 bytes, tbufpainter.o(i._ZN11TBufPainter16drawCenterEnTextEllllPKcmmb))
-<BR><BR>[Stack]<UL><LI>Max Depth = 236<LI>Call Chain = TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::displayEnChar(long, long, unsigned char, bool) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<P><STRONG><a name="[29a]"></a>TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool)</STRONG> (Thumb, 100 bytes, Stack size 40 bytes, tbufpainter.o(i._ZN11TBufPainter14drawCenterTextEllllPKcmmb))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1612<LI>Call Chain = TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[2a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::displayEnChar(long, long, unsigned char, bool)
+<BR>[Calls]<UL><LI><a href="#[2a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::width() const
+<LI><a href="#[29f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawString(long, long, const char*, unsigned long)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[28a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TImageBox::TImageBox(long, long, TImage, const char*, TWidget*)
 <LI><a href="#[28b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TPushButton::TPushButton(long, long, TImage, TImage, const char*, TWidget*)
@@ -2653,25 +2606,74 @@ Global Symbols
 <LI><a href="#[298]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawButton(long, long, long, long, const char*, bool)
 </UL>
 
-<P><STRONG><a name="[2a5]"></a>TBufPainter::drawLine(long, long, long, long)</STRONG> (Thumb, 238 bytes, Stack size 64 bytes, tbufpainter.o(i._ZN11TBufPainter8drawLineEllll))
+<P><STRONG><a name="[2a9]"></a>TBufPainter::drawFullCircle(long, long, long)</STRONG> (Thumb, 140 bytes, Stack size 56 bytes, tbufpainter.o(i._ZN11TBufPainter14drawFullCircleElll))
+<BR><BR>[Stack]<UL><LI>Max Depth = 268<LI>Call Chain = TBufPainter::drawFullCircle(long, long, long) &rArr; TBufPainter::drawCircle(long, long, long) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVLine(long, long, long)
+<LI><a href="#[29b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCircle(long, long, long)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawRadio(long, long, long, long, const char*, bool, bool, unsigned long)
+</UL>
+
+<P><STRONG><a name="[2ab]"></a>TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)</STRONG> (Thumb, 376 bytes, Stack size 96 bytes, tbufpainter.o(i._ZN11TBufPainter14drawVertSliderEllllllbm))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1772<LI>Call Chain = TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[286]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::TRect(int, int, int, int)
+<LI><a href="#[2ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::setColors(unsigned long, unsigned long)
+<LI><a href="#[2a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
+<LI><a href="#[298]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawButton(long, long, long, long, const char*, bool)
+<LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
+<LI><a href="#[299]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSlider::sig_move(long, long)
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSlider::release()
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSlider::sig_depress(long, long)
+</UL>
+
+<P><STRONG><a name="[29e]"></a>TBufPainter::drawDialogTitle(long, long, long, const char*, bool)</STRONG> (Thumb, 138 bytes, Stack size 56 bytes, tbufpainter.o(i._ZN11TBufPainter15drawDialogTitleElllPKcb))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1668<LI>Call Chain = TBufPainter::drawDialogTitle(long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
+<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[29d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawDialog(long, long, long, long, const char*, bool, unsigned long)
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TDialog::touchPressEvent(TTouchEvent*)
+</UL>
+
+<P><STRONG><a name="[2ad]"></a>TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long)</STRONG> (Thumb, 378 bytes, Stack size 96 bytes, tbufpainter.o(i._ZN11TBufPainter15drawHorizSliderEllllllbm))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1772<LI>Call Chain = TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[286]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::TRect(int, int, int, int)
+<LI><a href="#[2ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::setColors(unsigned long, unsigned long)
+<LI><a href="#[2a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
+<LI><a href="#[298]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawButton(long, long, long, long, const char*, bool)
+<LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
+<LI><a href="#[299]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSlider::sig_move(long, long)
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSlider::release()
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSlider::sig_depress(long, long)
+</UL>
+
+<P><STRONG><a name="[2a8]"></a>TBufPainter::drawLine(long, long, long, long)</STRONG> (Thumb, 238 bytes, Stack size 64 bytes, tbufpainter.o(i._ZN11TBufPainter8drawLineEllll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 220<LI>Call Chain = TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[2a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVLine(long, long, long)
+<BR>[Calls]<UL><LI><a href="#[2aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVLine(long, long, long)
 <LI><a href="#[29c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawPoint(long, long)
 <LI><a href="#[2ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawHLine(long, long, long)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long)
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long)
-<LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
+<LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
 <LI><a href="#[299]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool)
 </UL>
 
 <P><STRONG><a name="[2af]"></a>TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long)</STRONG> (Thumb, 196 bytes, Stack size 80 bytes, tbufpainter.o(i._ZN11TBufPainter9drawCheckEllllPKcbbm))
-<BR><BR>[Stack]<UL><LI>Max Depth = 340<LI>Call Chain = TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1692<LI>Call Chain = TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[2a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::setColors(unsigned long, unsigned long)
-<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
-<LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
+<BR>[Calls]<UL><LI><a href="#[2ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::setColors(unsigned long, unsigned long)
+<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
+<LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
 <LI><a href="#[299]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TCheckBox::release()
@@ -2686,16 +2688,16 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = TBufPainter::drawHLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[286]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::TRect(int, int, int, int)
-<LI><a href="#[2a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::paintMeta(TRect*)
+<LI><a href="#[2a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::paintMeta(TRect*)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
+<BR>[Called By]<UL><LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
 </UL>
 
 <P><STRONG><a name="[2b0]"></a>TBufPainter::drawLabel(long, long, long, long, const char*, unsigned long, unsigned long)</STRONG> (Thumb, 66 bytes, Stack size 56 bytes, tbufpainter.o(i._ZN11TBufPainter9drawLabelEllllPKcmm))
-<BR><BR>[Stack]<UL><LI>Max Depth = 292<LI>Call Chain = TBufPainter::drawLabel(long, long, long, long, const char*, unsigned long, unsigned long) &rArr; TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::displayEnChar(long, long, unsigned char, bool) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1668<LI>Call Chain = TBufPainter::drawLabel(long, long, long, long, const char*, unsigned long, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[2a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
-<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
+<BR>[Calls]<UL><LI><a href="#[2a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
+<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[292]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TLabel::TLabel(long, long, long, long, const char*, TWidget*)
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TLabel::slot_showValue(long, long)
@@ -2705,52 +2707,52 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[286]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::TRect(int, int, int, int)
-<LI><a href="#[2a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::paintMeta(TRect*)
+<LI><a href="#[2a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::paintMeta(TRect*)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
-<LI><a href="#[2a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::displayEnChar(long, long, unsigned char, bool)
-<LI><a href="#[2a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::displayCHChar(long, long, unsigned long, bool)
+<BR>[Called By]<UL><LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
+<LI><a href="#[2a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::displayEnChar(long, long, unsigned char, bool)
+<LI><a href="#[2a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::displayCHChar(long, long, unsigned char*, bool)
 <LI><a href="#[29b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCircle(long, long, long)
 </UL>
 
 <P><STRONG><a name="[2b1]"></a>TBufPainter::drawRadio(long, long, long, long, const char*, bool, bool, unsigned long)</STRONG> (Thumb, 266 bytes, Stack size 80 bytes, tbufpainter.o(i._ZN11TBufPainter9drawRadioEllllPKcbbm))
-<BR><BR>[Stack]<UL><LI>Max Depth = 348<LI>Call Chain = TBufPainter::drawRadio(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawFullCircle(long, long, long) &rArr; TBufPainter::drawCircle(long, long, long) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1692<LI>Call Chain = TBufPainter::drawRadio(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[2a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::setColors(unsigned long, unsigned long)
-<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
-<LI><a href="#[2a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullCircle(long, long, long)
+<BR>[Calls]<UL><LI><a href="#[2ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::setColors(unsigned long, unsigned long)
+<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
+<LI><a href="#[2a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullCircle(long, long, long)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRadioButton::release()
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRadioButton::sig_release(long, long)
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRadioButton::sig_depress(long, long)
 </UL>
 
-<P><STRONG><a name="[2a7]"></a>TBufPainter::drawVLine(long, long, long)</STRONG> (Thumb, 28 bytes, Stack size 32 bytes, tbufpainter.o(i._ZN11TBufPainter9drawVLineElll))
+<P><STRONG><a name="[2aa]"></a>TBufPainter::drawVLine(long, long, long)</STRONG> (Thumb, 28 bytes, Stack size 32 bytes, tbufpainter.o(i._ZN11TBufPainter9drawVLineElll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[286]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::TRect(int, int, int, int)
-<LI><a href="#[2a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::paintMeta(TRect*)
+<LI><a href="#[2a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::paintMeta(TRect*)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
-<LI><a href="#[2a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullCircle(long, long, long)
+<BR>[Called By]<UL><LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawLine(long, long, long, long)
+<LI><a href="#[2a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullCircle(long, long, long)
 </UL>
 
-<P><STRONG><a name="[2a2]"></a>TBufPainter::paintMeta(TRect*)</STRONG> (Thumb, 54 bytes, Stack size 40 bytes, tbufpainter.o(i._ZN11TBufPainter9paintMetaEP5TRect))
+<P><STRONG><a name="[2a3]"></a>TBufPainter::paintMeta(TRect*)</STRONG> (Thumb, 54 bytes, Stack size 40 bytes, tbufpainter.o(i._ZN11TBufPainter9paintMetaEP5TRect))
 <BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gui_dma2d_memset
-<LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::width() const
+<LI><a href="#[2a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::width() const
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
-<LI><a href="#[2a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVLine(long, long, long)
+<BR>[Called By]<UL><LI><a href="#[2a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
+<LI><a href="#[2aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVLine(long, long, long)
 <LI><a href="#[29c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawPoint(long, long)
 <LI><a href="#[2ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawHLine(long, long, long)
 </UL>
 
-<P><STRONG><a name="[2a9]"></a>TBufPainter::setColors(unsigned long, unsigned long)</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tbufpainter.o(i._ZN11TBufPainter9setColorsEmm))
+<P><STRONG><a name="[2ac]"></a>TBufPainter::setColors(unsigned long, unsigned long)</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tbufpainter.o(i._ZN11TBufPainter9setColorsEmm))
 <BR><BR>[Called By]<UL><LI><a href="#[2af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long)
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long)
-<LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
+<LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
 <LI><a href="#[2b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawRadio(long, long, long, long, const char*, bool, bool, unsigned long)
 </UL>
 
@@ -2780,7 +2782,6 @@ Global Symbols
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRadioButton::sig_release(long, long)
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRadioButton::sig_depress(long, long)
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TPushButton::release()
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TPushButton::show()
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TPushButton::sig_release(long, long)
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TPushButton::sig_depress(long, long)
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSwitch::release()
@@ -2813,7 +2814,6 @@ Global Symbols
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRadioButton::sig_release(long, long)
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRadioButton::sig_depress(long, long)
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TPushButton::release()
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TPushButton::show()
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TPushButton::sig_release(long, long)
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TPushButton::sig_depress(long, long)
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TSwitch::release()
@@ -2849,7 +2849,7 @@ Global Symbols
 <P><STRONG><a name="[3dd]"></a>TConnection::TConnection__sub_object(void(TObject::*)(int, int), TObject*, void(TObject::*)(int, int))</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, tconnection.o(i._ZN11TConnectionC1EM7TObjectFviiEPS0_S2_), UNUSED)
 
 <P><STRONG><a name="[ab]"></a>TPushButton::sig_depress(long, long)</STRONG> (Thumb, 122 bytes, Stack size 64 bytes, tpushbutton.o(i._ZN11TPushButton11sig_depressEll))
-<BR><BR>[Stack]<UL><LI>Max Depth = 388<LI>Call Chain = TPushButton::sig_depress(long, long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1740<LI>Call Chain = TPushButton::sig_depress(long, long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::callSlot(void(TObject::*)(int, int), long, long)
 <LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
@@ -2863,7 +2863,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tpushbutton.o(.constdata__ZTV11TPushButton)
 </UL>
 <P><STRONG><a name="[ac]"></a>TPushButton::sig_release(long, long)</STRONG> (Thumb, 124 bytes, Stack size 64 bytes, tpushbutton.o(i._ZN11TPushButton11sig_releaseEll))
-<BR><BR>[Stack]<UL><LI>Max Depth = 388<LI>Call Chain = TPushButton::sig_release(long, long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1740<LI>Call Chain = TPushButton::sig_release(long, long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::callSlot(void(TObject::*)(int, int), long, long)
 <LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
@@ -2876,18 +2876,15 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> tpushbutton.o(.constdata__ZTV11TPushButton)
 </UL>
-<P><STRONG><a name="[97]"></a>TPushButton::show()</STRONG> (Thumb, 50 bytes, Stack size 40 bytes, tpushbutton.o(i._ZN11TPushButton4showEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1604<LI>Call Chain = TPushButton::show() &rArr; TBufPainter::displayCHStr(long, long, const char*, bool) &rArr; TBufPainter::displayCHChar(long, long, unsigned long, bool) &rArr; TFont::getWordCode(unsigned long) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
+<P><STRONG><a name="[97]"></a>TPushButton::show()</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, tpushbutton.o(i._ZN11TPushButton4showEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = TPushButton::show() &rArr; TWidget::refresh() &rArr; TWidget::rectCut(TRect*) &rArr;  TWidget::rectCut(TRect*) (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::refresh()
-<LI><a href="#[2c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::~TBufPainter()
-<LI><a href="#[2b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::TBufPainter(unsigned char*, TRect*)
-<LI><a href="#[29f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::displayCHStr(long, long, const char*, bool)
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> tpushbutton.o(.constdata__ZTV11TPushButton)
 </UL>
 <P><STRONG><a name="[ad]"></a>TPushButton::release()</STRONG> (Thumb, 100 bytes, Stack size 56 bytes, tpushbutton.o(i._ZN11TPushButton7releaseEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 380<LI>Call Chain = TPushButton::release() &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1732<LI>Call Chain = TPushButton::release() &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
 <LI><a href="#[2be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::getName()
@@ -2900,7 +2897,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tpushbutton.o(.constdata__ZTV11TPushButton)
 </UL>
 <P><STRONG><a name="[28b]"></a>TPushButton::TPushButton(long, long, TImage, TImage, const char*, TWidget*)</STRONG> (Thumb, 220 bytes, Stack size 96 bytes, tpushbutton.o(i._ZN11TPushButtonC1Ell6TImageS0_PKcP7TWidget))
-<BR><BR>[Stack]<UL><LI>Max Depth = 376<LI>Call Chain = TPushButton::TPushButton(long, long, TImage, TImage, const char*, TWidget*) &rArr; TAbstractButton::TAbstractButton__sub_object(long, long, long, long, bool, const char*, TWidget*) &rArr; TWidget::TWidget__sub_object(long, long, long, long, const char*, TWidget*) &rArr; TObject::TObject__sub_object(const char*, TObject*) &rArr; TObject::setName(const char*) &rArr; TString::setStr(const char*) &rArr; TArray::store(const char*, unsigned long) &rArr; TArray::resize(unsigned long) &rArr; TArray::duplicate(const char*, unsigned long) &rArr; operator new[] (unsigned) &rArr; operator new(unsigned) &rArr; malloc &rArr; internal_alloc &rArr; __aeabi_memcpy
+<BR><BR>[Stack]<UL><LI>Max Depth = 1708<LI>Call Chain = TPushButton::TPushButton(long, long, TImage, TImage, const char*, TWidget*) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
 <LI><a href="#[2be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::getName()
@@ -2908,7 +2905,7 @@ Global Symbols
 <LI><a href="#[2c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TImage::ImgLoad(long, long, TBuffer*)
 <LI><a href="#[2c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::~TBufPainter()
 <LI><a href="#[2b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::TBufPainter(unsigned char*, TRect*)
-<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
+<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
 <LI><a href="#[2c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::width()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TGuiRun()
@@ -3071,7 +3068,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tobject.o(.constdata__ZTV12TConnectList)
 </UL>
 <P><STRONG><a name="[b9]"></a>TRadioButton::sig_depress(long, long)</STRONG> (Thumb, 122 bytes, Stack size 80 bytes, tradiobutton.o(i._ZN12TRadioButton11sig_depressEll))
-<BR><BR>[Stack]<UL><LI>Max Depth = 428<LI>Call Chain = TRadioButton::sig_depress(long, long) &rArr; TBufPainter::drawRadio(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawFullCircle(long, long, long) &rArr; TBufPainter::drawCircle(long, long, long) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1772<LI>Call Chain = TRadioButton::sig_depress(long, long) &rArr; TBufPainter::drawRadio(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::callSlot(void(TObject::*)(int, int), long, long)
 <LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
@@ -3085,7 +3082,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tradiobutton.o(.constdata__ZTV12TRadioButton)
 </UL>
 <P><STRONG><a name="[ba]"></a>TRadioButton::sig_release(long, long)</STRONG> (Thumb, 152 bytes, Stack size 80 bytes, tradiobutton.o(i._ZN12TRadioButton11sig_releaseEll))
-<BR><BR>[Stack]<UL><LI>Max Depth = 428<LI>Call Chain = TRadioButton::sig_release(long, long) &rArr; TBufPainter::drawRadio(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawFullCircle(long, long, long) &rArr; TBufPainter::drawCircle(long, long, long) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1772<LI>Call Chain = TRadioButton::sig_release(long, long) &rArr; TBufPainter::drawRadio(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::callSlot(void(TObject::*)(int, int), long, long)
 <LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
@@ -3117,7 +3114,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tradiobutton.o(.constdata__ZTV12TRadioButton)
 </UL>
 <P><STRONG><a name="[bb]"></a>TRadioButton::release()</STRONG> (Thumb, 128 bytes, Stack size 72 bytes, tradiobutton.o(i._ZN12TRadioButton7releaseEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 420<LI>Call Chain = TRadioButton::release() &rArr; TBufPainter::drawRadio(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawFullCircle(long, long, long) &rArr; TBufPainter::drawCircle(long, long, long) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1764<LI>Call Chain = TRadioButton::release() &rArr; TBufPainter::drawRadio(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
 <LI><a href="#[2be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::getName()
@@ -3134,9 +3131,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[287]"></a>TRadioButton::TRadioButton(TRect, TImage, TImage, const char*, TWidget*)</STRONG> (Thumb, 220 bytes, Stack size 104 bytes, tradiobutton.o(i._ZN12TRadioButtonC1E5TRect6TImageS1_PKcP7TWidget))
-<BR><BR>[Stack]<UL><LI>Max Depth = 384<LI>Call Chain = TRadioButton::TRadioButton(TRect, TImage, TImage, const char*, TWidget*) &rArr; TAbstractButton::TAbstractButton__sub_object(long, long, long, long, bool, const char*, TWidget*) &rArr; TWidget::TWidget__sub_object(long, long, long, long, const char*, TWidget*) &rArr; TObject::TObject__sub_object(const char*, TObject*) &rArr; TObject::setName(const char*) &rArr; TString::setStr(const char*) &rArr; TArray::store(const char*, unsigned long) &rArr; TArray::resize(unsigned long) &rArr; TArray::duplicate(const char*, unsigned long) &rArr; operator new[] (unsigned) &rArr; operator new(unsigned) &rArr; malloc &rArr; internal_alloc &rArr; __aeabi_memcpy
+<BR><BR>[Stack]<UL><LI>Max Depth = 1716<LI>Call Chain = TRadioButton::TRadioButton(TRect, TImage, TImage, const char*, TWidget*) &rArr; TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[2aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawEnAlignText(long, long, const char*, unsigned char, unsigned long)
+<BR>[Calls]<UL><LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long)
 <LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
 <LI><a href="#[2be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::getName()
 <LI><a href="#[2c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TAbstractButton::TAbstractButton__sub_object(long, long, long, long, bool, const char*, TWidget*)
@@ -3490,15 +3487,15 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> user.o(.constdata__ZTV4User)
 </UL>
-<P><STRONG><a name="[2a3]"></a>TFont::getWordCode(unsigned long)</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, tfont.o(i._ZN5TFont11getWordCodeEm))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1492<LI>Call Chain = TFont::getWordCode(unsigned long) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
+<P><STRONG><a name="[2a4]"></a>TFont::getWordCode(unsigned char*)</STRONG> (Thumb, 164 bytes, Stack size 24 bytes, tfont.o(i._ZN5TFont11getWordCodeEPh))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1500<LI>Call Chain = TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_read
 <LI><a href="#[24c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_open
 <LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_lseek
 <LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_close
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::displayCHChar(long, long, unsigned long, bool)
+<BR>[Called By]<UL><LI><a href="#[2a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::displayCHChar(long, long, unsigned char*, bool)
 </UL>
 
 <P><STRONG><a name="[2b4]"></a>TFont::TFont(const char*, unsigned short, unsigned short, unsigned char)</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, tfont.o(i._ZN5TFontC1EPKctth))
@@ -3553,11 +3550,11 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TGuiRun()
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TLabel::slot_showValue(long, long)
-<LI><a href="#[2a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
+<LI><a href="#[2a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawFullRect(long, long, long, long)
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TDialog::touchMoveEvent(TTouchEvent*)
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long)
-<LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
-<LI><a href="#[2a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVLine(long, long, long)
+<LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
+<LI><a href="#[2aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVLine(long, long, long)
 <LI><a href="#[29c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawPoint(long, long)
 <LI><a href="#[2ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawHLine(long, long, long)
 </UL>
@@ -3880,12 +3877,12 @@ Global Symbols
 <P><STRONG><a name="[3f1]"></a>TImage::~TImage__sub_object()</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, timage.o(i._ZN6TImageD1Ev), UNUSED)
 
 <P><STRONG><a name="[93]"></a>TLabel::slot_showValue(long, long)</STRONG> (Thumb, 388 bytes, Stack size 64 bytes, tlabel.o(i._ZN6TLabel14slot_showValueEll))
-<BR><BR>[Stack]<UL><LI>Max Depth = 356<LI>Call Chain = TLabel::slot_showValue(long, long) &rArr; TBufPainter::drawLabel(long, long, long, long, const char*, unsigned long, unsigned long) &rArr; TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::displayEnChar(long, long, unsigned char, bool) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1732<LI>Call Chain = TLabel::slot_showValue(long, long) &rArr; TBufPainter::drawLabel(long, long, long, long, const char*, unsigned long, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TArray::TArray()
 <LI><a href="#[286]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::TRect(int, int, int, int)
 <LI><a href="#[2f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TString::setNum(unsigned long)
-<LI><a href="#[2aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawEnAlignText(long, long, const char*, unsigned char, unsigned long)
+<LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long)
 <LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
 <LI><a href="#[2be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::getName()
 <LI><a href="#[2bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::refresh()
@@ -3909,9 +3906,9 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tlabel.o(.constdata__ZTV6TLabel)
 </UL>
 <P><STRONG><a name="[290]"></a>TLabel::TLabel(long, long, TImage*, const char*, unsigned char, TWidget*)</STRONG> (Thumb, 112 bytes, Stack size 56 bytes, tlabel.o(i._ZN6TLabelC1EllP6TImagePKchP7TWidget))
-<BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = TLabel::TLabel(long, long, TImage*, const char*, unsigned char, TWidget*) &rArr; TFrame::TFrame__sub_object(long, long, long, long, const char*, TWidget*) &rArr; TWidget::TWidget__sub_object(long, long, long, long, const char*, TWidget*) &rArr; TObject::TObject__sub_object(const char*, TObject*) &rArr; TObject::setName(const char*) &rArr; TString::setStr(const char*) &rArr; TArray::store(const char*, unsigned long) &rArr; TArray::resize(unsigned long) &rArr; TArray::duplicate(const char*, unsigned long) &rArr; operator new[] (unsigned) &rArr; operator new(unsigned) &rArr; malloc &rArr; internal_alloc &rArr; __aeabi_memcpy
+<BR><BR>[Stack]<UL><LI>Max Depth = 1668<LI>Call Chain = TLabel::TLabel(long, long, TImage*, const char*, unsigned char, TWidget*) &rArr; TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[2aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawEnAlignText(long, long, const char*, unsigned char, unsigned long)
+<BR>[Calls]<UL><LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long)
 <LI><a href="#[2be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::getName()
 <LI><a href="#[2c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TImage::ImgLoad(long, long, TBuffer*)
 <LI><a href="#[2c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::~TBufPainter()
@@ -3924,7 +3921,7 @@ Global Symbols
 <P><STRONG><a name="[3f2]"></a>TLabel::TLabel__sub_object(long, long, TImage*, const char*, unsigned char, TWidget*)</STRONG> (Thumb, 0 bytes, Stack size 56 bytes, tlabel.o(i._ZN6TLabelC1EllP6TImagePKchP7TWidget), UNUSED)
 
 <P><STRONG><a name="[292]"></a>TLabel::TLabel(long, long, long, long, const char*, TWidget*)</STRONG> (Thumb, 114 bytes, Stack size 64 bytes, tlabel.o(i._ZN6TLabelC1EllllPKcP7TWidget))
-<BR><BR>[Stack]<UL><LI>Max Depth = 356<LI>Call Chain = TLabel::TLabel(long, long, long, long, const char*, TWidget*) &rArr; TBufPainter::drawLabel(long, long, long, long, const char*, unsigned long, unsigned long) &rArr; TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::displayEnChar(long, long, unsigned char, bool) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1732<LI>Call Chain = TLabel::TLabel(long, long, long, long, const char*, TWidget*) &rArr; TBufPainter::drawLabel(long, long, long, long, const char*, unsigned long, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
 <LI><a href="#[2be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::getName()
@@ -4072,7 +4069,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tdialog.o(.constdata__ZTV7TDialog)
 </UL>
 <P><STRONG><a name="[115]"></a>TDialog::touchPressEvent(TTouchEvent*)</STRONG> (Thumb, 352 bytes, Stack size 56 bytes, tdialog.o(i._ZN7TDialog15touchPressEventEP11TTouchEvent))
-<BR><BR>[Stack]<UL><LI>Max Depth = 348<LI>Call Chain = TDialog::touchPressEvent(TTouchEvent*) &rArr; TBufPainter::drawDialogTitle(long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::displayEnChar(long, long, unsigned char, bool) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1724<LI>Call Chain = TDialog::touchPressEvent(TTouchEvent*) &rArr; TBufPainter::drawDialogTitle(long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TString::operator const char*() const
 <LI><a href="#[2da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::isInRealArea(long, long)
@@ -4122,7 +4119,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tdialog.o(.constdata__ZTV7TDialog)
 </UL>
 <P><STRONG><a name="[291]"></a>TDialog::TDialog(long, long, long, long, const char*, TWidget*)</STRONG> (Thumb, 126 bytes, Stack size 64 bytes, tdialog.o(i._ZN7TDialogC1EllllPKcP7TWidget))
-<BR><BR>[Stack]<UL><LI>Max Depth = 436<LI>Call Chain = TDialog::TDialog(long, long, long, long, const char*, TWidget*) &rArr; TBufPainter::drawDialog(long, long, long, long, const char*, bool, unsigned long) &rArr; TBufPainter::drawDialogTitle(long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::displayEnChar(long, long, unsigned char, bool) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1812<LI>Call Chain = TDialog::TDialog(long, long, long, long, const char*, TWidget*) &rArr; TBufPainter::drawDialog(long, long, long, long, const char*, bool, unsigned long) &rArr; TBufPainter::drawDialogTitle(long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TString::operator const char*() const
 <LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
@@ -4300,7 +4297,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tobject.o(.constdata__ZTV7TObject)
 </UL>
 <P><STRONG><a name="[131]"></a>TSlider::sig_depress(long, long)</STRONG> (Thumb, 230 bytes, Stack size 80 bytes, tslider.o(i._ZN7TSlider11sig_depressEll))
-<BR><BR>[Stack]<UL><LI>Max Depth = 500<LI>Call Chain = TSlider::sig_depress(long, long) &rArr; TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1852<LI>Call Chain = TSlider::sig_depress(long, long) &rArr; TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::callSlot(void(TObject::*)(int, int), long, long)
 <LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
@@ -4308,7 +4305,7 @@ Global Symbols
 <LI><a href="#[2c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::~TBufPainter()
 <LI><a href="#[2b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::TBufPainter(unsigned char*, TRect*)
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long)
-<LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
+<LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
 <LI><a href="#[2c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::width()
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> tslider.o(.constdata__ZTV7TSlider)
@@ -4352,7 +4349,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tslider.o(.constdata__ZTV7TSlider)
 </UL>
 <P><STRONG><a name="[133]"></a>TSlider::release()</STRONG> (Thumb, 336 bytes, Stack size 80 bytes, tslider.o(i._ZN7TSlider7releaseEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 500<LI>Call Chain = TSlider::release() &rArr; TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1852<LI>Call Chain = TSlider::release() &rArr; TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
 <LI><a href="#[2bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::refresh()
@@ -4362,13 +4359,13 @@ Global Symbols
 <LI><a href="#[2f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBuffer::obPareBack(unsigned char*, unsigned long)
 <LI><a href="#[2f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TImage::ImgLoad(long, long, long, long, TBuffer*)
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long)
-<LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
+<LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
 <LI><a href="#[2c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::width()
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> tslider.o(.constdata__ZTV7TSlider)
 </UL>
 <P><STRONG><a name="[130]"></a>TSlider::sig_move(long, long)</STRONG> (Thumb, 422 bytes, Stack size 80 bytes, tslider.o(i._ZN7TSlider8sig_moveEll))
-<BR><BR>[Stack]<UL><LI>Max Depth = 500<LI>Call Chain = TSlider::sig_move(long, long) &rArr; TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1852<LI>Call Chain = TSlider::sig_move(long, long) &rArr; TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long) &rArr; TBufPainter::drawButton(long, long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::callSlot(void(TObject::*)(int, int), long, long)
 <LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
@@ -4379,7 +4376,7 @@ Global Symbols
 <LI><a href="#[2f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBuffer::obPareBack(unsigned char*, unsigned long)
 <LI><a href="#[2f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TImage::ImgLoad(long, long, long, long, TBuffer*)
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawHorizSlider(long, long, long, long, long, long, bool, unsigned long)
-<LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
+<LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawVertSlider(long, long, long, long, long, long, bool, unsigned long)
 <LI><a href="#[2c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::width()
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> tslider.o(.constdata__ZTV7TSlider)
@@ -4478,7 +4475,7 @@ Global Symbols
 <P><STRONG><a name="[3fd]"></a>TString::~TString__sub_object()</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, tstring.o(i._ZN7TStringD1Ev), UNUSED)
 
 <P><STRONG><a name="[13a]"></a>TSwitch::sig_depress(long, long)</STRONG> (Thumb, 120 bytes, Stack size 80 bytes, tswitch.o(i._ZN7TSwitch11sig_depressEll))
-<BR><BR>[Stack]<UL><LI>Max Depth = 420<LI>Call Chain = TSwitch::sig_depress(long, long) &rArr; TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1772<LI>Call Chain = TSwitch::sig_depress(long, long) &rArr; TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::callSlot(void(TObject::*)(int, int), long, long)
 <LI><a href="#[2af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long)
@@ -4492,7 +4489,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tswitch.o(.constdata__ZTV7TSwitch)
 </UL>
 <P><STRONG><a name="[13b]"></a>TSwitch::sig_release(long, long)</STRONG> (Thumb, 150 bytes, Stack size 80 bytes, tswitch.o(i._ZN7TSwitch11sig_releaseEll))
-<BR><BR>[Stack]<UL><LI>Max Depth = 420<LI>Call Chain = TSwitch::sig_release(long, long) &rArr; TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1772<LI>Call Chain = TSwitch::sig_release(long, long) &rArr; TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::callSlot(void(TObject::*)(int, int), long, long)
 <LI><a href="#[2af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long)
@@ -4519,7 +4516,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tswitch.o(.constdata__ZTV7TSwitch)
 </UL>
 <P><STRONG><a name="[13c]"></a>TSwitch::release()</STRONG> (Thumb, 130 bytes, Stack size 72 bytes, tswitch.o(i._ZN7TSwitch7releaseEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 412<LI>Call Chain = TSwitch::release() &rArr; TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1764<LI>Call Chain = TSwitch::release() &rArr; TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long)
 <LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
@@ -4533,9 +4530,9 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tswitch.o(.constdata__ZTV7TSwitch)
 </UL>
 <P><STRONG><a name="[28c]"></a>TSwitch::TSwitch(long, long, TImage, TImage, const char*, TWidget*)</STRONG> (Thumb, 198 bytes, Stack size 88 bytes, tswitch.o(i._ZN7TSwitchC1Ell6TImageS0_PKcP7TWidget))
-<BR><BR>[Stack]<UL><LI>Max Depth = 368<LI>Call Chain = TSwitch::TSwitch(long, long, TImage, TImage, const char*, TWidget*) &rArr; TAbstractButton::TAbstractButton__sub_object(long, long, long, long, bool, const char*, TWidget*) &rArr; TWidget::TWidget__sub_object(long, long, long, long, const char*, TWidget*) &rArr; TObject::TObject__sub_object(const char*, TObject*) &rArr; TObject::setName(const char*) &rArr; TString::setStr(const char*) &rArr; TArray::store(const char*, unsigned long) &rArr; TArray::resize(unsigned long) &rArr; TArray::duplicate(const char*, unsigned long) &rArr; operator new[] (unsigned) &rArr; operator new(unsigned) &rArr; malloc &rArr; internal_alloc &rArr; __aeabi_memcpy
+<BR><BR>[Stack]<UL><LI>Max Depth = 1700<LI>Call Chain = TSwitch::TSwitch(long, long, TImage, TImage, const char*, TWidget*) &rArr; TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[2aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawEnAlignText(long, long, const char*, unsigned char, unsigned long)
+<BR>[Calls]<UL><LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long)
 <LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
 <LI><a href="#[2be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::getName()
 <LI><a href="#[2c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TAbstractButton::TAbstractButton__sub_object(long, long, long, long, bool, const char*, TWidget*)
@@ -4779,7 +4776,7 @@ Global Symbols
 <LI> timagebox.o(.constdata__ZTV9TImageBox)
 </UL>
 <P><STRONG><a name="[2c0]"></a>TWidget::width()</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, twidget.o(i._ZN7TWidget5widthEv))
-<BR><BR>[Calls]<UL><LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::width() const
+<BR><BR>[Calls]<UL><LI><a href="#[2a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::width() const
 </UL>
 <BR>[Called By]<UL><LI><a href="#[291]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TDialog::TDialog(long, long, long, long, const char*, TWidget*)
 <LI><a href="#[292]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TLabel::TLabel(long, long, long, long, const char*, TWidget*)
@@ -4903,7 +4900,7 @@ Global Symbols
 <P><STRONG><a name="[31b]"></a>TWidget::isInArea(long, long)</STRONG> (Thumb, 60 bytes, Stack size 24 bytes, twidget.o(i._ZN7TWidget8isInAreaEll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = TWidget::isInArea(long, long)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[2ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::height() const
+<BR>[Calls]<UL><LI><a href="#[2a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TRect::height() const
 <LI><a href="#[2c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::width()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::isInRealArea(long, long)
@@ -4989,7 +4986,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tconnection.o(.constdata__ZTV8TObjList)
 </UL>
 <P><STRONG><a name="[144]"></a>TCheckBox::sig_depress(long, long)</STRONG> (Thumb, 120 bytes, Stack size 80 bytes, tcheckbox.o(i._ZN9TCheckBox11sig_depressEll))
-<BR><BR>[Stack]<UL><LI>Max Depth = 420<LI>Call Chain = TCheckBox::sig_depress(long, long) &rArr; TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1772<LI>Call Chain = TCheckBox::sig_depress(long, long) &rArr; TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::callSlot(void(TObject::*)(int, int), long, long)
 <LI><a href="#[2af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long)
@@ -5003,7 +5000,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tcheckbox.o(.constdata__ZTV9TCheckBox)
 </UL>
 <P><STRONG><a name="[145]"></a>TCheckBox::sig_release(long, long)</STRONG> (Thumb, 150 bytes, Stack size 80 bytes, tcheckbox.o(i._ZN9TCheckBox11sig_releaseEll))
-<BR><BR>[Stack]<UL><LI>Max Depth = 420<LI>Call Chain = TCheckBox::sig_release(long, long) &rArr; TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1772<LI>Call Chain = TCheckBox::sig_release(long, long) &rArr; TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::callSlot(void(TObject::*)(int, int), long, long)
 <LI><a href="#[2af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long)
@@ -5030,7 +5027,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tcheckbox.o(.constdata__ZTV9TCheckBox)
 </UL>
 <P><STRONG><a name="[146]"></a>TCheckBox::release()</STRONG> (Thumb, 130 bytes, Stack size 72 bytes, tcheckbox.o(i._ZN9TCheckBox7releaseEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 412<LI>Call Chain = TCheckBox::release() &rArr; TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawWinShades(long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawLine(long, long, long, long) &rArr; TBufPainter::drawVLine(long, long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1764<LI>Call Chain = TCheckBox::release() &rArr; TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCheck(long, long, long, long, const char*, bool, bool, unsigned long)
 <LI><a href="#[325]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TCheckBox::changeSelected()
@@ -5044,9 +5041,9 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> tcheckbox.o(.constdata__ZTV9TCheckBox)
 </UL>
 <P><STRONG><a name="[28d]"></a>TCheckBox::TCheckBox(TRect, TImage, TImage, const char*, TWidget*)</STRONG> (Thumb, 220 bytes, Stack size 104 bytes, tcheckbox.o(i._ZN9TCheckBoxC1E5TRect6TImageS1_PKcP7TWidget))
-<BR><BR>[Stack]<UL><LI>Max Depth = 384<LI>Call Chain = TCheckBox::TCheckBox(TRect, TImage, TImage, const char*, TWidget*) &rArr; TAbstractButton::TAbstractButton__sub_object(long, long, long, long, bool, const char*, TWidget*) &rArr; TWidget::TWidget__sub_object(long, long, long, long, const char*, TWidget*) &rArr; TObject::TObject__sub_object(const char*, TObject*) &rArr; TObject::setName(const char*) &rArr; TString::setStr(const char*) &rArr; TArray::store(const char*, unsigned long) &rArr; TArray::resize(unsigned long) &rArr; TArray::duplicate(const char*, unsigned long) &rArr; operator new[] (unsigned) &rArr; operator new(unsigned) &rArr; malloc &rArr; internal_alloc &rArr; __aeabi_memcpy
+<BR><BR>[Stack]<UL><LI>Max Depth = 1716<LI>Call Chain = TCheckBox::TCheckBox(TRect, TImage, TImage, const char*, TWidget*) &rArr; TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[2aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawEnAlignText(long, long, const char*, unsigned char, unsigned long)
+<BR>[Calls]<UL><LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long)
 <LI><a href="#[2bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::height()
 <LI><a href="#[2be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TObject::getName()
 <LI><a href="#[2c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TAbstractButton::TAbstractButton__sub_object(long, long, long, long, bool, const char*, TWidget*)
@@ -5115,14 +5112,14 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> timagebox.o(.constdata__ZTV9TImageBox)
 </UL>
 <P><STRONG><a name="[28a]"></a>TImageBox::TImageBox(long, long, TImage, const char*, TWidget*)</STRONG> (Thumb, 122 bytes, Stack size 64 bytes, timagebox.o(i._ZN9TImageBoxC1Ell6TImagePKcP7TWidget))
-<BR><BR>[Stack]<UL><LI>Max Depth = 300<LI>Call Chain = TImageBox::TImageBox(long, long, TImage, const char*, TWidget*) &rArr; TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::displayEnChar(long, long, unsigned char, bool) &rArr; TBufPainter::drawPoint(long, long) &rArr; TBufPainter::paintMeta(TRect*) &rArr; gui_dma2d_memset &rArr; DMA2D_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 1676<LI>Call Chain = TImageBox::TImageBox(long, long, TImage, const char*, TWidget*) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TString::operator const char*() const
 <LI><a href="#[2db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::TWidget__sub_object(long, long, long, long, const char*, TWidget*)
 <LI><a href="#[2c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TImage::ImgLoad(long, long, TBuffer*)
 <LI><a href="#[2c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::~TBufPainter()
 <LI><a href="#[2b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::TBufPainter(unsigned char*, TRect*)
-<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterEnText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
+<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TGuiRun()
 </UL>
@@ -5163,14 +5160,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[318]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::chgAllInValid(TObjList*, TWidget*, TRect*, TRect*)
 </UL>
 
-<P><STRONG><a name="[2ab]"></a>TRect::width() const</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, twidget.o(i._ZNK5TRect5widthEv))
-<BR><BR>[Called By]<UL><LI><a href="#[2aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawEnAlignText(long, long, const char*, unsigned char, unsigned long)
+<P><STRONG><a name="[2a6]"></a>TRect::width() const</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, twidget.o(i._ZNK5TRect5widthEv))
+<BR><BR>[Called By]<UL><LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long)
+<LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool)
 <LI><a href="#[2c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::width()
-<LI><a href="#[2a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::paintMeta(TRect*)
+<LI><a href="#[2a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::paintMeta(TRect*)
 </UL>
 
-<P><STRONG><a name="[2ac]"></a>TRect::height() const</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, twidget.o(i._ZNK5TRect6heightEv))
-<BR><BR>[Called By]<UL><LI><a href="#[2aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawEnAlignText(long, long, const char*, unsigned char, unsigned long)
+<P><STRONG><a name="[2a7]"></a>TRect::height() const</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, twidget.o(i._ZNK5TRect6heightEv))
+<BR><BR>[Called By]<UL><LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::drawAlignText(long, long, const char*, unsigned char, unsigned long)
 <LI><a href="#[31b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TWidget::isInArea(long, long)
 </UL>
 
@@ -5491,7 +5489,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[331]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gif_decode
 <LI><a href="#[330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stdbmp_decode
 <LI><a href="#[332]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bmp_decode_buf
-<LI><a href="#[2a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFont::getWordCode(unsigned long)
+<LI><a href="#[2a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFont::getWordCode(unsigned char*)
 <LI><a href="#[37b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;jpg_decode_buf
 <LI><a href="#[32f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;jpg_decode
 <LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lodepng_buffer_file(unsigned char*, unsigned, const char*)
@@ -5510,7 +5508,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[36e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gif_getdatablock
 <LI><a href="#[364]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gif_drawimage
-<LI><a href="#[2a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFont::getWordCode(unsigned long)
+<LI><a href="#[2a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFont::getWordCode(unsigned char*)
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;jpeg_in_func
 <LI><a href="#[24b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lodepng_filesize(const char*)
 </UL>
@@ -5539,7 +5537,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[331]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gif_decode
 <LI><a href="#[330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stdbmp_decode
 <LI><a href="#[332]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bmp_decode_buf
-<LI><a href="#[2a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFont::getWordCode(unsigned long)
+<LI><a href="#[2a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFont::getWordCode(unsigned char*)
 <LI><a href="#[37b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;jpg_decode_buf
 <LI><a href="#[32f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;jpg_decode
 <LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lodepng_buffer_file(unsigned char*, unsigned, const char*)
@@ -5565,7 +5563,7 @@ Global Symbols
 <LI><a href="#[362]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gif_check_head
 <LI><a href="#[330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stdbmp_decode
 <LI><a href="#[332]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bmp_decode_buf
-<LI><a href="#[2a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFont::getWordCode(unsigned long)
+<LI><a href="#[2a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFont::getWordCode(unsigned char*)
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;jpeg_in_func
 <LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lodepng_buffer_file(unsigned char*, unsigned, const char*)
 </UL>
@@ -5784,7 +5782,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[2dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBuffer::TBuffer(unsigned char*, unsigned long, unsigned long, unsigned long)
 <LI><a href="#[2ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBuffer::writePoint(long, long, unsigned long)
-<LI><a href="#[2a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::paintMeta(TRect*)
+<LI><a href="#[2a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TBufPainter::paintMeta(TRect*)
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;piclib_fill_colors
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;piclib_fill_color
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;piclib_draw_point
@@ -6797,7 +6795,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[89]"></a>task2_tgui(void*)</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, main.o(i._Z10task2_tguiPv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 2956<LI>Call Chain = task2_tgui(void*) &rArr; TGuiRun() &rArr; User::User(long, long, long, long, const char*, const char*, TWidget*) &rArr; TImage::TImage(TBuffer*, unsigned short, unsigned short, const char*) &rArr; lodepng_decode32_file(unsigned char**, unsigned*, unsigned*, const char*) &rArr; lodepng_decode_file(unsigned char**, unsigned*, unsigned*, const char*, LodePNGColorType, unsigned) &rArr; lodepng_load_file(unsigned char**, unsigned*, const char*) &rArr; lodepng_buffer_file(unsigned char*, unsigned, const char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
+<BR><BR>[Stack]<UL><LI>Max Depth = 3092<LI>Call Chain = task2_tgui(void*) &rArr; TGuiRun() &rArr; TDialog::TDialog(long, long, long, long, const char*, TWidget*) &rArr; TBufPainter::drawDialog(long, long, long, long, const char*, bool, unsigned long) &rArr; TBufPainter::drawDialogTitle(long, long, long, const char*, bool) &rArr; TBufPainter::drawCenterText(long, long, long, long, const char*, unsigned long, unsigned long, bool) &rArr; TBufPainter::drawString(long, long, const char*, unsigned long) &rArr; TBufPainter::displayCHChar(long, long, unsigned char*, bool) &rArr; TFont::getWordCode(unsigned char*) &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_mount
 <LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TGuiRun()

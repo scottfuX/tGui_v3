@@ -44,10 +44,11 @@ extern "C" {
 #define GUI_DIRECT_SHEAR_FIELD  0                   //直接绘画在显存上
 
 
-#define TFON_FILE           "1:/GB2312_H2424.FON"
+#define TFON_FILE           "0:/GBK24.FON"
 #define TFON_WIDTH          24
 #define TFON_HEIGHT         24
-#define TFON_TYPE           T_GB2312
+#define TFON_TYPE           T_GBK
+#define TFON_ASCII          Font24x24
 
 
 #if GUI_SET_DMA2D                                   //设置画点函数

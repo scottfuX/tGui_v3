@@ -426,38 +426,3 @@ void TWidget::rectCut(TRect* srcRect)
 }
 
 
-//把 TBuffer 的 srcRect 区域 搬运至 显存    
-//注意： srcRect中的 x,y坐标均为绝对坐标
-//搬运速度有待提升
-/*
-|---------------|			|---------------|
-|				|			|	showMem	    |
-|	|-------|	| 			|	|-------|	|
-|	|srcRect|---+-transform-+-->| 		|	|
-|	|-------|	|			|	|-------|	|
-|	 TBuffer	|			|				|
-|---------------|			|---------------|
-*/
-// void TWidget::transform(TRect* srcRect)
-// {
-// 	//边界问题还是有点棘手
-// 	// TRect r(0,0,GUI_WIDTH-1,GUI_HIGH-1);
-// 	// r.intersectInr(srcRect);
-// 	// if(!srcRect->isValidStrict())
-// 	// 		return;
-// 	uint32 des_addr = (GUI_FG_BUFADDR + (srcRect->top() * GUI_WIDTH +  srcRect->left()) * GUI_PIXELSIZE);
-// 	uint32 x_offset = srcRect->left() - x(); //算出 剪切区域x 相对 TBuffer 偏移
-// 	uint32 y_offset = srcRect->top() - y();	 //算出 剪切区域y 相对 TBuffer 偏移
-// 	uint32 src_addr = ((uint32)widgetBuf->getBufAddr() + (y_offset * width() + x_offset ) * GUI_PIXELSIZE);
-// 	for(int i = 0;i < srcRect->height();  i++)
-// 	{
-// 		//memcpy 模式
-// 		memcpy((uint8*)des_addr,(uint8*)src_addr,srcRect->width() * GUI_PIXELSIZE);
-// 		//dma 模式
-// 		//--------------------------
-// 		src_addr += width() * GUI_PIXELSIZE;
-// 		des_addr += GUI_WIDTH * GUI_PIXELSIZE;
-// 	}
-
-// }
-

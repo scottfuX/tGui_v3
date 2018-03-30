@@ -20,11 +20,11 @@ TRadioButton::TRadioButton(TRect rect,TImage norImg,TImage selImg, const char* n
 
 	norImg.ImgLoad(0,(height() - norImg.imgH())/2,norBuf);
 	TBufPainter p1(norBuf->getBufAddr(),getRect());
-	p1.drawEnAlignText(norImg.imgW(),0, getName(),ALIGN_MID_LEFT);
+	p1.drawAlignText(norImg.imgW(),0, getName(),ALIGN_MID_LEFT);
 
 	selImg.ImgLoad(0,(height() - selImg.imgH())/2,selBuf);
 	TBufPainter p2(selBuf->getBufAddr(),getRect());
-	p2.drawEnAlignText(selImg.imgW(),0, getName(),ALIGN_MID_LEFT);
+	p2.drawAlignText(selImg.imgW(),0, getName(),ALIGN_MID_LEFT);
 
 }
 

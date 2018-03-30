@@ -15,6 +15,7 @@ extern "C" {
 #include "touch/gt9xx.h"
 #include "delay/delay_conf.h"
 
+
 #include "interface_conf/tgui_conf.h"
 #ifdef __cplusplus
 }

@@ -20,7 +20,7 @@ public:
 	TBufPainter(uint8* addr,TRect* rect);
 	~TBufPainter();
 	TFont* getFontCH() { return fontCH; }
-	void setFontCH(const char *filename,uint16 width,uint16 height,uint8 codetype = T_GB2312);
+	void setFontCH(const char *filename,uint16 width,uint16 height,uint8 codetype = T_GBK);
 	T_ASCII_FONT* getFontEn() { return fontEn; }
 	void setFontEn(T_ASCII_FONT* f){fontEn = f;};
 	void setColors(colorDef text, colorDef back);
@@ -44,10 +44,12 @@ public:
 	void drawFullTriangle(int32 x1, int32 y1, int32 x2, int32 y2, int32 x3, int32 y3);
 	void drawRoundRect(int32 x, int32 y, int32 w, int32 h, int32 r = 0);
 
-	void drawEnAlignText(int32 x, int32 y, const char* str,uint8 align = ALIGN_CENTER, colorDef text = BLACK );
-	void drawCHAlignText(int32 x, int32 y, const char* str,uint8 align = ALIGN_CENTER, colorDef text = BLACK );
-	void drawCenterEnText(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text = BLACK,colorDef back = WHITE, bool hasBack = false);
-	void displayCHStr(int32 x,int32 y,const char* str,bool hasBack = false);
+	void drawAlignText(const char* str,uint8 align = ALIGN_CENTER, colorDef text = BLACK );
+	void drawAlignText(int32 x, int32 y,const char* str,uint8 align = ALIGN_CENTER, colorDef text = BLACK );
+	void drawString(int32 x, int32 y, const char* str,colorDef text = BLACK);
+	// void drawEnAlignText(int32 x, int32 y, const char* str,uint8 align = ALIGN_CENTER, colorDef text = BLACK );
+	// void drawCHAlignText(int32 x, int32 y, const char* str,uint8 align = ALIGN_CENTER, colorDef text = BLACK );
+	void drawCenterText(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text = BLACK,colorDef back = WHITE, bool hasBack = false);
 
 	void drawButton(int32 x, int32 y, int32 w, int32 h, const char* str,bool isPress = false);
 	void drawCheck(int32 x, int32 y, int32 w, int32 h, const char* str, bool Selected = false, bool isPress = false, colorDef back = WHITE);
@@ -69,7 +71,7 @@ private:
 
 	void paintMeta(TRect* srcRect);
 	void displayEnChar(int32 x,int32 y,uint8 Ascii, bool hasBack);
-	void displayCHChar(int32 x,int32 y,uint32 word,bool hasBack);
+	void displayCHChar(int32 x,int32 y,uint8* code,bool hasBack);
 	void drawWinShades(int32 x, int32 y, int32 w, int32 h,colorDef c1, 
 		colorDef c2,colorDef c3, colorDef c4, colorDef back, bool hasBack = true);
 };

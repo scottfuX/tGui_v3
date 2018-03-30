@@ -102,59 +102,6 @@ static void task0_temp(void *pvParameters)
 	else
 		printf("\r\n 复制文件到FLASH失败(文件系统部分)，请复位重试！！ \r\n"); 
 
-//   unsigned int error;
-//   //unsigned char* 
-//   u8* image;
-//   unsigned int width = 0;
-//   unsigned int height = 0;
-// 	tim6_count = 0;
-//   error = lodepng_decode32_file(&image, &width, &height, "1:/Picture/0.png");
-//   //error = bmp_decode_file(&image, &width,&height, "1:/PICTURE/1.bmp");				//解码JPG/JPEG	
-//   if(error) 
-// 		printf("error %u: %s\n", error, lodepng_error_text(error));
-
-// 	uint32 * des_addr = (uint32 *)GUI_FG_BUFADDR ;
-// 	//uint32 * src_addr = (uint32 *)(image);
-
-// 	u32 color_tmp;
-// 	u32 offset;
-// 	u16 i,j;
-// 	uint32 a;
-// 	for(i=0;i<height;i++)
-// 	{
-// 		for(j=0;j<width;j++)
-// 		{ 
-// 			offset = (i * width  + j) * 4;
-// 			a = image[offset + 3]  ;
-// 			color_tmp |= ((image[offset]  * a + 0xFF * (0xff - a)) >> 8) << 16;
-// 			color_tmp |= ((image[offset + 1] * a + 0xFF * (0xff - a)) >> 8) << 8;
-// 			color_tmp |= ((image[offset + 2]* a + 0xFF * (0xff - a)) >> 8);
-// 			color_tmp |= (image[offset + 3] << 24);
-
-// 			gui_dma2d_memset((uint32_t* )des_addr,GUI_WIDTH, color_tmp ,  j ,  i , 1 , 1);
-// 			color_tmp = 0;
-// 		}
-// 	}
-
-// 	// for(int i = 0;i < height;  i++)
-// 	// {
-// 	// 	//memcpy 模式
-// 	// 	memcpy(des_addr,src_addr,width * GUI_PIXELSIZE);
-// 	// 	//dma 模式
-// 	// 	//--------------------------
-// 	// 	src_addr += width;
-// 	// 	des_addr += GUI_WIDTH;
-// 	// }
-
-
-// 	printf("end_tim: %d \n",tim6_count);
-//   	free(image);
-
-// 	piclib_init((uint8 *)GUI_FG_BUFADDR,GUI_WIDTH,GUI_HIGH);
-// 	tim6_count = 0;
-// 	ai_load_picfile("1:/PICTURE/2.jpg",0,0,GUI_WIDTH,GUI_HIGH,1);//显示图片   
-// 	printf("end_tim: %d \n",tim6_count);
-	
 	while(1);
 }
 

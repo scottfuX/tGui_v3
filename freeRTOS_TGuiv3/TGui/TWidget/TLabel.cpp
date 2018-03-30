@@ -19,7 +19,7 @@ TLabel::TLabel(int32 x, int32 y,TImage* img, const char* name,uint8 align, TWidg
 	labelAlign = align;
     labelImg->ImgLoad(0,0,getBuffer());
     TBufPainter p(getBuffer()->getBufAddr(),getRect());
-    p.drawEnAlignText(0,0,getName(),labelAlign);
+    p.drawAlignText(0,0,getName(),labelAlign);
 }
 
 TLabel::~TLabel() 
@@ -72,7 +72,7 @@ void TLabel::slot_showValue(int32 d1,int32 d2)
 		getBuffer()->obPareBack(((TWidget*)getParents())->getBuffer()->getBufAddr() + (getOffsetWH()->width() +  getOffsetWH()->height() * ((TWidget*)getParents())->width())*GUI_PIXELSIZE,((TWidget*)getParents())->width() );
 		labelImg->ImgLoad(0,0,getBuffer());
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
-		p.drawEnAlignText(0,0,getName(),labelAlign);
+		p.drawAlignText(0,0,getName(),labelAlign);
 	}
 	else
 	{

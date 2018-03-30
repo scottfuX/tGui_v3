@@ -5,9 +5,7 @@
 #include "TGlobal.h"
 
 
-
-//#define T_GBK        1
-#define T_GB2312     2
+#define T_GBK        2
 #define T_UTF_8      3
 
 typedef struct T_Ascii_Font
@@ -33,13 +31,13 @@ extern T_ASCII_FONT Font32x32;
 class TFont
 {
 public:
-    TFont(const char *filename,uint16 width,uint16 height,uint8 codetype = T_GB2312);
+    TFont(const char *filename,uint16 width,uint16 height,uint8 codetype = T_GBK);
     virtual ~TFont();
 
     uint16 fontW(){return width;}
     uint16 fontH(){return height;}
     uint8  fontType(){return type;} 
-    uint8* getWordCode(uint32 c);
+    uint8* getWordCode(uint8* code);
 private:
     uint16 width;
     uint16 height;

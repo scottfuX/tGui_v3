@@ -17,9 +17,9 @@ TPushButton::TPushButton(int32 x, int32 y, TImage norImg ,TImage selImg ,  const
 	selImg.ImgLoad(0,0,selBuf);
 
 	TBufPainter p1(norBuf->getBufAddr(),getRect());
-	p1.drawCenterEnText(0,0, width(), height(), getName());
+	p1.drawCenterText(0,0, width(), height(), getName());
 	TBufPainter p2(selBuf->getBufAddr(),getRect());
-	p2.drawCenterEnText(0,0, width(), height(), getName());
+	p2.drawCenterText(0,0, width(), height(), getName());
 }
 
 TPushButton::~TPushButton() 
@@ -35,7 +35,7 @@ void TPushButton::sig_depress(int32 d1, int32 d2)
 	}
 	else
 	{
-		//改painter为在buf上面画画 通过refresh进行剪切
+		//鏀筽ainter涓哄湪buf涓婇潰鐢荤敾 閫氳繃refresh杩涜鍓垏
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
 		p.drawButton(0, 0, width(), height(), getName(), true);
 		refresh();
@@ -79,7 +79,5 @@ void TPushButton::release()
 
 void TPushButton::show()
 {
-	TBufPainter p(getBuffer()->getBufAddr(),getRect());
-	p.displayCHStr(0,0,"你好",false);
 	refresh();
 }
