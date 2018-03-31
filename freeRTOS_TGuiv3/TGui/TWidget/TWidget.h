@@ -6,7 +6,7 @@
 #include "TObject/TSize.h"
 #include "TObject/TObject.h"
 #include "TObject/TBuffer.h"
-#include "TContainter/tWidgetList.h"
+#include "TContainter/TWidgetList.h"
 
 
 class TWidget :public TObject
@@ -32,11 +32,12 @@ public:
 	TBuffer* 	getBuffer(){ return widgetBuf;};
 	void 		setBuffer(TBuffer* buf){widgetBuf = buf;};
 	void		setOffsetWH(int32 w, int32 h) { offsetWH->setWidth(w); offsetWH->setHeight(h); } //设置与父类的偏移
+	void 		updateOffsetWH();
 	TSize*		getOffsetWH() { return offsetWH; }	
 	void		chgChildsXY(TWidget* widget);//改变子类坐标 -- 父类在动
 	void		chgInValid(TRect* area1 = NULL , TRect* area2 = NULL); //修改/添加/删除覆盖区
 	void		chgPareInValid();
-	tWidgetList* getInvalidList() { return invalidList; } 
+	TWidgetList* getInvalidList() { return invalidList; } 
 	bool		isInRealArea(int32 x, int32 y); //  真实的区域 ，被覆盖后剩下的区域
 	bool		isInArea(int32 x, int32 y); //设定的区域
 	void        showAll() { showAll(this); }
@@ -45,7 +46,7 @@ public:
 	// void		setIsVariable(bool statVari); //把子类也改变
 	// bool		getIsVariable() { return isVariable; }
 	
-	
+
 	void refresh();
 
 	virtual void show() =0;
@@ -75,7 +76,7 @@ private:
 	TSize*	offsetWH;//根据父窗口的point的偏移
 	int32	zpos;
 	colorDef   backColor;
-	tWidgetList* invalidList; //无效列表
+	TWidgetList* invalidList; //无效列表
 	//bool	isVariable; //窗口是否是可变的  
 
 	TBuffer* widgetBuf;
@@ -89,6 +90,17 @@ private:
 	void		addAchgInvalid(TWidget* widget,TRect* area1,TRect* area2);
 	void		remInvalid(TWidget* widget);
 };
+
+ inline  void TWidget::updateOffsetWH()
+ {
+	 TWidget* wid = (TWidget*)getParents();
+	 if(wid)
+	 {
+		offsetWH->setWidth(this->x() - wid->x());//修改 偏移
+		offsetWH->setHeight(this->y() - wid->y());
+	 }
+ }
+
 
 
 #endif // !_TWIDGET_H_

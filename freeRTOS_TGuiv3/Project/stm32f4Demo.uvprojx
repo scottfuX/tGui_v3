@@ -889,24 +889,19 @@
               <FilePath>..\TGui\TContainter\TFuncList.cpp</FilePath>
             </File>
             <File>
-              <FileName>TString.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\TGui\TContainter\TString.cpp</FilePath>
-            </File>
-            <File>
               <FileName>tgui_conf.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TGui\interface_conf\tgui_conf.c</FilePath>
             </File>
             <File>
+              <FileName>TString.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\TContainter\TString.cpp</FilePath>
+            </File>
+            <File>
               <FileName>TGuiMain.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\TGui\TGuiMain.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>User.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\User\demo\User.cpp</FilePath>
             </File>
             <File>
               <FileName>TAbstractButton.cpp</FileName>
@@ -1023,6 +1018,16 @@
               <FileType>8</FileType>
               <FilePath>..\TGui\TObject\TFont.cpp</FilePath>
             </File>
+            <File>
+              <FileName>TWindow.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\TWidget\TWindow.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>TIconButton.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\TWidget\TIconButton.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1067,6 +1072,26 @@
               <FileName>aux_data.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TGui\libraries\exfuns_lib\aux_data.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>demo</GroupName>
+          <Files>
+            <File>
+              <FileName>Desktop.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\demo\Desktop.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>User.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\demo\User.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UserPhoto.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\demo\UserPhoto.cpp</FilePath>
             </File>
           </Files>
         </Group>

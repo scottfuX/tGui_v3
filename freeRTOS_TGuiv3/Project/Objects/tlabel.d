@@ -77,7 +77,7 @@
 .\objects\tlabel.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tlabel.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tlabel.o: ..\TGui\TObject/TBuffer.h
-.\objects\tlabel.o: ..\TGui\TContainter/tWidgetList.h
+.\objects\tlabel.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tlabel.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\tlabel.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\tlabel.o: ..\TGui\TObject/TFont.h

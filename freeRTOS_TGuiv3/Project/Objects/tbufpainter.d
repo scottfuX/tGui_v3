@@ -77,5 +77,5 @@
 .\objects\tbufpainter.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tbufpainter.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tbufpainter.o: ..\TGui\TObject/TBuffer.h
-.\objects\tbufpainter.o: ..\TGui\TContainter/tWidgetList.h
+.\objects\tbufpainter.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tbufpainter.o: ..\TGui\TObject/TFont.h

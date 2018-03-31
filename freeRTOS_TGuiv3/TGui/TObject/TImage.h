@@ -36,9 +36,12 @@ public:
     uint8*  imgBuf() const  {return imgBufAddr;}
 
     void Decode();
+    
+    void ImgLoad(int32 offX, int32 offY);
     void ImgLoad(int32 offX, int32 offY,TBuffer* buf);
     void ImgLoad(int32 offX, int32 offY,int32 ndW, int32 ndH,TBuffer* buf);
     void ImgBlendLoad(int32 offX, int32 offY,TBuffer* buf);
+    void ImgBlendLoad(int32 offX, int32 offY);
     void ImgBlendLoad(int32 offX, int32 offY,int32 ndW, int32 ndH,TBuffer* buf);
 
     uint8 ObFileType(const char *fname);

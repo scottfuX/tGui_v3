@@ -76,4 +76,4 @@
 .\objects\tframe.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tframe.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tframe.o: ..\TGui\TObject/TBuffer.h
-.\objects\tframe.o: ..\TGui\TContainter/tWidgetList.h
+.\objects\tframe.o: ..\TGui\TContainter/TWidgetList.h

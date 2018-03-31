@@ -5,6 +5,9 @@ TSlider::TSlider(int32 x, int32 y, int32 w, int32 h, const char* name, TWidget* 
 	:TAbstractSlider(x,y,w,h,name, obj,isHoriz)
 {
 	haveImg = false;
+	this->backImg = NULL;
+	this->frontImg = NULL;
+	this->barImg = NULL;
 	TBufPainter p(getBuffer()->getBufAddr(),getRect());
 	if (isHoriz)
 		p.drawHorizSlider(0, 0, width(), height(), value, -1, state, ((TWidget*)getParents())->getBackColor());
@@ -19,25 +22,8 @@ TSlider::TSlider(int32 x, int32 y,TImage* backImg,TImage* frontImg,TImage* barIm
 	this->backImg = backImg;
 	this->frontImg = frontImg;
 	this->barImg = barImg;
+	barSadSize = 0;
 	value  = 0;
-	if(isHoriz)
-	{
-		//根据不同的value 
-		//加载 ----- 背景，前景，bar  
-		//问题1:用buf转移 速度会不会不够快 不会
-		//问题2:应该记住现在的slider的位置然后到时还原 全部刷新
-		uint32 w = value * frontImg->imgW() / 100;
-		backImg->ImgLoad(barImg->imgW()/2,(height() - backImg->imgH())/2,getBuffer());
-		frontImg->ImgLoad(barImg->imgW()/2,(height() - frontImg->imgH())/2, w ,frontImg->imgH(),getBuffer());
-		barImg->ImgLoad(w ,0,getBuffer()); //注意  barImg->imgW() 而不是imgH() 因为height可能会有阴影 ---前提要是圆的
-
-	}
-	else
-	{
-		//根据不同的value 
-
-		//加载 ----- 背景，前景，bar 
-	}
 }
 
 TSlider::~TSlider()
@@ -63,8 +49,8 @@ void TSlider::sig_move(int32 d1, int32 d2)
 			if (value < 0)value = 0;
 			uint32 w = value * frontImg->imgW() / 100;
 			getBuffer()->obPareBack(((TWidget*)getParents())->getBuffer()->getBufAddr() + (getOffsetWH()->width() +  getOffsetWH()->height() * ((TWidget*)getParents())->width())*GUI_PIXELSIZE,((TWidget*)getParents())->width() );
-			backImg->ImgLoad(barImg->imgW()/2,(height() - backImg->imgH())/2,getBuffer());
-			frontImg->ImgLoad(barImg->imgW()/2,(height() - frontImg->imgH())/2, w ,frontImg->imgH(),getBuffer());
+			backImg->ImgLoad(barImg->imgW()/2,(height() - barSadSize - backImg->imgH())/2,getBuffer());
+			frontImg->ImgLoad(barImg->imgW()/2,(height() - barSadSize - frontImg->imgH())/2, w ,frontImg->imgH(),getBuffer());
 			barImg->ImgLoad(w,0,getBuffer()); //注意  barImg->imgW() 而不是imgH() 因为height可能会有阴影 ---前提要是圆的
 		}
 		else
@@ -147,8 +133,8 @@ void TSlider::release()
 			if (value < 0)value = 0;
 			uint32 w = value * frontImg->imgW() / 100;
 			getBuffer()->obPareBack(((TWidget*)getParents())->getBuffer()->getBufAddr() + (getOffsetWH()->width() +  getOffsetWH()->height() * ((TWidget*)getParents())->width())*GUI_PIXELSIZE,((TWidget*)getParents())->width() );
-			backImg->ImgLoad(barImg->imgW()/2,(height() - backImg->imgH())/2,getBuffer());
-			frontImg->ImgLoad(barImg->imgW()/2,(height() - frontImg->imgH())/2, w ,frontImg->imgH(),getBuffer());
+			backImg->ImgLoad(barImg->imgW()/2,(height() - barSadSize - backImg->imgH())/2,getBuffer());
+			frontImg->ImgLoad(barImg->imgW()/2,(height() - barSadSize - frontImg->imgH())/2, w ,frontImg->imgH(),getBuffer());
 			barImg->ImgLoad(w,0,getBuffer()); //注意  barImg->imgW() 而不是imgH() 因为height可能会有阴影 ---前提要是圆的
 		}
 		else
@@ -173,6 +159,30 @@ void TSlider::release()
 
 void TSlider::show()
 {
+	if(haveImg)
+	{
+		if(isHoriz)
+		{
+		//根据不同的value 
+		//加载 ----- 背景，前景，bar  
+		//问题1:用buf转移 速度会不会不够快 不会
+		//问题2:应该记住现在的slider的位置然后到时还原 全部刷新
+		uint32 w = value * frontImg->imgW() / 100;
+		backImg->ImgLoad(barImg->imgW()/2,(barImg->imgH() - barSadSize - backImg->imgH())/2,getBuffer());
+		frontImg->ImgLoad(barImg->imgW()/2,(barImg->imgH() - barSadSize - frontImg->imgH())/2, w ,frontImg->imgH(),getBuffer());
+		barImg->ImgLoad(w ,0,getBuffer()); //注意  barImg->imgW() 而不是imgH() 因为height可能会有阴影 ---前提要是圆的
+		}
+		else
+		{
+			//根据不同的value 
+
+			//加载 ----- 背景，前景，bar 
+		}
+	}
+	else
+	{
+
+	}
 	refresh();
 }
 

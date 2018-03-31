@@ -2,8 +2,26 @@
 
 
 
-TDialog::TDialog(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj)
+TDialog::TDialog(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj,uint16 title_height)
 	:TWidget(x, y, w, h, n, obj)
+{
+	dialogImg = NULL;
+	contactOffsetW = -1;
+	contactOffsetH = -1;
+	preX = -1;
+	preY = -1;
+	state = false;
+	hasFocus = true;
+	haveImg = false;
+	titleHeight = title_height;
+	setBackColor(MIDLIGHT);
+	//setIsVariable(true);//设置为可变状态 --> 加上边界无效区
+	TBufPainter p(getBuffer()->getBufAddr(),getRect());
+	p.drawDialog(0, 0, width(), height(), getName(), hasFocus, getBackColor());
+}
+
+TDialog::TDialog(int32 x, int32 y,TImage* dialogImg, const char* n, TWidget* obj,uint16 title_height)
+	:TWidget(x, y, dialogImg->imgW(), dialogImg->imgH(), n, obj)
 {
 	contactOffsetW = -1;
 	contactOffsetH = -1;
@@ -11,15 +29,20 @@ TDialog::TDialog(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj
 	preY = -1;
 	state = false;
 	hasFocus = true;
-	setBackColor(MIDLIGHT);
-	//setIsVariable(true);//设置为可变状态 --> 加上边界无效区
+	haveImg = true;
+	this->dialogImg = dialogImg;
+	titleHeight = title_height;
+
+//
+	dialogImg->ImgLoad(0,0,getBuffer());
 	TBufPainter p(getBuffer()->getBufAddr(),getRect());
-	p.drawDialog(0, 0, width(), height(), getName(), hasFocus, getBackColor());
+	p.drawCenterText(0, 0, width(), titleHeight, getName());
 }
 
 TDialog::~TDialog()
 {
-
+	if(dialogImg)
+		delete dialogImg;
 }
 
 void TDialog::show()
@@ -36,19 +59,26 @@ void TDialog::touchPressEvent(TTouchEvent *e)
 		//在区域内，且之前为失去焦点的，重新加上焦点
 		if (!hasFocus)
 		{
-			state = true;
 			hasFocus = true;
-			TBufPainter p(getBuffer()->getBufAddr(),getRect());
-			p.drawDialogTitle(0, 0, width(), getName(), true);
-			refresh();
-		}
-		if ( e->x() < (x() + width()) &&  e->y() < (y() + WIN_TITLE_H))
-		{
 			state = true;
-			contactOffsetW = e->x() - x();
-			contactOffsetH = e->y() - y();
-			preX = x();
-			preY = y();
+			if(haveImg)
+			{
+
+			}
+			else
+			{
+				TBufPainter p(getBuffer()->getBufAddr(),getRect());
+				p.drawDialogTitle(0, 0, width(), getName(), true);
+				refresh();
+			}
+		}
+		if ( e->x() < (x() + width()) &&  e->y() < (y() + titleHeight))
+		{
+				state = true;
+				contactOffsetW = e->x() - x();
+				contactOffsetH = e->y() - y();
+				preX = x();
+				preY = y();
 		}
 		if (getInvalidList())//被激活，且有覆盖区
 		{
@@ -73,9 +103,16 @@ void TDialog::touchPressEvent(TTouchEvent *e)
 	else if(hasFocus)
 	{
 		hasFocus = false;
-		TBufPainter p(getBuffer()->getBufAddr(),getRect());
-		p.drawDialogTitle(0, 0, width(), getName(), false);
-		refresh();
+		if(haveImg)
+		{
+
+		}
+		else
+		{
+			TBufPainter p(getBuffer()->getBufAddr(),getRect());
+			p.drawDialogTitle(0, 0, width(), getName(), false);
+			refresh();
+		}
 	}
 };
 
@@ -98,6 +135,16 @@ void TDialog::touchMoveEvent(TTouchEvent *e)
 		getRect()->moveTopLeft(nowX, nowY);
 		//遍历改变子类的坐标 
 		chgChildsXY(this);
+
+		//获得底色，画上前景
+		getBuffer()->obPareBack(((TWidget*)getParents())->getBuffer()->getBufAddr() +\
+			 (getOffsetWH()->width() +  getOffsetWH()->height() * ((TWidget*)getParents())->width())*GUI_PIXELSIZE,((TWidget*)getParents())->width());
+		dialogImg->ImgLoad(0,0,getBuffer());
+		TBufPainter p(getBuffer()->getBufAddr(),getRect());
+		p.drawCenterText(0, 0, width(), titleHeight, getName());
+
+		updateOffsetWH();//update 偏移
+
 		//遍历画全部的子类的图像
 		showAll();
 		//遍历树，并设置覆盖情况  Zpos / 移动后面补充没加

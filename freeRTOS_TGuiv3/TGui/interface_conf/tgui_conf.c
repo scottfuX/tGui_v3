@@ -8,25 +8,11 @@ volatile int32_t TouchX = -1;
 volatile int32_t TouchY = -1;
 volatile int8_t state = 0;
 
+
+
 #if GUI_SET_DMA2D
-void gui_dma2d_memset(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint32_t xpos,uint32_t ypos,uint32_t width,uint32_t height)
-{
-
-// uint32_t* addr = (uint32_t*)((uint32_t)buf_addr + GUI_PIXELSIZE*(buf_width * ypos + xpos));
-// printf("addr %x\n",addr);
-// for(int i=0;i< height;i++)
-// {
-// 	for(int j=0;j< width;j++)
-
-
-
-// 	{
-// 		*addr = color;
-// 		addr++;
-// 	}
-// 	addr += buf_width - width;
-// }
-
+void gui_set_rect(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint32_t xpos,uint32_t ypos,uint32_t width,uint32_t height)
+{//DMA2D MODE ---> DMA2D CONFIG HERE
   DMA2D_InitTypeDef      DMA2D_InitStruct;
   uint32_t Xaddress = 0; 
   uint16_t Alpha_Value = 0xff,Red_Value = 0, Green_Value = 0, Blue_Value = 0;
@@ -70,7 +56,7 @@ void gui_dma2d_memset(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint3
   DMA2D_InitStruct.DMA2D_OutputGreen = Green_Value;      
   DMA2D_InitStruct.DMA2D_OutputBlue = Blue_Value;     
   DMA2D_InitStruct.DMA2D_OutputRed = Red_Value;                
-  DMA2D_InitStruct.DMA2D_OutputAlpha = 0xff;//Alpha_Value;                  
+  DMA2D_InitStruct.DMA2D_OutputAlpha = 0xff;//Alpha_Value; //---------------------------------------这个是要改回来的-----------------                 
   DMA2D_InitStruct.DMA2D_OutputMemoryAdd = Xaddress;                
   DMA2D_InitStruct.DMA2D_OutputOffset = (buf_width - width);                
   DMA2D_InitStruct.DMA2D_NumberOfLine = height;            
@@ -86,11 +72,83 @@ void gui_dma2d_memset(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint3
   } 
 }
 #else
-void gui_memset(uint32_t* addr,uint32_t color,int32_t width,int32_t height)
-{
-
+void gui_set_rect(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint32_t xpos,uint32_t ypos,uint32_t width,uint32_t height)
+{//NORMAL MODE ---> NORMAL CONFIG HERE
+	uint32_t* addr = (uint32_t*)((uint32_t)buf_addr + GUI_PIXELSIZE*(buf_width * ypos + xpos));
+	for(int i=0;i< height;i++)
+	{
+		for(int j=0;j< width;j++)
+		{
+			*addr = color;
+			addr++;
+		}
+		addr += buf_width - width;
+	}
 }
-#endif
+#endif //!GUI_SET_DMA2D
+
+
+
+
+#if GUI_CPY_DMA
+
+//memcpy 最好是字传输  速度最快
+void* gui_memcpy(void *dest, void *src, unsigned int count)
+{//dma 方式速度很慢 目前有问题
+	DMA_InitTypeDef  DMA_InitStructure;
+	__IO uint32_t    Timeout = 10000;//TIMEOUT_MAX;  
+
+	/* 使能DMA时钟 */
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2, ENABLE);
+	/* 复位初始化DMA数据流 */
+	DMA_DeInit(DMA2_Stream0);
+	/* 确保DMA数据流复位完成 */
+	while (DMA_GetCmdStatus(DMA2_Stream0) != DISABLE)
+	{
+	}
+
+	DMA_InitStructure.DMA_Channel = DMA_Channel_0;  /* DMA数据流通道选择 */
+	DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)src; /* 源数据地址 */
+	DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)dest; /* 目标地址 */
+	DMA_InitStructure.DMA_DIR = DMA_DIR_MemoryToMemory;  /* 存储器到存储器模式 */
+	DMA_InitStructure.DMA_BufferSize = (uint32_t)count; /* 数据数目 */
+	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Enable; /* 使能自动递增功能 */
+	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable; /* 使能自动递增功能 */
+	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word; /* 源数据是字大小(32位) */
+	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Word;  /* 目标数据也是字大小(32位) */
+	DMA_InitStructure.DMA_Mode = DMA_Mode_Normal; /* 一次传输模式，存储器到存储器模式不能使用循环传输 */
+	DMA_InitStructure.DMA_Priority = DMA_Priority_High; /* DMA数据流优先级为高 */
+	DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Disable;     /* 禁用FIFO模式 */
+	DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_Full;
+	DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;/* 单次模式 */
+	DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;/* 单次模式 */
+	DMA_Init(DMA2_Stream0, &DMA_InitStructure);/* 完成DMA数据流参数配置 */
+	DMA_ClearFlag(DMA2_Stream0,DMA_FLAG_TCIF0);  /* 清除DMA数据流传输完成标志位 */
+	DMA_Cmd(DMA2_Stream0, ENABLE);/* 使能DMA数据流，开始DMA数据传输 */
+
+	/* 检测DMA数据流是否有效并带有超时检测功能 */
+	while ((DMA_GetCmdStatus(DMA2_Stream0) != ENABLE) && (Timeout-- > 0))
+	{
+	}
+
+	if (Timeout == 0)/* 判断是否超时 */
+	{
+		return NULL;
+	} 
+
+	while(DMA_GetFlagStatus(DMA2_Stream0,DMA_FLAG_TCIF0) == DISABLE); //一直等待传输好---> 也可以不等待以后再优化
+	return dest;
+}
+
+#else
+void* gui_memcpy(void *dest, void *src, unsigned int count)
+{//memcpy
+	return memcpy(dest,src,count);
+}
+#endif //!GUI_CPY_DMA
+
+
+
 
 void guiGetPrePoint(int32_t* x,int32_t* y)
 {

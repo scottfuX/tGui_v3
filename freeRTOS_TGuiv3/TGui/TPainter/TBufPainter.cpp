@@ -904,7 +904,7 @@ void TBufPainter::paintMeta(TRect* srcRect)
 	//先进行混合颜色
 
 	//在搬运到TBuffer上
-	gui_dma2d_memset((uint32_t*)bufAddr,bufRect->width(),textcolor,srcRect->x(),srcRect->y(),srcRect->width(),srcRect->height());
+	gui_set_rect((uint32_t*)bufAddr,bufRect->width(),textcolor,srcRect->x(),srcRect->y(),srcRect->width(),srcRect->height());
 }
 
 

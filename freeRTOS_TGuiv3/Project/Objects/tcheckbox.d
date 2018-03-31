@@ -77,7 +77,7 @@
 .\objects\tcheckbox.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tcheckbox.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tcheckbox.o: ..\TGui\TObject/TBuffer.h
-.\objects\tcheckbox.o: ..\TGui\TContainter/tWidgetList.h
+.\objects\tcheckbox.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tcheckbox.o: ..\TGui\TObject/TImage.h
 .\objects\tcheckbox.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tcheckbox.o: ..\TGui\interface_conf/tgui_conf.h

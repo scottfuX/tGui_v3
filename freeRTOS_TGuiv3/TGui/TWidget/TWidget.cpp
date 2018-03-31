@@ -16,12 +16,16 @@ TWidget::TWidget(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj
 	offsetWH->setHeight(this->y() - obj->y() );
 	
 	chgPareInValid();
-	
 	if(getParents() == NULL)
+	{
 		widgetBuf = new TBuffer(NULL, w , w , h);
+	}
 	else
-		widgetBuf = new TBuffer(obj->getBuffer()->getBufAddr() + (offsetWH->width() +  offsetWH->height() * obj->width())*GUI_PIXELSIZE, obj->width() , w , h);
-		
+	{
+		if(obj->getBuffer())
+			widgetBuf = new TBuffer(obj->getBuffer()->getBufAddr() + (offsetWH->width() +  offsetWH->height() * obj->width())*GUI_PIXELSIZE, obj->width() , w , h);
+	}		
+	
 	// if (getParents())
 	// {
 	// 	backColor = ((TWidget*)getParents())->getBackColor();
@@ -56,10 +60,13 @@ TWidget::TWidget(TRect r, const char* n, TWidget* obj):TObject(n,obj)
 	
 	chgPareInValid();
 	
+
 	if(getParents() == NULL)
 		widgetBuf = new TBuffer(NULL, r.width() , r.width() , r.height());
 	else
 		widgetBuf = new TBuffer(((TWidget*)getParents())->getBuffer()->getBufAddr(), ((TWidget*)getParents())->width() , r.width() , r.height());
+
+
 }
 
 TWidget::~TWidget() {
@@ -73,7 +80,6 @@ bool TWidget::isInRealArea(int32 xt, int32 yt)
 {
 	if (isInArea(xt,yt))
 	{
-		
 		if (invalidList)
 		{
 			TWidget * tmp;
@@ -185,7 +191,7 @@ void  TWidget::addAchgInvalid(TWidget* widget, TRect* area1, TRect* area2)
 	}
 	else
 	{
-		invalidList = new tWidgetList();
+		invalidList = new TWidgetList();
 		invalidList->append(widget);
 	}
 }

@@ -76,6 +76,6 @@
 .\objects\tapplication.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tapplication.o: ..\TGui\TWidget/TWidget.h
 .\objects\tapplication.o: ..\TGui\TObject/TBuffer.h
-.\objects\tapplication.o: ..\TGui\TContainter/tWidgetList.h
+.\objects\tapplication.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tapplication.o: ..\TGui\TObject/TDirver.h
 .\objects\tapplication.o: ..\TGui\interface_conf/tgui_conf.h

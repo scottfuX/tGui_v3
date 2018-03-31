@@ -77,7 +77,7 @@
 .\objects\tpushbutton.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tpushbutton.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tpushbutton.o: ..\TGui\TObject/TBuffer.h
-.\objects\tpushbutton.o: ..\TGui\TContainter/tWidgetList.h
+.\objects\tpushbutton.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tpushbutton.o: ..\TGui\TObject/TImage.h
 .\objects\tpushbutton.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tpushbutton.o: ..\TGui\interface_conf/tgui_conf.h

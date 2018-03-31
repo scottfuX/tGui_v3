@@ -3,6 +3,7 @@
 
 #include "TWidget/TWidget.h"
 #include "TPainter/TBufPainter.h"
+#include "TObject/TImage.h"
 
 class TDialog :
 	public TWidget
@@ -14,13 +15,16 @@ private:
 	int32 preY;
 	int32 contactOffsetW; //按下点的偏移
 	int32 contactOffsetH; //按下点的偏移
+	uint16 titleHeight;
+	bool haveImg;
+	TImage* dialogImg;
 
 	void restRect(int32 preX, int32 preY, int32 nowX, int32 nowY, TRect &r1, TRect &r2);
 
 public:
-	TDialog(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj );
+	TDialog(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj,uint16 title_height = WIN_TITLE_H);
+	TDialog(int32 x, int32 y,TImage* dialogImg ,const char* n, TWidget* obj,uint16 title_height = WIN_TITLE_H);
 	virtual ~TDialog();
-
 	virtual void	show();
 
 	virtual void touchPressEvent(TTouchEvent *);

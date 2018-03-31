@@ -35,6 +35,8 @@
         "type_traits": "cpp",
         "atomic": "cpp",
         "system_error": "cpp",
-        "sdram_conf.h": "c"
+        "sdram_conf.h": "c",
+        "fstream": "cpp",
+        "__string": "cpp"
     }
 }

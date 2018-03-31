@@ -77,7 +77,7 @@
 .\objects\tslider.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tslider.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tslider.o: ..\TGui\TObject/TBuffer.h
-.\objects\tslider.o: ..\TGui\TContainter/tWidgetList.h
+.\objects\tslider.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tslider.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\tslider.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\tslider.o: ..\TGui\TObject/TFont.h

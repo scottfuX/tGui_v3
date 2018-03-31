@@ -3,7 +3,7 @@
 #include "TContainter/TList.h"
 
 class TWidget;
-class tWidgetList :public TList<TWidget*>
+class TWidgetList :public TList<TWidget*>
 {
 public:
 	void append(TWidget* t) { TList<TWidget*>::append(t); }

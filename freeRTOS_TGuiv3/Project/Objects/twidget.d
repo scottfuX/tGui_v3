@@ -75,4 +75,4 @@
 .\objects\twidget.o: ..\TGui\TContainter/TFuncList.h
 .\objects\twidget.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\twidget.o: ..\TGui\TObject/TBuffer.h
-.\objects\twidget.o: ..\TGui\TContainter/tWidgetList.h
+.\objects\twidget.o: ..\TGui\TContainter/TWidgetList.h

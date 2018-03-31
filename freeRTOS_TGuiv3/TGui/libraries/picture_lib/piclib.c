@@ -171,7 +171,7 @@ u32 piclib_read_point(u16 x,u16 y)
 
 void piclib_draw_point(u16 x,u16 y,u32 color)
 {
-	gui_dma2d_memset((uint32_t*)picinfo.bufaddr,picinfo.bufwidth,color,x ,y ,1,1);
+	gui_set_rect((uint32_t*)picinfo.bufaddr,picinfo.bufwidth,color,x ,y ,1,1);
 }
 
 //lcd.h没有提供划横线函数,需要自己实现
@@ -179,12 +179,12 @@ void piclib_draw_hline(u16 x0,u16 y0,u16 len,u32 color)
 {
 	if((len==0)||(x0>picinfo.bufwidth)||(y0>picinfo.bufheight))
 		return;
-	gui_dma2d_memset((uint32_t* )picinfo.bufaddr,picinfo.bufwidth,color,x0,y0,len,1);
+	gui_set_rect((uint32_t* )picinfo.bufaddr,picinfo.bufwidth,color,x0,y0,len,1);
 }
 
 void piclib_fill_color(u16 x,u16 y,u16 width,u16 height,u32 color)
 {
-	gui_dma2d_memset((uint32_t* )picinfo.bufaddr,picinfo.bufwidth,color,x ,y ,width,height);
+	gui_set_rect((uint32_t* )picinfo.bufaddr,picinfo.bufwidth,color,x ,y ,width,height);
 }
 //填充颜色
 //x,y:起始坐标
@@ -209,7 +209,7 @@ void piclib_fill_colors(u16 x,u16 y,u16 width,u16 height,u8 *color)
 			color_tmp += (color[offset + 2]);
 			color_tmp |= 0xFF000000;
 #endif
-			gui_dma2d_memset((uint32_t* )picinfo.bufaddr,picinfo.bufwidth, color_tmp , x + j , y + i , 1 , 1);
+			gui_set_rect((uint32_t* )picinfo.bufaddr,picinfo.bufwidth, color_tmp , x + j , y + i , 1 , 1);
 			color_tmp = 0;
 		}
 	}

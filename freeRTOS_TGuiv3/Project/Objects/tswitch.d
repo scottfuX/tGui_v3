@@ -77,7 +77,7 @@
 .\objects\tswitch.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tswitch.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tswitch.o: ..\TGui\TObject/TBuffer.h
-.\objects\tswitch.o: ..\TGui\TContainter/tWidgetList.h
+.\objects\tswitch.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tswitch.o: ..\TGui\TObject/TImage.h
 .\objects\tswitch.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tswitch.o: ..\TGui\interface_conf/tgui_conf.h

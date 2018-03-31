@@ -76,4 +76,4 @@
 .\objects\tabstractslider.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tabstractslider.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tabstractslider.o: ..\TGui\TObject/TBuffer.h
-.\objects\tabstractslider.o: ..\TGui\TContainter/tWidgetList.h
+.\objects\tabstractslider.o: ..\TGui\TContainter/TWidgetList.h

@@ -40,22 +40,21 @@ extern "C" {
 #define GUI_WIDTH			LCD_PIXEL_WIDTH
 #define GUI_HIGH			LCD_PIXEL_HEIGHT
 
-#define GUI_SET_DMA2D           1                   //使用DMA2D进行绘图
-#define GUI_DIRECT_SHEAR_FIELD  0                   //直接绘画在显存上
+#define GUI_SET_DMA2D           1                   //是否使用DMA2D进行绘图
+#define GUI_CPY_DMA             0                   //是否使用DMA进行拷贝内存
 
 
-#define TFON_FILE           "0:/GBK24.FON"
-#define TFON_WIDTH          24
-#define TFON_HEIGHT         24
+#define TFON_FILE           "0:/GBK16HEI.FON"
+#define TFON_WIDTH          16
+#define TFON_HEIGHT         16
 #define TFON_TYPE           T_GBK
-#define TFON_ASCII          Font24x24
+#define TFON_ASCII          Font16x16   //Font32x32 Font24x24 Font16x16 Font12x12
 
 
-#if GUI_SET_DMA2D                                   //设置画点函数
-    void gui_dma2d_memset(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint32_t xpos,uint32_t ypos,uint32_t width,uint32_t height);
-#else
-    void gui_memset(uint32_t* addr,uint32_t color,int32_t width,int32_t height);
-#endif
+
+void gui_set_rect(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint32_t xpos,uint32_t ypos,uint32_t width,uint32_t height);
+void* gui_memcpy(void *dest, void *src, unsigned int count);
+
 
 
 //Touch 获取数据函数

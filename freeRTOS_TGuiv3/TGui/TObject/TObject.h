@@ -17,7 +17,7 @@ public:
 	bool		disconnect(func  sig, TObject* receiver, func  slot);
 	void		addChild(TObject* child);
 	void		remChild(TObject* child);
-	void		destroyChild(TObject*);
+	void		destroyChild(TObject* child);
 	tLNode<TObject*> *		unlink(TObject* obj);
 	void			relink(tLNode<TObject*> * node);
 	void		regist(TObject* obj);

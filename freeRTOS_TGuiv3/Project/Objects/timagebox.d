@@ -120,7 +120,7 @@
 .\objects\timagebox.o: ..\TGui\TObject/TConnection.h
 .\objects\timagebox.o: ..\TGui\TContainter/TFuncList.h
 .\objects\timagebox.o: ..\TGui\TContainter/tFuncNode.h
-.\objects\timagebox.o: ..\TGui\TContainter/tWidgetList.h
+.\objects\timagebox.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\timagebox.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\timagebox.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\timagebox.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

@@ -3,17 +3,18 @@
 TBuffer::TBuffer(uint8* pre_addr,uint32 pre_w,uint32 w,uint32 h)
 {
     buf = NULL;
-    buf = new uint8[w * h * GUI_PIXELSIZE];
     //buf = (uint8*) malloc (w * h * GUI_PIXELSIZE);
 	bufW = w;
 	bufH = h;
 	if(pre_addr)
 	{	//搬运父亲背景 至 TBuffer
+		buf = new uint8[w * h * GUI_PIXELSIZE];
 		obPareBack(pre_addr,pre_w);
 	}
 	else
 	{
-		gui_dma2d_memset((uint32_t*)buf,w,WHITE,0 , 0,w,h);
+		buf = new uint8[w * h * GUI_PIXELSIZE];
+		gui_set_rect((uint32_t* )buf,w,0xFFFFFFFF,0 ,0,w,h);
 	}
 }
 
@@ -39,19 +40,16 @@ TBuffer::~TBuffer()
 */
 void TBuffer::transform(int32 x,int32 y,TRect* srcRect)
 {//输送一部分内容到显存
-	uint32 des_addr = (GUI_FG_BUFADDR + (srcRect->top() * GUI_WIDTH +  srcRect->left()) * GUI_PIXELSIZE);
-	uint32 x_offset = srcRect->left() - x; //算出 剪切区域x 相对 TBuffer 偏移
-	uint32 y_offset = srcRect->top() - y;	 //算出 剪切区域y 相对 TBuffer 偏移
-	uint32 src_addr = (uint32)getBufAddr() + (y_offset * bufW + x_offset ) * GUI_PIXELSIZE;
-	for(int i = 0;i < srcRect->height();  i++)
-	{
-		//memcpy 模式
-		memcpy((uint8*)des_addr,(uint8*)src_addr,srcRect->width() * GUI_PIXELSIZE);
-		//dma 模式
-		//--------------------------
-		src_addr += bufW * GUI_PIXELSIZE;
-		des_addr += GUI_WIDTH * GUI_PIXELSIZE;
-	}
+		uint32 des_addr = (GUI_FG_BUFADDR + (srcRect->top() * GUI_WIDTH +  srcRect->left()) * GUI_PIXELSIZE);
+		uint32 x_offset = srcRect->left() - x; //算出 剪切区域x 相对 TBuffer 偏移
+		uint32 y_offset = srcRect->top() - y;	 //算出 剪切区域y 相对 TBuffer 偏移
+		uint32 src_addr = (uint32)getBufAddr() + (y_offset * bufW + x_offset ) * GUI_PIXELSIZE;
+		for(int i = 0;i < srcRect->height();  i++)
+		{
+			gui_memcpy((uint8*)des_addr,(uint8*)src_addr,srcRect->width() * GUI_PIXELSIZE);
+			src_addr += bufW * GUI_PIXELSIZE;
+			des_addr += GUI_WIDTH * GUI_PIXELSIZE;
+		}
 }
 
 void TBuffer::obPareBack(uint8* pre_addr,uint32 pre_w)
@@ -60,7 +58,7 @@ void TBuffer::obPareBack(uint8* pre_addr,uint32 pre_w)
 	uint32 src_addr = (uint32)pre_addr;
 	for(int i = 0;i < bufH;  ++i)
 	{
-		memcpy((uint8 *)des_addr,(uint8 *)src_addr,bufW * GUI_PIXELSIZE);
+		gui_memcpy((uint8 *)des_addr,(uint8 *)src_addr,bufW * GUI_PIXELSIZE);
 		src_addr += pre_w * GUI_PIXELSIZE;
 		des_addr += bufW * GUI_PIXELSIZE;
 	}
@@ -74,7 +72,7 @@ uint32 TBuffer::readPoint(int32 x,int32 y)
 
 void TBuffer::writePoint(int32 x,int32 y,uint32 color)
 {
-	gui_dma2d_memset((uint32_t*)buf,bufW,color,x , y ,1,1);
+	gui_set_rect((uint32_t*)buf,bufW,color,x , y ,1,1);
 }
 
 

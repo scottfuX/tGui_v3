@@ -5,32 +5,47 @@
 #include "TGlobal.h"
 #include "TObject/TObject.h"
 #include "TWidget/TWidget.h"
+#include "TContainter/TWidgetList.h"
 #include "TObject/TEven.h"
 #include "TObject/TDirver.h"
 
+
+#define SHARE_SIGNAL_CLOSE 0x000000FF
+#define SHARE_SIGNAL_HIDE  0x0000FF00
+
 class TApplication
 {
-	TWidget* widroot;
-	int16 objNum;
+	TWidget* widroot;//必须是一个窗口类
 	TEvent* event;
 	TDirver* dirver;
+	TWidgetList* windList;
+
+	//需要一个 共同的 信号槽  -->用于接受下面控件传上来的事件
+	volatile TWidget* SHARE_SIGNAL_OBJ;
+	volatile int32 SHARE_SIGNAL_DATA;
 
 	void distribute();
 	void distribute(TObject* obj);
-	void translate(TDirver* div);
-
-	void visitAll(TObject* obj, TApplication* app);
+	void translate();
+	void visitAll(TObject* obj);
 	void emit(TObject* obj);
 public:
-	TApplication(TWidget* r, TDirver* dirver);
+	TApplication(TDirver* dirver);
 	~TApplication();
 	TEvent* getEvent() { return event; }
-	int32 getObjNum() { return objNum; }
-	void add(TObject* obj, TObject* parents = NULL);
+
+	void addWindow(TWidget* window);
+	void remWindow(TWidget* window);
+	void chgWidRoot(TWidget* window);
+	void chgWidRoot();
+	void delWidRoot();
+
+	void setSignal(TWidget* wid,int32 data);
 	void run();
 	void suspension();
 	void destroy();
 	void show();
+	
 };
 
 

@@ -40,7 +40,7 @@ uint32_t tim6_count;
 //0XD0577000 >> 480*320* X(类型的字节数 ARGB8888 -> 4 )  前景层
 //有透明功能 --> 主要为前景背景层 前景层为覆盖 
 //无透明层 可直接操控前景层即可
-//memcpy 最好是字传输  速度最快
+
 
 extern char src_dir[255];
 extern char dst_dir[255];
@@ -77,7 +77,7 @@ int main()
 	LCD_Init();
 	//SDRAMConfig();  //进入main前，已经初始化了
 	//FLASHConfig();
-	gui_dma2d_memset((uint32_t* )GUI_FG_BUFADDR,GUI_WIDTH,0xFFFFFFFF,0 ,0,GUI_WIDTH,GUI_HIGH);
+	gui_set_rect((uint32_t* )GUI_FG_BUFADDR,GUI_WIDTH,0xFFFFFFFF,0 ,0,GUI_WIDTH,GUI_HIGH);
 	wifi_close();
 	
 	//每个函数都要用while结尾

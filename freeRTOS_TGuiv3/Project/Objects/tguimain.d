@@ -79,14 +79,12 @@
 .\objects\tguimain.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tguimain.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tguimain.o: ..\TGui\TObject/TBuffer.h
-.\objects\tguimain.o: ..\TGui\TContainter/tWidgetList.h
+.\objects\tguimain.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tguimain.o: ..\TGui\TObject/TFont.h
 .\objects\tguimain.o: ..\TGui\TObject/TDirver.h
 .\objects\tguimain.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\tguimain.o: ..\TGui\TObject/TApplication.h
-.\objects\tguimain.o: ..\TGui\TWidget/TDialog.h
-.\objects\tguimain.o: ..\TGui\TWidget/TPushButton.h
-.\objects\tguimain.o: ..\TGui\TWidget/TAbstractButton.h
+.\objects\tguimain.o: ..\TGui\TWidget/TWindow.h
 .\objects\tguimain.o: ..\TGui\TObject/TImage.h
 .\objects\tguimain.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tguimain.o: ..\TGui\interface_conf/tgui_conf.h
@@ -130,6 +128,10 @@
 .\objects\tguimain.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_strref.h
 .\objects\tguimain.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_traits.h
 .\objects\tguimain.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
+.\objects\tguimain.o: ..\TGui\demo/User.h
+.\objects\tguimain.o: ..\TGui\TWidget/TDialog.h
+.\objects\tguimain.o: ..\TGui\TWidget/TPushButton.h
+.\objects\tguimain.o: ..\TGui\TWidget/TAbstractButton.h
 .\objects\tguimain.o: ..\TGui\TWidget/TCheckBox.h
 .\objects\tguimain.o: ..\TGui\TWidget/TRadioButton.h
 .\objects\tguimain.o: ..\TGui\TWidget/TLabel.h
@@ -138,4 +140,6 @@
 .\objects\tguimain.o: ..\TGui\TWidget/TAbstractSlider.h
 .\objects\tguimain.o: ..\TGui\TWidget/TImageBox.h
 .\objects\tguimain.o: ..\TGui\TWidget/TSwitch.h
-.\objects\tguimain.o: ..\User\demo/User.h
+.\objects\tguimain.o: ..\TGui\TWidget/TIconButton.h
+.\objects\tguimain.o: ..\TGui\demo/Desktop.h
+.\objects\tguimain.o: ..\TGui\demo/UserPhoto.h
