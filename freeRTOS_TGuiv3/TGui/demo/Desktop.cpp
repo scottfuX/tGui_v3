@@ -29,14 +29,7 @@ Desktop::Desktop(const char* filename,TApplication* app,const char* n, TWidget* 
 
 Desktop::~Desktop() 
 {
-	delete icon_clock;
-    delete icon_date ;
-    delete icon_setting ;
-    delete icon_calculator ;
-    delete icon_photo ;
-    delete icon_play ;
-    delete icon_search ;
-    delete icon_weather ;
+
 }
 
 void Desktop::show()

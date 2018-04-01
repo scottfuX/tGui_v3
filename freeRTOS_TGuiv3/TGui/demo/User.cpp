@@ -50,20 +50,7 @@ User::User(const char* filename,TApplication* app,const char* n, TWidget* obj)
 
 User::~User() 
 {
-	delete radio1;
-	delete radio2;
-	delete radio3;
-	delete img;
-	delete btn;
-	delete btn1;
-	delete btn2;
-	delete swtch;
-	delete chck;
-	delete chck1;
-	delete slider1;
-	delete slider2;
-	delete label1;
-	delete dialog2;
+	
 }
 
 void User::show()

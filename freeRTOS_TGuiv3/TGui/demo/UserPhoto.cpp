@@ -12,8 +12,7 @@ UserPhoto::UserPhoto(const char* filename,TApplication* app,const char* n, TWidg
 
 UserPhoto::~UserPhoto() 
 {
-	delete left_btn;
-    delete right_btn;
+	
 }
 
 void UserPhoto::show()
