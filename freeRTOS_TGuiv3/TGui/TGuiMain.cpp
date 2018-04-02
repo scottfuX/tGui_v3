@@ -3,8 +3,8 @@
 
 void TGuiRun()
 {
-	// Ö÷ÒªµÄ¼¸¸öÎÊÌâĞèÒª½â¾ö
-	//1.¶àÏß³Ì 
+	// ä¸»è¦çš„å‡ ä¸ªé—®é¢˜éœ€è¦è§£å†³
+	//1.å¤šçº¿ç¨‹ 
 	TTouchDirver dirve;
 	TApplication app(&dirve);
 

@@ -11,18 +11,33 @@ extern "C" {
 
 #include "TGlobal.h"
 #include "TObject/TRect.h"
+#include "TObject/TImage.h"
+#include "TObject/TSize.h"
+#include "TObject/TRect.h"
+
+// typedef struct T_BUF
+// {
+//     uint8* addr;
+//     uint16 bufW;
+//     uint16 bufH;
+    
+// }TBufDef;
 
 
 class TBuffer
 {
 private:
-    uint8* buf;
-    uint32 bufW;
-    uint32 bufH;
+    int  contextType;
+    uint8* addr;
+    uint16 bufW;
+    uint16 bufH;
+    
 public:
     TBuffer(uint8* pre_addr,uint32 pre_w,uint32 w,uint32 h);
+    TBuffer(TImage* img);
     ~TBuffer();
-    uint8*  getBufAddr(){return buf;};
+
+    uint8*  getBufAddr(){return addr;}
     uint32  getBufW(){return bufW;}
     uint32  getBufH(){return bufH;}
 

@@ -21,7 +21,7 @@
 class Desktop :public TWindow
 {
 public:
-	//Desktop(const char*  n, TWidget* obj);
+   // Desktop(const char*  n, TWidget* obj);
 	Desktop(const char* filename,TApplication* app,const char*  n = NULL, TWidget* obj = NULL );
 	virtual ~Desktop() ;
 	virtual void show();
