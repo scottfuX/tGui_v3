@@ -16,15 +16,9 @@ TWidget::TWidget(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj
 	offsetWH->setHeight(this->y() - obj->y() );
 	
 	chgPareInValid();
-	if(getParents() == NULL)
-	{
-		widgetBuf = new TBuffer(NULL, w , w , h);
-	}
-	else
-	{
-		if(obj->getBuffer())
-			widgetBuf = new TBuffer(obj->getBuffer()->getBufAddr() + (offsetWH->width() +  offsetWH->height() * obj->width())*GUI_PIXELSIZE, obj->width() , w , h);
-	}		
+	
+	widgetBuf = new TBuffer(w , h);
+	
 	
 	// if (getParents())
 	// {
@@ -60,13 +54,8 @@ TWidget::TWidget(TRect r, const char* n, TWidget* obj):TObject(n,obj)
 	
 	chgPareInValid();
 	
-
-	if(getParents() == NULL)
-		widgetBuf = new TBuffer(NULL, r.width() , r.width() , r.height());
-	else
-		widgetBuf = new TBuffer(((TWidget*)getParents())->getBuffer()->getBufAddr(), ((TWidget*)getParents())->width() , r.width() , r.height());
-
-
+	widgetBuf = new TBuffer(r.width() , r.height());
+	
 }
 
 TWidget::~TWidget() {
@@ -100,11 +89,24 @@ void TWidget::refresh()
 	rectCut(getRect());
 }
 
-bool TWidget::isInArea(int32 xt, int32 yt)
+//与图像加载函数对接的函数
+//x,y  加载到内存的位置  
+//rectFrom 需要加载多大
+void TWidget::imgLoadInterface(int32 x,int32 y,TImage* img,TRect* rectFrom ,bool isOneSelf) 
 {
-	if (xt >= x() && yt >= y() && xt < (x() + width()) && yt < (y() + height()))
-		return true;
-	return false;
+	uint8* addr = getBuffer()->getBufAddr() + (x + y * width())* GUI_PIXELSIZE;
+	TSize size2(getBuffer()->getBufW() , getBuffer()->getBufH());
+	if(isOneSelf)
+	{
+		img->imgLoad(addr,&size2,addr,&size2,rectFrom);
+	}
+	else
+	{
+		uint8* pareAddr = ((TWidget*)getParents())->getBuffer()->getBufAddr() + \
+			(getOffsetWH()->width() + x +  (getOffsetWH()->height() + y) * ((TWidget*)getParents())->width()) * GUI_PIXELSIZE;
+		TSize size1(((TWidget*)getParents())->getBuffer()->getBufW(),((TWidget*)getParents())->getBuffer()->getBufH());
+		img->imgLoad(pareAddr,&size1,addr,&size2,rectFrom);
+	}
 }
 
 

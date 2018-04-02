@@ -11,7 +11,7 @@ class TRadioButton :
 {
 public:
 	TRadioButton(int32 x, int32 y, int32 w, int32 h, const char* name, TWidget* obj);
-	TRadioButton(TRect rect,TImage norImg,TImage selImg, const char* name, TWidget* obj);
+	TRadioButton(TRect rect,TImage* norImg,TImage* selImg, const char* name, TWidget* obj);
 	virtual ~TRadioButton();
 	virtual void	show();
 	virtual void sig_depress(int32 d1, int32 d2);

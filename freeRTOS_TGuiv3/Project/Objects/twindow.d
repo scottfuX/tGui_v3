@@ -76,13 +76,6 @@
 .\objects\twindow.o: ..\TGui\TContainter/TFuncList.h
 .\objects\twindow.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\twindow.o: ..\TGui\TObject/TBuffer.h
-.\objects\twindow.o: ..\TGui\TContainter/TWidgetList.h
-.\objects\twindow.o: ..\TGui\TObject/TApplication.h
-.\objects\twindow.o: ..\TGui\TObject/TDirver.h
-.\objects\twindow.o: ..\TGui\interface_conf/tgui_conf.h
-.\objects\twindow.o: ..\TGui\TPainter/TBufPainter.h
-.\objects\twindow.o: ..\TGui\interface_conf/tgui_conf.h
-.\objects\twindow.o: ..\TGui\TObject/TFont.h
 .\objects\twindow.o: ..\TGui\TObject/TImage.h
 .\objects\twindow.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\twindow.o: ..\TGui\interface_conf/tgui_conf.h
@@ -126,3 +119,11 @@
 .\objects\twindow.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_strref.h
 .\objects\twindow.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_traits.h
 .\objects\twindow.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
+.\objects\twindow.o: ..\TGui\TContainter/TWidgetList.h
+.\objects\twindow.o: ..\TGui\TObject/TApplication.h
+.\objects\twindow.o: ..\TGui\TObject/TDirver.h
+.\objects\twindow.o: ..\TGui\interface_conf/tgui_conf.h
+.\objects\twindow.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\twindow.o: ..\TGui\TPainter/TBufPainter.h
+.\objects\twindow.o: ..\TGui\interface_conf/tgui_conf.h
+.\objects\twindow.o: ..\TGui\TObject/TFont.h

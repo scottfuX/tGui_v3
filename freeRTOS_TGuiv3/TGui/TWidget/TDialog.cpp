@@ -33,8 +33,7 @@ TDialog::TDialog(int32 x, int32 y,TImage* dialogImg, const char* n, TWidget* obj
 	this->dialogImg = dialogImg;
 	titleHeight = title_height;
 
-//
-	dialogImg->ImgLoad(0,0,getBuffer());
+	imgLoadInterface(0,0,dialogImg);
 	TBufPainter p(getBuffer()->getBufAddr(),getRect());
 	p.drawCenterText(0, 0, width(), titleHeight, getName());
 }
@@ -136,10 +135,7 @@ void TDialog::touchMoveEvent(TTouchEvent *e)
 		//遍历改变子类的坐标 
 		chgChildsXY(this);
 
-		//获得底色，画上前景
-		getBuffer()->obPareBack(((TWidget*)getParents())->getBuffer()->getBufAddr() +\
-			 (getOffsetWH()->width() +  getOffsetWH()->height() * ((TWidget*)getParents())->width())*GUI_PIXELSIZE,((TWidget*)getParents())->width());
-		dialogImg->ImgLoad(0,0,getBuffer());
+		imgLoadInterface(0,0,dialogImg); //直接从 父亲 获得底色进行blend
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
 		p.drawCenterText(0, 0, width(), titleHeight, getName());
 

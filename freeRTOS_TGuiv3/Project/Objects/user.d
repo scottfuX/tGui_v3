@@ -78,12 +78,6 @@
 .\objects\user.o: ..\TGui\TContainter/TFuncList.h
 .\objects\user.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\user.o: ..\TGui\TObject/TBuffer.h
-.\objects\user.o: ..\TGui\TContainter/TWidgetList.h
-.\objects\user.o: ..\TGui\TObject/TFont.h
-.\objects\user.o: ..\TGui\TWidget/TWindow.h
-.\objects\user.o: ..\TGui\TObject/TApplication.h
-.\objects\user.o: ..\TGui\TObject/TDirver.h
-.\objects\user.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\user.o: ..\TGui\TObject/TImage.h
 .\objects\user.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\user.o: ..\TGui\interface_conf/tgui_conf.h
@@ -127,6 +121,13 @@
 .\objects\user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_strref.h
 .\objects\user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_traits.h
 .\objects\user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
+.\objects\user.o: ..\TGui\TContainter/TWidgetList.h
+.\objects\user.o: ..\TGui\TObject/TFont.h
+.\objects\user.o: ..\TGui\TWidget/TWindow.h
+.\objects\user.o: ..\TGui\TObject/TApplication.h
+.\objects\user.o: ..\TGui\TObject/TDirver.h
+.\objects\user.o: ..\TGui\interface_conf/tgui_conf.h
+.\objects\user.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\user.o: ..\TGui\TWidget/TDialog.h
 .\objects\user.o: ..\TGui\TWidget/TPushButton.h
 .\objects\user.o: ..\TGui\TWidget/TAbstractButton.h

@@ -48,10 +48,17 @@ void TSlider::sig_move(int32 d1, int32 d2)
 			if (value > 100) value = 100;
 			if (value < 0)value = 0;
 			uint32 w = value * frontImg->imgW() / 100;
-			getBuffer()->obPareBack(((TWidget*)getParents())->getBuffer()->getBufAddr() + (getOffsetWH()->width() +  getOffsetWH()->height() * ((TWidget*)getParents())->width())*GUI_PIXELSIZE,((TWidget*)getParents())->width() );
-			backImg->ImgLoad(barImg->imgW()/2,(height() - barSadSize - backImg->imgH())/2,getBuffer());
-			frontImg->ImgLoad(barImg->imgW()/2,(height() - barSadSize - frontImg->imgH())/2, w ,frontImg->imgH(),getBuffer());
-			barImg->ImgLoad(w,0,getBuffer()); //注意  barImg->imgW() 而不是imgH() 因为height可能会有阴影 ---前提要是圆的
+
+			getBuffer()->obPareBack(getPareBufCorreAddr(),((TWidget*)getParents())->width() );
+			imgLoadInterface(barImg->imgW()/2,(height() - barSadSize - backImg->imgH())/2,backImg);
+			TRect rect(0,0,w,frontImg->imgH());
+			imgLoadInterface(barImg->imgW()/2,(height() - barSadSize - frontImg->imgH())/2,frontImg,&rect);
+			imgLoadInterface(w,0,barImg,NULL,true);
+
+
+			// backImg->ImgLoad(barImg->imgW()/2,(height() - barSadSize - backImg->imgH())/2,getBuffer());
+			// frontImg->ImgLoad(barImg->imgW()/2,(height() - barSadSize - frontImg->imgH())/2, w ,frontImg->imgH(),getBuffer());
+			// barImg->ImgLoad(w,0,getBuffer()); //注意  barImg->imgW() 而不是imgH() 因为height可能会有阴影 ---前提要是圆的
 		}
 		else
 		{
@@ -132,10 +139,12 @@ void TSlider::release()
 			if (value > 100) value = 100;
 			if (value < 0)value = 0;
 			uint32 w = value * frontImg->imgW() / 100;
-			getBuffer()->obPareBack(((TWidget*)getParents())->getBuffer()->getBufAddr() + (getOffsetWH()->width() +  getOffsetWH()->height() * ((TWidget*)getParents())->width())*GUI_PIXELSIZE,((TWidget*)getParents())->width() );
-			backImg->ImgLoad(barImg->imgW()/2,(height() - barSadSize - backImg->imgH())/2,getBuffer());
-			frontImg->ImgLoad(barImg->imgW()/2,(height() - barSadSize - frontImg->imgH())/2, w ,frontImg->imgH(),getBuffer());
-			barImg->ImgLoad(w,0,getBuffer()); //注意  barImg->imgW() 而不是imgH() 因为height可能会有阴影 ---前提要是圆的
+
+			getBuffer()->obPareBack(getPareBufCorreAddr(),((TWidget*)getParents())->width() );
+			imgLoadInterface(barImg->imgW()/2,(height() - barSadSize - backImg->imgH())/2,backImg);
+			TRect rect(0,0,w,frontImg->imgH());
+			imgLoadInterface(barImg->imgW()/2,(height() - barSadSize - frontImg->imgH())/2,frontImg,&rect);
+			imgLoadInterface(w,0,barImg,NULL,true);
 		}
 		else
 		{
@@ -163,14 +172,17 @@ void TSlider::show()
 	{
 		if(isHoriz)
 		{
-		//根据不同的value 
-		//加载 ----- 背景，前景，bar  
-		//问题1:用buf转移 速度会不会不够快 不会
-		//问题2:应该记住现在的slider的位置然后到时还原 全部刷新
-		uint32 w = value * frontImg->imgW() / 100;
-		backImg->ImgLoad(barImg->imgW()/2,(barImg->imgH() - barSadSize - backImg->imgH())/2,getBuffer());
-		frontImg->ImgLoad(barImg->imgW()/2,(barImg->imgH() - barSadSize - frontImg->imgH())/2, w ,frontImg->imgH(),getBuffer());
-		barImg->ImgLoad(w ,0,getBuffer()); //注意  barImg->imgW() 而不是imgH() 因为height可能会有阴影 ---前提要是圆的
+			//根据不同的value 
+			//加载 ----- 背景，前景，bar  
+			//问题1:用buf转移 速度会不会不够快 不会
+			//问题2:应该记住现在的slider的位置然后到时还原 全部刷新
+			uint32 w = value * frontImg->imgW() / 100;
+
+			getBuffer()->obPareBack(getPareBufCorreAddr(),((TWidget*)getParents())->width() );
+			imgLoadInterface(barImg->imgW()/2,(height() - barSadSize - backImg->imgH())/2,backImg);
+			TRect rect(0,0,w,frontImg->imgH());
+			imgLoadInterface(barImg->imgW()/2,(height() - barSadSize - frontImg->imgH())/2,frontImg,&rect);
+			imgLoadInterface(w,0,barImg,NULL,true);
 		}
 		else
 		{

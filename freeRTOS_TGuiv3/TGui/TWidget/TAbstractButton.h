@@ -11,8 +11,10 @@ class TAbstractButton:public TWidget
 protected:
 	bool state; //true => press ;false
 	bool haveImg;
-	TBuffer * norBuf;
-	TBuffer * selBuf; 
+	//TBuffer * norBuf;
+	//TBuffer * selBuf; 
+	TImage* norImg;
+	TImage* selImg;
 	
 public :
 	TAbstractButton(int32 x, int32 y, int32 w, int32 h,bool haveImg ,const char* n, TWidget* obj) ;

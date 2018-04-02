@@ -77,7 +77,6 @@
 .\objects\tpushbutton.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tpushbutton.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tpushbutton.o: ..\TGui\TObject/TBuffer.h
-.\objects\tpushbutton.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tpushbutton.o: ..\TGui\TObject/TImage.h
 .\objects\tpushbutton.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tpushbutton.o: ..\TGui\interface_conf/tgui_conf.h
@@ -121,6 +120,7 @@
 .\objects\tpushbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_strref.h
 .\objects\tpushbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_traits.h
 .\objects\tpushbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
+.\objects\tpushbutton.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tpushbutton.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\tpushbutton.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\tpushbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

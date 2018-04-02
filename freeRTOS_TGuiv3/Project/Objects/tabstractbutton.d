@@ -76,7 +76,6 @@
 .\objects\tabstractbutton.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tabstractbutton.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tabstractbutton.o: ..\TGui\TObject/TBuffer.h
-.\objects\tabstractbutton.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tabstractbutton.o: ..\TGui\TObject/TImage.h
 .\objects\tabstractbutton.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tabstractbutton.o: ..\TGui\interface_conf/tgui_conf.h
@@ -120,3 +119,4 @@
 .\objects\tabstractbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_strref.h
 .\objects\tabstractbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_traits.h
 .\objects\tabstractbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
+.\objects\tabstractbutton.o: ..\TGui\TContainter/TWidgetList.h

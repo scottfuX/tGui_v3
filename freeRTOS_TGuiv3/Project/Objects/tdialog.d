@@ -76,10 +76,6 @@
 .\objects\tdialog.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tdialog.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tdialog.o: ..\TGui\TObject/TBuffer.h
-.\objects\tdialog.o: ..\TGui\TContainter/TWidgetList.h
-.\objects\tdialog.o: ..\TGui\TPainter/TBufPainter.h
-.\objects\tdialog.o: ..\TGui\interface_conf/tgui_conf.h
-.\objects\tdialog.o: ..\TGui\TObject/TFont.h
 .\objects\tdialog.o: ..\TGui\TObject/TImage.h
 .\objects\tdialog.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tdialog.o: ..\TGui\interface_conf/tgui_conf.h
@@ -123,3 +119,8 @@
 .\objects\tdialog.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_strref.h
 .\objects\tdialog.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_traits.h
 .\objects\tdialog.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
+.\objects\tdialog.o: ..\TGui\TContainter/TWidgetList.h
+.\objects\tdialog.o: ..\TGui\TPainter/TBufPainter.h
+.\objects\tdialog.o: ..\TGui\interface_conf/tgui_conf.h
+.\objects\tdialog.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\tdialog.o: ..\TGui\TObject/TFont.h

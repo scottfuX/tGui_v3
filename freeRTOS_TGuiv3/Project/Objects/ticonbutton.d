@@ -77,7 +77,6 @@
 .\objects\ticonbutton.o: ..\TGui\TContainter/TFuncList.h
 .\objects\ticonbutton.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\ticonbutton.o: ..\TGui\TObject/TBuffer.h
-.\objects\ticonbutton.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\ticonbutton.o: ..\TGui\TObject/TImage.h
 .\objects\ticonbutton.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\ticonbutton.o: ..\TGui\interface_conf/tgui_conf.h
@@ -121,6 +120,7 @@
 .\objects\ticonbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_strref.h
 .\objects\ticonbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_traits.h
 .\objects\ticonbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
+.\objects\ticonbutton.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\ticonbutton.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\ticonbutton.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\ticonbutton.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

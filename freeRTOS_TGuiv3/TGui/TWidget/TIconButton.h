@@ -8,7 +8,7 @@
 class TIconButton :public TAbstractButton
 {
 public:
-	TIconButton(int32 x, int32 y, TImage norImg ,TImage selImg, const char* name, TWidget* obj );
+	TIconButton(int32 x, int32 y, TImage* norImg ,TImage* selImg, const char* name, TWidget* obj );
 	
 	virtual ~TIconButton() ;
 

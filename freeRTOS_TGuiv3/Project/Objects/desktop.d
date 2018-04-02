@@ -78,12 +78,6 @@
 .\objects\desktop.o: ..\TGui\TContainter/TFuncList.h
 .\objects\desktop.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\desktop.o: ..\TGui\TObject/TBuffer.h
-.\objects\desktop.o: ..\TGui\TContainter/TWidgetList.h
-.\objects\desktop.o: ..\TGui\TObject/TFont.h
-.\objects\desktop.o: ..\TGui\TWidget/TWindow.h
-.\objects\desktop.o: ..\TGui\TObject/TApplication.h
-.\objects\desktop.o: ..\TGui\TObject/TDirver.h
-.\objects\desktop.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\desktop.o: ..\TGui\TObject/TImage.h
 .\objects\desktop.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\desktop.o: ..\TGui\interface_conf/tgui_conf.h
@@ -127,6 +121,13 @@
 .\objects\desktop.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_strref.h
 .\objects\desktop.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_traits.h
 .\objects\desktop.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
+.\objects\desktop.o: ..\TGui\TContainter/TWidgetList.h
+.\objects\desktop.o: ..\TGui\TObject/TFont.h
+.\objects\desktop.o: ..\TGui\TWidget/TWindow.h
+.\objects\desktop.o: ..\TGui\TObject/TApplication.h
+.\objects\desktop.o: ..\TGui\TObject/TDirver.h
+.\objects\desktop.o: ..\TGui\interface_conf/tgui_conf.h
+.\objects\desktop.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\desktop.o: ..\TGui\TWidget/TDialog.h
 .\objects\desktop.o: ..\TGui\TWidget/TPushButton.h
 .\objects\desktop.o: ..\TGui\TWidget/TAbstractButton.h

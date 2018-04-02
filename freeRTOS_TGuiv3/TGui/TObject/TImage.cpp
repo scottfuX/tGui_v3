@@ -108,6 +108,7 @@ void TImage::ImgLoad(int32 offX, int32 offY,TBuffer* buf)
 
 
 
+
 //混合
 // readAddr:	开始 读 的地址
 // readSize:	被 读 的区域所在的buf大小
@@ -115,7 +116,7 @@ void TImage::ImgLoad(int32 offX, int32 offY,TBuffer* buf)
 // writeSize:	被 写 的区域所在的buf大小
 // imgRect:		图片混合的区域
 
-void TImage::ImgBlendLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* writeSize,TRect* imgTRect)
+void TImage::imgLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* writeSize,TRect* imgTRect)
 {
 	TRect* imgRect = imgTRect;
 	if(imgTRect == NULL) //null 就是全部 
@@ -125,23 +126,25 @@ void TImage::ImgBlendLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize
 	}
 		 
 	if(readSize->width() < imgRect->width() || readSize->height() < imgRect->height() ||
-		 writeSize->height() < imgRect->height() ||writeSize->width() < imgRect->width() )
+		 writeSize->height() < imgRect->height() || writeSize->width() < imgRect->width() )
 		return;
 
-	if(imgType == T_PNG )
+	uint32 point ,color = 0;
+	uint8* imgaddr = imgBufAddr;
+	uint8  a = 255; //前景透明色
+	uint32 r,g,b; 
+	uint32 offF = (imgRect->x() + imgRect->y() * width)*GUI_PIXELSIZE; //开始的地址
+	
+	//------------------------------- blend ---------------- 目前只支持PNG ------------------
+	if(imgType == T_PNG /*|| imgType == T_BMP */)
 	{
-		uint32 point ,color = 0;
-		uint8* imgaddr = imgBufAddr;
-		uint8  a = 255; //前景透明色
-		uint32 r,g,b; 
-		uint32 offF = (imgRect->x() + imgRect->y() * width)*GUI_PIXELSIZE; //开始的地址
 		if(imgType == T_PNG) //RGBA
 		{
 			for(int i=0;i<imgRect->height();i++)
 			{
 				for(int j=0;j< imgRect->width() ;j++)
 				{
-					point = *(readAddr + (j + i * readSize->width()) * GUI_PIXELSIZE); //读point
+					point = *((uint32*)(readAddr + (j + i * readSize->width()) * GUI_PIXELSIZE)); //读point
 
 					a = imgaddr[offF + 3];
 					r = imgaddr[offF];
@@ -152,7 +155,7 @@ void TImage::ImgBlendLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize
 					color |= ((((point >> 8) & 0xff ) * (0xff - a) + g * a)  >> 8) << 8;
 					color |= (((point & 0xff) * (0xff - a) + b * a)  >> 8);
 
-					*(writeAddr + (j + i * writeSize->width()) * GUI_PIXELSIZE) = color; //写point
+					*((uint32*)(writeAddr + (j + i * writeSize->width()) * GUI_PIXELSIZE)) = color; //写point
 
 					color = 0;
 					offF += GUI_PIXELSIZE;
@@ -186,6 +189,19 @@ void TImage::ImgBlendLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize
 			}
 		}
 	}
+	//------------------------------- memcpy ----------------  直接传送 ------------------
+	else
+	{
+		uint8* des_addr = writeAddr;
+		uint8* src_addr = imgBufAddr + offF;
+		for(int i = 0;i < imgRect->height();  i++)
+		{
+			gui_memcpy(des_addr,src_addr,imgRect->width() * GUI_PIXELSIZE);
+			src_addr += width * GUI_PIXELSIZE;
+			des_addr += writeSize->width() * GUI_PIXELSIZE;
+		}
+	}
+		
 }
 
 void TImage::ImgLoad(int32 offX, int32 offY)

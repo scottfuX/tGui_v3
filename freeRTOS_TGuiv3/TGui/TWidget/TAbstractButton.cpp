@@ -4,18 +4,10 @@
 TAbstractButton::TAbstractButton(int32 x, int32 y, int32 w, int32 h,bool haveImg ,const char* n, TWidget* obj)
 	: TWidget(x, y, w, h, n, obj)
 {
-	selBuf = NULL;
-	norBuf = NULL;
+	norImg = NULL;
+	selImg = NULL;
 	state = false;
 	this->haveImg = haveImg;
-	if(haveImg)
-	{
-		norBuf = getBuffer();
-		if(obj == NULL)
-			selBuf = new TBuffer(NULL, width() ,width(), height());
-		else
-			selBuf = new TBuffer(obj->getBuffer()->getBufAddr() + (getOffsetWH()->width() +  getOffsetWH()->height() * obj->width())*GUI_PIXELSIZE,obj->width() ,width(), height());
-	}
 };
 
 
@@ -23,8 +15,8 @@ TAbstractButton::~TAbstractButton()
 {
 	if(haveImg)
 	{
-		setBuffer(norBuf);
-		delete selBuf;
+		delete norImg;
+		delete selImg;
 	}
 }
 

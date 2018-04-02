@@ -77,7 +77,6 @@
 .\objects\tcheckbox.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tcheckbox.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tcheckbox.o: ..\TGui\TObject/TBuffer.h
-.\objects\tcheckbox.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tcheckbox.o: ..\TGui\TObject/TImage.h
 .\objects\tcheckbox.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tcheckbox.o: ..\TGui\interface_conf/tgui_conf.h
@@ -121,6 +120,7 @@
 .\objects\tcheckbox.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_strref.h
 .\objects\tcheckbox.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_traits.h
 .\objects\tcheckbox.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
+.\objects\tcheckbox.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tcheckbox.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\tcheckbox.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\tcheckbox.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

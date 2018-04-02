@@ -13,19 +13,18 @@ TCheckBox::TCheckBox(int32 x, int32 y, int32 w, int32 h, const char* name, TWidg
 
 
 
-TCheckBox::TCheckBox(TRect rect,TImage norImg,TImage selImg, const char* name, TWidget* obj)
+TCheckBox::TCheckBox(TRect rect,TImage* norImg,TImage* selImg, const char* name, TWidget* obj)
 	:TAbstractButton(rect.x(),rect.y(),rect.width(),rect.height(), true,name, obj)
 {
 	next = this; 
 	selected = false; 
+	this->norImg = norImg;
+	this->selImg = selImg;
+	getBuffer()->obPareBack(getPareBufCorreAddr(),((TWidget*)getParents())->width());
+	imgLoadInterface(0,(height() - norImg->imgH())/2,norImg);
+	TBufPainter p(getBuffer()->getBufAddr(),getRect());
+	p.drawAlignText(norImg->imgW(),0, getName(),ALIGN_MID_LEFT);
 
-	norImg.ImgLoad(0,(height() - norImg.imgH())/2,norBuf);
-	TBufPainter p1(norBuf->getBufAddr(),getRect());
-	p1.drawAlignText(norImg.imgW(),0, getName(),ALIGN_MID_LEFT);
-
-	selImg.ImgLoad(0,(height() - selImg.imgH())/2,selBuf);
-	TBufPainter p2(selBuf->getBufAddr(),getRect());
-	p2.drawAlignText(selImg.imgW(),0, getName(),ALIGN_MID_LEFT);
 }
 
 TCheckBox::~TCheckBox() 
@@ -56,18 +55,25 @@ void TCheckBox::sig_release(int32 d1, int32 d2)
 	if(haveImg)
 	{
 		if(selected)
-			setBuffer(selBuf);
+		{
+			imgLoadInterface(0,(height() - selImg->imgH())/2,selImg);
+			TBufPainter p(getBuffer()->getBufAddr(),getRect());
+			p.drawAlignText(selImg->imgW(),0, getName(),ALIGN_MID_LEFT);
+		}
 		else
-			setBuffer(norBuf);
-		refresh();
+		{
+			imgLoadInterface(0,(height() - norImg->imgH())/2,norImg);
+			TBufPainter p(getBuffer()->getBufAddr(),getRect());
+			p.drawAlignText(norImg->imgW(),0, getName(),ALIGN_MID_LEFT);
+		}
 	}
 	else
 	{
 		//TPainter p(getInvalidList(),getPaintInvaild());
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
 		p.drawCheck(0, 0, width(), height(), getName(), selected, false, getBackColor());
-		refresh();
 	}
+	refresh();
 	state = false;
 	callSlot((func)&TCheckBox::sig_release,d1,d2);
 }
@@ -78,18 +84,26 @@ void TCheckBox::release()
 	if(haveImg)
 	{
 		if(selected)
-			setBuffer(selBuf);
+		{
+			imgLoadInterface(0,(height() - selImg->imgH())/2,selImg);
+			TBufPainter p(getBuffer()->getBufAddr(),getRect());
+			p.drawAlignText(selImg->imgW(),0, getName(),ALIGN_MID_LEFT);
+		}
 		else
-			setBuffer(norBuf);
-		refresh();
+		{
+			imgLoadInterface(0,(height() - norImg->imgH())/2,norImg);
+			TBufPainter p(getBuffer()->getBufAddr(),getRect());
+			p.drawAlignText(norImg->imgW(),0, getName(),ALIGN_MID_LEFT);
+		}
 	}
 	else
 	{
 		//TPainter p(getInvalidList(),getPaintInvaild());
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
 		p.drawCheck(0, 0, width(), height(), getName(), selected, false, getBackColor());
-		refresh();
+		
 	}
+	refresh();
 	state = false;
 }
 

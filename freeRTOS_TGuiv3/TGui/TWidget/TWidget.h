@@ -6,6 +6,7 @@
 #include "TObject/TSize.h"
 #include "TObject/TObject.h"
 #include "TObject/TBuffer.h"
+#include "TObject/TImage.h"
 #include "TContainter/TWidgetList.h"
 
 
@@ -42,10 +43,15 @@ public:
 	bool		isInArea(int32 x, int32 y); //设定的区域
 	void        showAll() { showAll(this); }
 	void 		cleanShowed(TRect* rect);
+
+	uint8* 		getPareBufCorreAddr();  // 
+	void 		imgLoadInterface(int32 x,int32 y,TImage* img,TRect* rectFrom = NULL,bool isOneSelf = false);//与图像加载函数对接的函数
+
 	//TRect*	getPaintInvaild() { return paintInvaild; }
 	// void		setIsVariable(bool statVari); //把子类也改变
 	// bool		getIsVariable() { return isVariable; }
 	
+
 
 	void refresh();
 
@@ -82,7 +88,6 @@ private:
 	TBuffer* widgetBuf;
 
 	void 		rectCut(TRect* srcRect);
-	//void 		transform(TRect* srcRect);
 
 	void		showAll(TWidget*);
 	void		chgAllInValid(TObjList* chdlist, TWidget* widget,TRect* area1, TRect* area2);
@@ -91,17 +96,30 @@ private:
 	void		remInvalid(TWidget* widget);
 };
 
- inline  void TWidget::updateOffsetWH()
- {
-	 TWidget* wid = (TWidget*)getParents();
-	 if(wid)
-	 {
+
+inline bool TWidget::isInArea(int32 xt, int32 yt)
+{
+	if (xt >= x() && yt >= y() && xt < (x() + width()) && yt < (y() + height()))
+		return true;
+	return false;
+}
+
+
+inline  void TWidget::updateOffsetWH()
+{
+	TWidget* wid = (TWidget*)getParents();
+	if(wid)
+	{
 		offsetWH->setWidth(this->x() - wid->x());//修改 偏移
 		offsetWH->setHeight(this->y() - wid->y());
-	 }
- }
+	}
+}
 
-
+inline uint8* TWidget::getPareBufCorreAddr()
+{
+	return (((TWidget*)getParents())->getBuffer()->getBufAddr() + \
+		(getOffsetWH()->width() +  getOffsetWH()->height() * ((TWidget*)getParents())->width()) * GUI_PIXELSIZE);
+}
 
 #endif // !_TWIDGET_H_
 

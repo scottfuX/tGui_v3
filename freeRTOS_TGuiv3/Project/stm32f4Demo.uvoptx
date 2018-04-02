@@ -150,50 +150,18 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>50</LineNumber>
+          <LineNumber>40</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134252358</Address>
+          <Address>134252728</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\TGui\demo\Desktop.cpp</Filename>
+          <Filename>\Mac\Home\GitHub\tGui_v3\freeRTOS_TGuiv3\TGui\demo\Desktop.cpp</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\stm32f4Demo\../TGui/demo/Desktop.cpp\50</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>34</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134249330</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\TGui\TObject\TApplication.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\stm32f4Demo\../TGui/TObject/TApplication.cpp\34</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>127</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134249690</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\TGui\TObject\TApplication.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\\../TGui/TObject/TApplication.cpp\127</Expression>
+          <Expression>\\stm32f4Demo\../TGui/demo/Desktop.cpp\40</Expression>
         </Bp>
       </Breakpoint>
       <MemoryWindow1>

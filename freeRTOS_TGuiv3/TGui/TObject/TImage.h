@@ -13,7 +13,7 @@ extern "C" {
 
 #include "libraries/picture_lib/lodepng.h"
 #include "TGlobal.h"
-//#include "TObject/TBuffer.h"
+#include "TObject/TBuffer.h"
 #include "TObject/TSize.h"
 #include "TObject/TRect.h"
 
@@ -38,7 +38,7 @@ public:
 
     void Decode();
     
-    void ImgBlendLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* writeSize,TRect* imgTRect = NULL);
+    void imgLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* writeSize,TRect* imgTRect = NULL);
 
     void ImgLoad(int32 offX, int32 offY);
     void ImgLoad(int32 offX, int32 offY,TBuffer* buf);

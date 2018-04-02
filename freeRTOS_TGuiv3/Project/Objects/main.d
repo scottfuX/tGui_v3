@@ -139,13 +139,13 @@
 .\objects\main.o: ..\TGui\TContainter/TFuncList.h
 .\objects\main.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\main.o: ..\TGui\TObject/TBuffer.h
+.\objects\main.o: ..\TGui\TObject/TImage.h
 .\objects\main.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\main.o: ..\TGui\TObject/TFont.h
 .\objects\main.o: ..\TGui\TObject/TDirver.h
 .\objects\main.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\main.o: ..\TGui\TObject/TApplication.h
 .\objects\main.o: ..\TGui\TWidget/TWindow.h
-.\objects\main.o: ..\TGui\TObject/TImage.h
 .\objects\main.o: ..\TGui\demo/User.h
 .\objects\main.o: ..\TGui\TWidget/TDialog.h
 .\objects\main.o: ..\TGui\TWidget/TPushButton.h

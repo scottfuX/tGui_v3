@@ -77,7 +77,6 @@
 .\objects\tswitch.o: ..\TGui\TContainter/TFuncList.h
 .\objects\tswitch.o: ..\TGui\TContainter/tFuncNode.h
 .\objects\tswitch.o: ..\TGui\TObject/TBuffer.h
-.\objects\tswitch.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tswitch.o: ..\TGui\TObject/TImage.h
 .\objects\tswitch.o: ..\TGui\libraries/picture_lib/piclib.h
 .\objects\tswitch.o: ..\TGui\interface_conf/tgui_conf.h
@@ -121,6 +120,7 @@
 .\objects\tswitch.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_strref.h
 .\objects\tswitch.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_traits.h
 .\objects\tswitch.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
+.\objects\tswitch.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tswitch.o: ..\TGui\TPainter/TBufPainter.h
 .\objects\tswitch.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\tswitch.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
