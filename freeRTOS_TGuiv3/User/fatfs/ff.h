@@ -253,7 +253,7 @@ TCHAR* f_gets (TCHAR* buff, int len, FIL* fp);						/* Get a string from the fil
 #define EOF (-1)
 #endif
 
-
+FRESULT dir_sdi (DIR *dp,UINT idx);					//此处为自行添加的,用于方便查找上一个文件.
 
 
 /*--------------------------------------------------------------*/

@@ -14,8 +14,8 @@ class TWidget :public TObject
 {
 public:
 	//TWidget(const char* n, TWidget* obj);
-	TWidget(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj);
-	TWidget(TRect r, const char* n, TWidget* obj);
+	TWidget(int32 x, int32 y, int32 w, int32 h ,const char* n, TWidget* obj,bool needBuf = true);
+	TWidget(TRect r, const char* n, TWidget* obj,bool needBuf = true);
 	virtual		~TWidget();
 	void		setX(int32 x) { rect->setX(x); }
 	void		setY(int32 y) { rect->setY(y); }
@@ -50,8 +50,6 @@ public:
 	//TRect*	getPaintInvaild() { return paintInvaild; }
 	// void		setIsVariable(bool statVari); //把子类也改变
 	// bool		getIsVariable() { return isVariable; }
-	
-
 
 	void refresh();
 

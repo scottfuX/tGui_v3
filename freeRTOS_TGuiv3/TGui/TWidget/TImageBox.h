@@ -10,7 +10,7 @@ class TImageBox :public TWidget
 {
 public:
 	TImageBox(int32 x, int32 y,TImage* img, const char* name, TWidget* obj);
-	TImageBox(int32 x, int32 y,uint16 w,uint16 h,const char* filename, const char* name, TWidget* obj);
+	TImageBox(int32 x, int32 y,uint16 w,uint16 h,const char* filename, const char* name, TWidget* obj,bool DrawInBuf = true );
 
 	virtual ~TImageBox();
 	virtual void show();

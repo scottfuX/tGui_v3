@@ -12,7 +12,7 @@
  }
 
 //fast for bmp/jpg need have buf
-TImage::TImage(TBuffer* buf,uint16 w,uint16 h,const char* filen) 
+TImage::TImage(uint8* addr,uint16 w,uint16 h,const char* filen) 
 {
 	imgBufAddr = NULL;
 	unsigned int wpng,hpng;
@@ -25,12 +25,11 @@ TImage::TImage(TBuffer* buf,uint16 w,uint16 h,const char* filen)
 			lodepng_decode32_file(&imgBufAddr, &wpng, &hpng, filename);			//解码png	  
 			width = wpng;
 			height = hpng;
-			
 		}break;								  
 		case T_JPG:
 		case T_JPEG:
 		case T_BMP:
-			piclib_init(buf->getBufAddr(),w,h);		
+			piclib_init(addr,w,h);		
 			ai_load_picfile(filename,0,0,w,h,1);
 			break;
 		case T_GIF: 

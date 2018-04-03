@@ -13,7 +13,7 @@ TWindow::TWindow(const char* filename ,TApplication* app, const char* n,TWidget*
     :TWidget(0,0,GUI_WIDTH,GUI_HIGH,n,obj)
 {
     this->app = app;
-    TImage img(getBuffer(), GUI_WIDTH, GUI_HIGH, filename);
+    TImage img(getBuffer()->getBufAddr(), GUI_WIDTH, GUI_HIGH, filename);
 }
 
 TWindow::~TWindow()

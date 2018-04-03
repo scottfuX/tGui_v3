@@ -11,7 +11,7 @@ TPushButton::TPushButton(int32 x, int32 y, int32 w, int32 h, const char* name, T
 
 
 TPushButton::TPushButton(int32 x, int32 y, TImage* norImg ,TImage* selImg ,  const char* name, TWidget* obj)
-	:TAbstractButton(x, y,MAX(norImg->imgW() ,selImg->imgW()),MAX(norImg->imgH() ,selImg->imgH()),true, name, obj)
+	:TAbstractButton(x, y,norImg->imgW(),norImg->imgH(),true, name, obj)
 {
 	this->norImg = norImg;
 	this->selImg = selImg;
@@ -30,7 +30,16 @@ void TPushButton::sig_depress(int32 d1, int32 d2)
 {
 	if(haveImg)
 	{
-		imgLoadInterface(0,0,selImg);
+		if(selImg)
+		{
+			imgLoadInterface(0,0,selImg);
+		}
+		else
+		{
+			TSize size1(((TWidget*)getParents())->getBuffer()->getBufW(),((TWidget*)getParents())->getBuffer()->getBufH());
+			TSize size2(getBuffer()->getBufW(),getBuffer()->getBufH());
+			norImg->blendPoint(0x84848484,getPareBufCorreAddr(),&size1,getBuffer()->getBufAddr(),&size2);
+		}
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
 		p.drawCenterText(0,0, width(), height(), getName());
 	}

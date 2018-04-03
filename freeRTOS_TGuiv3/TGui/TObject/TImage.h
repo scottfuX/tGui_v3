@@ -28,7 +28,7 @@ class TImage
 {
 public:
     TImage(const char* filename);
-    TImage(TBuffer* buf,uint16 w,uint16 h,const char* filename) ;
+    TImage(uint8* addr,uint16 w,uint16 h,const char* filename) ;
    
     ~TImage();
     int32	imgW()	const	{ return width; }

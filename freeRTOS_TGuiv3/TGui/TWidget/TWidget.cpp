@@ -1,7 +1,7 @@
 #include "TWidget/TWidget.h"
 
 
-TWidget::TWidget(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj):TObject(n,obj)
+TWidget::TWidget(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj,bool needBuf):TObject(n,obj)
 {
 	rect = new TRect();
 	offsetWH = new TSize();
@@ -17,9 +17,15 @@ TWidget::TWidget(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj
 	
 	chgPareInValid();
 	
-	widgetBuf = new TBuffer(w , h);
-	
-	
+	if(needBuf)
+	{
+		widgetBuf = new TBuffer(w , h);
+	}
+	else
+	{
+		widgetBuf = NULL;
+	}
+
 	// if (getParents())
 	// {
 	// 	backColor = ((TWidget*)getParents())->getBackColor();
@@ -35,10 +41,11 @@ TWidget::TWidget(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj
 	// 	backColor = WHITE;
 	// 	isVariable = false; //默认不可变，除非父类为可变
 	// }
+	
 }
 
 
-TWidget::TWidget(TRect r, const char* n, TWidget* obj):TObject(n,obj)
+TWidget::TWidget(TRect r, const char* n, TWidget* obj,bool needBuf):TObject(n,obj)
 {
 	rect = new TRect();
 	offsetWH = new TSize();
@@ -54,8 +61,14 @@ TWidget::TWidget(TRect r, const char* n, TWidget* obj):TObject(n,obj)
 	
 	chgPareInValid();
 	
-	widgetBuf = new TBuffer(r.width() , r.height());
-	
+	if(needBuf)
+	{
+		widgetBuf = new TBuffer(r.width() , r.height());
+	}
+	else
+	{
+		widgetBuf = NULL;
+	}	
 }
 
 TWidget::~TWidget() {

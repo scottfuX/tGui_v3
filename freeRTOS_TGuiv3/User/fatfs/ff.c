@@ -1076,7 +1076,7 @@ DWORD clmt_clust (	/* <2:Error, >=2:Cluster number */
 /* Directory handling - Set directory index                              */
 /*-----------------------------------------------------------------------*/
 
-static
+//static
 FRESULT dir_sdi (	/* FR_OK(0):succeeded, !=0:error */
 	DIR* dp,		/* Pointer to directory object */
 	UINT idx		/* Index of directory table */
