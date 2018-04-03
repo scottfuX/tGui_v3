@@ -25,9 +25,7 @@ TImage::TImage(TBuffer* buf,uint16 w,uint16 h,const char* filen)
 			lodepng_decode32_file(&imgBufAddr, &wpng, &hpng, filename);			//解码png	  
 			width = wpng;
 			height = hpng;
-			if(buf->getBufW()  < width  || buf->getBufH()  < height)
-				return ;
-			ImgBlendLoad(0,0,buf);
+			
 		}break;								  
 		case T_JPG:
 		case T_JPEG:
@@ -82,33 +80,6 @@ void TImage::Decode()
 }
 
 
-
-void TImage::ImgLoad(int32 offX, int32 offY,TBuffer* buf)
-{
-	if(buf->getBufW()  < width + offX )
-		return ;
-	if(buf->getBufH()  < height + offY)
-		return ;
-	if(imgType == T_PNG ) 
-	{
-		ImgBlendLoad(offX,offY,buf);
-	}
-	else		//其他图片解码都是经过 gui 的绘图函数填充的 ，所以可以直接覆盖即可--快
-	{
-		uint8* des_addr = buf->getBufAddr() + (offX + offY * buf->getBufW()) * GUI_PIXELSIZE;
-		uint8* src_addr = imgBufAddr;
-		for(int i = 0;i < height;  i++)
-		{
-			gui_memcpy(des_addr,src_addr,width * GUI_PIXELSIZE);
-			src_addr += width * GUI_PIXELSIZE;
-			des_addr += buf->getBufW() * GUI_PIXELSIZE;
-		}
-	}
-}
-
-
-
-
 //混合
 // readAddr:	开始 读 的地址
 // readSize:	被 读 的区域所在的buf大小
@@ -125,9 +96,9 @@ void TImage::imgLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* wri
 		imgRect = &r;
 	}
 		 
-	if(readSize->width() < imgRect->width() || readSize->height() < imgRect->height() ||
-		 writeSize->height() < imgRect->height() || writeSize->width() < imgRect->width() )
-		return;
+	// if(readSize->width() < imgRect->width() || readSize->height() < imgRect->height() ||
+	// 	 writeSize->height() < imgRect->height() || writeSize->width() < imgRect->width() )
+	// 	return;
 
 	uint32 point ,color = 0;
 	uint8* imgaddr = imgBufAddr;
@@ -189,7 +160,7 @@ void TImage::imgLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* wri
 			}
 		}
 	}
-	//------------------------------- memcpy ----------------  直接传送 ------------------
+	//------------------------------- memcpy ------------------ 直接传送 ------------------
 	else
 	{
 		uint8* des_addr = writeAddr;
@@ -204,238 +175,195 @@ void TImage::imgLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* wri
 		
 }
 
-void TImage::ImgLoad(int32 offX, int32 offY)
+
+//一个半透明 其中一个是点 进行混合 -- 》加载
+void TImage::blendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* writeSize,TRect* imgTRect)
 {
-	if(GUI_WIDTH  < width + offX )
-		return ;
-	if(GUI_HIGH < height + offY)
-		return ;
-	if(imgType == T_PNG ) 
+	TRect* imgRect = imgTRect;
+	if(imgTRect == NULL) //null 就是全部 
 	{
-		ImgBlendLoad(offX,offY);
+		TRect r(0,0,imgW(),imgH());
+		imgRect = &r;
 	}
-	else		//其他图片解码都是经过 gui 的绘图函数填充的 ，所以可以直接覆盖即可--快
-	{
-		uint8* des_addr = (uint8*)GUI_FG_BUFADDR + (offX + offY * GUI_WIDTH) * GUI_PIXELSIZE;
-		uint8* src_addr = imgBufAddr;
-		for(int i = 0;i < height;  i++)
-		{
-			gui_memcpy(des_addr,src_addr,width * GUI_PIXELSIZE);
-			src_addr += width * GUI_PIXELSIZE;
-			des_addr += GUI_WIDTH * GUI_PIXELSIZE;
-		}
-	}
-}
-
-
-void TImage::ImgLoad(int32 offX, int32 offY,int32 ndW, int32 ndH,TBuffer* buf)
-{
-	if(buf->getBufW()  < width + offX )
-		return ;
-	if(buf->getBufH()  < height + offY)
-		return ;
-	if(ndW > width)
-		ndW = width;
-	if(ndH > height)
-		ndH = height;
-
-	if(imgType == T_PNG ) 
-	{
-		ImgBlendLoad(offX,offY,ndW,ndH,buf);	
-	}
-	else		//其他图片解码都是经过 gui 的绘图函数填充的 ，所以可以直接覆盖即可--快
-	{
-		uint8* des_addr = buf->getBufAddr() + (offX + offY * buf->getBufW()) * GUI_PIXELSIZE;
-		uint8* src_addr = imgBufAddr;
-		for(int i = 0;i < ndH;  i++)
-		{
-			gui_memcpy(des_addr,src_addr,ndW * GUI_PIXELSIZE);
-			src_addr += ndW * GUI_PIXELSIZE;
-			des_addr += buf->getBufW() * GUI_PIXELSIZE;
-		}
-	}
-}
-
-//只针对于 ARGB8888
-void TImage::ImgBlendLoad(int32 offX, int32 offY,TBuffer* buf)
-{
-
-#if defined ARGB_8888
-	uint32 point ,color = 0;
+		 
+	uint32 point,color = 0;
 	uint8* imgaddr = imgBufAddr;
 	uint8  a = 255; //前景透明色
 	uint32 r,g,b; 
-	uint32 offF = 0;
+
+	uint8 a1 = argb_color >>24;
+	uint8 r1 = (argb_color & 0x00ff0000) >> 16;
+	uint8 g1 = (argb_color & 0x0000ff00) >> 8;
+	uint8 b1 = (argb_color & 0x000000ff);
+
+	uint32 offF = (imgRect->x() + imgRect->y() * width)*GUI_PIXELSIZE; //开始的地址
 	if(imgType == T_PNG) //RGBA
 	{
-		for(int i=0;i<height;i++)
+		for(int i=0;i<imgRect->height();i++)
 		{
-			for(int j=0;j<width;j++)
+			for(int j=0;j< imgRect->width() ;j++)
 			{
-				point = buf->readPoint(j + offX,i + offY);
 				a = imgaddr[offF + 3];
 				r = imgaddr[offF];
 				g = imgaddr[offF + 1];
 				b = imgaddr[offF + 2];
+				
+				r = (r  * (0xff - a1) + r1 * a1) >> 8;//r
+				g = (g  * (0xff - a1) + g1 * a1) >> 8;
+				b = (b  * (0xff - a1) + b1 * a1) >> 8;
+
+				point = *((uint32*)(readAddr + (j + i * readSize->width()) * GUI_PIXELSIZE)); //读point
+
 				color |= point & 0xff000000;
 				color |= ((((point >> 16) & 0xff)  * (0xff - a) + r * a)  >> 8) << 16;
 				color |= ((((point >> 8) & 0xff ) * (0xff - a) + g * a)  >> 8) << 8;
 				color |= (((point & 0xff) * (0xff - a) + b * a)  >> 8);
-				buf->writePoint(j + offX,i + offY,color);
+
+				*((uint32*)(writeAddr + (j + i * writeSize->width()) * GUI_PIXELSIZE)) = color; //写point
+
 				color = 0;
 				offF += GUI_PIXELSIZE;
 			}
+			offF +=  (width - imgRect->width() ) * GUI_PIXELSIZE;
 		}
 	}
 	else //ARGB
 	{
-		for(int i=0;i<height;i++)
+		for(int i=0;i< imgRect->height();i++)
 		{
-			for(int j=0;j<width;j++)
+			for(int j=0;j< imgRect->width();j++)
 			{
-				point = buf->readPoint(j + offX,i + offY);
 				a = imgaddr[offF];
 				r = imgaddr[offF + 1];
 				g = imgaddr[offF + 2];
 				b = imgaddr[offF + 3];
+
+				r = (r  * (0xff - a1) + r1 * a1) >> 8;//r
+				g = (g  * (0xff - a1) + g1 * a1) >> 8;
+				b = (b  * (0xff - a1) + b1 * a1) >> 8;
+
+				point = *((uint32*)(readAddr + (j + i * readSize->width()) * GUI_PIXELSIZE)); //读point
+
 				color |= point & 0xff000000;
 				color |= ((((point >> 16) & 0xff)  * (0xff - a) + r * a)  >> 8) << 16;
 				color |= ((((point >> 8) & 0xff ) * (0xff - a) + g * a)  >> 8) << 8;
 				color |= (((point & 0xff) * (0xff - a) + b * a)  >> 8);
-				buf->writePoint(j + offX,i + offY,color);
+
+				*(writeAddr + (j + i * writeSize->width()) * GUI_PIXELSIZE) = color;//写point
+
 				color = 0;
 				offF += GUI_PIXELSIZE;
 			}
+			offF +=  (width - imgRect->width() ) * GUI_PIXELSIZE;
 		}
 	}
-#elif defined  ARGB_1555
-
-
-#endif
 }
 
-void TImage::ImgBlendLoad(int32 offX, int32 offY)
+
+//两个半透明 其中一个是点 进行混合 -- 》加载
+void TImage::doubleBlendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* writeSize,TRect* imgTRect)
 {
-#if defined ARGB_8888
-	uint32 point ,color = 0;
+	TRect* imgRect = imgTRect;
+	if(imgTRect == NULL) //null 就是全部 
+	{
+		TRect r(0,0,imgW(),imgH());
+		imgRect = &r;
+	}
+		 
+	uint32 point,color = 0;
 	uint8* imgaddr = imgBufAddr;
 	uint8  a = 255; //前景透明色
 	uint32 r,g,b; 
-	uint32 offF = 0;
+
+	uint8 a1 = argb_color >>24;
+	uint8 r1 = (argb_color & 0x00ff0000) >> 16;
+	uint8 g1 = (argb_color & 0x0000ff00) >> 8;
+	uint8 b1 = (argb_color & 0x000000ff);
+
+	uint32 offF = (imgRect->x() + imgRect->y() * width)*GUI_PIXELSIZE; //开始的地址
 	if(imgType == T_PNG) //RGBA
 	{
-		for(int i=0;i<height;i++)
+		for(int i=0;i<imgRect->height();i++)
 		{
-			for(int j=0;j<width;j++)
+			for(int j=0;j< imgRect->width() ;j++)
 			{
-				point =  *(uint32_t* )(((uint32)GUI_FG_BUFADDR) + ((i + offY) * GUI_WIDTH + j + offX) * GUI_PIXELSIZE);
 				a = imgaddr[offF + 3];
 				r = imgaddr[offF];
 				g = imgaddr[offF + 1];
 				b = imgaddr[offF + 2];
+				a = (a+a1-a*a1/255) ;
+				r = doubleBlendFunc(a1,r1,a,r) ;//r
+				g = doubleBlendFunc(a1,g1,a,g) ;
+				b = doubleBlendFunc(a1,b1,a,b);
+
+				point = *((uint32*)(readAddr + (j + i * readSize->width()) * GUI_PIXELSIZE)); //读point
+
 				color |= point & 0xff000000;
 				color |= ((((point >> 16) & 0xff)  * (0xff - a) + r * a)  >> 8) << 16;
 				color |= ((((point >> 8) & 0xff ) * (0xff - a) + g * a)  >> 8) << 8;
 				color |= (((point & 0xff) * (0xff - a) + b * a)  >> 8);
-				gui_set_rect((uint32_t*)GUI_FG_BUFADDR,GUI_WIDTH,color,j + offX, i + offY ,1,1);
+
+				*((uint32*)(writeAddr + (j + i * writeSize->width()) * GUI_PIXELSIZE)) = color; //写point
+
 				color = 0;
 				offF += GUI_PIXELSIZE;
 			}
+			offF +=  (width - imgRect->width() ) * GUI_PIXELSIZE;
 		}
 	}
 	else //ARGB
 	{
-		for(int i=0;i<height;i++)
+		for(int i=0;i< imgRect->height();i++)
 		{
-			for(int j=0;j<width;j++)
+			for(int j=0;j< imgRect->width();j++)
 			{
-				point =  *(uint32_t* )(((uint32)GUI_FG_BUFADDR) + ((i + offY )* GUI_WIDTH + j + offX) * GUI_PIXELSIZE);
 				a = imgaddr[offF];
 				r = imgaddr[offF + 1];
 				g = imgaddr[offF + 2];
 				b = imgaddr[offF + 3];
+
+				a = (a+a1-a*a1/255);//a
+				r = doubleBlendFunc(a1,r1,a,r) ;//r
+				g = doubleBlendFunc(a1,g1,a,g) ;
+				b = doubleBlendFunc(a1,b1,a,b);
+
+				point = *((uint32*)(readAddr + (j + i * readSize->width()) * GUI_PIXELSIZE)); //读point
+
 				color |= point & 0xff000000;
 				color |= ((((point >> 16) & 0xff)  * (0xff - a) + r * a)  >> 8) << 16;
 				color |= ((((point >> 8) & 0xff ) * (0xff - a) + g * a)  >> 8) << 8;
 				color |= (((point & 0xff) * (0xff - a) + b * a)  >> 8);
-				gui_set_rect((uint32_t*)GUI_FG_BUFADDR,GUI_WIDTH,color,j + offX , i + offY ,1,1);
+
+				*(writeAddr + (j + i * writeSize->width()) * GUI_PIXELSIZE) = color;//写point
+
 				color = 0;
 				offF += GUI_PIXELSIZE;
 			}
+			offF +=  (width - imgRect->width() ) * GUI_PIXELSIZE;
 		}
 	}
-#elif defined  ARGB_1555
-
-
-#endif 
-
-
 }
 
 
 
+// R   =   R1   *   Alpha1   +   R2   *   Alpha2   *   (1-Alpha1)   
+// G   =   G1   *   Alpha1   +   G2   *   Alpha2   *   (1-Alpha1)     
+// B   =   B1   *   Alpha1   +   B2   *   Alpha2   *   (1-Alpha1)   
+// Alpha   =   1   -   (1   -   Alpha1)   *   (1   -   Alpha2)   
+// R   =   R   /   Alpha   
+// G   =   G   /   Alpha   
+// B   =   B   /   Alpha   
+// R1、G1、B1、Alpha1指上层的颜色值   
+// R2、G2、B2、Alpha2指下层的颜色值   
 
-void TImage::ImgBlendLoad(int32 offX, int32 offY,int32 ndW, int32 ndH,TBuffer* buf)
+//c12 = ( cb * ab * (1 - af) + cf * af )/( ab + af - ab * af )
+//VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+//c12 = (cb * ab * (255 - af) + 255 * (cf * af)) /(255 * (ab + af) - ab * af)
+
+uint8 TImage::doubleBlendFunc(uint8 af,uint8 cf,uint8 ab,uint8 cb)
 {
-
-#if defined ARGB_8888
-	uint32 point ,color = 0;
-	uint8* imgaddr = imgBufAddr;
-	uint8  a = 255; //前景透明色
-	uint32 r,g,b; 
-	uint32 offF = 0;
-	if(imgType == T_PNG) //RGBA
-	{
-		for(int i=0;i<ndH;i++)
-		{
-			for(int j=0;j<ndW;j++)
-			{
-				point =    buf->readPoint(j + offX,i + offY);
-				a = imgaddr[offF + 3];
-				r = imgaddr[offF];
-				g = imgaddr[offF + 1];
-				b = imgaddr[offF + 2];
-				color |= point & 0xff000000;
-				color |= ((((point >> 16) & 0xff)  * (0xff - a) + r * a)  >> 8) << 16;
-				color |= ((((point >> 8) & 0xff ) * (0xff - a) + g * a)  >> 8) << 8;
-				color |= (((point & 0xff) * (0xff - a) + b * a)  >> 8);
-				buf->writePoint(j + offX,i + offY,color);
-				color = 0;
-				offF += GUI_PIXELSIZE;
-			}
-				offF += (width - ndW  ) * GUI_PIXELSIZE;
-		}
-	}
-	else //ARGB
-	{
-		for(int i=0;i<ndH;i++)
-		{
-			for(int j=0;j<ndW;j++)
-			{
-				point = buf->readPoint(j + offX,i + offY);
-				a = imgaddr[offF];
-				r = imgaddr[offF + 1];
-				g = imgaddr[offF + 2];
-				b = imgaddr[offF + 3];
-				color |= point & 0xff000000;
-				color |= ((((point >> 16) & 0xff)  * (0xff - a) + r * a)  >> 8) << 16;
-				color |= ((((point >> 8) & 0xff ) * (0xff - a) + g * a)  >> 8) << 8;
-				color |= (((point & 0xff) * (0xff - a) + b * a)  >> 8);
-				buf->writePoint(j + offX,i + offY,color);
-				color = 0;
-				offF += GUI_PIXELSIZE;
-			}
-				offF += (width - ndW ) * GUI_PIXELSIZE;
-		}
-	}
-#elif defined  ARGB_1555
-
-
-#endif
-
-
-}
-
+	return (cb * ab * (255 - af) + 255 * (cf * af)) /(255 * (ab + af) - ab * af);
+} 
 
 uint8 TImage::ObFileType(const char *filename)
 {

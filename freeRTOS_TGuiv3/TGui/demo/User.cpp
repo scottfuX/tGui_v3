@@ -31,7 +31,7 @@ User::User(const char* filename,TApplication* app,const char* n, TWidget* obj)
 	label1 = new TLabel(50,320,new TImage("1:/tgui_pic/label_slider.png"),"0",ALIGN_UP_MID,this);
 
 
-	icon = new TIconButton(300,30,new TImage("1:/tgui_pic/profile.png"),new TImage("1:/tgui_pic/play.png"),"ͨѶ¼",this);
+	icon = new TIconButton(300,30,new TImage("1:/tgui_pic/profile.png"),NULL,"ͨѶ¼",this);//new TImage("1:/tgui_pic/play.png")
 	
 	// TDialog* dialog1 = new TDialog(300, 50, 250, 200, "dialog", this);
 	// TLabel* label2 = new TLabel(315, 100, 190, 50, "hello world", &dialog1);

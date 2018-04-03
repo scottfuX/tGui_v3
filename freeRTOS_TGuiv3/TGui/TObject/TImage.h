@@ -39,14 +39,9 @@ public:
     void Decode();
     
     void imgLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* writeSize,TRect* imgTRect = NULL);
-
-    void ImgLoad(int32 offX, int32 offY);
-    void ImgLoad(int32 offX, int32 offY,TBuffer* buf);
-    void ImgLoad(int32 offX, int32 offY,int32 ndW, int32 ndH,TBuffer* buf);
-    void ImgBlendLoad(int32 offX, int32 offY,TBuffer* buf);
-    void ImgBlendLoad(int32 offX, int32 offY);
-    void ImgBlendLoad(int32 offX, int32 offY,int32 ndW, int32 ndH,TBuffer* buf);
-
+    void blendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* writeSize,TRect* imgTRect = NULL);
+    void doubleBlendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* writeSize,TRect* imgTRect = NULL);
+    uint8 doubleBlendFunc(uint8 af,uint8 cf,uint8 ab,uint8 cb);
     uint8 ObFileType(const char *fname);
 						
 private:

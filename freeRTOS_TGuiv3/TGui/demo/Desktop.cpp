@@ -4,15 +4,15 @@ Desktop::Desktop(const char* filename,TApplication* app,const char* n, TWidget* 
 	:TWindow(filename,app,n,obj)
 {
 	
-    icon_clock = new TIconButton(20,40,new TImage("1:/tgui_pic/clock.png"),new TImage("1:/tgui_pic/clock2.png"),"时间",this);
-    icon_date = new TIconButton(222,45,new TImage("1:/tgui_pic/date.png"),new TImage("1:/tgui_pic/date2.png"),"日历",this);
-    icon_setting = new TIconButton(409,40,new TImage("1:/tgui_pic/setting.png"),new TImage("1:/tgui_pic/setting2.png"),"设置",this);
-    icon_calculator = new TIconButton(599,45,new TImage("1:/tgui_pic/calculator.png"),new TImage("1:/tgui_pic/calculator2.png"),"计算器",this);
+    icon_clock = new TIconButton(20,40,new TImage("1:/tgui_pic/clock.png"),NULL/*new TImage("1:/tgui_pic/clock2.png")*/,"时间",this);
+    icon_date = new TIconButton(222,45,new TImage("1:/tgui_pic/date.png"),NULL/*new TImage("1:/tgui_pic/date2.png")*/,"日历",this);
+    icon_setting = new TIconButton(409,40,new TImage("1:/tgui_pic/setting.png"),NULL/*new TImage("1:/tgui_pic/setting2.png")*/,"设置",this);
+    icon_calculator = new TIconButton(599,45,new TImage("1:/tgui_pic/calculator.png"),NULL/*new TImage("1:/tgui_pic/calculator2.png")*/,"计算器",this);
     
-    icon_photo = new TIconButton(20,260,new TImage("1:/tgui_pic/photo.png"),new TImage("1:/tgui_pic/photo2.png"),"照片",this);
-    icon_play = new TIconButton(245,260,new TImage("1:/tgui_pic/play.png"),new TImage("1:/tgui_pic/play2.png"),"播放器",this);
-    icon_search = new TIconButton(420,260,new TImage("1:/tgui_pic/search.png"),new TImage("1:/tgui_pic/search2.png"),"搜索",this);
-    icon_weather = new TIconButton(575,260,new TImage("1:/tgui_pic/weather.png"),new TImage("1:/tgui_pic/weather2.png"),"通讯录",this);
+    icon_photo = new TIconButton(20,260,new TImage("1:/tgui_pic/photo.png"),NULL /*new TImage("1:/tgui_pic/photo2.png")*/,"照片",this);
+    icon_play = new TIconButton(245,260,new TImage("1:/tgui_pic/play.png"),NULL /*new TImage("1:/tgui_pic/play2.png")*/,"播放器",this);
+    icon_search = new TIconButton(420,260,new TImage("1:/tgui_pic/search.png"),NULL/*new TImage("1:/tgui_pic/search2.png")*/,"搜索",this);
+    icon_weather = new TIconButton(575,260,new TImage("1:/tgui_pic/weather.png"),NULL/*new TImage("1:/tgui_pic/weather2.png")*/,"天气",this);
 
 	
 	// dialog2 = new TDialog(250, 100, new TImage("1:/tgui_pic/dialog.png"), "dialog", this,55);
