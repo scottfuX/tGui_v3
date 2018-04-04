@@ -42,6 +42,28 @@ TDialog::~TDialog()
 {
 	if(dialogImg)
 		delete dialogImg;
+	if(getParents()) //把兄弟们的无效区去除
+	{
+		TObjList* list = getParents()->getChildList();
+		TWidget* tmp;
+		tLNode<TObject*> * node = getParents()->unlink(this);//先断开连接
+		if (list)
+		{
+			tmp = (TWidget*)list->getFirst();
+			if(tmp->getInvalidList())
+			{
+				tmp->getInvalidList()->remove(this);
+			}
+			while ((tmp = (TWidget*)list->getNext())!=0)
+			{
+				if(tmp->getInvalidList())
+				{
+					tmp->getInvalidList()->remove(this);
+				}
+			}
+		}
+		getParents()->relink(node);
+	}
 }
 
 void TDialog::show()

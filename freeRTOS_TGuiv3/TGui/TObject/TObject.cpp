@@ -15,15 +15,25 @@ TObject::TObject(const char* n , TObject* obj )
 
 TObject::~TObject()
 {
+	if(getParents())
+		getParents()->unlink(this);
 	destroyChild(this);
-	delete childList;
 	if (TConnections)
 	{
-		TConnections->setAutoDelete(true);
-		TConnections->clear();
+		//TConnections->setAutoDelete(true);
+		while(TConnections && TConnections->count() > 0)
+		{
+			delete TConnections->getLast();
+			TConnections->removeLast();
+		}
+		delete TConnections;
 	}
 	if (name)
 		delete name;
+	parents = NULL;
+	name = NULL;
+	TConnections = NULL;
+	childList = NULL;
 }
 
 void TObject::setName(const char* str) 
@@ -79,12 +89,13 @@ void TObject::remChild(TObject* child)
 
 void TObject::destroyChild(TObject* obj)
 {
-	if (obj->childList)
+	while (obj->childList && obj->childList->count() > 0)//||)obj->childList->count() > 0
 	{	
 		destroyChild(obj->childList->getLast());
 		delete(obj->childList->getLast());
 		obj->childList->removeLast();
 	}
+	delete obj->childList;
 }
 
 

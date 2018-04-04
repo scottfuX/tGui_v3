@@ -52,13 +52,12 @@ private:
 	TPushButton* left_btn;
     TPushButton* right_btn;
 
-
+	TRect* cleanArea;
 	uint8 fileNum;
     uint8 fileName[32][32];
     FILINFO finfo;
 
 	char lfnamebuff[_MAX_LFN];   
-
 	int8 picIndex;
     
 	// uint8 res;

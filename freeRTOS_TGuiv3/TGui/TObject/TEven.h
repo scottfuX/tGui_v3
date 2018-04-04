@@ -209,16 +209,16 @@ protected:
 class  TCloseEvent : public TEvent		// widget close event
 {
 public:
-	TCloseEvent(long objaddr)
+	TCloseEvent(unsigned long objaddr)
 		: TEvent(Event_Close), accpt(false)
 		{this->objaddr = objaddr;}
 	bool   isAccepted() const { return accpt; }
 	void   accept() { accpt = true; }
 	void   ignore() { accpt = false; }
-	long   getObjAddr(){return objaddr;}
+	unsigned long   getObjAddr(){return objaddr;}
 protected:
 	bool   accpt;
-	long   objaddr;
+	unsigned long  objaddr;
 };
 
 #define T_CLOSE_EVENT(x)	((TCloseEvent*)x)

@@ -7,6 +7,10 @@ TFuncList::TFuncList()
 	numNodes = 0;
 	curIndex = -1;
 }
+TFuncList::~TFuncList()
+{
+	clear(); 
+}
 
 void TFuncList::append(func d)
 {

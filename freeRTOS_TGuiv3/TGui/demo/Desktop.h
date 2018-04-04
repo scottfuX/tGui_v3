@@ -29,7 +29,8 @@ public:
 	void slot1() { printf("hello world\n"); }
 	void slot2() { printf("release_slot\n"); }
 
-
+    void openSetup();
+    void closeSetup();
     void openPhoto();
 
 private:
@@ -41,6 +42,10 @@ private:
     TIconButton* icon_play ;
     TIconButton* icon_search ;
     TIconButton* icon_weather ;
+
+    TDialog* dialog ;
+    TPushButton* btn1 ;
+	TPushButton* btn2 ;
 };
 
 

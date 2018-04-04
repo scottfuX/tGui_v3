@@ -18,10 +18,10 @@ public:
 	TWindow(const char* filename ,TApplication* app,const char* n, TWidget* obj = NULL);
 	virtual ~TWindow();
 	virtual void show();
-	
-	TApplication* getApp(){return app;};
-    void slot_close();
+	virtual void closeEvent(TCloseEvent *) ;
+	void slot_close();
 
+	TApplication* getApp(){return app;};
 };
 
 

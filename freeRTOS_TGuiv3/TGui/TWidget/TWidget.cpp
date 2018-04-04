@@ -71,7 +71,13 @@ TWidget::TWidget(TRect r, const char* n, TWidget* obj,bool needBuf):TObject(n,ob
 	}	
 }
 
-TWidget::~TWidget() {
+TWidget::~TWidget() 
+{
+	
+	if(getParents())//删除父亲的剪切区域
+		((TWidget*)getParents())->invalidList->remove(this);
+	if(invalidList) //清空自己的剪切区域
+		invalidList->clear();
 	delete rect; 
 	delete offsetWH;
 	delete invalidList;
@@ -121,6 +127,7 @@ void TWidget::imgLoadInterface(int32 x,int32 y,TImage* img,TRect* rectFrom ,bool
 		img->imgLoad(pareAddr,&size1,addr,&size2,rectFrom);
 	}
 }
+
 
 
 void TWidget::showAll(TWidget* obj)
@@ -340,11 +347,11 @@ void TWidget::eventFilter(TEvent* e)
 		case  Event_Paint: {painTEvent((TPainTEvent *)e);}break;
 		case  Event_Move: {moveEvent((TMoveEvent *)e);}break;
 		case  Event_Resize: {resizeEvent((TResizeEvent *)e);}break;
-		case  Event_Create: {closeEvent((TCloseEvent *)e); }break;
+		case  Event_Create: {}break;
 		case  Event_Destroy: {}break;
 		case  Event_Show: {}break;
 		case  Event_Hide: {}break;
-		case  Event_Close: {}break;
+		case  Event_Close: {closeEvent((TCloseEvent *)e); }break;
 		case  Event_User: {}break;
 		default:
 			break;

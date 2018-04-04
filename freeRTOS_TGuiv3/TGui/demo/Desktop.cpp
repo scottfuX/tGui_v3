@@ -3,7 +3,10 @@
 Desktop::Desktop(const char* filename,TApplication* app,const char* n, TWidget* obj)
 	:TWindow(filename,app,n,obj)
 {
-	
+	dialog = NULL;
+    btn1 = NULL;
+    btn2 = NULL;
+
     icon_clock = new TIconButton(20,40,new TImage("1:/tgui_pic/clock.png"),NULL/*new TImage("1:/tgui_pic/clock2.png")*/,"时间",this);
     icon_date = new TIconButton(222,45,new TImage("1:/tgui_pic/date.png"),NULL/*new TImage("1:/tgui_pic/date2.png")*/,"日历",this);
     icon_setting = new TIconButton(409,40,new TImage("1:/tgui_pic/setting.png"),NULL/*new TImage("1:/tgui_pic/setting2.png")*/,"设置",this);
@@ -22,13 +25,13 @@ Desktop::Desktop(const char* filename,TApplication* app,const char* n, TWidget* 
 	// slider1->connect((func)(&TSlider::sig_release), label1, (func)(&TLabel::slot_showValue));
 
     icon_photo->connect((func)(&TIconButton::sig_release),this,(func)(&Desktop::openPhoto));
+    icon_setting->connect((func)(&TIconButton::sig_release),this,(func)(&Desktop::openSetup));
 
 	
 }
 
 Desktop::~Desktop() 
 {
-
 }
 
 void Desktop::show()
@@ -36,8 +39,31 @@ void Desktop::show()
 	refresh();
 }
 
+void Desktop::openSetup()
+{
+    if(!dialog)
+    {
+        dialog = new TDialog(250, 100, new TImage("1:/tgui_pic/dialog.png"),NULL, this,55);//"设置"
+ 	    btn1 = new TPushButton(292, 234, new TImage("1:/tgui_pic/dialog_btn1.png"),new TImage("1:/tgui_pic/dialog_btn1_sel.png"),NULL,dialog);//"确定"
+	    btn2 = new TPushButton(442, 234,new TImage("1:/tgui_pic/dialog_btn2.png"),new TImage("1:/tgui_pic/dialog_btn2_sel.png"),NULL,dialog);//"取消"
+        btn1->connect((func)(&TPushButton::sig_release),this,(func)(&Desktop::closeSetup));
+        dialog->showAll();
+    }
+}
+void Desktop::closeSetup()
+{
+    getApp()->setSignal(dialog,Event_Close);
+    dialog = NULL;
+}
+
 void Desktop::openPhoto()
 {
+    // TImageBox* imgbox = new TImageBox(370,195,new TImage("1:/tgui_pic/wait.png"),NULL,this);
+    // imgbox->show();
+    // delete imgbox;
+    TDialog* imgDialog = new TDialog(370,195,new TImage("1:/tgui_pic/wait.png"),NULL,this);
+        imgDialog->show();
+    delete imgDialog;
     UserPhoto* userphoto = new UserPhoto("1:/tgui_pic/desk2.jpg",getApp());
     getApp()->setSignal(userphoto,Event_Show);
 }

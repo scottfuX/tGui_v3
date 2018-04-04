@@ -39,6 +39,8 @@ void TApplication::chgWidRoot(TWidget* window)
 	show();
 }
 
+
+
 void TApplication::chgWidRoot()
 {//默认回到第一个
 	widroot = windList->getFirst();
@@ -129,8 +131,21 @@ void TApplication::translate()
 			case Event_None: break;
 			case Event_Close:
 			{
-				printf("\r\ntype = %d,close\r\n", SHARE_SIGNAL_DATA);
-				event =  new TCloseEvent(SHARE_SIGNAL_DATA);
+				printf("\r\nobj = %x,close\r\n", SHARE_SIGNAL_OBJ);
+				TWidget* sigWid = ((TWidget*)SHARE_SIGNAL_OBJ);
+				if(!sigWid)
+					break;
+				if( sigWid->getParents() == NULL)
+				{//是窗口
+					if(sigWid == widroot) //当前窗口 直接删除
+						delWidRoot();
+					else  //其他窗口
+						remWindow(sigWid);
+				}
+				else //非窗口 下发进行删除
+				{	printf("\r\n>>will delete this( %x )obj\r\n",SHARE_SIGNAL_OBJ);
+					event =  new TCloseEvent((uint32)SHARE_SIGNAL_OBJ);
+				}
 			}break;
 			case Event_Show:
 			{
@@ -163,10 +178,6 @@ void TApplication::distribute()
 	if (event) 
 	{
 		visitAll(widroot);
-		if(event->type() == Event_Close)
-		{
-			delWidRoot();
-		}
 		delete event;
 		event = NULL;
 	}
@@ -177,10 +188,6 @@ void TApplication::distribute(TObject* obj)
 	if (event)
 	{
 		visitAll(obj);
-		if(event->type() == Event_Close)
-		{
-			delWidRoot();
-		}
 		delete event;
 		event = NULL;
 	}

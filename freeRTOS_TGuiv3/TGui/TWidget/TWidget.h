@@ -26,8 +26,6 @@ public:
 	int32		width() { return rect->width(); }
 	int32		height() { return rect->height(); }
 	TRect*		getRect() { return rect; };
-	void		setZpos(int32 z) { zpos = z; }
-	int32		getZpos() { return zpos; }
 	void		setBackColor(colorDef c) { backColor = c; };
 	colorDef	getBackColor() { return backColor; }
 	TBuffer* 	getBuffer(){ return widgetBuf;};
@@ -78,12 +76,10 @@ public:
 private:
 	TRect*	rect;
 	TSize*	offsetWH;//根据父窗口的point的偏移
-	int32	zpos;
 	colorDef   backColor;
 	TWidgetList* invalidList; //无效列表
-	//bool	isVariable; //窗口是否是可变的  
-
 	TBuffer* widgetBuf;
+		//bool	isVariable; //窗口是否是可变的 
 
 	void 		rectCut(TRect* srcRect);
 

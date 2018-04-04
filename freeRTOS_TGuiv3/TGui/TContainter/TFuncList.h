@@ -8,7 +8,7 @@ class TFuncList
 {
 public:
 	TFuncList();
-	~TFuncList() { clear(); }
+	~TFuncList() ;
 	void append(func  t);// { TList<func >::append(t); }
 	uint32  count() const { return numNodes; };
 	bool remove(func  t = 0);// { return TList<func  >::remove(t); }

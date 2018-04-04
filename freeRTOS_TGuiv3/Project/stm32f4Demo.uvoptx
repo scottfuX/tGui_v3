@@ -150,9 +150,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>39</LineNumber>
+          <LineNumber>6</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134257974</Address>
+          <Address>134260466</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -161,7 +161,39 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>\Mac\Home\GitHub\tGui_v3\freeRTOS_TGuiv3\TGui\demo\UserPhoto.cpp</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\stm32f4Demo\../TGui/demo/UserPhoto.cpp\39</Expression>
+          <Expression>\\stm32f4Demo\../TGui/demo/UserPhoto.cpp\6</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>37</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134259160</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>\Mac\Home\GitHub\tGui_v3\freeRTOS_TGuiv3\TGui\TWidget\TWindow.cpp</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\stm32f4Demo\../TGui/TWidget/TWindow.cpp\37</Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>135</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134250666</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>\Mac\Home\GitHub\tGui_v3\freeRTOS_TGuiv3\TGui\TObject\TApplication.cpp</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\stm32f4Demo\../TGui/TObject/TApplication.cpp\135</Expression>
         </Bp>
       </Breakpoint>
       <MemoryWindow1>

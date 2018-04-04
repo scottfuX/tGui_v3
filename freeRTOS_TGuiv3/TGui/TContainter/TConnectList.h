@@ -13,8 +13,11 @@ public:
 	virtual uint32 count() { return TList<TConnection*>::count(); }
 	bool insertAt(uint32 index, TConnection* t) { return TList<TConnection*>::insertAt(index, t); }
 	bool remove(TConnection* t = 0) { return TList<TConnection*>::remove(t); }
+	bool removeLast() { return TList<TConnection*>::removeLast(); }
 	TConnection* at(uint32 index) { return TList<TConnection*>::at(index); }
 	virtual	void clear() { TList<TConnection*>::clear(); }
+	TConnection*  getLast() { return TList<TConnection*>::last(); }
+	TConnection*  getFirst() { return TList<TConnection*>::first(); }
 	int32 find(TConnection* t) { return TList<TConnection*>::findRef(t, true); };
 	int32 find(func  sig);
 };

@@ -14,10 +14,10 @@ class TConnection
 public:
 	TConnection(func  sig);
 	TConnection(func  sig, TObject* receiver,func  slot);
-	~TConnection() { destroy(); }
+	~TConnection() ;
 	void add(TObject* receiver, func  slot) {slotList->append(slot); recvList->append(receiver);}
 	void del(TObject* receiver, func  slot) { slotList->remove(slot); recvList -> remove(receiver); }
-	void destroy() {if (slotList) slotList->clear(); if (recvList)recvList->clear();}
+	void destroy();
 	void active(int32 d1, int32 d2);
 private:
 	func  signal;

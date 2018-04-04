@@ -37,6 +37,8 @@
         "system_error": "cpp",
         "sdram_conf.h": "c",
         "fstream": "cpp",
-        "__string": "cpp"
+        "__string": "cpp",
+        "exfuns.h": "c",
+        "ff.h": "c"
     }
 }

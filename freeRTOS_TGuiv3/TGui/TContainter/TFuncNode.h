@@ -11,6 +11,7 @@ private:
 	func	   data;
 	tFuncNode *prev;
 	tFuncNode *next;
+	
 	tFuncNode(func d) { data = d; prev = NULL; next = NULL; }
 
 };
