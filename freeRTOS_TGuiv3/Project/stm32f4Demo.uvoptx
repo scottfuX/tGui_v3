@@ -150,50 +150,18 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>6</LineNumber>
+          <LineNumber>44</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134260466</Address>
+          <Address>134254072</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>\Mac\Home\GitHub\tGui_v3\freeRTOS_TGuiv3\TGui\demo\UserPhoto.cpp</Filename>
+          <Filename>\Mac\Home\GitHub\tGui_v3\freeRTOS_TGuiv3\TGui\demo\Desktop.cpp</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\stm32f4Demo\../TGui/demo/UserPhoto.cpp\6</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>37</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134259160</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>\Mac\Home\GitHub\tGui_v3\freeRTOS_TGuiv3\TGui\TWidget\TWindow.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\stm32f4Demo\../TGui/TWidget/TWindow.cpp\37</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>135</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134250666</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>\Mac\Home\GitHub\tGui_v3\freeRTOS_TGuiv3\TGui\TObject\TApplication.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\stm32f4Demo\../TGui/TObject/TApplication.cpp\135</Expression>
+          <Expression>\\stm32f4Demo\../TGui/demo/Desktop.cpp\44</Expression>
         </Bp>
       </Breakpoint>
       <MemoryWindow1>
@@ -949,7 +917,7 @@
 
   <Group>
     <GroupName>Fatfs</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1654,6 +1622,18 @@
       <bDave2>0</bDave2>
       <PathWithFileName>..\TGui\demo\UserPhoto.cpp</PathWithFileName>
       <FilenameWithoutPath>UserPhoto.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>13</GroupNumber>
+      <FileNumber>108</FileNumber>
+      <FileType>8</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\TGui\demo\UserGame.cpp</PathWithFileName>
+      <FilenameWithoutPath>UserGame.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

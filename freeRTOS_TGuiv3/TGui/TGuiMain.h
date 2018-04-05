@@ -39,7 +39,8 @@ extern "C" {
 
 #include "demo/User.h"
 #include "demo/Desktop.h"
-//#include "demo/UserPhoto.h"
+#include "demo/UserPhoto.h"
+#include "demo/UserGame.h"
 
 
 void TGuiRun(void);

@@ -8,10 +8,14 @@
 #include "TContainter/TWidgetList.h"
 #include "TObject/TEven.h"
 #include "TObject/TDirver.h"
+#include "TContainter/TFuncList.h"
 
 
 #define SHARE_SIGNAL_CLOSE 0x000000FF
 #define SHARE_SIGNAL_HIDE  0x0000FF00
+
+
+
 
 class TApplication
 {
@@ -23,6 +27,7 @@ class TApplication
 	//需要一个 共同的 信号槽  -->用于接受下面控件传上来的事件
 	volatile TWidget* SHARE_SIGNAL_OBJ;
 	volatile int32 SHARE_SIGNAL_DATA;
+	volatile uint8 SHARE_SIGNAL_INDEX;
 
 	void distribute();
 	void distribute(TObject* obj);
@@ -40,10 +45,11 @@ public:
 	void chgWidRoot();
 	void delWidRoot();
 
-	void setSignal(TWidget* wid,int32 data);
+
+	void setSignal(TWidget* wid,int32 data,uint8 index = -1);
 	void run();
-	void suspension();
-	void destroy();
+	void suspension(){};
+	void destroy(){};
 	void show();
 	
 };

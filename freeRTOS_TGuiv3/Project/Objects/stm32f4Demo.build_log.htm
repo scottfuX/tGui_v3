@@ -22,33 +22,59 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 \\Mac\Home\GitHub\tGui_v3\freeRTOS_TGuiv3\Project\stm32f4Demo.uvprojx
-Project File Date:  03/31/2018
+Project File Date:  04/04/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 *** Warning: Using Microlib and C++ file(s) might cause the linker to fail !
   
 Build target 'STM32F429IGT6Demo'
-compiling UserPhoto.cpp...
+compiling TObject.cpp...
+..\TGui\TContainter/TObjList.h(13): warning:  #997-D: function "tCollection<T>::count() const [with T=TObject *]"  is hidden by "TObjList::count"  -- virtual function override intended?
+  		virtual uint32 count() { return TList<TObject*>::count(); }
+..\TGui\TContainter/TConnectList.h(13): warning:  #997-D: function "tCollection<T>::count() const [with T=TConnection *]"  is hidden by "TConnectList::count"  -- virtual function override intended?
+  	virtual uint32 count() { return TList<TConnection*>::count(); }
+..\TGui\TContainter/TList.h(97): warning:  #940-D: missing return statement at end of non-void function "TList<T>::newItem [with T=TConnection *]" 
+  	virtual T	     newItem(T d) {tCollection<T>::newItem(d); }		// create object
+          detected during instantiation of "T TList<T>::newItem(T) [with T=TConnection *]"  at line 303
+..\TGui\TObject\TObject.cpp: 4 warnings, 0 errors
+compiling UserGame.cpp...
 ..\TGui\TContainter/TObjList.h(13): warning:  #997-D: function "tCollection<T>::count() const [with T=TObject *]"  is hidden by "TObjList::count"  -- virtual function override intended?
   		virtual uint32 count() { return TList<TObject*>::count(); }
 ..\TGui\TContainter/TConnectList.h(13): warning:  #997-D: function "tCollection<T>::count() const [with T=TConnection *]"  is hidden by "TConnectList::count"  -- virtual function override intended?
   	virtual uint32 count() { return TList<TConnection*>::count(); }
 ..\TGui\TContainter/TWidgetList.h(10): warning:  #997-D: function "tCollection<T>::count() const [with T=TWidget *]"  is hidden by "TWidgetList::count"  -- virtual function override intended?
   	virtual uint32 count() { return TList<TWidget*>::count(); }
-..\TGui\demo\UserPhoto.cpp: 3 warnings, 0 errors
-compiling Desktop.cpp...
+..\TGui\TObject/TApplication.h(49): warning:  #68-D: integer conversion resulted in a change of sign
+  	void setSignal(TWidget* wid,int32 data,uint8 index = -1);
+..\TGui\demo\UserGame.cpp: 4 warnings, 0 errors
+compiling TWidget.cpp...
 ..\TGui\TContainter/TObjList.h(13): warning:  #997-D: function "tCollection<T>::count() const [with T=TObject *]"  is hidden by "TObjList::count"  -- virtual function override intended?
   		virtual uint32 count() { return TList<TObject*>::count(); }
 ..\TGui\TContainter/TConnectList.h(13): warning:  #997-D: function "tCollection<T>::count() const [with T=TConnection *]"  is hidden by "TConnectList::count"  -- virtual function override intended?
   	virtual uint32 count() { return TList<TConnection*>::count(); }
 ..\TGui\TContainter/TWidgetList.h(10): warning:  #997-D: function "tCollection<T>::count() const [with T=TWidget *]"  is hidden by "TWidgetList::count"  -- virtual function override intended?
   	virtual uint32 count() { return TList<TWidget*>::count(); }
-..\TGui\demo\Desktop.cpp: 3 warnings, 0 errors
+..\TGui\TContainter/TList.h(97): warning:  #940-D: missing return statement at end of non-void function "TList<T>::newItem [with T=TWidget *]" 
+  	virtual T	     newItem(T d) {tCollection<T>::newItem(d); }		// create object
+          detected during instantiation of "T TList<T>::newItem(T) [with T=TWidget *]"  at line 303
+..\TGui\TWidget\TWidget.cpp: 4 warnings, 0 errors
+compiling TDialog.cpp...
+..\TGui\TContainter/TObjList.h(13): warning:  #997-D: function "tCollection<T>::count() const [with T=TObject *]"  is hidden by "TObjList::count"  -- virtual function override intended?
+  		virtual uint32 count() { return TList<TObject*>::count(); }
+..\TGui\TContainter/TConnectList.h(13): warning:  #997-D: function "tCollection<T>::count() const [with T=TConnection *]"  is hidden by "TConnectList::count"  -- virtual function override intended?
+  	virtual uint32 count() { return TList<TConnection*>::count(); }
+..\TGui\TContainter/TWidgetList.h(10): warning:  #997-D: function "tCollection<T>::count() const [with T=TWidget *]"  is hidden by "TWidgetList::count"  -- virtual function override intended?
+  	virtual uint32 count() { return TList<TWidget*>::count(); }
+..\TGui\TWidget\TDialog.cpp(107): warning:  #1293-D: assignment in condition
+  			while (tmp = getInvalidList()->getNext())
+..\TGui\TWidget\TDialog.cpp(115): warning:  #1293-D: assignment in condition
+  				while (tmp = (TWidget*)getChildList()->getNext())
+..\TGui\TWidget\TDialog.cpp: 5 warnings, 0 errors
 linking...
-Program Size: Code=69964 RO-data=181952 RW-data=2008 ZI-data=5850872  
+Program Size: Code=70968 RO-data=182076 RW-data=2008 ZI-data=5850872  
 FromELF: creating hex file...
-".\Objects\stm32f4Demo.axf" - 0 Error(s), 6 Warning(s).
+".\Objects\stm32f4Demo.axf" - 0 Error(s), 16 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -62,7 +88,7 @@ Package Vendor: Keil
   C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:07
+Build Time Elapsed:  00:00:09
 </pre>
 </body>
 </html>

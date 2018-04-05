@@ -8,6 +8,7 @@ void TGuiRun()
 	TTouchDirver dirve;
 	TApplication app(&dirve);
 
+
 	Desktop desk("1:/tgui_pic/desk1.jpg",&app);
 	app.addWindow(&desk);
 	

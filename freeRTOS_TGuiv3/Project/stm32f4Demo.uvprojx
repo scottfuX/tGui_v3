@@ -1093,6 +1093,11 @@
               <FileType>8</FileType>
               <FilePath>..\TGui\demo\UserPhoto.cpp</FilePath>
             </File>
+            <File>
+              <FileName>UserGame.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\demo\UserGame.cpp</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

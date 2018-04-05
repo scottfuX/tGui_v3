@@ -15,16 +15,14 @@ TObject::TObject(const char* n , TObject* obj )
 
 TObject::~TObject()
 {
-	if(getParents())
-		getParents()->unlink(this);
 	destroyChild(this);
 	if (TConnections)
 	{
 		//TConnections->setAutoDelete(true);
 		while(TConnections && TConnections->count() > 0)
 		{
-			delete TConnections->getLast();
 			TConnections->removeLast();
+			delete TConnections->getLast();
 		}
 		delete TConnections;
 	}
@@ -81,19 +79,20 @@ void TObject::remChild(TObject* child)
 {
 	if (!childList)
 		return;
-	//???--????к???
-	destroyChild(child);
-	//???
 	childList->remove(child);
+	delete child;
+	
 }
 
 void TObject::destroyChild(TObject* obj)
 {
+	TObject* delObj = NULL;
 	while (obj->childList && obj->childList->count() > 0)//||)obj->childList->count() > 0
 	{	
-		destroyChild(obj->childList->getLast());
-		delete(obj->childList->getLast());
+		delObj = obj->childList->getLast();
 		obj->childList->removeLast();
+		destroyChild(delObj);
+		delObj = NULL;
 	}
 	delete obj->childList;
 }
@@ -104,9 +103,9 @@ bool TObject::connect(func  sig, TObject* receiver, func  slot)
 {
 	if (!TConnections)
 		TConnections = new TConnectList();
-	int32 num = TConnections->find(sig);//??????????????????????
-	if (num >= 0)//????
-	{//??????????????????в?
+	int32 num = TConnections->find(sig);
+	if (num >= 0)
+	{
 		TFuncList* funclist = TConnections->at(num)->slotList;
 		TObjList* objlist = TConnections->at(num)->recvList;
 		if (funclist->find(slot) < 0)

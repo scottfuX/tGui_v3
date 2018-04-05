@@ -144,3 +144,4 @@
 .\objects\tguimain.o: ..\TGui\TWidget/TIconButton.h
 .\objects\tguimain.o: ..\TGui\demo/Desktop.h
 .\objects\tguimain.o: ..\TGui\demo/UserPhoto.h
+.\objects\tguimain.o: ..\TGui\demo/UserGame.h

@@ -5,9 +5,6 @@ extern "C" {
 #include "interface_conf/tgui_conf.h"
 }
 
-
-#define RGB888    //定义显示屏每个像素类型
-
 #define MAX(x,y) x > y ? x : y
 #define MIN(x,y) x < y ? x : y
 #define ABS(x)  ( (x) > 0 ? (x) : -(x) )
@@ -42,6 +39,7 @@ typedef volatile unsigned char  const vuintc8; /* Read Only */
 
 class TObject;
 typedef void (TObject::*func)(int,int);
+
 
 //信息与槽机制 传递参数类型 d1 = type 或 d1 = xpos ， d2 = data 或 d2 = ypos
 #define TYPE_INT	-1

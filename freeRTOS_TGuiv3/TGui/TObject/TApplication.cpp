@@ -3,6 +3,7 @@
 
 TApplication::TApplication(TDirver* d)
 {
+	
 	widroot = NULL;
 	windList = new TWidgetList();
 	dirver = d;
@@ -13,9 +14,18 @@ TApplication::TApplication(TDirver* d)
 
 TApplication::~TApplication()
 {
-	destroy();
-	windList->clear();
+	widroot = NULL;
+	while(windList && windList->count() > 0)
+	{
+		TWidget* wid = windList->getLast();
+		delete wid;
+		wid = NULL;
+		windList->removeLast();
+	}
 	delete windList;
+
+	if(event)
+		delete event;
 }
 
 void TApplication::addWindow(TWidget* window)
@@ -39,8 +49,6 @@ void TApplication::chgWidRoot(TWidget* window)
 	show();
 }
 
-
-
 void TApplication::chgWidRoot()
 {//默认回到第一个
 	widroot = windList->getFirst();
@@ -54,6 +62,8 @@ void TApplication::delWidRoot()
 	chgWidRoot();
 }
 
+
+
 void TApplication::run()
 {
 	while (1)
@@ -61,10 +71,6 @@ void TApplication::run()
 		translate();//获取/翻译数据
 		distribute();//分发数据
 	}
-}
-
-void TApplication::suspension()
-{
 }
 
 void TApplication::show()
@@ -79,14 +85,15 @@ void TApplication::emit(TObject* obj)
 }
 
 
-void TApplication::setSignal(TWidget* wid,int32 data)
+void TApplication::setSignal(TWidget* wid,int32 data,uint8 index)
 {
 	SHARE_SIGNAL_OBJ = wid;
 	SHARE_SIGNAL_DATA = data;
+	SHARE_SIGNAL_INDEX = index;
 }
 
 
-//----------------private--------------
+//------------------------------------------private--------------------------------------------
 
 
 void TApplication::visitAll(TObject* obj)
@@ -150,7 +157,7 @@ void TApplication::translate()
 			case Event_Show:
 			{
 				chgWidRoot((TWidget*)SHARE_SIGNAL_OBJ);
-			}
+			}break;
 			default:break;
 		}
 		SHARE_SIGNAL_OBJ = NULL;
@@ -192,9 +199,3 @@ void TApplication::distribute(TObject* obj)
 		event = NULL;
 	}
 }
-
-void TApplication::destroy()
-{
-	delete widroot;
-}
-

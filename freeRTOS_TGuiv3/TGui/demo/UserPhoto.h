@@ -52,7 +52,8 @@ private:
 	TPushButton* left_btn;
     TPushButton* right_btn;
 
-	TRect* cleanArea;
+	bool startStat;
+	
 	uint8 fileNum;
     uint8 fileName[32][32];
     FILINFO finfo;

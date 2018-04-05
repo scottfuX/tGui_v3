@@ -3,10 +3,12 @@
 TWindow::TWindow(TApplication* app,const char* n, TWidget* obj)
     :TWidget(0,0,GUI_WIDTH,GUI_HIGH,n,obj)
 {
+    haveImg = false;
     this->app = app;
     TBufPainter p(getBuffer()->getBufAddr(),getRect());
 	p.setColors(GOLD, GOLD);
 	p.drawFullRect(0,0,width(),height()); 
+   
 }
 
 TWindow::TWindow(const char* filename ,TApplication* app, const char* n,TWidget* obj)
@@ -14,6 +16,7 @@ TWindow::TWindow(const char* filename ,TApplication* app, const char* n,TWidget*
 {
     this->app = app;
     TImage img(getBuffer()->getBufAddr(), GUI_WIDTH, GUI_HIGH, filename);
+    haveImg = true;
 }
 
 TWindow::~TWindow()
@@ -37,7 +40,7 @@ void TWindow::closeEvent(TCloseEvent * e)
 {
     if(((TWidget*)(e->getObjAddr())) && ((TWidget*)(e->getObjAddr()))->getParents() == this)
     {
-        delete ((TWidget*)e->getObjAddr());
+        remChild((TWidget*)e->getObjAddr());
         showAll();
     }
 }

@@ -17,6 +17,7 @@
 #include "TGlobal.h"
 
 #include "demo/UserPhoto.h"
+#include "demo/UserGame.h"
 
 class Desktop :public TWindow
 {
@@ -25,15 +26,16 @@ public:
 	Desktop(const char* filename,TApplication* app,const char*  n = NULL, TWidget* obj = NULL );
 	virtual ~Desktop() ;
 	virtual void show();
-	void slot() { printf("depress_solt\n"); }
-	void slot1() { printf("hello world\n"); }
-	void slot2() { printf("release_slot\n"); }
 
     void openSetup();
     void closeSetup();
+    void openGame();
     void openPhoto();
 
 private:
+    void createIcon();
+    void deleteIcon();
+
 	TIconButton* icon_clock;
     TIconButton* icon_date ;
     TIconButton* icon_setting ;
@@ -41,7 +43,7 @@ private:
     TIconButton* icon_photo ;
     TIconButton* icon_play ;
     TIconButton* icon_search ;
-    TIconButton* icon_weather ;
+    TIconButton* icon_game ;
 
     TDialog* dialog ;
     TPushButton* btn1 ;

@@ -161,3 +161,4 @@
 .\objects\main.o: ..\TGui\TWidget/TIconButton.h
 .\objects\main.o: ..\TGui\demo/Desktop.h
 .\objects\main.o: ..\TGui\demo/UserPhoto.h
+.\objects\main.o: ..\TGui\demo/UserGame.h

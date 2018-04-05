@@ -53,7 +53,7 @@ void TSlider::sig_move(int32 d1, int32 d2)
 			imgLoadInterface(barImg->imgW()/2,(height() - barSadSize - backImg->imgH())/2,backImg);
 			TRect rect(0,0,w,frontImg->imgH());
 			imgLoadInterface(barImg->imgW()/2,(height() - barSadSize - frontImg->imgH())/2,frontImg,&rect);
-			imgLoadInterface(w,0,barImg,NULL,true);
+			imgLoadInterface(w,0,barImg,NULL,1);
 
 
 			// backImg->ImgLoad(barImg->imgW()/2,(height() - barSadSize - backImg->imgH())/2,getBuffer());
@@ -144,7 +144,7 @@ void TSlider::release()
 			imgLoadInterface(barImg->imgW()/2,(height() - barSadSize - backImg->imgH())/2,backImg);
 			TRect rect(0,0,w,frontImg->imgH());
 			imgLoadInterface(barImg->imgW()/2,(height() - barSadSize - frontImg->imgH())/2,frontImg,&rect);
-			imgLoadInterface(w,0,barImg,NULL,true);
+			imgLoadInterface(w,0,barImg,NULL,1);
 		}
 		else
 		{
@@ -182,7 +182,7 @@ void TSlider::show()
 			imgLoadInterface(barImg->imgW()/2,(height() - barSadSize - backImg->imgH())/2,backImg);
 			TRect rect(0,0,w,frontImg->imgH());
 			imgLoadInterface(barImg->imgW()/2,(height() - barSadSize - frontImg->imgH())/2,frontImg,&rect);
-			imgLoadInterface(w,0,barImg,NULL,true);
+			imgLoadInterface(w,0,barImg,NULL,1);
 		}
 		else
 		{

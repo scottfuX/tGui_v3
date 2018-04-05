@@ -73,7 +73,6 @@ TWidget::TWidget(TRect r, const char* n, TWidget* obj,bool needBuf):TObject(n,ob
 
 TWidget::~TWidget() 
 {
-	
 	if(getParents())//删除父亲的剪切区域
 		((TWidget*)getParents())->invalidList->remove(this);
 	if(invalidList) //清空自己的剪切区域
@@ -111,20 +110,26 @@ void TWidget::refresh()
 //与图像加载函数对接的函数
 //x,y  加载到内存的位置  
 //rectFrom 需要加载多大
-void TWidget::imgLoadInterface(int32 x,int32 y,TImage* img,TRect* rectFrom ,bool isOneSelf) 
+void TWidget::imgLoadInterface(int32 x,int32 y,TImage* img,TRect* rectFrom ,uint8 readType) 
 {
 	uint8* addr = getBuffer()->getBufAddr() + (x + y * width())* GUI_PIXELSIZE;
 	TSize size2(getBuffer()->getBufW() , getBuffer()->getBufH());
-	if(isOneSelf)
-	{
-		img->imgLoad(addr,&size2,addr,&size2,rectFrom);
-	}
-	else
+	if(readType == 0) //从父亲buf那读点
 	{
 		uint8* pareAddr = ((TWidget*)getParents())->getBuffer()->getBufAddr() + \
 			(getOffsetWH()->width() + x +  (getOffsetWH()->height() + y) * ((TWidget*)getParents())->width()) * GUI_PIXELSIZE;
 		TSize size1(((TWidget*)getParents())->getBuffer()->getBufW(),((TWidget*)getParents())->getBuffer()->getBufH());
 		img->imgLoad(pareAddr,&size1,addr,&size2,rectFrom);
+	}
+	else if(readType == 1) //从自己buf那读点
+	{
+		img->imgLoad(addr,&size2,addr,&size2,rectFrom);
+	}
+	else if(readType == 2) //从显存buf那读点
+	{
+        uint32 pareAddr = GUI_FG_BUFADDR + GUI_PIXELSIZE * (getRect()->x() + x + (getRect()->y() + y)*GUI_WIDTH )   ;
+        TSize size1(GUI_WIDTH,GUI_HIGH);
+        img->imgLoad((uint8*)pareAddr,&size1,addr,&size2,rectFrom);
 	}
 }
 

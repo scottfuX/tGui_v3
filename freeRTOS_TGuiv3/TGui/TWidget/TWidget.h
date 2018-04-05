@@ -43,7 +43,7 @@ public:
 	void 		cleanShowed(TRect* rect);
 
 	uint8* 		getPareBufCorreAddr();  // 
-	void 		imgLoadInterface(int32 x,int32 y,TImage* img,TRect* rectFrom = NULL,bool isOneSelf = false);//与图像加载函数对接的函数
+	void 		imgLoadInterface(int32 x,int32 y,TImage* img,TRect* rectFrom = NULL,uint8 isOneSelf = 0);//与图像加载函数对接的函数
 
 	//TRect*	getPaintInvaild() { return paintInvaild; }
 	// void		setIsVariable(bool statVari); //把子类也改变

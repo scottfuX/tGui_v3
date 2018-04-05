@@ -37,6 +37,7 @@
 
 #define Event_User					1001	// first user event id
 
+
 //#define Event_tuit				20		// request to quit application
 //#define Event_Accel				30		// accelerator event
 //#define Event_Clipboard			40		// internal clipboard event

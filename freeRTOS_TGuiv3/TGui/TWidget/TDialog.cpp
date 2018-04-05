@@ -46,7 +46,6 @@ TDialog::~TDialog()
 	{
 		TObjList* list = getParents()->getChildList();
 		TWidget* tmp;
-		tLNode<TObject*> * node = getParents()->unlink(this);//先断开连接
 		if (list)
 		{
 			tmp = (TWidget*)list->getFirst();
@@ -62,7 +61,6 @@ TDialog::~TDialog()
 				}
 			}
 		}
-		getParents()->relink(node);
 	}
 }
 
