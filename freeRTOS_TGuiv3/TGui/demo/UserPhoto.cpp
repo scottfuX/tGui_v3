@@ -4,8 +4,8 @@ UserPhoto::UserPhoto(const char* filename,TApplication* app,const char* n, TWidg
 	:TWindow(filename,app,n,obj)
 {
     close_btn = new TPushButton(750,20,new TImage("1:/tgui_pic/check2_sel.png"),NULL,NULL, this);
-    left_btn = new TPushButton(30,450,new TImage("1:/tgui_pic/button.png"),new TImage("1:/tgui_pic/button_sel.png"),"上一个", this);
-    right_btn = new TPushButton(680,450,new TImage("1:/tgui_pic/button.png"),new TImage("1:/tgui_pic/button_sel.png"),"下一个", this);
+    left_btn = new TPushButton(30,445,new TImage("1:/tgui_pic/button.png"),new TImage("1:/tgui_pic/button_sel.png"),"上一个", this);
+    right_btn = new TPushButton(680,445,new TImage("1:/tgui_pic/button.png"),new TImage("1:/tgui_pic/button_sel.png"),"下一个", this);
 	
 
     close_btn->connect((func)(&TPushButton::sig_release),this,(func)(&UserPhoto::closePhoto));

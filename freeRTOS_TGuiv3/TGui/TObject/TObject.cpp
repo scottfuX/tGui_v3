@@ -19,10 +19,13 @@ TObject::~TObject()
 	if (TConnections)
 	{
 		//TConnections->setAutoDelete(true);
+		TConnection* delConnect = NULL;
 		while(TConnections && TConnections->count() > 0)
 		{
+			delConnect =  TConnections->getLast();
 			TConnections->removeLast();
-			delete TConnections->getLast();
+			delete delConnect;
+			delConnect = NULL;
 		}
 		delete TConnections;
 	}
@@ -91,7 +94,7 @@ void TObject::destroyChild(TObject* obj)
 	{	
 		delObj = obj->childList->getLast();
 		obj->childList->removeLast();
-		destroyChild(delObj);
+		delete delObj;
 		delObj = NULL;
 	}
 	delete obj->childList;
@@ -114,7 +117,7 @@ bool TObject::connect(func  sig, TObject* receiver, func  slot)
 			objlist->append(receiver);
 		}
 	}
-	else//??????
+	else
 	{
 		TConnection* con = new TConnection(sig, receiver, slot);
 		if (!con)
@@ -129,7 +132,7 @@ bool TObject::disconnect(func  sig, TObject* receiver, func  slot)
 	if (!TConnections)
 		return true;
 	int32 num = TConnections->find(sig);
-	if (num >= 0)//????
+	if (num >= 0)
 	{
 		TFuncList* funclist = TConnections->at(num)->slotList;
 		TObjList* objlist = TConnections->at(num)->recvList;

@@ -18,9 +18,9 @@ TApplication::~TApplication()
 	while(windList && windList->count() > 0)
 	{
 		TWidget* wid = windList->getLast();
+		windList->removeLast();
 		delete wid;
 		wid = NULL;
-		windList->removeLast();
 	}
 	delete windList;
 

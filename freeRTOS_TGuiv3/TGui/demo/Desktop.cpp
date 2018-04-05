@@ -21,8 +21,8 @@ Desktop::~Desktop()
 
 void Desktop::show()
 {
-    if(icon_clock == NULL)
-        createIcon();
+    // if(icon_clock == NULL)
+    //     createIcon();
 	refresh();
 }
 
@@ -51,11 +51,11 @@ void Desktop::closeSetup()
 
 void Desktop::openGame()
 {
-   TImageBox* imgbox = new TImageBox(370,195,new TImage("1:/tgui_pic/wait.png"),2,NULL,this);
-        imgbox->show();
-    remChild(imgbox);
+    // TImageBox* imgbox = new TImageBox(370,195,new TImage("1:/tgui_pic/wait.png"),2,NULL,this);
+    //     imgbox->show();
+    // remChild(imgbox);
 
-    deleteIcon();
+    //deleteIcon();
 
     //---¿ªÆôÓÎÏ·´°¿Ú-----
     UserGame* usergame = new UserGame("1:/game_pic/GameBack.jpg",getApp());
@@ -65,11 +65,11 @@ void Desktop::openGame()
 
 void Desktop::openPhoto()
 {
-    TImageBox* imgbox = new TImageBox(370,195,new TImage("1:/tgui_pic/wait.png"),2,NULL,this);
-        imgbox->show();
-    remChild( imgbox);
+    // TImageBox* imgbox = new TImageBox(370,195,new TImage("1:/tgui_pic/wait.png"),2,NULL,this);
+    //     imgbox->show();
+    // remChild( imgbox);
 
-    deleteIcon();
+    //deleteIcon();
 
     UserPhoto* userphoto = new UserPhoto("1:/tgui_pic/desk2.jpg",getApp());
     getApp()->setSignal(userphoto,Event_Show);

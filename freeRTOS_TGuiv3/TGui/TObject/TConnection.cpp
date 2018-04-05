@@ -23,17 +23,15 @@ TConnection::~TConnection()
 {
 	if (slotList) 
 	{
-		//slotList->clear(); 
+		slotList->clear(); 
 		delete slotList;
 	}
 	
 	if (recvList)
 	{
-		//recvList->clear();
+		recvList->clear();
 		delete recvList;
 	}
-	
-	//destroy();
 }
 
 void TConnection::active(int32 d1,int32 d2)
