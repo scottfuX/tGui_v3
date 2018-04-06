@@ -103,7 +103,7 @@ void TImage::imgLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* wri
 	uint8* imgaddr = imgBufAddr;
 	uint8  a = 255; //前景透明色
 	uint32 r,g,b; 
-	uint32 offF = (imgRect->x() + imgRect->y() * width)*GUI_PIXELSIZE; //开始的地址
+	uint32 offF = (imgRect->x() + imgRect->y() * width) * GUI_PIXELSIZE; //开始的地址
 	
 	//------------------------------- blend ---------------- 目前只支持PNG ------------------
 	if(imgType == T_PNG /*|| imgType == T_BMP */)

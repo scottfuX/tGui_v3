@@ -51,6 +51,7 @@ private:
 	TPushButton* close_btn;	
 	TPushButton* left_btn;
     TPushButton* right_btn;
+	TLabel* title_label;
 
 	bool startStat;
 	
@@ -61,14 +62,6 @@ private:
 	char lfnamebuff[_MAX_LFN];   
 	int8 picIndex;
     
-	// uint8 res;
- 	// DIR picdir;	 		//图片目录
-	// FILINFO *picfileinfo;//文件信息 
-	// uint8 *pname;			//带路径的文件名
-	// uint16 totpicnum; 		//图片文件总数
-	// uint16 curindex;		//图片当前索引
-	// uint8 key;				//键值
-	// uint32 *picoffsettbl;	//图片文件offset索引表 
 };
 
 #endif //!_USER_PHOTO_H_

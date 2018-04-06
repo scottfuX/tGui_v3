@@ -40,7 +40,7 @@ void TWindow::closeEvent(TCloseEvent * e)
 {
     if(((TWidget*)(e->getObjAddr())) && ((TWidget*)(e->getObjAddr()))->getParents() == this)
     {
-        remChild((TWidget*)e->getObjAddr());
+        delete((TWidget*)e->getObjAddr());
         showAll();
     }
 }

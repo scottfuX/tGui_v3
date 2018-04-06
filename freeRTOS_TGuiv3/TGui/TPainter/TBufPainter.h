@@ -58,7 +58,7 @@ public:
 	void drawVertSlider(int32 x, int32 y, int32 w, int32 h, int32 value = 0, int32 value_pre = -1, bool isPress = false, colorDef back = WHITE);
 	void drawHorizScroll(int32 x, int32 y, int32 w, int32 h, int32 scrollLen , int32 value = 0, int32 value_pre = -1, bool isPress = false, colorDef back = WHITE);
 	void drawVertScroll(int32 x, int32 y, int32 w, int32 h, int32 scrollLen ,int32 value = 0, int32 value_pre = -1, bool isPress = false, colorDef back = WHITE);
-	void drawLabel(int32 x, int32 y, int32 w, int32 h, const char* str, colorDef text = BLACK, colorDef back = WHITE);
+	void drawLabel(int32 x, int32 y, int32 w, int32 h, const char* str,bool needBack = false, colorDef text = BLACK, colorDef back = WHITE);
 	void drawDialog(int32 x, int32 y, int32 w, int32 h, const char* str, bool hasFocus = true, colorDef back = MIDLIGHT);
 	void drawDialogTitle(int32 x, int32 y, int32 w, const char* str, bool hasFocus = true);
 private:

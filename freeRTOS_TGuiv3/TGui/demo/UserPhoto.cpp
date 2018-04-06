@@ -4,8 +4,9 @@ UserPhoto::UserPhoto(const char* filename,TApplication* app,const char* n, TWidg
 	:TWindow(filename,app,n,obj)
 {
     close_btn = new TPushButton(750,20,new TImage("1:/tgui_pic/check2_sel.png"),NULL,NULL, this);
-    left_btn = new TPushButton(30,445,new TImage("1:/tgui_pic/button.png"),new TImage("1:/tgui_pic/button_sel.png"),"上一个", this);
-    right_btn = new TPushButton(680,445,new TImage("1:/tgui_pic/button.png"),new TImage("1:/tgui_pic/button_sel.png"),"下一个", this);
+    left_btn = new TPushButton(30,447,new TImage("1:/tgui_pic/button.png"),new TImage("1:/tgui_pic/button_sel.png"),"上一个", this);
+    right_btn = new TPushButton(680,447,new TImage("1:/tgui_pic/button.png"),new TImage("1:/tgui_pic/button_sel.png"),"下一个", this);
+    title_label = new TLabel(0,0,GUI_WIDTH,20,"PICTURE浏览器",this,ALIGN_CENTER,true,WHITE,BLACK);
 	
 
     close_btn->connect((func)(&TPushButton::sig_release),this,(func)(&UserPhoto::closePhoto));
@@ -36,7 +37,6 @@ void UserPhoto::nextPhoto()
     if(picIndex >= fileNum)
         picIndex = 0;
     TImageBox imgbox(0,0,(uint16)GUI_WIDTH,(uint16)GUI_HIGH,(const char* )fileName[picIndex],NULL,this,false);
-    //TImageBox  imgbox(50,50,700,380,(const char* )fileName[picIndex],NULL,this,false);
     startStat = true;
 }
 
@@ -48,7 +48,6 @@ void UserPhoto::prevPhoto()
     if(picIndex < 0)
         picIndex = fileNum - 1;
     TImageBox  imgbox(0,0,(uint16)GUI_WIDTH,(uint16)GUI_HIGH,(const char* )fileName[picIndex],NULL,this,false);
-	//TImageBox  imgbox(50,50,700,380,(const char* )fileName[picIndex],NULL,this,false);
    startStat = true;
 }
    

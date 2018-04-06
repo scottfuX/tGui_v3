@@ -1928,7 +1928,7 @@ I (..\TGui\TGuiMain.h)(0x5AC5CDF6)
 I (..\TGui\TContainter/TString.h)(0x5AA4AFC4)
 I (..\TGui\TGlobal.h)(0x5AC5C812)
 I (..\TGui\TContainter/TArray.h)(0x5AA4927A)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\TWidget/TWidget.h)(0x5AC4A908)
 I (..\TGui\TObject/TEven.h)(0x5AC5D6B9)
 I (..\TGui\TObject/TPoint.h)(0x5AA4A0D9)
@@ -1956,15 +1956,15 @@ I (..\TGui\TWidget/TPushButton.h)(0x5AC1DB00)
 I (..\TGui\TWidget/TAbstractButton.h)(0x5AC1D4BA)
 I (..\TGui\TWidget/TCheckBox.h)(0x5AC1E758)
 I (..\TGui\TWidget/TRadioButton.h)(0x5AC1DA8D)
-I (..\TGui\TWidget/TLabel.h)(0x5ABCA978)
+I (..\TGui\TWidget/TLabel.h)(0x5AC6C63B)
 I (..\TGui\TWidget/TFrame.h)(0x5AA8B770)
 I (..\TGui\TWidget/TSlider.h)(0x5ABEE207)
 I (..\TGui\TWidget/TAbstractSlider.h)(0x5AA8B770)
-I (..\TGui\TWidget/TImageBox.h)(0x5AC4AADC)
+I (..\TGui\TWidget/TImageBox.h)(0x5AC636BE)
 I (..\TGui\TWidget/TSwitch.h)(0x5AC1E748)
 I (..\TGui\TWidget/TIconButton.h)(0x5AC1E72F)
 I (..\TGui\demo/Desktop.h)(0x5AC5DB99)
-I (..\TGui\demo/UserPhoto.h)(0x5AC4B33B)
+I (..\TGui\demo/UserPhoto.h)(0x5AC64253)
 I (..\TGui\demo/UserGame.h)(0x5AC4C2D1)
 F (..\User\tim\tim_conf.c)(0x5AAF47C4)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tim_conf.o --omf_browse .\objects\tim_conf.crf --depend .\objects\tim_conf.d)
 I (..\User\tim/tim_conf.h)(0x5AA76363)
@@ -2718,7 +2718,7 @@ I (..\User\touch/touch_i2c.h)(0x5AA50C33)
 I (..\TGui\TContainter/TString.h)(0x5AA4AFC4)
 I (..\TGui\TGlobal.h)(0x5AC5C812)
 I (..\TGui\TContainter/TArray.h)(0x5AA4927A)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\TWidget/TWidget.h)(0x5AC4A908)
 I (..\TGui\TObject/TEven.h)(0x5AC5D6B9)
 I (..\TGui\TObject/TPoint.h)(0x5AA4A0D9)
@@ -2785,15 +2785,15 @@ I (..\TGui\TWidget/TPushButton.h)(0x5AC1DB00)
 I (..\TGui\TWidget/TAbstractButton.h)(0x5AC1D4BA)
 I (..\TGui\TWidget/TCheckBox.h)(0x5AC1E758)
 I (..\TGui\TWidget/TRadioButton.h)(0x5AC1DA8D)
-I (..\TGui\TWidget/TLabel.h)(0x5ABCA978)
+I (..\TGui\TWidget/TLabel.h)(0x5AC6C63B)
 I (..\TGui\TWidget/TFrame.h)(0x5AA8B770)
 I (..\TGui\TWidget/TSlider.h)(0x5ABEE207)
 I (..\TGui\TWidget/TAbstractSlider.h)(0x5AA8B770)
-I (..\TGui\TWidget/TImageBox.h)(0x5AC4AADC)
+I (..\TGui\TWidget/TImageBox.h)(0x5AC636BE)
 I (..\TGui\TWidget/TSwitch.h)(0x5AC1E748)
 I (..\TGui\TWidget/TIconButton.h)(0x5AC1E72F)
 I (..\TGui\demo/Desktop.h)(0x5AC5DB99)
-I (..\TGui\demo/UserPhoto.h)(0x5AC4B33B)
+I (..\TGui\demo/UserPhoto.h)(0x5AC64253)
 I (..\TGui\demo/UserGame.h)(0x5AC4C2D1)
 F (..\TGui\TWidget\TAbstractButton.cpp)(0x5AC1EB74)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tabstractbutton.o --omf_browse .\objects\tabstractbutton.crf --depend .\objects\tabstractbutton.d)
 I (..\TGui\TWidget/TAbstractButton.h)(0x5AC1D4BA)
@@ -3141,7 +3141,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\rw\_strref.h)(0x564D4E5C)
 I (C:\Keil_v5\ARM\ARMCC\include\rw\_traits.h)(0x564D4E5E)
 I (C:\Keil_v5\ARM\ARMCC\include\cstdio)(0x588B8344)
 I (..\TGui\TContainter/TWidgetList.h)(0x5ABEFBBA)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\TObject/TFont.h)(0x5ABDDC87)
 F (..\TGui\TWidget\TDialog.cpp)(0x5AC619F3)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tdialog.o --omf_browse .\objects\tdialog.crf --depend .\objects\tdialog.d)
 I (..\TGui\TWidget\TDialog.h)(0x5ABE4795)
@@ -3258,7 +3258,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\rw\_strref.h)(0x564D4E5C)
 I (C:\Keil_v5\ARM\ARMCC\include\rw\_traits.h)(0x564D4E5E)
 I (C:\Keil_v5\ARM\ARMCC\include\cstdio)(0x588B8344)
 I (..\TGui\TContainter/TWidgetList.h)(0x5ABEFBBA)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\TObject/TFont.h)(0x5ABDDC87)
 F (..\TGui\TWidget\TFrame.cpp)(0x5AA49B13)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tframe.o --omf_browse .\objects\tframe.crf --depend .\objects\tframe.d)
 I (..\TGui\TWidget/TFrame.h)(0x5AA8B770)
@@ -3375,8 +3375,8 @@ I (C:\Keil_v5\ARM\ARMCC\include\rw\_strref.h)(0x564D4E5C)
 I (C:\Keil_v5\ARM\ARMCC\include\rw\_traits.h)(0x564D4E5E)
 I (C:\Keil_v5\ARM\ARMCC\include\cstdio)(0x588B8344)
 I (..\TGui\TContainter/TWidgetList.h)(0x5ABEFBBA)
-F (..\TGui\TWidget\TLabel.cpp)(0x5AC21C8A)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tlabel.o --omf_browse .\objects\tlabel.crf --depend .\objects\tlabel.d)
-I (..\TGui\TWidget/TLabel.h)(0x5ABCA978)
+F (..\TGui\TWidget\TLabel.cpp)(0x5AC6C802)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tlabel.o --omf_browse .\objects\tlabel.crf --depend .\objects\tlabel.d)
+I (..\TGui\TWidget/TLabel.h)(0x5AC6C63B)
 I (..\TGui\TWidget/TFrame.h)(0x5AA8B770)
 I (..\TGui\TWidget/TWidget.h)(0x5AC4A908)
 I (..\TGui\TObject/TEven.h)(0x5AC5D6B9)
@@ -3491,7 +3491,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\rw\_strref.h)(0x564D4E5C)
 I (C:\Keil_v5\ARM\ARMCC\include\rw\_traits.h)(0x564D4E5E)
 I (C:\Keil_v5\ARM\ARMCC\include\cstdio)(0x588B8344)
 I (..\TGui\TContainter/TWidgetList.h)(0x5ABEFBBA)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\TObject/TFont.h)(0x5ABDDC87)
 F (..\TGui\TWidget\TPushButton.cpp)(0x5AC32229)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tpushbutton.o --omf_browse .\objects\tpushbutton.crf --depend .\objects\tpushbutton.d)
 I (..\TGui\TWidget/TPushButton.h)(0x5AC1DB00)
@@ -3609,7 +3609,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\rw\_strref.h)(0x564D4E5C)
 I (C:\Keil_v5\ARM\ARMCC\include\rw\_traits.h)(0x564D4E5E)
 I (C:\Keil_v5\ARM\ARMCC\include\cstdio)(0x588B8344)
 I (..\TGui\TContainter/TWidgetList.h)(0x5ABEFBBA)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\TObject/TFont.h)(0x5ABDDC87)
 F (..\TGui\TWidget\TRadioButton.cpp)(0x5AC21E57)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tradiobutton.o --omf_browse .\objects\tradiobutton.crf --depend .\objects\tradiobutton.d)
 I (..\TGui\TWidget/TRadioButton.h)(0x5AC1DA8D)
@@ -3727,7 +3727,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\rw\_strref.h)(0x564D4E5C)
 I (C:\Keil_v5\ARM\ARMCC\include\rw\_traits.h)(0x564D4E5E)
 I (C:\Keil_v5\ARM\ARMCC\include\cstdio)(0x588B8344)
 I (..\TGui\TContainter/TWidgetList.h)(0x5ABEFBBA)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\TObject/TFont.h)(0x5ABDDC87)
 F (..\TGui\TWidget\TSlider.cpp)(0x5AC4ABCC)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tslider.o --omf_browse .\objects\tslider.crf --depend .\objects\tslider.d)
 I (..\TGui\TWidget/TSlider.h)(0x5ABEE207)
@@ -3845,7 +3845,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\rw\_strref.h)(0x564D4E5C)
 I (C:\Keil_v5\ARM\ARMCC\include\rw\_traits.h)(0x564D4E5E)
 I (C:\Keil_v5\ARM\ARMCC\include\cstdio)(0x588B8344)
 I (..\TGui\TContainter/TWidgetList.h)(0x5ABEFBBA)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\TObject/TFont.h)(0x5ABDDC87)
 F (..\TGui\TWidget\TWidget.cpp)(0x5AC618B1)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\twidget.o --omf_browse .\objects\twidget.crf --depend .\objects\twidget.d)
 I (..\TGui\TWidget/TWidget.h)(0x5AC4A908)
@@ -4033,7 +4033,7 @@ I (..\TGui\TContainter/tCollection.h)(0x5ABF7638)
 I (..\TGui\TContainter/tVector.h)(0x5AA4AFC9)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (..\TGui\TContainter/TConnectList.h)(0x5AC46011)
-F (..\TGui\TObject\TObject.cpp)(0x5AC61F3D)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tobject.o --omf_browse .\objects\tobject.crf --depend .\objects\tobject.d)
+F (..\TGui\TObject\TObject.cpp)(0x5AC63E5E)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tobject.o --omf_browse .\objects\tobject.crf --depend .\objects\tobject.d)
 I (..\TGui\TObject/TObject.h)(0x5ABEEA3B)
 I (..\TGui\TObject/TEven.h)(0x5AC5D6B9)
 I (..\TGui\TGlobal.h)(0x5AC5C812)
@@ -4520,8 +4520,8 @@ I (..\User\touch/touch_i2c.h)(0x5AA50C33)
 I (..\TGui\TObject/TRect.h)(0x5AAD1FEB)
 I (..\TGui\TObject/TSize.h)(0x5AA4A11F)
 I (..\TGui\TObject/TPoint.h)(0x5AA4A0D9)
-F (..\TGui\TPainter\TBufPainter.cpp)(0x5ABDF8A3)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tbufpainter.o --omf_browse .\objects\tbufpainter.crf --depend .\objects\tbufpainter.d)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+F (..\TGui\TPainter\TBufPainter.cpp)(0x5AC6C3CE)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tbufpainter.o --omf_browse .\objects\tbufpainter.crf --depend .\objects\tbufpainter.d)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\interface_conf/tgui_conf.h)(0x5ABE2102)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (..\User\stm32f4xx_conf.h)(0x5AA529D1)
@@ -4636,8 +4636,8 @@ I (C:\Keil_v5\ARM\ARMCC\include\rw\_traits.h)(0x564D4E5E)
 I (C:\Keil_v5\ARM\ARMCC\include\cstdio)(0x588B8344)
 I (..\TGui\TContainter/TWidgetList.h)(0x5ABEFBBA)
 I (..\TGui\TObject/TFont.h)(0x5ABDDC87)
-F (..\TGui\TWidget\TImageBox.cpp)(0x5AC4AA78)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\timagebox.o --omf_browse .\objects\timagebox.crf --depend .\objects\timagebox.d)
-I (..\TGui\TWidget/TImageBox.h)(0x5AC4AADC)
+F (..\TGui\TWidget\TImageBox.cpp)(0x5AC636F5)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\timagebox.o --omf_browse .\objects\timagebox.crf --depend .\objects\timagebox.d)
+I (..\TGui\TWidget/TImageBox.h)(0x5AC636BE)
 I (..\TGui\TGlobal.h)(0x5AC5C812)
 I (..\TGui\interface_conf/tgui_conf.h)(0x5ABE2102)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
@@ -4751,9 +4751,9 @@ I (..\TGui\TObject/TConnection.h)(0x5AC4608F)
 I (..\TGui\TContainter/TFuncList.h)(0x5AC48DD5)
 I (..\TGui\TContainter/tFuncNode.h)(0x5AC49012)
 I (..\TGui\TContainter/TWidgetList.h)(0x5ABEFBBA)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\TObject/TFont.h)(0x5ABDDC87)
-F (..\TGui\TObject\TImage.cpp)(0x5AC5F450)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\timage.o --omf_browse .\objects\timage.crf --depend .\objects\timage.d)
+F (..\TGui\TObject\TImage.cpp)(0x5AC637EE)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\timage.o --omf_browse .\objects\timage.crf --depend .\objects\timage.d)
 I (..\TGui\TObject/TImage.h)(0x5AC35DFC)
 I (..\TGui\libraries/picture_lib/piclib.h)(0x5AB262D7)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
@@ -4969,7 +4969,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\rw\_strref.h)(0x564D4E5C)
 I (C:\Keil_v5\ARM\ARMCC\include\rw\_traits.h)(0x564D4E5E)
 I (C:\Keil_v5\ARM\ARMCC\include\cstdio)(0x588B8344)
 I (..\TGui\TContainter/TWidgetList.h)(0x5ABEFBBA)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\TObject/TFont.h)(0x5ABDDC87)
 F (..\TGui\TObject\TFont.cpp)(0x5ABDDCC5)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\tfont.o --omf_browse .\objects\tfont.crf --depend .\objects\tfont.d)
 I (..\TGui\TObject/TFont.h)(0x5ABDDC87)
@@ -5028,7 +5028,7 @@ I (..\User\test/lcdtest.h)(0x5AA3C984)
 I (..\User\test/lcdpalette.h)(0x5A2D210C)
 I (..\User\touch/palette.h)(0x5AA50C1A)
 I (..\User\touch/touch_i2c.h)(0x5AA50C33)
-F (..\TGui\TWidget\TWindow.cpp)(0x5AC614C2)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\twindow.o --omf_browse .\objects\twindow.crf --depend .\objects\twindow.d)
+F (..\TGui\TWidget\TWindow.cpp)(0x5AC63EC0)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\twindow.o --omf_browse .\objects\twindow.crf --depend .\objects\twindow.d)
 I (..\TGui\TWidget/TWindow.h)(0x5AC477AD)
 I (..\TGui\TWidget/TWidget.h)(0x5AC4A908)
 I (..\TGui\TObject/TEven.h)(0x5AC5D6B9)
@@ -5145,7 +5145,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\cstdio)(0x588B8344)
 I (..\TGui\TContainter/TWidgetList.h)(0x5ABEFBBA)
 I (..\TGui\TObject/TApplication.h)(0x5AC5D701)
 I (..\TGui\TObject/TDirver.h)(0x5AA4A051)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\TObject/TFont.h)(0x5ABDDC87)
 F (..\TGui\TWidget\TIconButton.cpp)(0x5AC2EE83)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\ticonbutton.o --omf_browse .\objects\ticonbutton.crf --depend .\objects\ticonbutton.d)
 I (..\TGui\TWidget/TIconButton.h)(0x5AC1E72F)
@@ -5263,7 +5263,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\rw\_strref.h)(0x564D4E5C)
 I (C:\Keil_v5\ARM\ARMCC\include\rw\_traits.h)(0x564D4E5E)
 I (C:\Keil_v5\ARM\ARMCC\include\cstdio)(0x588B8344)
 I (..\TGui\TContainter/TWidgetList.h)(0x5ABEFBBA)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\TObject/TFont.h)(0x5ABDDC87)
 F (..\TGui\libraries\picture_lib\bmp.c)(0x5AB495FE)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\bmp.o --omf_browse .\objects\bmp.crf --depend .\objects\bmp.d)
 I (..\TGui\libraries\picture_lib\piclib.h)(0x5AB262D7)
@@ -5643,9 +5643,9 @@ I (..\User\fatfs/ff.h)(0x5AC373BC)
 I (..\User\fatfs/integer.h)(0x55EA74C2)
 I (..\User\fatfs/ffconf.h)(0x5AC38874)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
-F (..\TGui\demo\Desktop.cpp)(0x5AC62A13)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\desktop.o --omf_browse .\objects\desktop.crf --depend .\objects\desktop.d)
+F (..\TGui\demo\Desktop.cpp)(0x5AC63ED2)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\desktop.o --omf_browse .\objects\desktop.crf --depend .\objects\desktop.d)
 I (..\TGui\demo/Desktop.h)(0x5AC5DB99)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\interface_conf/tgui_conf.h)(0x5ABE2102)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (..\User\stm32f4xx_conf.h)(0x5AA529D1)
@@ -5768,18 +5768,18 @@ I (..\TGui\TWidget/TPushButton.h)(0x5AC1DB00)
 I (..\TGui\TWidget/TAbstractButton.h)(0x5AC1D4BA)
 I (..\TGui\TWidget/TCheckBox.h)(0x5AC1E758)
 I (..\TGui\TWidget/TRadioButton.h)(0x5AC1DA8D)
-I (..\TGui\TWidget/TLabel.h)(0x5ABCA978)
+I (..\TGui\TWidget/TLabel.h)(0x5AC6C63B)
 I (..\TGui\TWidget/TFrame.h)(0x5AA8B770)
 I (..\TGui\TWidget/TSlider.h)(0x5ABEE207)
 I (..\TGui\TWidget/TAbstractSlider.h)(0x5AA8B770)
-I (..\TGui\TWidget/TImageBox.h)(0x5AC4AADC)
+I (..\TGui\TWidget/TImageBox.h)(0x5AC636BE)
 I (..\TGui\TWidget/TSwitch.h)(0x5AC1E748)
 I (..\TGui\TWidget/TIconButton.h)(0x5AC1E72F)
-I (..\TGui\demo/UserPhoto.h)(0x5AC4B33B)
+I (..\TGui\demo/UserPhoto.h)(0x5AC64253)
 I (..\TGui\demo/UserGame.h)(0x5AC4C2D1)
 F (..\TGui\demo\User.cpp)(0x5AC6291C)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\user.o --omf_browse .\objects\user.crf --depend .\objects\user.d)
 I (..\TGui\demo\User.h)(0x5ABF6C33)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\interface_conf/tgui_conf.h)(0x5ABE2102)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (..\User\stm32f4xx_conf.h)(0x5AA529D1)
@@ -5902,16 +5902,16 @@ I (..\TGui\TWidget/TPushButton.h)(0x5AC1DB00)
 I (..\TGui\TWidget/TAbstractButton.h)(0x5AC1D4BA)
 I (..\TGui\TWidget/TCheckBox.h)(0x5AC1E758)
 I (..\TGui\TWidget/TRadioButton.h)(0x5AC1DA8D)
-I (..\TGui\TWidget/TLabel.h)(0x5ABCA978)
+I (..\TGui\TWidget/TLabel.h)(0x5AC6C63B)
 I (..\TGui\TWidget/TFrame.h)(0x5AA8B770)
 I (..\TGui\TWidget/TSlider.h)(0x5ABEE207)
 I (..\TGui\TWidget/TAbstractSlider.h)(0x5AA8B770)
-I (..\TGui\TWidget/TImageBox.h)(0x5AC4AADC)
+I (..\TGui\TWidget/TImageBox.h)(0x5AC636BE)
 I (..\TGui\TWidget/TSwitch.h)(0x5AC1E748)
 I (..\TGui\TWidget/TIconButton.h)(0x5AC1E72F)
-F (..\TGui\demo\UserPhoto.cpp)(0x5AC62964)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\userphoto.o --omf_browse .\objects\userphoto.crf --depend .\objects\userphoto.d)
-I (..\TGui\demo/UserPhoto.h)(0x5AC4B33B)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+F (..\TGui\demo\UserPhoto.cpp)(0x5AC6C6ED)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\userphoto.o --omf_browse .\objects\userphoto.crf --depend .\objects\userphoto.d)
+I (..\TGui\demo/UserPhoto.h)(0x5AC64253)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\interface_conf/tgui_conf.h)(0x5ABE2102)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (..\User\stm32f4xx_conf.h)(0x5AA529D1)
@@ -6034,16 +6034,16 @@ I (..\TGui\TWidget/TPushButton.h)(0x5AC1DB00)
 I (..\TGui\TWidget/TAbstractButton.h)(0x5AC1D4BA)
 I (..\TGui\TWidget/TCheckBox.h)(0x5AC1E758)
 I (..\TGui\TWidget/TRadioButton.h)(0x5AC1DA8D)
-I (..\TGui\TWidget/TLabel.h)(0x5ABCA978)
+I (..\TGui\TWidget/TLabel.h)(0x5AC6C63B)
 I (..\TGui\TWidget/TFrame.h)(0x5AA8B770)
 I (..\TGui\TWidget/TSlider.h)(0x5ABEE207)
 I (..\TGui\TWidget/TAbstractSlider.h)(0x5AA8B770)
-I (..\TGui\TWidget/TImageBox.h)(0x5AC4AADC)
+I (..\TGui\TWidget/TImageBox.h)(0x5AC636BE)
 I (..\TGui\TWidget/TSwitch.h)(0x5AC1E748)
 I (..\TGui\TWidget/TIconButton.h)(0x5AC1E72F)
 F (..\TGui\demo\UserGame.cpp)(0x5AC6297B)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\Libraries\CMSIS\Include -I ..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\User -I ..\User\SDRAM -I ..\FreeRTOS -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\MemMang -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\FreeRTOS\portable\Keil -I ..\FreeRTOS\portable -I ..\TGui -I ..\TGui\libraries-I.\RTE\_STM32F429IGT6Demo-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx-o .\objects\usergame.o --omf_browse .\objects\usergame.crf --depend .\objects\usergame.d)
 I (..\TGui\demo/UserGame.h)(0x5AC4C2D1)
-I (..\TGui\TPainter/TBufPainter.h)(0x5ABDDE51)
+I (..\TGui\TPainter/TBufPainter.h)(0x5AC6C36B)
 I (..\TGui\interface_conf/tgui_conf.h)(0x5ABE2102)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (..\User\stm32f4xx_conf.h)(0x5AA529D1)
@@ -6166,10 +6166,10 @@ I (..\TGui\TWidget/TPushButton.h)(0x5AC1DB00)
 I (..\TGui\TWidget/TAbstractButton.h)(0x5AC1D4BA)
 I (..\TGui\TWidget/TCheckBox.h)(0x5AC1E758)
 I (..\TGui\TWidget/TRadioButton.h)(0x5AC1DA8D)
-I (..\TGui\TWidget/TLabel.h)(0x5ABCA978)
+I (..\TGui\TWidget/TLabel.h)(0x5AC6C63B)
 I (..\TGui\TWidget/TFrame.h)(0x5AA8B770)
 I (..\TGui\TWidget/TSlider.h)(0x5ABEE207)
 I (..\TGui\TWidget/TAbstractSlider.h)(0x5AA8B770)
-I (..\TGui\TWidget/TImageBox.h)(0x5AC4AADC)
+I (..\TGui\TWidget/TImageBox.h)(0x5AC636BE)
 I (..\TGui\TWidget/TSwitch.h)(0x5AC1E748)
 I (..\TGui\TWidget/TIconButton.h)(0x5AC1E72F)

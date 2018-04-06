@@ -673,10 +673,13 @@ void TBufPainter::drawVertScroll(int32 x, int32 y, int32 w, int32 h, int32 scrol
 }
 
 
-void TBufPainter::drawLabel(int32 x, int32 y, int32 w, int32 h, const char* str,colorDef text , colorDef back )
+void TBufPainter::drawLabel(int32 x, int32 y, int32 w, int32 h, const char* str,bool needBack,colorDef text , colorDef back )
 {
-	setTextColor(back);
-	drawFullRect(x, y, w, h);
+	if(needBack)
+	{
+		setTextColor(back);
+		drawFullRect(x, y, w, h);
+	}
 	drawCenterText(x, y, w, h, str, text, back);
 }
 

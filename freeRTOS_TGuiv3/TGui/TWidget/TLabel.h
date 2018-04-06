@@ -7,7 +7,7 @@
 class TLabel:public TFrame
 {
 public:
-	TLabel(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj);
+	TLabel(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj,uint8 align = ALIGN_CENTER ,bool needBack = false,colorDef text = BLACK,colorDef back = WHITE);
 	TLabel(int32 x, int32 y,TImage* img, const char* name,uint8 align, TWidget* obj);
 	virtual ~TLabel() ;
 	virtual void show();
@@ -15,6 +15,7 @@ public:
 private:
 	colorDef textColor;
 	bool haveImg;
+	bool haveBack;
 	TImage * labelImg;
 	uint8 labelAlign;
 };

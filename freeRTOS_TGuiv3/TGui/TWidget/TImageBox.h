@@ -16,10 +16,8 @@ public:
 	virtual ~TImageBox();
 	virtual void show();
 
-	TImage* getImg(){return img;}; 
-
 private:
-	TImage* img;
+
 };
 
 

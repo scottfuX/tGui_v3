@@ -30,9 +30,9 @@ void Desktop::openSetup()
 {
     if(!dialog)
     {
-        // TImageBox* imgbox = new TImageBox(370,195,new TImage("1:/tgui_pic/wait.png"),2,NULL,this);
-        //     imgbox->show();
-        // delete imgbox;
+        TImageBox* imgbox = new TImageBox(370,195,new TImage("1:/tgui_pic/wait.png"),2,NULL,this);
+            imgbox->show();
+        delete imgbox;
 
         dialog = new TDialog(250, 100, new TImage("1:/tgui_pic/dialog.png"), "ÉèÖÃ", this,55);
  	    btn1 = new TPushButton(292, 234, new TImage("1:/tgui_pic/dialog_btn1.png"),new TImage("1:/tgui_pic/dialog_btn1_sel.png"),"È·¶¨",dialog);
@@ -51,9 +51,9 @@ void Desktop::closeSetup()
 
 void Desktop::openGame()
 {
-    // TImageBox* imgbox = new TImageBox(370,195,new TImage("1:/tgui_pic/wait.png"),2,NULL,this);
-    //     imgbox->show();
-    // remChild(imgbox);
+    TImageBox* imgbox = new TImageBox(370,195,new TImage("1:/tgui_pic/wait.png"),2,NULL,this);
+        imgbox->show();
+    delete(imgbox);
 
     //deleteIcon();
 
@@ -65,9 +65,9 @@ void Desktop::openGame()
 
 void Desktop::openPhoto()
 {
-    // TImageBox* imgbox = new TImageBox(370,195,new TImage("1:/tgui_pic/wait.png"),2,NULL,this);
-    //     imgbox->show();
-    // remChild( imgbox);
+    TImageBox* imgbox = new TImageBox(370,195,new TImage("1:/tgui_pic/wait.png"),2,NULL,this);
+        imgbox->show();
+    delete(imgbox);
 
     //deleteIcon();
 
@@ -94,14 +94,14 @@ void Desktop::createIcon()
 
 void Desktop::deleteIcon()
 {
-    remChild( icon_clock);
-    remChild( icon_date );
-    remChild( icon_setting);
-    remChild( icon_calculator) ;
-  //  remChild( icon_photo ;
-    remChild( icon_play );
-    remChild( icon_search) ;
-  //  remChild( icon_game ;
+    delete( icon_clock);
+    delete( icon_date );
+    delete( icon_setting);
+    delete( icon_calculator) ;
+  //  delete( icon_photo ;
+    delete( icon_play );
+    delete( icon_search) ;
+  //  delete( icon_game ;
     
     icon_clock = NULL;
     icon_date = NULL;

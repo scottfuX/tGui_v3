@@ -31,6 +31,8 @@ TObject::~TObject()
 	}
 	if (name)
 		delete name;
+	if(getParents() && getParents()->childList)  //从父亲链表里删除
+		getParents()->childList->remove(this); //多重remove 不影响
 	parents = NULL;
 	name = NULL;
 	TConnections = NULL;

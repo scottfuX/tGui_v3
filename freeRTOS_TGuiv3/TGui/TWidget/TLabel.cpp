@@ -1,14 +1,25 @@
 #include "TWidget/TLabel.h"
 
-TLabel::TLabel(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj)
+TLabel::TLabel(int32 x, int32 y, int32 w, int32 h, const char* n, TWidget* obj,uint8 align , bool needBack ,colorDef text ,colorDef back)
 	:TFrame(x,y,w,h,n,obj)
 {
 	haveImg = false;
-	textColor = BLACK;
-	setBackColor(((TWidget*)getParents())->getBackColor());
-		//TPainter p(getInvalidList(),getPaintInvaild());
+	labelAlign = align;
+	haveBack = needBack;
 	TBufPainter p(getBuffer()->getBufAddr(),getRect());
-	p.drawLabel(0, 0, width(), height(), getName(),textColor,getBackColor());
+	textColor = text;
+	setBackColor(back);
+	if(haveBack)
+	{
+		p.setTextColor(getBackColor());
+		p.drawFullRect(x,y,w,h);
+	}
+	else
+	{
+		if(getParents())
+			getBuffer()->obPareBack(getPareBufCorreAddr(),((TWidget*)getParents())->width());
+	}
+    p.drawAlignText(0,0,getName(),labelAlign,textColor);
 }
 
 TLabel::TLabel(int32 x, int32 y,TImage* img, const char* name,uint8 align, TWidget* obj)
@@ -30,7 +41,7 @@ TLabel::~TLabel()
 
 void TLabel::show()
 {
-	//TPainter p(getInvalidList(),getPaintInvaild());
+	
 	refresh();
 }
 
@@ -77,7 +88,17 @@ void TLabel::slot_showValue(int32 d1,int32 d2)
 	else
 	{
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
-		p.drawLabel(0, 0, width(), height(), getName(),textColor,getBackColor());
+		if(haveBack)
+		{
+			p.setTextColor(getBackColor());
+			p.drawFullRect(x(),y(),width(),height());
+		}
+		else
+		{
+			if(getParents())
+				getBuffer()->obPareBack(getPareBufCorreAddr(),((TWidget*)getParents())->width());
+		}
+		p.drawAlignText(0,0,getName(),labelAlign,textColor);
 	}
 	refresh();
 }
