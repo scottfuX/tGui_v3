@@ -36,6 +36,7 @@ TDialog::TDialog(int32 x, int32 y,TImage* dialogImg, const char* n, TWidget* obj
 	imgLoadInterface(0,0,dialogImg);
 	TBufPainter p(getBuffer()->getBufAddr(),getRect());
 	p.drawCenterText(0, 0, width(), titleHeight, getName());
+	chgInValid();
 }
 
 TDialog::~TDialog()
@@ -173,16 +174,15 @@ void TDialog::touchMoveEvent(TTouchEvent *e)
 	}
 };
 
-
-//移动后释放的区域  
-void TDialog::restRect(int32 preX, int32 preY, int32 nowX, int32 nowY ,TRect &r1, TRect &r2)
-{
-	//chgInValid(&r1, NULL); //整个dialog刷新
+//chgInValid(&r1, NULL); //整个dialog刷新
 	/*	|---------|
 	|---|-----|	  |
 	|	|	  |	  |
 	|	|---------|
 	|---------|*/
+//移动后释放的区域  
+void TDialog::restRect(int32 preX, int32 preY, int32 nowX, int32 nowY ,TRect &r1, TRect &r2)
+{
 	if (nowX > preX)
 	{
 		if (preY > nowY)//右上方移动

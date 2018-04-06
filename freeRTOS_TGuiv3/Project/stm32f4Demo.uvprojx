@@ -1098,6 +1098,21 @@
               <FileType>8</FileType>
               <FilePath>..\TGui\demo\UserGame.cpp</FilePath>
             </File>
+            <File>
+              <FileName>UserCalculate.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\demo\UserCalculate.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UserCalendar.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\demo\UserCalendar.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UserTime.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\TGui\demo\UserTime.cpp</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

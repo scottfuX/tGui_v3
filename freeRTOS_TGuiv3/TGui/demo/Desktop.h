@@ -16,6 +16,9 @@
 #include "TWidget/TIconButton.h"
 #include "TGlobal.h"
 
+#include "demo/UserTime.h"
+#include "demo/UserCalendar.h"
+#include "demo/UserCalculate.h"
 #include "demo/UserPhoto.h"
 #include "demo/UserGame.h"
 
@@ -27,15 +30,18 @@ public:
 	virtual ~Desktop() ;
 	virtual void show();
 
+    void openTimer();
+    void openDate();
     void openSetup();
     void closeSetup();
+    void openCalculate();
     void openGame();
     void openPhoto();
 
 private:
     void createIcon();
     void deleteIcon();
-
+    
 	TIconButton* icon_clock;
     TIconButton* icon_date ;
     TIconButton* icon_setting ;
@@ -45,9 +51,10 @@ private:
     TIconButton* icon_search ;
     TIconButton* icon_game ;
 
-    TDialog* dialog ;
-    TPushButton* btn1 ;
-	TPushButton* btn2 ;
+    TDialog* set_dialog ;
+    TDialog* calcu_dialog;
+    TDialog* date_dialog;
+    TDialog* timer_dialog;
 };
 
 

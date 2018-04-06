@@ -38,13 +38,14 @@ typedef volatile unsigned short const vuintc16; /* Read Only */
 typedef volatile unsigned char  const vuintc8; /* Read Only */
 
 class TObject;
-typedef void (TObject::*func)(int,int);
+typedef void (TObject::*func)(long,long);
 
 
 //信息与槽机制 传递参数类型 d1 = type 或 d1 = xpos ， d2 = data 或 d2 = ypos
 #define TYPE_INT	-1
 #define TYPE_CHAR	-2
 #define TYPE_STRING -3
+#define TYPE_OBJECT -4
 
 //对齐格式
 

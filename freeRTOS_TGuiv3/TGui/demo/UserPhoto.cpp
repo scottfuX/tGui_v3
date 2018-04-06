@@ -32,7 +32,6 @@ void UserPhoto::nextPhoto()
 {	
     if(startStat)
         showAll();
-    
     picIndex ++;
     if(picIndex >= fileNum)
         picIndex = 0;

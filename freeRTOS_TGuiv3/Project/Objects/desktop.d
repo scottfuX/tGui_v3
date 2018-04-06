@@ -140,5 +140,8 @@
 .\objects\desktop.o: ..\TGui\TWidget/TImageBox.h
 .\objects\desktop.o: ..\TGui\TWidget/TSwitch.h
 .\objects\desktop.o: ..\TGui\TWidget/TIconButton.h
+.\objects\desktop.o: ..\TGui\demo/UserTime.h
+.\objects\desktop.o: ..\TGui\demo/UserCalendar.h
+.\objects\desktop.o: ..\TGui\demo/UserCalculate.h
 .\objects\desktop.o: ..\TGui\demo/UserPhoto.h
 .\objects\desktop.o: ..\TGui\demo/UserGame.h

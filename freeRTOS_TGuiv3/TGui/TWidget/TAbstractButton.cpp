@@ -23,13 +23,22 @@ TAbstractButton::~TAbstractButton()
 void TAbstractButton::touchPressEvent(TTouchEvent *e)
 {
 	if (isInRealArea(e->x(), e->y()))
-		sig_depress(e->x(), e->y());
+	{
+		int32 point = e->x() << 16;
+		point |= (e->y() && 0x0000ffff);
+		sig_depress((int32)this,point) ;
+	}
+		
 };
 
 void TAbstractButton::touchReleaseEvent(TTouchEvent *e)
 {
 	if (state && isInRealArea(e->x(), e->y()))
-		sig_release(e->x(), e->y());
+	{
+		uint32 point = e->x() << 16;
+		point |= (e->y() && 0x0000ffff);
+		sig_release((int32)this,point) ;
+	}
 };
 
 void TAbstractButton::touchMoveEvent(TTouchEvent *e)

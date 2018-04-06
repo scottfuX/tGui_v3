@@ -160,5 +160,8 @@
 .\objects\main.o: ..\TGui\TWidget/TSwitch.h
 .\objects\main.o: ..\TGui\TWidget/TIconButton.h
 .\objects\main.o: ..\TGui\demo/Desktop.h
+.\objects\main.o: ..\TGui\demo/UserTime.h
+.\objects\main.o: ..\TGui\demo/UserCalendar.h
+.\objects\main.o: ..\TGui\demo/UserCalculate.h
 .\objects\main.o: ..\TGui\demo/UserPhoto.h
 .\objects\main.o: ..\TGui\demo/UserGame.h
