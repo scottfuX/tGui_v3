@@ -4,8 +4,8 @@ UserPhoto::UserPhoto(const char* filename,TApplication* app,const char* n, TWidg
 	:TWindow(filename,app,n,obj)
 {
     close_btn = new TPushButton(750,20,new TImage("1:/tgui_pic/check2_sel.png"),NULL,NULL, this);
-    left_btn = new TPushButton(30,447,new TImage("1:/tgui_pic/button.png"),new TImage("1:/tgui_pic/button_sel.png"),"上一个", this);
-    right_btn = new TPushButton(680,447,new TImage("1:/tgui_pic/button.png"),new TImage("1:/tgui_pic/button_sel.png"),"下一个", this);
+    left_btn = new TPushButton(30,447,new TImage("1:/tgui_pic/button.png"),new TImage("1:/tgui_pic/button_sel.png"),"上一张", this);
+    right_btn = new TPushButton(680,447,new TImage("1:/tgui_pic/button.png"),new TImage("1:/tgui_pic/button_sel.png"),"下一张", this);
     title_label = new TLabel(0,0,GUI_WIDTH,20,"PICTURE浏览器",this,ALIGN_CENTER,true,WHITE,BLACK);
 	
 
@@ -19,8 +19,7 @@ UserPhoto::UserPhoto(const char* filename,TApplication* app,const char* n, TWidg
     picIndex = 0;
     finfo.lfname = lfnamebuff;
     finfo.lfsize = sizeof(lfnamebuff);
-    scanfile("1:/picture");
-    					    
+    scanfile("1:/picture");		    
 }
 
 UserPhoto::~UserPhoto()

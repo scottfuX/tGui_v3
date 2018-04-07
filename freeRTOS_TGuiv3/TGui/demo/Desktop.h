@@ -21,6 +21,7 @@
 #include "demo/UserCalculate.h"
 #include "demo/UserPhoto.h"
 #include "demo/UserGame.h"
+#include "demo/User.h"
 
 class Desktop :public TWindow
 {
@@ -37,10 +38,13 @@ public:
     void openCalculate();
     void openGame();
     void openPhoto();
+    void openUser();
 
 private:
     void createIcon();
     void deleteIcon();
+
+    uint16 currWinId;
     
 	TIconButton* icon_clock;
     TIconButton* icon_date ;

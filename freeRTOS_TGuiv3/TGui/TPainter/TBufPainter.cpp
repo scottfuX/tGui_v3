@@ -806,8 +806,6 @@ void TBufPainter::displayCHChar ( int32 x,int32 y, uint8* code,bool hasBack)
 void TBufPainter::drawString(int32 x, int32 y, const char* str, colorDef text)
 {
 	uint8* p = (uint8*)str;
-	int32 x0=x;
-	int32 y0=y;
 	uint8 bHz=0;     //字符或者中文  
 	while(*p != 0)
 	{

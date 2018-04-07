@@ -1,4 +1,4 @@
-#include "demo\User.h"
+#include "demo/User.h"
 
 
 User::User(const char* filename,TApplication* app,const char* n, TWidget* obj)
@@ -7,13 +7,12 @@ User::User(const char* filename,TApplication* app,const char* n, TWidget* obj)
 	
 	//TRadioButton* radio = new TRadioButton(50, 100, 150, 30, "radio1", this);
 	radio1 = new TRadioButton(TRect(50, 100, 150, 30),new TImage("1:/tgui_pic/radio_nor.png"),new TImage("1:/tgui_pic/radio_sel.png"),"单选1", this);
-	radio2 = new TRadioButton(TRect(50, 140, 150, 30),new TImage("1:/tgui_pic/radio_empty.png"),new TImage("1:/tgui_pic/radio_sel.png"),"单选2", this);
+	radio2 = new TRadioButton(TRect(50, 140, 150, 30),new TImage("1:/tgui_pic/radio_nor.png"),new TImage("1:/tgui_pic/radio_sel.png"),"单选2", this);
 	radio3 = new TRadioButton(TRect(50, 180, 150, 30),new TImage("1:/tgui_pic/radio_nor.png"),new TImage("1:/tgui_pic/radio_sel.png"),"单选3", this);
 	radio1->addNextRadio(radio2);
 	radio2->addNextRadio(radio3);
 
 	//TImageBox* img2 = new TImageBox(400,320,100,150,"1:/tgui_pic/date.png","i'm png!",this);
-	img = new TImageBox(620,0,new TImage("1:/tgui_pic/imac.png"),NULL, this);
 	
 	//TPushButton* btn = new TPushButton(50,230,150,65, "button", this);
 	btn = new TPushButton(50,220,new TImage("1:/tgui_pic/button.png"),new TImage("1:/tgui_pic/button_sel.png"),"按钮", this);
@@ -31,20 +30,18 @@ User::User(const char* filename,TApplication* app,const char* n, TWidget* obj)
 	label1 = new TLabel(50,320,new TImage("1:/tgui_pic/label_slider.png"),"0",ALIGN_UP_MID,this);
 
 
-	icon = new TIconButton(300,30,new TImage("1:/tgui_pic/profile.png"),NULL,"通讯录",this);//new TImage("1:/tgui_pic/play.png")
+	icon = new TIconButton(649,0,new TImage("1:/game_pic/Scull.png"),NULL,"X",this);//new TImage("1:/tgui_pic/play.png")
 	
 	// TDialog* dialog1 = new TDialog(300, 50, 250, 200, "dialog", this);
 	// TLabel* label2 = new TLabel(315, 100, 190, 50, "hello world", &dialog1);
-	dialog2 = new TDialog(250, 100, new TImage("1:/tgui_pic/dialog.png"), "dialog", this,55);
- 	btn1 = new TPushButton(292, 234, new TImage("1:/tgui_pic/dialog_btn1.png"),new TImage("1:/tgui_pic/dialog_btn1_sel.png"),"确定",dialog2);
-	btn2 = new TPushButton(442, 234,new TImage("1:/tgui_pic/dialog_btn2.png"),new TImage("1:/tgui_pic/dialog_btn2_sel.png"),"取消",dialog2);
+	// dialog2 = new TDialog(250, 100, new TImage("1:/tgui_pic/dialog.png"), "dialog", this,55);
+ 	// btn1 = new TPushButton(292, 234, new TImage("1:/tgui_pic/dialog_btn1.png"),new TImage("1:/tgui_pic/dialog_btn1_sel.png"),"确定",dialog2);
+	// btn2 = new TPushButton(442, 234,new TImage("1:/tgui_pic/dialog_btn2.png"),new TImage("1:/tgui_pic/dialog_btn2_sel.png"),"取消",dialog2);
 	
-
-
 
 	btn->connect((func)(&TPushButton::sig_release), chck1,(func)(&TCheckBox::sig_release));
 	slider1->connect((func)(&TSlider::sig_release), label1, (func)(&TLabel::slot_showValue));
-	//slider1->connect((func)(&TSlider::sig_valueChange), label2, (func)(&TLabel::slot_showValue));
+	icon->connect((func)(&TIconButton::sig_release), this, (func)(&TWindow::slot_close));
 	
 }
 

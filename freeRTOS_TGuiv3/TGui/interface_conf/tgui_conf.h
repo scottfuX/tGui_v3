@@ -5,6 +5,17 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+//>>>>>>>>>>-FreeRTOS->>>>>>>>>>>
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "list.h"
+#include "portable.h"
+#include "semphr.h"
+#include "FreeRTOSConfig.h"
+//>>>>>>>>>>-FreeRTOS->>>>>>>>>>>
+
 #include <stdio.h>
 #include "stm32f4xx_conf.h"
 #include "led/led_conf.h"
@@ -49,6 +60,12 @@ extern "C" {
 #define TFON_HEIGHT         16
 #define TFON_TYPE           T_GBK
 #define TFON_ASCII          Font16x16   //Font32x32 Font24x24 Font16x16 Font12x12
+
+
+extern SemaphoreHandle_t xMutex;;
+//信号量 TAKE>用于获取二元信号量 GIVE>用于释放二元信号量
+void GUI_MUTEX_TAKE(); 
+void GUI_MUTEX_GIVE(); 
 
 
 

@@ -28,10 +28,18 @@ public:
 
     void closeGame();
 
+	void attack();
+	void defend();
+	void closeWinDialog();
+	void closeLoseDialog();
+
 private:
 	TPushButton* close_btn;	
 	TPushButton* left_btn;
     TPushButton* right_btn;
+
+	TDialog* win_dialog; 
+	TDialog* lose_dialog; 
 
 };
 

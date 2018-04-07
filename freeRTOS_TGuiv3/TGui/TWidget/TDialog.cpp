@@ -45,6 +45,7 @@ TDialog::~TDialog()
 		delete dialogImg;
 	if(getParents()) //把兄弟们的无效区去除
 	{
+		tLNode<TObject*>* node = getParents()->unlink(this);//先断开连接
 		TObjList* list = getParents()->getChildList();
 		TWidget* tmp;
 		if (list)
@@ -62,6 +63,7 @@ TDialog::~TDialog()
 				}
 			}
 		}
+		getParents()->relink(node);//接上连接
 	}
 }
 
@@ -112,10 +114,10 @@ void TDialog::touchPressEvent(TTouchEvent *e)
 			{
 				tmp = (TWidget*)getChildList()->getFirst();
 				if(tmp->getInvalidList())
-				tmp->getInvalidList()->clear();
+					tmp->getInvalidList()->clear();
 				while (tmp = (TWidget*)getChildList()->getNext())
 					if (tmp->getInvalidList())
-					tmp->getInvalidList()->clear();
+						tmp->getInvalidList()->clear();
 			}
 			showAll();//重绘  -------保证在最顶端
 		}
@@ -153,14 +155,13 @@ void TDialog::touchMoveEvent(TTouchEvent *e)
 		TRect r2(nowX, nowY, width(), height());
 		//改变自己的坐标
 		getRect()->moveTopLeft(nowX, nowY);
+		updateOffsetWH();//update 偏移
 		//遍历改变子类的坐标 
 		chgChildsXY(this);
 
 		imgLoadInterface(0,0,dialogImg); //直接从 父亲 获得底色进行blend
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
 		p.drawCenterText(0, 0, width(), titleHeight, getName());
-
-		updateOffsetWH();//update 偏移
 
 		//遍历画全部的子类的图像
 		showAll();
@@ -170,7 +171,7 @@ void TDialog::touchMoveEvent(TTouchEvent *e)
 		chgInValid(&r1, &r2);
 		//改变之前坐标
 		preX = nowX;
-		preY =nowY;
+		preY = nowY;
 	}
 };
 

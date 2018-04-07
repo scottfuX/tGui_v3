@@ -22,18 +22,23 @@ TImage::TImage(uint8* addr,uint16 w,uint16 h,const char* filen)
 	{	
 		case T_PNG:
 		{
+			GUI_MUTEX_TAKE();  //加锁
 			lodepng_decode32_file(&imgBufAddr, &wpng, &hpng, filename);			//解码png	  
 			width = wpng;
 			height = hpng;
+			GUI_MUTEX_GIVE();  //释放锁
 		}break;								  
 		case T_JPG:
 		case T_JPEG:
 		case T_BMP:
+			GUI_MUTEX_TAKE();  //加锁
 			piclib_init(addr,w,h);		
 			ai_load_picfile(filename,0,0,w,h,1);
+			GUI_MUTEX_GIVE();  //释放锁
 			break;
 		case T_GIF: 
-				
+			GUI_MUTEX_TAKE();  //加锁
+			GUI_MUTEX_GIVE();  //释放锁	
 			break;
 		default:
 	 		//res = PIC_FORMAT_ERR;  													//非图片格式!!!  
@@ -57,18 +62,26 @@ void TImage::Decode()
 	{											  
 		case T_JPG:
 		case T_JPEG:
+			GUI_MUTEX_TAKE();  //加锁
 			res = jpg_decode_file(&imgBufAddr, &width, &height, filename);				//解码JPG/JPEG	 
+			GUI_MUTEX_GIVE();  //释放锁
 			break;
 		case T_PNG:
+			GUI_MUTEX_TAKE();  //加锁
   			res = lodepng_decode32_file(&imgBufAddr, &wpng, &hpng, filename);			//解码png	  
 			width = wpng;
 			height = hpng;
+			GUI_MUTEX_GIVE();  //释放锁
 			break;
 		case T_BMP:
-			res = bmp_decode_file(&imgBufAddr, &width, &height, filename); 				//解码bmp	    	  
+			GUI_MUTEX_TAKE();  //加锁
+			res = bmp_decode_file(&imgBufAddr, &width, &height, filename); 	
+			GUI_MUTEX_GIVE();  //释放锁			//解码bmp	    	  
 			break;
-		case T_GIF:                    //先不实现 需要对有TIM
-			//res = gif_decode(filename,x,y,width,height);								//解码gif  	    -->需要把 bufaddr ， width ，height 获取过来
+		case T_GIF:     
+		    GUI_MUTEX_TAKE();  //加锁           //先不实现 需要对有TIM
+			//res = gif_decode(filename,x,y,width,height);
+			GUI_MUTEX_GIVE();  //释放锁									//解码gif  	    -->需要把 bufaddr ， width ，height 获取过来
 			break;
 		default:
 	 		//res = PIC_FORMAT_ERR;  													//非图片格式!!!  
@@ -88,6 +101,7 @@ void TImage::Decode()
 
 void TImage::imgLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* writeSize,TRect* imgTRect)
 {
+	
 	TRect* imgRect = imgTRect;
 	if(imgTRect == NULL) //null 就是全部 
 	{
@@ -104,6 +118,8 @@ void TImage::imgLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* wri
 	uint8  a = 255; //前景透明色
 	uint32 r,g,b; 
 	uint32 offF = (imgRect->x() + imgRect->y() * width) * GUI_PIXELSIZE; //开始的地址
+
+	GUI_MUTEX_TAKE();  //加锁
 	
 	//------------------------------- blend ---------------- 目前只支持PNG ------------------
 	if(imgType == T_PNG /*|| imgType == T_BMP */)
@@ -171,13 +187,14 @@ void TImage::imgLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* wri
 			des_addr += writeSize->width() * GUI_PIXELSIZE;
 		}
 	}
-		
+	GUI_MUTEX_GIVE();  //释放锁	
 }
 
 
 //一个半透明 其中一个是点 进行混合 -- 》加载
 void TImage::blendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* writeSize,TRect* imgTRect)
 {
+	
 	TRect* imgRect = imgTRect;
 	if(imgTRect == NULL) //null 就是全部 
 	{
@@ -194,6 +211,8 @@ void TImage::blendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,uint8*
 	uint8 r1 = (argb_color & 0x00ff0000) >> 16;
 	uint8 g1 = (argb_color & 0x0000ff00) >> 8;
 	uint8 b1 = (argb_color & 0x000000ff);
+
+	GUI_MUTEX_TAKE();  //加锁
 
 	uint32 offF = (imgRect->x() + imgRect->y() * width)*GUI_PIXELSIZE; //开始的地址
 	if(imgType == T_PNG) //RGBA
@@ -256,12 +275,14 @@ void TImage::blendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,uint8*
 			offF +=  (width - imgRect->width() ) * GUI_PIXELSIZE;
 		}
 	}
+	GUI_MUTEX_GIVE();  //释放锁	
 }
 
 
 //两个半透明 其中一个是点 进行混合 -- 》加载
 void TImage::doubleBlendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* writeSize,TRect* imgTRect)
 {
+	
 	TRect* imgRect = imgTRect;
 	if(imgTRect == NULL) //null 就是全部 
 	{
@@ -278,7 +299,7 @@ void TImage::doubleBlendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,
 	uint8 r1 = (argb_color & 0x00ff0000) >> 16;
 	uint8 g1 = (argb_color & 0x0000ff00) >> 8;
 	uint8 b1 = (argb_color & 0x000000ff);
-
+	GUI_MUTEX_TAKE();  //加锁
 	uint32 offF = (imgRect->x() + imgRect->y() * width)*GUI_PIXELSIZE; //开始的地址
 	if(imgType == T_PNG) //RGBA
 	{
@@ -341,6 +362,7 @@ void TImage::doubleBlendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,
 			offF +=  (width - imgRect->width() ) * GUI_PIXELSIZE;
 		}
 	}
+	GUI_MUTEX_GIVE();  //释放锁	
 }
 
 

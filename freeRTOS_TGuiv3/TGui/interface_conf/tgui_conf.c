@@ -10,9 +10,22 @@ volatile int8_t state = 0;
 
 
 
+
+void GUI_MUTEX_TAKE()
+{
+	 xSemaphoreTake(xMutex, 0);
+} 
+void GUI_MUTEX_GIVE()
+{
+	 xSemaphoreGive( xMutex );
+} 
+
 #if GUI_SET_DMA2D
 void gui_set_rect(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint32_t xpos,uint32_t ypos,uint32_t width,uint32_t height)
 {//DMA2D MODE ---> DMA2D CONFIG HERE
+
+	GUI_MUTEX_TAKE();  //加锁
+
   DMA2D_InitTypeDef      DMA2D_InitStruct;
   uint32_t Xaddress = 0; 
   uint16_t Alpha_Value = 0xff,Red_Value = 0, Green_Value = 0, Blue_Value = 0;
@@ -70,10 +83,14 @@ void gui_set_rect(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint32_t 
   while(DMA2D_GetFlagStatus(DMA2D_FLAG_TC) == RESET)
   {
   } 
+
+  GUI_MUTEX_GIVE();  //解锁
+  
 }
 #else
 void gui_set_rect(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint32_t xpos,uint32_t ypos,uint32_t width,uint32_t height)
 {//NORMAL MODE ---> NORMAL CONFIG HERE
+	GUI_MUTEX_TAKE();  //加锁
 	uint32_t* addr = (uint32_t*)((uint32_t)buf_addr + GUI_PIXELSIZE*(buf_width * ypos + xpos));
 	for(int i=0;i< height;i++)
 	{
@@ -84,6 +101,7 @@ void gui_set_rect(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint32_t 
 		}
 		addr += buf_width - width;
 	}
+	GUI_MUTEX_GIVE();  //解锁
 }
 #endif //!GUI_SET_DMA2D
 
@@ -95,6 +113,7 @@ void gui_set_rect(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint32_t 
 //memcpy 最好是字传输  速度最快
 void* gui_memcpy(void *dest, void *src, unsigned int count)
 {//dma 方式速度很慢 目前有问题
+	GUI_MUTEX_TAKE();  //加锁
 	DMA_InitTypeDef  DMA_InitStructure;
 	__IO uint32_t    Timeout = 10000;//TIMEOUT_MAX;  
 
@@ -137,13 +156,17 @@ void* gui_memcpy(void *dest, void *src, unsigned int count)
 	} 
 
 	while(DMA_GetFlagStatus(DMA2_Stream0,DMA_FLAG_TCIF0) == DISABLE); //一直等待传输好---> 也可以不等待以后再优化
+	GUI_MUTEX_GIVE();  //解锁
 	return dest;
 }
 
 #else
 void* gui_memcpy(void *dest, void *src, unsigned int count)
 {//memcpy
-	return memcpy(dest,src,count);
+	GUI_MUTEX_TAKE();  //加锁
+	void* ret = memcpy(dest,src,count);
+	GUI_MUTEX_GIVE();  //解锁
+	return  ret;
 }
 #endif //!GUI_CPY_DMA
 

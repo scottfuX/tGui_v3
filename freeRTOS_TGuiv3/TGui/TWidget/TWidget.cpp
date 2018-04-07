@@ -187,7 +187,7 @@ void TWidget::chgInValid(TRect* area1, TRect* area2)
 	if (pare)
 	{
 		pare->addAchgInvalid(this, area1, area2);//加/修补 父亲 的无效区
-		tLNode<TObject*> * node = pare->unlink(this);//先断开连接
+		tLNode<TObject*>* node = pare->unlink(this);//先断开连接
 		chgAllInValid(pare->getChildList(), this,area1,area2);//遍历增加兄弟的无效区
 		pare->relink(node);//接上连接
 	}

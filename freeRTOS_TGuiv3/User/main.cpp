@@ -11,7 +11,9 @@ extern "C" {
 #include "queue.h"
 #include "list.h"
 #include "portable.h"
+#include "semphr.h"
 #include "FreeRTOSConfig.h"
+//>>>>>>>>>>-FreeRTOS->>>>>>>>>>>
 #include "stm32f4xx_it.h"
 #include "led/led_conf.h"
 #include "usart/usart_conf.h"
@@ -64,6 +66,7 @@ BYTE WriteBuffer[] =              /* 写缓冲区*/
 char fpath[50];                  /* 保存当前扫描路径 */ 
 char fpath1[50];  					 
 
+SemaphoreHandle_t xMutex;
 
 int main()
 {
@@ -80,6 +83,8 @@ int main()
 	gui_set_rect((uint32_t* )GUI_FG_BUFADDR,GUI_WIDTH,0xFFFFFFFF,0 ,0,GUI_WIDTH,GUI_HIGH);
 	wifi_close();
 	
+	
+	xMutex = xSemaphoreCreateMutex();//创建二元信号量
 	//每个函数都要用while结尾
 	//xTaskCreate( task0_temp, "gui_temp", 512, NULL,2, NULL );
 	xTaskCreate( task1_led, "led_flash", configMINIMAL_STACK_SIZE, NULL, 1, NULL );
@@ -116,7 +121,6 @@ static void task1_led(void *pvParameters)
 
 static void task2_tgui(void *pvParameters)
 {
-	
 	if(f_mount(&fs[1],"1:",1) != FR_OK)//挂载 flash card
 		printf("\r\nflash mount failed ...\r\n");
 	if(f_mount(&fs[0],"0:",1) != FR_OK)//挂载 sd card

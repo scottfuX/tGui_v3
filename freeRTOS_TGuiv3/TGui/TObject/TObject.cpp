@@ -100,6 +100,7 @@ void TObject::destroyChild(TObject* obj)
 		delObj = NULL;
 	}
 	delete obj->childList;
+	obj->childList = NULL;
 }
 
 

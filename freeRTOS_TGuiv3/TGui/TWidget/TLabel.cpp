@@ -52,6 +52,7 @@ void TLabel::slot_showValue(int32 d1,int32 d2)
 		TRect r(x(),y(),width(),height());
 		//移动位置到d1处  要先改变 要不无法清楚之前的痕迹
 		getRect()->moveTopLeft(d1 - width()/2,y());
+		updateOffsetWH();
 		//清除之前的痕迹
 		cleanShowed(&r);
 		
@@ -80,7 +81,7 @@ void TLabel::slot_showValue(int32 d1,int32 d2)
 	}
 	if(haveImg)
 	{
-		//getBuffer()->obPareBack(getPareBufCorreAddr(),((TWidget*)getParents())->width() );
+
 		imgLoadInterface(0,0,labelImg);
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
 		p.drawAlignText(0,0,getName(),labelAlign);
