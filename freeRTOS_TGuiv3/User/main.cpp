@@ -38,10 +38,10 @@ uint32_t tim6_count;
 
 	
 #include "TGuiMain.h"
-//0xD0400000 >> 480*320* X(ç±»å‹çš„å­—èŠ‚æ•° ARGB8888 -> 4 )  èƒŒæ™¯å±‚
-//0XD0577000 >> 480*320* X(ç±»å‹çš„å­—èŠ‚æ•° ARGB8888 -> 4 )  å‰æ™¯å±‚
-//æœ‰é€æ˜åŠŸèƒ½ --> ä¸»è¦ä¸ºå‰æ™¯èƒŒæ™¯å±‚ å‰æ™¯å±‚ä¸ºè¦†ç›– 
-//æ— é€æ˜å±‚ å¯ç›´æ¥æ“æ§å‰æ™¯å±‚å³å¯
+//0xD0400000 >> 480*320* X(ÀàĞÍµÄ×Ö½ÚÊı ARGB8888 -> 4 )  ±³¾°²ã
+//0XD0577000 >> 480*320* X(ÀàĞÍµÄ×Ö½ÚÊı ARGB8888 -> 4 )  Ç°¾°²ã
+//ÓĞÍ¸Ã÷¹¦ÄÜ --> Ö÷ÒªÎªÇ°¾°±³¾°²ã Ç°¾°²ãÎª¸²¸Ç 
+//ÎŞÍ¸Ã÷²ã ¿ÉÖ±½Ó²Ù¿ØÇ°¾°²ã¼´¿É
 
 
 extern char src_dir[255];
@@ -54,19 +54,20 @@ static void task2_tgui(void *pvParameters);
 static void task3_driver(void *pvParameters);
 
 
-FATFS fs[2];					/* FatFsæ–‡ä»¶ç³»ç»Ÿå¯¹è±¡ */
-DIR dj;         				/*ç›®å½•æœç´¢å¯¹è±¡*/ 
-FIL fnew;						/* æ–‡ä»¶å¯¹è±¡ */
-FRESULT res;                	/* æ–‡ä»¶æ“ä½œç»“æœ */
+FATFS fs[2];					/* FatFsÎÄ¼şÏµÍ³¶ÔÏó */
+DIR dj;         				/*Ä¿Â¼ËÑË÷¶ÔÏó*/ 
+FIL fnew;						/* ÎÄ¼ş¶ÔÏó */
+FRESULT res;                	/* ÎÄ¼ş²Ù×÷½á¹û */
 FILINFO fno;
-UINT fnum;            			/* æ–‡ä»¶æˆåŠŸè¯»å†™æ•°é‡ */
-BYTE ReadBuffer[100]={0};        /* è¯»ç¼“å†²åŒº */
-BYTE WriteBuffer[] =              /* å†™ç¼“å†²åŒº*/
-"SD Card æµ‹è¯•å®éªŒ 1234567890\r\n";       
-char fpath[50];                  /* ä¿å­˜å½“å‰æ‰«æè·¯å¾„ */ 
+UINT fnum;            			/* ÎÄ¼ş³É¹¦¶ÁĞ´ÊıÁ¿ */
+BYTE ReadBuffer[100]={0};        /* ¶Á»º³åÇø */
+BYTE WriteBuffer[] =              /* Ğ´»º³åÇø*/
+"SD Card ²âÊÔÊµÑé 1234567890\r\n";       
+char fpath[50];                  /* ±£´æµ±Ç°É¨ÃèÂ·¾¶ */ 
 char fpath1[50];  					 
 
 SemaphoreHandle_t xMutex;
+TTouchDirver* dirver;
 
 int main()
 {
@@ -78,34 +79,40 @@ int main()
 	TIM_Basic_Config();
 	GTP_Init_Panel();
 	LCD_Init();
-	//SDRAMConfig();  //è¿›å…¥mainå‰ï¼Œå·²ç»åˆå§‹åŒ–äº†
+	//SDRAMConfig();  //½øÈëmainÇ°£¬ÒÑ¾­³õÊ¼»¯ÁË
 	//FLASHConfig();
 	gui_set_rect((uint32_t* )GUI_FG_BUFADDR,GUI_WIDTH,0xFFFFFFFF,0 ,0,GUI_WIDTH,GUI_HIGH);
 	wifi_close();
 	
-	
-	xMutex = xSemaphoreCreateMutex();//åˆ›å»ºäºŒå…ƒä¿¡å·é‡
-	//æ¯ä¸ªå‡½æ•°éƒ½è¦ç”¨whileç»“å°¾
+	xMutex = xSemaphoreCreateMutex();//´´½¨¶şÔªĞÅºÅÁ¿
+	//Ã¿¸öº¯Êı¶¼ÒªÓÃwhile½áÎ²
+	if( xMutex == NULL )
+	{
+		printf("\r\n create mutex failed! \r\n");
+		while(1);
+	}
+	dirver = new TTouchDirver(GUI_MULTTI_THREAD,30);
+		
 	//xTaskCreate( task0_temp, "gui_temp", 512, NULL,2, NULL );
 	xTaskCreate( task1_led, "led_flash", configMINIMAL_STACK_SIZE, NULL, 1, NULL );
 	xTaskCreate( task2_tgui, "TGui",20480, NULL,2, NULL );
-	xTaskCreate( task3_driver, "driver", configMINIMAL_STACK_SIZE, NULL, 1, NULL );
-	vTaskStartScheduler();	// å¯åŠ¨è°ƒåº¦å™¨ï¼Œä»»åŠ¡å¼€å§‹æ‰§è¡Œ
+	xTaskCreate( task3_driver, "driver", 2048, NULL, 1, NULL );
+	vTaskStartScheduler();	// Æô¶¯µ÷¶ÈÆ÷£¬ÈÎÎñ¿ªÊ¼Ö´ĞĞ
 	
 	while(1);
 }
 
 static void task0_temp(void *pvParameters)
 {
-	if(f_mount(&fs[1],"1:",1) != FR_OK)//æŒ‚è½½ flash card
+	if(f_mount(&fs[1],"1:",1) != FR_OK)//¹ÒÔØ flash card
 		printf("\r\nflash mount failed ...\r\n");
-	if(f_mount(&fs[0],"0:",1) != FR_OK)//æŒ‚è½½ sd card
+	if(f_mount(&fs[0],"0:",1) != FR_OK)//¹ÒÔØ sd card
 		printf("\r\nsd mount failed ...\r\n");
 	res = copy_file_sd2flash(src_dir,dst_dir);
 	if(res == FR_OK)
-		printf("\r\n æ‰€æœ‰æ•°æ®å·²æˆåŠŸå¤åˆ¶åˆ°FLASHï¼ï¼ï¼ \r\n");  
+		printf("\r\n ËùÓĞÊı¾İÒÑ³É¹¦¸´ÖÆµ½FLASH£¡£¡£¡ \r\n");  
 	else
-		printf("\r\n å¤åˆ¶æ–‡ä»¶åˆ°FLASHå¤±è´¥(æ–‡ä»¶ç³»ç»Ÿéƒ¨åˆ†)ï¼Œè¯·å¤ä½é‡è¯•ï¼ï¼ \r\n"); 
+		printf("\r\n ¸´ÖÆÎÄ¼şµ½FLASHÊ§°Ü(ÎÄ¼şÏµÍ³²¿·Ö)£¬Çë¸´Î»ÖØÊÔ£¡£¡ \r\n"); 
 
 	while(1);
 }
@@ -121,24 +128,25 @@ static void task1_led(void *pvParameters)
 
 static void task2_tgui(void *pvParameters)
 {
-	if(f_mount(&fs[1],"1:",1) != FR_OK)//æŒ‚è½½ flash card
+	if(f_mount(&fs[1],"1:",1) != FR_OK)//¹ÒÔØ flash card
 		printf("\r\nflash mount failed ...\r\n");
-	if(f_mount(&fs[0],"0:",1) != FR_OK)//æŒ‚è½½ sd card
+	if(f_mount(&fs[0],"0:",1) != FR_OK)//¹ÒÔØ sd card
 		printf("\r\nsd mount failed ...\r\n");
-	//memcpy((uint8_t*)des_buf,buf,buf_size*4); //æºåœ°å€ä¸ºå­—åœ°å€ï¼Œç›®æ ‡åœ°å€ä¸ºå­—åœ°å€ï¼Œæ¬è¿æ•°é‡ä¹Ÿä¸ºå­—çš„å€æ•° é€Ÿåº¦æœ€å¿«
 	TGuiRun();	//tGui function
 	while(1);
 }
 
 static void task3_driver(void *pvParameters)
 {
+	
+	dirver->run();
 	while(1);
 }
 
 
 static void wifi_close(void)
 {
-	/*å®šä¹‰ä¸€ä¸ªGPIO_InitTypeDefç±»å‹çš„ç»“æ„ä½“*/
+	/*¶¨ÒåÒ»¸öGPIO_InitTypeDefÀàĞÍµÄ½á¹¹Ìå*/
   GPIO_InitTypeDef GPIO_InitStructure;
   RCC_AHB1PeriphClockCmd ( RCC_AHB1Periph_GPIOG, ENABLE); 							   
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;	
@@ -147,7 +155,7 @@ static void wifi_close(void)
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
   GPIO_Init(GPIOG, &GPIO_InitStructure);	
-  GPIO_ResetBits(GPIOG,GPIO_Pin_9);  //ç¦ç”¨WiFiæ¨¡å—
+  GPIO_ResetBits(GPIOG,GPIO_Pin_9);  //½ûÓÃWiFiÄ£¿é
 
 }
 

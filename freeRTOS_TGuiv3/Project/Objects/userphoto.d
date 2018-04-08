@@ -143,6 +143,7 @@
 .\objects\userphoto.o: ..\TGui\TWidget/TWindow.h
 .\objects\userphoto.o: ..\TGui\TObject/TApplication.h
 .\objects\userphoto.o: ..\TGui\TObject/TDirver.h
+.\objects\userphoto.o: ..\TGui\TContainter/TQueue.h
 .\objects\userphoto.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\userphoto.o: ..\FreeRTOS\include\list.h
 .\objects\userphoto.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

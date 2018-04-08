@@ -143,6 +143,7 @@
 .\objects\usergame.o: ..\TGui\TWidget/TWindow.h
 .\objects\usergame.o: ..\TGui\TObject/TApplication.h
 .\objects\usergame.o: ..\TGui\TObject/TDirver.h
+.\objects\usergame.o: ..\TGui\TContainter/TQueue.h
 .\objects\usergame.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\usergame.o: ..\FreeRTOS\include\list.h
 .\objects\usergame.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

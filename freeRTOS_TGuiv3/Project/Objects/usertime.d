@@ -143,6 +143,7 @@
 .\objects\usertime.o: ..\TGui\TWidget/TWindow.h
 .\objects\usertime.o: ..\TGui\TObject/TApplication.h
 .\objects\usertime.o: ..\TGui\TObject/TDirver.h
+.\objects\usertime.o: ..\TGui\TContainter/TQueue.h
 .\objects\usertime.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\usertime.o: ..\FreeRTOS\include\list.h
 .\objects\usertime.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

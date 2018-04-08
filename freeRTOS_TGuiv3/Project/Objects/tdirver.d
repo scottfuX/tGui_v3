@@ -73,5 +73,13 @@
 .\objects\tdirver.o: ..\TGui\TObject/TPoint.h
 .\objects\tdirver.o: ..\TGui\TObject/TSize.h
 .\objects\tdirver.o: ..\TGui\TObject/TRect.h
+.\objects\tdirver.o: ..\TGui\TContainter/TQueue.h
+.\objects\tdirver.o: ..\TGui\TContainter/tCollection.h
+.\objects\tdirver.o: ..\TGui\TContainter/TList.h
+.\objects\tdirver.o: ..\TGui\TContainter/tVector.h
+.\objects\tdirver.o: ..\TGui\TContainter/TString.h
+.\objects\tdirver.o: ..\TGui\TContainter/TArray.h
+.\objects\tdirver.o: ..\TGui\TContainter/TList.h
+.\objects\tdirver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\tdirver.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\tdirver.o: ..\FreeRTOS\include\list.h

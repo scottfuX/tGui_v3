@@ -2,30 +2,30 @@
 #define _TQUEUE_H_
 
 #include "tCollection.h"
-#include "tList.h"
+#include "TList.h"
 
-template<class T> class  tQueue : private tList<T>
+template<class T> class  TQueue : private TList<T>
 {
 public:
-	tQueue() {}
-	tQueue(const tQueue<T> &q)
-		: tList<T>(q) {}
-	~tQueue()				{ clear(); }
-	tQueue<T>& operator=(const tQueue<T> &q)
-			{ return (tQueue<T>&)tList<T>::operator=(q); }
+	TQueue() {}
+	TQueue(const TQueue<T> &q)
+		: TList<T>(q) {}
+	~TQueue()				{ clear(); }
+	TQueue<T>& operator=(const TQueue<T> &q)
+			{ return (TQueue<T>&)TList<T>::operator=(q); }
 	bool  autoDelete() const		{ return tCollection<T>::autoDelete(); }
 	void  setAutoDelete(bool del)	{ tCollection<T>::setAutoDelete(del); }
-	uint32  count()   const		{ return tList<T>::count(); }
-	bool  isEmpty() const		{ return tList<T>::count() == 0; }
-	void  enqueue(const T d)	{ tList<T>::append(d); }
-	T dequeue()			{ return tList<T>::takeFirst();}
-	bool  remove()			{ return tList<T>::removeFirst(); }
-	void  clear()			{ tList<T>::clear(); }
-	T head()    const		{ return tList<T>::cfirst(); }
-	operator T *() const	{ return tList<T>::cfirst(); }
-	T current() const		{ return tList<T>::cfirst(); }
+	uint32  count()   const		{ return TList<T>::count(); }
+	bool  isEmpty() const		{ return TList<T>::count() == 0; }
+	void  enqueue(const T d)	{ TList<T>::append(d); }
+	T dequeue()			{ return TList<T>::takeFirst();}
+	bool  remove()			{ return TList<T>::removeFirst(); }
+	void  clear()			{ TList<T>::clear(); }
+	T head()    const		{ return TList<T>::cfirst(); }
+	operator T *() const	{ return TList<T>::cfirst(); }
+	T current() const		{ return TList<T>::cfirst(); }
 private:
-	void  deleteItem(void* d) { tList<T>::deleteItem(d); }
+	void  deleteItem(void* d) { TList<T>::deleteItem(d); }
 };
 
 

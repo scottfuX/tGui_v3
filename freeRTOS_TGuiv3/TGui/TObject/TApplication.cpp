@@ -164,7 +164,20 @@ void TApplication::translate()
 		SHARE_SIGNAL_DATA = 0;
 	}
 	else
-	{//驱动事件
+	{//驱动事件  
+	#if GUI_MULTTI_THREAD
+		//  ---- 多线程
+		TPoint p(0,0);
+		event =  new TTouchEvent(Event_None, (const TPoint)p);
+		dirver->getEvent(event);
+		printf("\r\ntype = %d\r\n", event->type());
+		if(event->type() == Event_None)
+		{
+			delete event;
+			event = NULL;
+		}
+	#else
+		//---- 单线程
 		dirver->obtainData();//获取数据
 		switch (dirver->getType())
 		{
@@ -177,6 +190,7 @@ void TApplication::translate()
 				event =  new TTouchEvent(dirver->getType(), (const TPoint)p);
 			}break;
 		}
+	#endif
 	}
 }
 

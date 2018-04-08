@@ -33,7 +33,7 @@ TBuffer::~TBuffer()
 */
 void TBuffer::transform(int32 x,int32 y,TRect* srcRect)
 {//输送一部分内容到显存
-	//GUI_MUTEX_TAKE();  //加锁
+	GUI_MUTEX_TAKE();  //加锁
 	uint32 des_addr = (GUI_FG_BUFADDR + (srcRect->top() * GUI_WIDTH +  srcRect->left()) * GUI_PIXELSIZE);
 	uint32 x_offset = srcRect->left() - x; //算出 剪切区域x 相对 TBuffer 偏移
 	uint32 y_offset = srcRect->top() - y;	 //算出 剪切区域y 相对 TBuffer 偏移
@@ -44,12 +44,12 @@ void TBuffer::transform(int32 x,int32 y,TRect* srcRect)
 		src_addr += getBufW() * GUI_PIXELSIZE;
 		des_addr += GUI_WIDTH * GUI_PIXELSIZE;
 	}
-	//GUI_MUTEX_GIVE();  //释放锁
+	GUI_MUTEX_GIVE();  //释放锁
 }
 
 void TBuffer::obPareBack(uint8* pre_addr,uint32 pre_w,int32 x,int32 y,uint16 w,uint16 h)
 {
-	//GUI_MUTEX_TAKE();  //加锁
+	GUI_MUTEX_TAKE();  //加锁
 	if(!w || !h)
 	{
 		x = 0;
@@ -65,13 +65,15 @@ void TBuffer::obPareBack(uint8* pre_addr,uint32 pre_w,int32 x,int32 y,uint16 w,u
 		src_addr += pre_w * GUI_PIXELSIZE;
 		des_addr += getBufW() * GUI_PIXELSIZE;
 	}
-	//GUI_MUTEX_GIVE();  //释放锁
+	GUI_MUTEX_GIVE();  //释放锁
 }
 
 //若用宏定义 减少call 减少执行世界
 uint32 TBuffer::readPoint(int32 x,int32 y)
 {
+	GUI_MUTEX_TAKE();
 	return *(uint32_t* )(((uint32)getBufAddr()) + (y * getBufW() + x) * GUI_PIXELSIZE);
+	GUI_MUTEX_GIVE();  //释放锁
 }
 
 void TBuffer::writePoint(int32 x,int32 y,uint32 color)

@@ -5,8 +5,7 @@ void TGuiRun()
 {
 	// 主要的几个问题需要解决
 	//1.多线程 
-	TTouchDirver dirve;
-	TApplication app(&dirve);
+	TApplication app(dirver);
 
 
 	Desktop desk("1:/tgui_pic/desk1.jpg",&app);

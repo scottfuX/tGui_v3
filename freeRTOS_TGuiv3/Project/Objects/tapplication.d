@@ -137,6 +137,7 @@
 .\objects\tapplication.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
 .\objects\tapplication.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tapplication.o: ..\TGui\TObject/TDirver.h
+.\objects\tapplication.o: ..\TGui\TContainter/TQueue.h
 .\objects\tapplication.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\tapplication.o: ..\FreeRTOS\include\list.h
 .\objects\tapplication.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

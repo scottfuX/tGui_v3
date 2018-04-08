@@ -151,6 +151,7 @@
 .\objects\main.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\main.o: ..\TGui\TObject/TFont.h
 .\objects\main.o: ..\TGui\TObject/TDirver.h
+.\objects\main.o: ..\TGui\TContainter/TQueue.h
 .\objects\main.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\main.o: ..\FreeRTOS\include\list.h
 .\objects\main.o: ..\TGui\TObject/TApplication.h

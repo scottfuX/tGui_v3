@@ -127,9 +127,11 @@ void TWidget::imgLoadInterface(int32 x,int32 y,TImage* img,TRect* rectFrom ,uint
 	}
 	else if(readType == 2) //从显存buf那读点
 	{
+		GUI_MUTEX_TAKE();
         uint32 pareAddr = GUI_FG_BUFADDR + GUI_PIXELSIZE * (getRect()->x() + x + (getRect()->y() + y)*GUI_WIDTH )   ;
         TSize size1(GUI_WIDTH,GUI_HIGH);
         img->imgLoad((uint8*)pareAddr,&size1,addr,&size2,rectFrom);
+		GUI_MUTEX_GIVE();
 	}
 }
 

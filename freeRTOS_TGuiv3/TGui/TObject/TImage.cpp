@@ -119,7 +119,7 @@ void TImage::imgLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* wri
 	uint32 r,g,b; 
 	uint32 offF = (imgRect->x() + imgRect->y() * width) * GUI_PIXELSIZE; //开始的地址
 
-	GUI_MUTEX_TAKE();  //加锁
+	//GUI_MUTEX_TAKE();  //加锁
 	
 	//------------------------------- blend ---------------- 目前只支持PNG ------------------
 	if(imgType == T_PNG /*|| imgType == T_BMP */)
@@ -187,7 +187,7 @@ void TImage::imgLoad(uint8* readAddr,TSize* readSize,uint8* writeAddr,TSize* wri
 			des_addr += writeSize->width() * GUI_PIXELSIZE;
 		}
 	}
-	GUI_MUTEX_GIVE();  //释放锁	
+	//GUI_MUTEX_GIVE();  //释放锁	
 }
 
 
@@ -212,7 +212,7 @@ void TImage::blendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,uint8*
 	uint8 g1 = (argb_color & 0x0000ff00) >> 8;
 	uint8 b1 = (argb_color & 0x000000ff);
 
-	GUI_MUTEX_TAKE();  //加锁
+	//GUI_MUTEX_TAKE();  //加锁
 
 	uint32 offF = (imgRect->x() + imgRect->y() * width)*GUI_PIXELSIZE; //开始的地址
 	if(imgType == T_PNG) //RGBA
@@ -275,7 +275,7 @@ void TImage::blendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,uint8*
 			offF +=  (width - imgRect->width() ) * GUI_PIXELSIZE;
 		}
 	}
-	GUI_MUTEX_GIVE();  //释放锁	
+	//GUI_MUTEX_GIVE();  //释放锁	
 }
 
 
@@ -299,7 +299,7 @@ void TImage::doubleBlendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,
 	uint8 r1 = (argb_color & 0x00ff0000) >> 16;
 	uint8 g1 = (argb_color & 0x0000ff00) >> 8;
 	uint8 b1 = (argb_color & 0x000000ff);
-	GUI_MUTEX_TAKE();  //加锁
+	//GUI_MUTEX_TAKE();  //加锁
 	uint32 offF = (imgRect->x() + imgRect->y() * width)*GUI_PIXELSIZE; //开始的地址
 	if(imgType == T_PNG) //RGBA
 	{
@@ -362,7 +362,7 @@ void TImage::doubleBlendPoint(uint32 argb_color,uint8* readAddr,TSize* readSize,
 			offF +=  (width - imgRect->width() ) * GUI_PIXELSIZE;
 		}
 	}
-	GUI_MUTEX_GIVE();  //释放锁	
+	//GUI_MUTEX_GIVE();  //释放锁	
 }
 
 

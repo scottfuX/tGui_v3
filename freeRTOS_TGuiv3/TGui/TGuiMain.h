@@ -42,6 +42,7 @@ extern "C" {
 #include "demo/UserPhoto.h"
 #include "demo/UserGame.h"
 
+extern TTouchDirver* dirver;
 
 void TGuiRun(void);
 

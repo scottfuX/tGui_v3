@@ -31,8 +31,9 @@ void TIconButton::sig_depress(int32 d1, int32 d2)
 	{	
 		TSize size1(((TWidget*)getParents())->getBuffer()->getBufW(),((TWidget*)getParents())->getBuffer()->getBufH());
 		TSize size2(getBuffer()->getBufW(),getBuffer()->getBufH());
+
 		norImg->blendPoint(0x84848484,getPareBufCorreAddr(),&size1,getBuffer()->getBufAddr(),&size2);
-		
+
 		getBuffer()->obPareBack(getPareBufCorreAddr(),((TWidget*)getParents())->width(),0 ,norImg->imgH(),width(),TFON_HEIGHT);
 		TBufPainter p(getBuffer()->getBufAddr(),getRect());
 		p.drawCenterText(0,norImg->imgH(), width(), TFON_HEIGHT, getName());

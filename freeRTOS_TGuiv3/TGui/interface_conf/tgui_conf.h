@@ -62,15 +62,23 @@ extern "C" {
 #define TFON_ASCII          Font16x16   //Font32x32 Font24x24 Font16x16 Font12x12
 
 
-extern SemaphoreHandle_t xMutex;;
+
+
+#define GUI_MULTTI_THREAD   0
+#define QUE_EVENT_NUM       10
+
 //信号量 TAKE>用于获取二元信号量 GIVE>用于释放二元信号量
-void GUI_MUTEX_TAKE(); 
-void GUI_MUTEX_GIVE(); 
+extern SemaphoreHandle_t xMutex;;
+void GUI_MUTEX_TAKE(void); 
+void GUI_MUTEX_GIVE(void); 
 
 
 
 void gui_set_rect(uint32_t* buf_addr,uint32_t buf_width,uint32_t color,uint32_t xpos,uint32_t ypos,uint32_t width,uint32_t height);
 void* gui_memcpy(void *dest, void *src, unsigned int count);
+
+
+
 
 
 

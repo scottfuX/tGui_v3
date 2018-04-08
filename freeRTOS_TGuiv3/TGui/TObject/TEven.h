@@ -88,6 +88,7 @@ public:
 	const TPoint *pos() const { return p; }
 	int32	   x()		const { return p->x(); }
 	int32	   y()		const { return p->y(); }
+	void 	setTouchEvent(int32 type,int32 d1,int32 d2) {t = type; p->setX(d1); p->setY(d2);}
 private:
 	TPoint* p;
 };

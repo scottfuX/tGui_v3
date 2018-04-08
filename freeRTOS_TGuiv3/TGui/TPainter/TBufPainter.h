@@ -68,7 +68,9 @@ private:
 	colorDef backcolor;
 	uint8* bufAddr;
     TRect*  bufRect;
+	bool isInShowAddr;
 
+	void drawPrivPoint(int32 x, int32 y);
 	void paintMeta(TRect* srcRect);
 	void displayEnChar(int32 x,int32 y,uint8 Ascii, bool hasBack);
 	void displayCHChar(int32 x,int32 y,uint8* code,bool hasBack);

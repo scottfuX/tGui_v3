@@ -143,6 +143,7 @@
 .\objects\tguimain.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\tguimain.o: ..\TGui\TObject/TFont.h
 .\objects\tguimain.o: ..\TGui\TObject/TDirver.h
+.\objects\tguimain.o: ..\TGui\TContainter/TQueue.h
 .\objects\tguimain.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\tguimain.o: ..\FreeRTOS\include\list.h
 .\objects\tguimain.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

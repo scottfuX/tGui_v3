@@ -143,6 +143,7 @@
 .\objects\usercalculate.o: ..\TGui\TWidget/TWindow.h
 .\objects\usercalculate.o: ..\TGui\TObject/TApplication.h
 .\objects\usercalculate.o: ..\TGui\TObject/TDirver.h
+.\objects\usercalculate.o: ..\TGui\TContainter/TQueue.h
 .\objects\usercalculate.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\usercalculate.o: ..\FreeRTOS\include\list.h
 .\objects\usercalculate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

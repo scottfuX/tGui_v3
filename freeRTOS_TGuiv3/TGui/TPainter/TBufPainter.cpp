@@ -12,6 +12,10 @@ TBufPainter::TBufPainter(uint8* addr,TRect* rect)
 	backcolor = 0;
     bufAddr = addr;
     bufRect = rect;
+	isInShowAddr = false;
+
+	if(((uint32)addr) >= GUI_FG_BUFADDR && ((uint32)addr) < GUI_FG_BUFADDR + GUI_HIGH * GUI_WIDTH * GUI_PIXELSIZE)
+		isInShowAddr = true;
 }
 
 
@@ -37,24 +41,37 @@ void TBufPainter::setFontCH(const char *filename,uint16 width,uint16 height,uint
 
 void TBufPainter::drawPoint(int32 x, int32 y)
 {
+	if(isInShowAddr)	GUI_MUTEX_TAKE();
+		TRect rect(x, y, 1, 1);
+		paintMeta(&rect);
+	if(isInShowAddr)	GUI_MUTEX_GIVE();	
+}
+
+void TBufPainter::drawPrivPoint(int32 x, int32 y)
+{
 		TRect rect(x, y, 1, 1);
 		paintMeta(&rect);
 }
 
 void TBufPainter::drawHLine(int32 x, int32 y,int32 len)
 {
+	if(isInShowAddr)	GUI_MUTEX_TAKE();
     TRect rect(x, y,len,1);
 	paintMeta(&rect);
+	if(isInShowAddr)	GUI_MUTEX_GIVE();	
 }
 
 void TBufPainter::drawVLine(int32 x, int32 y,int32 len)
 {
+	if(isInShowAddr)	GUI_MUTEX_TAKE();
     TRect rect(x, y,1,len);
 	paintMeta(&rect);
+	if(isInShowAddr)	GUI_MUTEX_GIVE();	
 }
 
 void TBufPainter::drawNLine(int32 x1, int32 y1, int32 x2, int32 y2)
 {
+	if(isInShowAddr)	GUI_MUTEX_TAKE();
 	int32 deltax = 0, deltay = 0, x = 0, y = 0, xinc1 = 0, xinc2 = 0,
 			yinc1 = 0, yinc2 = 0, den = 0, num = 0, numadd = 0, numpixels = 0,
 			curpixel = 0;
@@ -107,7 +124,7 @@ void TBufPainter::drawNLine(int32 x1, int32 y1, int32 x2, int32 y2)
 
 		for (curpixel = 0; curpixel <= numpixels; curpixel++)
 		{
-			drawPoint(x, y);             /* Draw the current pixel */
+			drawPrivPoint(x, y);             /* Draw the current pixel */
 			num += numadd;              /* Increase the numerator by the top of the fraction */
 			if (num >= den)             /* Check if numerator >= denominator */
 			{
@@ -118,6 +135,7 @@ void TBufPainter::drawNLine(int32 x1, int32 y1, int32 x2, int32 y2)
 			x += xinc2;                 /* Change the x as appropriate */
 			y += yinc2;                 /* Change the y as appropriate */
 		}
+		if(isInShowAddr)	GUI_MUTEX_GIVE();
 }
 
 void TBufPainter::drawLine(int32 x1, int32 y1, int32 x2, int32 y2)
@@ -146,7 +164,6 @@ void TBufPainter::drawLine(int32 x1, int32 y1, int32 x2, int32 y2)
 	}
 	else
 	{
-	
 		int32 deltax = 0, deltay = 0, x = 0, y = 0, xinc1 = 0, xinc2 = 0,
 			yinc1 = 0, yinc2 = 0, den = 0, num = 0, numadd = 0, numpixels = 0,
 			curpixel = 0;
@@ -196,10 +213,10 @@ void TBufPainter::drawLine(int32 x1, int32 y1, int32 x2, int32 y2)
 			numadd = deltax;
 			numpixels = deltay;         /* There are more y-values than x-values */
 		}
-
+		if(isInShowAddr)	GUI_MUTEX_TAKE();
 		for (curpixel = 0; curpixel <= numpixels; curpixel++)
 		{
-			drawPoint(x, y);             /* Draw the current pixel */
+			drawPrivPoint(x, y);             /* Draw the current pixel */
 			num += numadd;              /* Increase the numerator by the top of the fraction */
 			if (num >= den)             /* Check if numerator >= denominator */
 			{
@@ -210,6 +227,7 @@ void TBufPainter::drawLine(int32 x1, int32 y1, int32 x2, int32 y2)
 			x += xinc2;                 /* Change the x as appropriate */
 			y += yinc2;                 /* Change the y as appropriate */
 		}
+		if(isInShowAddr)	GUI_MUTEX_GIVE();
 	}
 	
 }
@@ -235,17 +253,18 @@ void TBufPainter::drawCircle(int32 x, int32 y, int32 r)
 	int a, b, num;
 	a = 0;
 	b = r;
+	if(isInShowAddr)	GUI_MUTEX_TAKE();
 	while (22 * b * b >= r * r)          // 1/8圆即可  
 	{
-		drawPoint(x + a, y - b); // 0~1  
-		drawPoint(x - a, y - b); // 0~7  
-		drawPoint(x - a, y + b); // 4~5  
-		drawPoint(x + a, y + b); // 4~3  
+		drawPrivPoint(x + a, y - b); // 0~1  
+		drawPrivPoint(x - a, y - b); // 0~7  
+		drawPrivPoint(x - a, y + b); // 4~5  
+		drawPrivPoint(x + a, y + b); // 4~3  
 
-		drawPoint(x + b, y + a); // 2~3  
-		drawPoint(x + b, y - a); // 2~1  
-		drawPoint(x - b, y - a); // 6~7  
-		drawPoint(x - b, y + a); // 6~5  
+		drawPrivPoint(x + b, y + a); // 2~3  
+		drawPrivPoint(x + b, y - a); // 2~1  
+		drawPrivPoint(x - b, y - a); // 6~7  
+		drawPrivPoint(x - b, y + a); // 6~5  
 		a++;
 		num = (a * a + b * b) - r*r;
 		if (num > 0)
@@ -254,6 +273,7 @@ void TBufPainter::drawCircle(int32 x, int32 y, int32 r)
 			a--;
 		}
 	}
+	if(isInShowAddr)	GUI_MUTEX_GIVE();
 }
 
 void TBufPainter::drawEllipse(int32 x, int32 y, int32 r1, int32 r2)
@@ -264,15 +284,15 @@ void TBufPainter::drawEllipse(int32 x, int32 y, int32 r1, int32 r2)
 	double d = sqb + sqa*(0.25 - r2);
 	int xt = 0;
 	int yt = r2;
-
+	if(isInShowAddr)	GUI_MUTEX_TAKE();
 	// 1
-	drawPoint((x + xt), (y + yt));
+	drawPrivPoint((x + xt), (y + yt));
 	// 2
-	drawPoint((x + xt), (y - yt));
+	drawPrivPoint((x + xt), (y - yt));
 	// 3
-	drawPoint((x - xt), (y - yt));
+	drawPrivPoint((x - xt), (y - yt));
 	// 4
-	drawPoint((x - xt), (y + yt));
+	drawPrivPoint((x - xt), (y + yt));
 
 	// 1
 	while (sqb*(xt + 1) < sqa*(yt - 0.5))
@@ -287,10 +307,10 @@ void TBufPainter::drawEllipse(int32 x, int32 y, int32 r1, int32 r2)
 			--yt;
 		}
 		++xt;
-		drawPoint((x + xt), (y + yt));
-		drawPoint((x + xt), (y - yt));
-		drawPoint((x - xt), (y - yt));
-		drawPoint((x - xt), (y + yt));
+		drawPrivPoint((x + xt), (y + yt));
+		drawPrivPoint((x + xt), (y - yt));
+		drawPrivPoint((x - xt), (y - yt));
+		drawPrivPoint((x - xt), (y + yt));
 	}
 	d = (r2 * (xt + 0.5)) * 2 + (r1 * (yt - 1)) * 2 - (r1 * r2) * 2;
 	// 2
@@ -306,11 +326,12 @@ void TBufPainter::drawEllipse(int32 x, int32 y, int32 r1, int32 r2)
 			d += sqa * ((-2) * yt + 3);
 		}
 		--yt;
-		drawPoint((x + xt), (y + yt));
-		drawPoint((x + xt), (y - yt));
-		drawPoint((x - xt), (y - yt));
-		drawPoint((x - xt), (y + yt));
+		drawPrivPoint((x + xt), (y + yt));
+		drawPrivPoint((x + xt), (y - yt));
+		drawPrivPoint((x - xt), (y - yt));
+		drawPrivPoint((x - xt), (y + yt));
 	}
+	if(isInShowAddr)	GUI_MUTEX_GIVE();
 }
 
 void TBufPainter::drawFullEllipse(int32 x, int32 y, int32 r1, int32 r2)
@@ -320,7 +341,6 @@ void TBufPainter::drawFullEllipse(int32 x, int32 y, int32 r1, int32 r2)
 
 	rad1 = r1;
 	rad2 = r2;
-
 	if (r1 > r2)
 	{
 		do
@@ -362,8 +382,10 @@ void TBufPainter::drawFullEllipse(int32 x, int32 y, int32 r1, int32 r2)
 
 void TBufPainter::drawFullRect(int32 x, int32 y, int32 w, int32 h)
 {
+	if(isInShowAddr)	GUI_MUTEX_TAKE();
 	TRect rect(x, y, w, h);
 	paintMeta(&rect);
+	if(isInShowAddr)	GUI_MUTEX_GIVE();
 }
 
 
@@ -734,6 +756,7 @@ void TBufPainter::displayEnChar(int32 x, int32 y,uint8 Ascii, bool hasBack)
 	uint8 temp;
 	uint8 csize=(fontCH->fontW()/8+((fontCH->fontW()%8)?1:0))*(fontCH->fontW()/2);		//得到字体一个字符对应点阵集所占的字节数	
 	uint8* add = fontEn->table + csize * Ascii;
+	if(isInShowAddr)	GUI_MUTEX_TAKE();
 	for(int t=0;t<csize;t++)
 	{   
 		temp = add[t];
@@ -743,14 +766,14 @@ void TBufPainter::displayEnChar(int32 x, int32 y,uint8 Ascii, bool hasBack)
 			if(temp&0x80)
 			{
 				setTextColor(textcolor);
-				drawPoint(x,y);
+				drawPrivPoint(x,y);
 			}
 			else
 			{
 				if(hasBack)
 				{
 					setTextColor(backcolor);
-					drawPoint(x,y);
+					drawPrivPoint(x,y);
 				}
 			}
 			temp<<=1;
@@ -762,7 +785,8 @@ void TBufPainter::displayEnChar(int32 x, int32 y,uint8 Ascii, bool hasBack)
 				break;
 			}
 		}  	 
-	}  	    	   	 	  
+	}  
+	if(isInShowAddr)	GUI_MUTEX_GIVE();	    	   	 	  
 }
 
 //----------------CH----------------
@@ -774,7 +798,7 @@ void TBufPainter::displayCHChar ( int32 x,int32 y, uint8* code,bool hasBack)
 	int32 tmpY = y;
 	uint8 temp;	
 	uint8 csize = (fontCH->fontW()/8+((fontCH->fontW()%8)?1:0))*(fontCH->fontW());			//得到字体一个字符对应点阵集所占的字节数	 
-
+	if(isInShowAddr)	GUI_MUTEX_TAKE();
 	for(int t=0 ; t<csize ; t++)
 	{   												   
 		temp=fontBuf[t];			//得到点阵数据                          
@@ -783,12 +807,12 @@ void TBufPainter::displayCHChar ( int32 x,int32 y, uint8* code,bool hasBack)
 			if(temp & 0x80)
 			{//字体色
 				setTextColor(textcolor);
-				drawPoint(x,y);
+				drawPrivPoint(x,y);
 			}
 			else if(hasBack)
 			{//背景色
 				setTextColor(backcolor);
-				drawPoint(x,y);
+				drawPrivPoint(x,y);
 			}
 			temp<<=1;
 			y++;
@@ -800,6 +824,7 @@ void TBufPainter::displayCHChar ( int32 x,int32 y, uint8* code,bool hasBack)
 			}
 		}  	 
 	} 
+	if(isInShowAddr)	GUI_MUTEX_GIVE();
 }
 
 //----------------All---------------

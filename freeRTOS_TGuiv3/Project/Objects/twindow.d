@@ -138,6 +138,7 @@
 .\objects\twindow.o: ..\TGui\TContainter/TWidgetList.h
 .\objects\twindow.o: ..\TGui\TObject/TApplication.h
 .\objects\twindow.o: ..\TGui\TObject/TDirver.h
+.\objects\twindow.o: ..\TGui\TContainter/TQueue.h
 .\objects\twindow.o: ..\TGui\interface_conf/tgui_conf.h
 .\objects\twindow.o: ..\FreeRTOS\include\list.h
 .\objects\twindow.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
